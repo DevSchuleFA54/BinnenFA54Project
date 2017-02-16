@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BinnenFA54Project
+namespace BinnenFA54Project.Forms
 {
-    public partial class Form1 : Form
+    public partial class ConfigurationForm : Form
     {
-        public Form1()
+        public ConfigurationForm()
         {
             InitializeComponent();
         }
