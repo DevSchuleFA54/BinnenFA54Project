@@ -70,6 +70,10 @@
     <Compile Include="Forms\QuizForm.Designer.cs">
       <DependentUpon>QuizForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frameworks\IniParser\ISettingIni.cs" />
+    <Compile Include="Frameworks\IniParser\ISettingIniEdit.cs" />
+    <Compile Include="Frameworks\IniParser\SettingIniImpl.cs" />
+    <Compile Include="Frameworks\IniParser\SettingIniUtility.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,9 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Frameworks\IniParser\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
