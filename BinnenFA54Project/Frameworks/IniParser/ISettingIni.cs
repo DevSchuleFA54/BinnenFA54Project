@@ -41,7 +41,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      string
          * @discussion  None
          */
-        string GetDateFormat();
+        string DateFormat();
 
 
         /**
