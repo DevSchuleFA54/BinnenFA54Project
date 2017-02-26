@@ -25,7 +25,18 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
-                // DB Call
+                var results = from   query in base.dbContext.View_Topics_And_Questions
+                              where  query.FragebogenNr == SelectedExam
+                              select query;
+
+                foreach (var result in results)
+                {
+                    _answerList.Add(new Answer()
+                    {
+                        Id               = result.P_Id,
+                        CorrectAnswerNum = result.RichtigeAntwort
+                    });
+                }
             }
             catch (Exception)
             {
@@ -36,5 +47,7 @@ namespace BinnenFA54Project.Main.ServeData
                     MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

@@ -15,7 +15,6 @@ namespace BinnenFA54Project.Main
 
         private TopicMgr    _topics;
 
-        private static int  _selectExam = 1;
 
 
         public QuizMgr()
@@ -44,10 +43,5 @@ namespace BinnenFA54Project.Main
             set { _topics = value; }
         }
 
-        protected static int SelectedExam
-        {
-            get { return _selectExam; }
-            set { _selectExam = value; }
-        }
     }
 }

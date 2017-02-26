@@ -17,6 +17,7 @@ namespace BinnenFA54Project.Main.ServeData
             InitializeTopicList();
         }
 
+
         public List<Topic> TopicList { get { return _topicList; } set { _topicList = value; } }
 
 
@@ -24,12 +25,23 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
-                // DB Call. 
+                var results = from   query in this.dbContext.T_Fragenbogen_Themas
+                              select query;
+
+                foreach (var result in results)
+                {
+                    _topicList.Add(new Topic()
+                    {
+                        Id          = result.FragebogenNr,
+                        Name        = result.Thema,
+                        Description = result.Beschreib
+                    });
+                }
             }
             catch (Exception)
             {
                 MessageBox.Show(
-                    "[GetAllExams] - Failed to retrieve data from the database!",
+                    "[InitializeTopicList] - Failed to retrieve data from the database!",
                     "ERROR",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

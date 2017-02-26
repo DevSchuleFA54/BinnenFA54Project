@@ -13,5 +13,14 @@ namespace BinnenFA54Project.Main.ServeData
     abstract class QuizBase
     {
         protected DbDataContext dbContext = new DbDataContext();
+        private static int  _selectExam   = 1;
+
+
+
+        protected static int SelectedExam
+        {
+            get { return _selectExam; }
+            set { _selectExam = value; }
+        }
     }
 }
