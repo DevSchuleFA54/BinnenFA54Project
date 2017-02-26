@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Db">
+  <DataContextMoniker Name="/DbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4255ce9d-466e-4fa3-a49e-081ed83fa1f3" absoluteBounds="4.25, 1.625, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DbDataContext/T_Fragebogen_unter_Maschine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c99dc81b-c761-4943-a7e4-6d6e07b1181b" absoluteBounds="4.2650000000000006, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="002a2e23-af08-4525-8713-7f8b1fa9f488" absoluteBounds="1.5, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DbDataContext/T_SBF_Binnen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84abb258-84cc-43d5-87bd-256da98d9faf" absoluteBounds="1.5150000000000001, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 2.22199625651042); (4.25 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DbDataContext/T_SBF_Binnen/T_SBF_Binnen_T_Fragebogen_unter_Maschine" />
+      <nodes>
+        <classShapeMoniker Id="002a2e23-af08-4525-8713-7f8b1fa9f488" />
+        <classShapeMoniker Id="4255ce9d-466e-4fa3-a49e-081ed83fa1f3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

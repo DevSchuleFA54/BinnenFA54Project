@@ -9,16 +9,21 @@ namespace BinnenFA54Project.Main
 {
     class QuizMgr
     {
-        AnswerMgr _answers = new AnswerMgr();
+        private AnswerMgr   _answers;
 
-        QuestionMgr _questions = new QuestionMgr();
+        private QuestionMgr _questions;
 
-        TopicMgr _topics = new TopicMgr();
+        private TopicMgr    _topics;
 
-        private static int _selectExam = 1;
+        private static int  _selectExam = 1;
 
 
-
+        public QuizMgr()
+        {
+            _answers   = new AnswerMgr();
+            _questions = new QuestionMgr();
+            _topics    = new TopicMgr();
+        }
 
 
         public AnswerMgr Answers
