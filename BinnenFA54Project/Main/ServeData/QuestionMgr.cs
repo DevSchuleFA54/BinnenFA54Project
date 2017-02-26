@@ -25,7 +25,7 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
-                var results = from   query in this.dbContext.View_Topics_And_Questions
+                var results = from   query in base.dbContext.View_Topics_And_Questions
                               where  query.FragebogenNr == SelectedExam
                               select query;
 

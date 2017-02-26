@@ -28,41 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rbAnswer1 = new System.Windows.Forms.RadioButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblExamNum = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.rbAnswer2 = new System.Windows.Forms.RadioButton();
-            this.rbAnswer3 = new System.Windows.Forms.RadioButton();
-            this.rbAnswer4 = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnGiveUp = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.btnFinish = new System.Windows.Forms.Button();
+            this.cbOption1 = new System.Windows.Forms.CheckBox();
+            this.cbOption2 = new System.Windows.Forms.CheckBox();
+            this.cbOption3 = new System.Windows.Forms.CheckBox();
+            this.cbOption4 = new System.Windows.Forms.CheckBox();
+            this.lblQuestionIndexer = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnNext = new GiladControllers.GiladButton();
+            this.btnBack = new GiladControllers.GiladButton();
             this.SuspendLayout();
-            // 
-            // rbAnswer1
-            // 
-            this.rbAnswer1.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer1.Location = new System.Drawing.Point(105, 97);
-            this.rbAnswer1.Name = "rbAnswer1";
-            this.rbAnswer1.Size = new System.Drawing.Size(461, 33);
-            this.rbAnswer1.TabIndex = 0;
-            this.rbAnswer1.TabStop = true;
-            this.rbAnswer1.Text = "answer1";
-            this.rbAnswer1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rbAnswer1.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(135, 270);
+            this.progressBar1.Location = new System.Drawing.Point(146, 332);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(263, 23);
+            this.progressBar1.Size = new System.Drawing.Size(358, 31);
             this.progressBar1.TabIndex = 1;
             // 
             // lblTitle
@@ -85,117 +72,150 @@
             // 
             // lblQuestion
             // 
-            this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(12, 77);
+            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.Location = new System.Drawing.Point(12, 92);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(47, 13);
+            this.lblQuestion.Size = new System.Drawing.Size(655, 32);
             this.lblQuestion.TabIndex = 2;
-            this.lblQuestion.Text = "question";
+            this.lblQuestion.Text = "Question Text";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 270);
+            this.label4.Location = new System.Drawing.Point(91, 340);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "label1";
+            this.label4.Text = "Go Back";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(413, 270);
+            this.label5.Location = new System.Drawing.Point(510, 340);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 2;
-            this.label5.Text = "label1";
+            this.label5.Text = "Next Question";
             // 
-            // rbAnswer2
+            // btnFinish
             // 
-            this.rbAnswer2.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer2.Location = new System.Drawing.Point(105, 136);
-            this.rbAnswer2.Name = "rbAnswer2";
-            this.rbAnswer2.Size = new System.Drawing.Size(461, 33);
-            this.rbAnswer2.TabIndex = 0;
-            this.rbAnswer2.TabStop = true;
-            this.rbAnswer2.Text = "answer2";
-            this.rbAnswer2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rbAnswer2.UseVisualStyleBackColor = true;
+            this.btnFinish.Location = new System.Drawing.Point(575, 12);
+            this.btnFinish.Name = "btnFinish";
+            this.btnFinish.Size = new System.Drawing.Size(92, 40);
+            this.btnFinish.TabIndex = 5;
+            this.btnFinish.Text = "Finish Exam";
+            this.btnFinish.UseVisualStyleBackColor = true;
             // 
-            // rbAnswer3
+            // cbOption1
             // 
-            this.rbAnswer3.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer3.Location = new System.Drawing.Point(105, 175);
-            this.rbAnswer3.Name = "rbAnswer3";
-            this.rbAnswer3.Size = new System.Drawing.Size(461, 33);
-            this.rbAnswer3.TabIndex = 0;
-            this.rbAnswer3.TabStop = true;
-            this.rbAnswer3.Text = "answer3";
-            this.rbAnswer3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rbAnswer3.UseVisualStyleBackColor = true;
+            this.cbOption1.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption1.Location = new System.Drawing.Point(83, 127);
+            this.cbOption1.Name = "cbOption1";
+            this.cbOption1.Size = new System.Drawing.Size(584, 31);
+            this.cbOption1.TabIndex = 6;
+            this.cbOption1.Text = "Option 1";
+            this.cbOption1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption1.UseVisualStyleBackColor = true;
             // 
-            // rbAnswer4
+            // cbOption2
             // 
-            this.rbAnswer4.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer4.Location = new System.Drawing.Point(105, 214);
-            this.rbAnswer4.Name = "rbAnswer4";
-            this.rbAnswer4.Size = new System.Drawing.Size(461, 33);
-            this.rbAnswer4.TabIndex = 0;
-            this.rbAnswer4.TabStop = true;
-            this.rbAnswer4.Text = "answer4";
-            this.rbAnswer4.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.rbAnswer4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.rbAnswer4.UseVisualStyleBackColor = true;
+            this.cbOption2.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption2.Location = new System.Drawing.Point(83, 164);
+            this.cbOption2.Name = "cbOption2";
+            this.cbOption2.Size = new System.Drawing.Size(584, 34);
+            this.cbOption2.TabIndex = 6;
+            this.cbOption2.Text = "Option 2";
+            this.cbOption2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // cbOption3
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 31);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.cbOption3.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption3.Location = new System.Drawing.Point(83, 204);
+            this.cbOption3.Name = "cbOption3";
+            this.cbOption3.Size = new System.Drawing.Size(584, 34);
+            this.cbOption3.TabIndex = 6;
+            this.cbOption3.Text = "Option 3";
+            this.cbOption3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // cbOption4
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(476, 262);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 31);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.cbOption4.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption4.Location = new System.Drawing.Point(83, 244);
+            this.cbOption4.Name = "cbOption4";
+            this.cbOption4.Size = new System.Drawing.Size(584, 34);
+            this.cbOption4.TabIndex = 6;
+            this.cbOption4.Text = "Option 4";
+            this.cbOption4.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.cbOption4.UseVisualStyleBackColor = true;
             // 
-            // btnGiveUp
+            // lblQuestionIndexer
             // 
-            this.btnGiveUp.Location = new System.Drawing.Point(451, 4);
-            this.btnGiveUp.Name = "btnGiveUp";
-            this.btnGiveUp.Size = new System.Drawing.Size(141, 23);
-            this.btnGiveUp.TabIndex = 4;
-            this.btnGiveUp.Text = "I\'m Loser and i give up";
-            this.btnGiveUp.UseVisualStyleBackColor = true;
+            this.lblQuestionIndexer.AutoSize = true;
+            this.lblQuestionIndexer.Location = new System.Drawing.Point(369, 366);
+            this.lblQuestionIndexer.Name = "lblQuestionIndexer";
+            this.lblQuestionIndexer.Size = new System.Drawing.Size(13, 13);
+            this.lblQuestionIndexer.TabIndex = 2;
+            this.lblQuestionIndexer.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(268, 366);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Question Number: ";
+            // 
+            // btnNext
+            // 
+            this.btnNext.AnimateHover = true;
+            this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
+            this.btnNext.ButtonEnabled = true;
+            this.btnNext.HandCursorHover = true;
+            this.btnNext.Location = new System.Drawing.Point(590, 304);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 75);
+            this.btnNext.TabIndex = 7;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.AnimateHover = true;
+            this.btnBack.ButtonDirection = GiladControllers.CustomButtonDirection.Back;
+            this.btnBack.ButtonEnabled = false;
+            this.btnBack.HandCursorHover = true;
+            this.btnBack.Location = new System.Drawing.Point(10, 304);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 75);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 305);
-            this.Controls.Add(this.btnGiveUp);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(679, 397);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.cbOption4);
+            this.Controls.Add(this.cbOption3);
+            this.Controls.Add(this.cbOption2);
+            this.Controls.Add(this.cbOption1);
+            this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblExamNum);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblQuestionIndexer);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.rbAnswer4);
-            this.Controls.Add(this.rbAnswer3);
-            this.Controls.Add(this.rbAnswer2);
-            this.Controls.Add(this.rbAnswer1);
             this.Name = "QuizForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuizForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,18 +223,20 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rbAnswer1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblExamNum;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton rbAnswer2;
-        private System.Windows.Forms.RadioButton rbAnswer3;
-        private System.Windows.Forms.RadioButton rbAnswer4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnGiveUp;
+        private System.Windows.Forms.Button btnFinish;
+        private System.Windows.Forms.CheckBox cbOption1;
+        private System.Windows.Forms.CheckBox cbOption2;
+        private System.Windows.Forms.CheckBox cbOption3;
+        private System.Windows.Forms.CheckBox cbOption4;
+        private System.Windows.Forms.Label lblQuestionIndexer;
+        private System.Windows.Forms.Label label1;
+        private GiladControllers.GiladButton btnNext;
+        private GiladControllers.GiladButton btnBack;
     }
 }

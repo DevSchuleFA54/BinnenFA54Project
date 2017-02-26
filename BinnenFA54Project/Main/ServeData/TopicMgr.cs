@@ -25,7 +25,7 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
-                var results = from   query in this.dbContext.T_Fragenbogen_Themas
+                var results = from   query in base.dbContext.T_Fragenbogen_Themas
                               select query;
 
                 foreach (var result in results)
