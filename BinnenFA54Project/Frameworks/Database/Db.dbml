@@ -19,4 +19,23 @@
       <Association Name="T_SBF_Binnen_T_Fragebogen_unter_Maschine" Member="T_Fragebogen_unter_Maschines" ThisKey="P_Id" OtherKey="F_Id_SBF_Binnen" Type="T_Fragebogen_unter_Maschine" />
     </Type>
   </Table>
+  <Table Name="dbo.T_Fragenbogen_Thema" Member="T_Fragenbogen_Themas">
+    <Type Name="T_Fragenbogen_Thema">
+      <Column Name="FragebogenNr" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Thema" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Beschreib" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Topics_And_Questions" Member="View_Topics_And_Questions">
+    <Type Name="View_Topics_And_Question">
+      <Column Name="P_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frage" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort2" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort3" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort4" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FragebogenNr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RichtigeAntwort" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

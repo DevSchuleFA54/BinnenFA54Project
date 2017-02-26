@@ -21,5 +21,17 @@
         <classShapeMoniker Id="4255ce9d-466e-4fa3-a49e-081ed83fa1f3" />
       </nodes>
     </associationConnector>
+    <classShape Id="5641f3f2-026a-4798-a0a3-dc9a1bf76a10" absoluteBounds="4.5, 4.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DbDataContext/T_Fragenbogen_Thema" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8f18f59-c13e-4150-a0dc-ec80c5177f44" absoluteBounds="4.515, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="411c5b9d-8ff2-4846-b2a1-d77ac484ba64" absoluteBounds="1.5, 4, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DbDataContext/View_Topics_And_Question" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f94c53a1-785b-472e-a0a2-8ca9f00fd7bb" absoluteBounds="1.5150000000000001, 4.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
