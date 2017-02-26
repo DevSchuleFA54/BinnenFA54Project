@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BinnenFA54Project.Main.ServeData
+{
+    /// <summary>
+    /// Common data that all members share with.
+    /// </summary>
+    abstract class QuizBase
+    {
+
+    }
+}
