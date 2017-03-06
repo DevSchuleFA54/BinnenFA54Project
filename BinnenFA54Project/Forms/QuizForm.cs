@@ -14,6 +14,7 @@ namespace BinnenFA54Project.Forms
 {
     public partial class QuizForm : Form
     {
+		// TODO: Create a progress bar to update when questions index changing.
         private QuestionMgr _questionMgr;
         private int questionIndexer = 0;
 
