@@ -7,29 +7,66 @@ using System.Threading.Tasks;
 
 namespace BinnenFA54Project.Frameworks.IniParser
 {
-    class SettingIniUtility : SettingIniImpl
+    /// <summary>
+    /// Considering deleting this class, but if you want to use the configuration as properties,
+    /// feel free to instanciat this class as all in one configuration.
+    /// </summary>
+    class SettingIniUtility
     {
-        #region ------------------------------- PROPERTIES -------------------------------
+        private ISettingIni setting = new SettingIniImpl();
+        private ISettingIniEdit settingEdit = new SettingIniImpl();
+
+        #region ------------------------------- GET PROPERTIES -------------------------------
 
         [Description("Displays the window Exit and Minimize buttons on top right."), Category("GeneralConfiguration")]
-        public bool UIControls => UIControls();
+        public bool UIControls => setting.UIControls();
 
 
         [Description("Window on top most."), Category("GeneralConfiguration")]
-        public bool OnTopMost => OnTopMost();
+        public bool OnTopMost => setting.OnTopMost();
 
 
         [Description("Displays the application icon on right bottom where all other apps."), Category("GeneralConfiguration")]
-        public bool IconInTray => IconInTray();
+        public bool IconInTray => setting.IconInTray();
 
 
         [Description("Returns the Date Format that is set in Setting.ini as String."), Category("MiscConfiguration")]
-        public string GetDateFormat => GetDateFormat();
+        public string DateFormat => setting.DateFormat();
 
 
         [Description("Name instance enabled or not. default: Server=localhost\\sqlexpress."), Category("MiscConfiguration")]
-        public bool SQLNameInstance => SQLNameInstance();
+        public bool SQLNameInstance => setting.SQLNameInstance();
 
-        #endregion ---------------------------- PROPERTIES -------------------------------
+        #endregion ---------------------------- GET PROPERTIES -------------------------------
+
+
+
+
+        #region ------------------------------- SET PROPERTIES -------------------------------
+
+        [Description("Displays the window Exit and Minimize buttons on top right."), Category("GeneralConfiguration")]
+        public bool SetUIControls { set { settingEdit.EditUIControls(value); } } 
+
+
+        [Description("Window on top most."), Category("GeneralConfiguration")]
+        public bool SetOnTopMost { set { settingEdit.EditOnTopMost(value); } }
+
+
+        [Description("Displays the application icon on right bottom where all other apps."), Category("GeneralConfiguration")]
+        public bool SetIconInTray { set { settingEdit.EditIconInTray(value); } }
+
+
+        [Description("Set the Date Format that is set in Setting.ini as String."), Category("MiscConfiguration")]
+        public string SetDateFormat { set { settingEdit.EditDateFormat(value); } }
+
+
+        [Description("Name instance enabled or not. default: Server=localhost\\sqlexpress."), Category("MiscConfiguration")]
+        public bool SetSQLNameInstance { set { settingEdit.EditSQLNameInstance(value); } }
+
+        #endregion ---------------------------- SET PROPERTIES -------------------------------
+
+
+
+
     }
 }

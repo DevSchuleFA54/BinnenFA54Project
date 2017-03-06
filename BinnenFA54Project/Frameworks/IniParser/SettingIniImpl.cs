@@ -19,8 +19,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
     /// </summary>
     class SettingIniImpl : ISettingIni, ISettingIniEdit
     {
-        private static FileIniDataParser fileIniData = new FileIniDataParser();
-        private static IniData parsedData = new IniData();
+        private static FileIniDataParser iniParser = new FileIniDataParser();
+        private static IniData data = new IniData();
         private static string settingFilePath = AppDomain.CurrentDomain.BaseDirectory + "Setting.ini";
 
 
@@ -36,8 +36,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                parsedData = fileIniData.ReadFile(settingFilePath);
-                appOnTopMost = bool.Parse(parsedData["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"]);
+                data = iniParser.ReadFile(settingFilePath);
+                appOnTopMost = bool.Parse(data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"]);
             }
             catch (Exception e)
             {
@@ -59,8 +59,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                parsedData = fileIniData.ReadFile(settingFilePath);
-                windowControls = bool.Parse(parsedData["GeneralConfiguration"]["ENABLE_UI_CONTROLS"]);
+                data = iniParser.ReadFile(settingFilePath);
+                windowControls = bool.Parse(data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"]);
             }
             catch (Exception e)
             {
@@ -82,8 +82,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                parsedData = fileIniData.ReadFile(settingFilePath);
-                iconInTray = bool.Parse(parsedData["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"]);
+                data = iniParser.ReadFile(settingFilePath);
+                iconInTray = bool.Parse(data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"]);
             }
             catch (Exception e)
             {
@@ -95,11 +95,11 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// \brief SettingIniImpl::GetDateFormat
+        /// \brief SettingIniImpl::DateFormat
         /// \param
-        /// \return bool
+        /// \return string
         ///
-        public string GetDateFormat()
+        public string DateFormat()
         {
             if (!File.Exists(settingFilePath))
             {
@@ -107,8 +107,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 return "yyyy-M-d"; // Format example -> 2008-04-15
             }
 
-            parsedData = fileIniData.ReadFile(settingFilePath);
-            return parsedData["MiscConfiguration"]["DATE_FORMAT"];      
+            data = iniParser.ReadFile(settingFilePath);
+            return data["MiscConfiguration"]["DATE_FORMAT"];      
         }
 
 
@@ -123,8 +123,8 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                parsedData = fileIniData.ReadFile(settingFilePath);
-                sqlNameInstance = bool.Parse(parsedData["MiscConfiguration"]["ENABLE_SQL_NAME_INSTANCE"]);
+                data = iniParser.ReadFile(settingFilePath);
+                sqlNameInstance = bool.Parse(data["MiscConfiguration"]["ENABLE_SQL_NAME_INSTANCE"]);
             }
             catch (Exception e)
             {
@@ -145,56 +145,96 @@ namespace BinnenFA54Project.Frameworks.IniParser
         #region region ------------------------------------- ISettingIniEdit -------------------------------------
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditOnTopMost
-        /// \param
-        /// \return bool
+        /// \param flag
+        /// \return
         ///
         public void EditOnTopMost(bool flag)
         {
-            throw new NotImplementedException();
+            try
+            {
+                data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"] = flag.ToString().ToLower();
+                iniParser.WriteFile(settingFilePath, data);
+            }
+            catch (Exception e)
+            {
+                ErrorMsgMissingFile("ENABLE_ON_TOP_MOST");
+            }
         }
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditUIControls
-        /// \param
-        /// \return bool
+        /// \param flag
+        /// \return
         ///
         public void EditUIControls(bool flag)
         {
-            throw new NotImplementedException();
+            try
+            {
+                data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"] = flag.ToString().ToLower();
+                iniParser.WriteFile(settingFilePath, data);
+            }
+            catch (Exception e)
+            {
+                ErrorMsgMissingFile("ENABLE_UI_CONTROLS");
+            }
         }
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditIconInTray
-        /// \param
-        /// \return bool
+        /// \param flag
+        /// \return 
         ///
         public void EditIconInTray(bool flag)
         {
-            throw new NotImplementedException();
+            try
+            {
+                data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString();
+                iniParser.WriteFile(settingFilePath, data);
+            }
+            catch (Exception e)
+            {
+                ErrorMsgMissingFile("ENABLE_ICON_IN_TRAY");
+            }
         }
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditGetDateFormat
-        /// \param
-        /// \return bool
+        /// \param dateFormat
+        /// \return
         ///
-        public void EditGetDateFormat(string dateFormat)
+        public void EditDateFormat(string dateFormat)
         {
-            throw new NotImplementedException();
+            try
+            {
+                data["GeneralConfiguration"]["DATE_FORMAT"] = dateFormat;
+                iniParser.WriteFile(settingFilePath, data);
+            }
+            catch (Exception e)
+            {
+                ErrorMsgMissingFile("DATE_FORMAT");
+            }
         }
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditSQLNameInstance
-        /// \param
-        /// \return bool
+        /// \param flag
+        /// \return 
         ///
         public void EditSQLNameInstance(bool flag)
         {
-            throw new NotImplementedException();
+            try
+            {
+                data["GeneralConfiguration"]["ENABLE_SQL_NAME_INSTANCE"] = flag.ToString().ToLower();
+                iniParser.WriteFile(settingFilePath, data);
+            }
+            catch (Exception e)
+            {
+                ErrorMsgMissingFile("ENABLE_SQL_NAME_INSTANCE");
+            }
         }
         #endregion ------------------------------------- ISettingIniEdit -------------------------------------
 

@@ -49,10 +49,10 @@
             this.applicationUsuageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnStartExam = new System.Windows.Forms.Button();
+            this.cbQuizPicker = new System.Windows.Forms.ComboBox();
             this.btnConfig = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnStartExam = new GiladControllers.GiladButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -61,40 +61,36 @@
             // 
             this.lblAppTitle.AutoSize = true;
             this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppTitle.Location = new System.Drawing.Point(78, 86);
-            this.lblAppTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppTitle.Location = new System.Drawing.Point(52, 56);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(350, 30);
+            this.lblAppTitle.Size = new System.Drawing.Size(248, 22);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Sportbootführerschein Binnen";
             // 
             // lblCompanyName
             // 
             this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(688, 86);
-            this.lblCompanyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCompanyName.Location = new System.Drawing.Point(459, 56);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(122, 20);
+            this.lblCompanyName.Size = new System.Drawing.Size(82, 13);
             this.lblCompanyName.TabIndex = 0;
             this.lblCompanyName.Text = "Company Name";
             // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(688, 106);
-            this.lblStreet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStreet.Location = new System.Drawing.Point(459, 69);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(53, 20);
+            this.lblStreet.Size = new System.Drawing.Size(35, 13);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street";
             // 
             // lblPostcodeCity
             // 
             this.lblPostcodeCity.AutoSize = true;
-            this.lblPostcodeCity.Location = new System.Drawing.Point(688, 126);
-            this.lblPostcodeCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPostcodeCity.Location = new System.Drawing.Point(459, 82);
             this.lblPostcodeCity.Name = "lblPostcodeCity";
-            this.lblPostcodeCity.Size = new System.Drawing.Size(106, 20);
+            this.lblPostcodeCity.Size = new System.Drawing.Size(72, 13);
             this.lblPostcodeCity.TabIndex = 0;
             this.lblPostcodeCity.Text = "Postcode City";
             // 
@@ -106,8 +102,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1041, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(694, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,7 +116,7 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.filToolStripMenuItem.Name = "filToolStripMenuItem";
-            this.filToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
+            this.filToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.filToolStripMenuItem.Text = "File";
             // 
             // openExistingConfigurationFileToolStripMenuItem
@@ -130,19 +125,19 @@
             this.configurationFileToolStripMenuItem,
             this.userResultsToolStripMenuItem});
             this.openExistingConfigurationFileToolStripMenuItem.Name = "openExistingConfigurationFileToolStripMenuItem";
-            this.openExistingConfigurationFileToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.openExistingConfigurationFileToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.openExistingConfigurationFileToolStripMenuItem.Text = "Open";
             // 
             // configurationFileToolStripMenuItem
             // 
             this.configurationFileToolStripMenuItem.Name = "configurationFileToolStripMenuItem";
-            this.configurationFileToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
+            this.configurationFileToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.configurationFileToolStripMenuItem.Text = "Configuration File";
             // 
             // userResultsToolStripMenuItem
             // 
             this.userResultsToolStripMenuItem.Name = "userResultsToolStripMenuItem";
-            this.userResultsToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
+            this.userResultsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.userResultsToolStripMenuItem.Text = "User Results";
             // 
             // saveToolStripMenuItem
@@ -151,41 +146,41 @@
             this.saveConfigurationFileToolStripMenuItem,
             this.configurationFileToolStripMenuItem1});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveConfigurationFileToolStripMenuItem
             // 
             this.saveConfigurationFileToolStripMenuItem.Name = "saveConfigurationFileToolStripMenuItem";
-            this.saveConfigurationFileToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.saveConfigurationFileToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.saveConfigurationFileToolStripMenuItem.Text = "Exam Results";
             // 
             // configurationFileToolStripMenuItem1
             // 
             this.configurationFileToolStripMenuItem1.Name = "configurationFileToolStripMenuItem1";
-            this.configurationFileToolStripMenuItem1.Size = new System.Drawing.Size(199, 30);
+            this.configurationFileToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.configurationFileToolStripMenuItem1.Text = "More";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
             // 
             // printResultsToolStripMenuItem
             // 
             this.printResultsToolStripMenuItem.Name = "printResultsToolStripMenuItem";
-            this.printResultsToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.printResultsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.printResultsToolStripMenuItem.Text = "Print Results";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(190, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(136, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(193, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // helpToolStripMenuItem
@@ -195,61 +190,48 @@
             this.applicationUsuageToolStripMenuItem,
             this.checkForUpdatesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // applicationUsuageToolStripMenuItem
             // 
             this.applicationUsuageToolStripMenuItem.Name = "applicationUsuageToolStripMenuItem";
-            this.applicationUsuageToolStripMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.applicationUsuageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.applicationUsuageToolStripMenuItem.Text = "Application Usuage";
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(255, 30);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(873, 82);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbLogo.Location = new System.Drawing.Point(582, 53);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(150, 77);
+            this.pbLogo.Size = new System.Drawing.Size(100, 50);
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
             // 
-            // comboBox1
+            // cbQuizPicker
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(83, 168);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(427, 28);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // btnStartExam
-            // 
-            this.btnStartExam.Location = new System.Drawing.Point(345, 206);
-            this.btnStartExam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnStartExam.Name = "btnStartExam";
-            this.btnStartExam.Size = new System.Drawing.Size(165, 35);
-            this.btnStartExam.TabIndex = 4;
-            this.btnStartExam.Text = "Start Exam";
-            this.btnStartExam.UseVisualStyleBackColor = true;
+            this.cbQuizPicker.FormattingEnabled = true;
+            this.cbQuizPicker.Location = new System.Drawing.Point(396, 151);
+            this.cbQuizPicker.Name = "cbQuizPicker";
+            this.cbQuizPicker.Size = new System.Drawing.Size(286, 21);
+            this.cbQuizPicker.TabIndex = 3;
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(802, 407);
-            this.btnConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnConfig.Location = new System.Drawing.Point(199, 252);
             this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(216, 35);
+            this.btnConfig.Size = new System.Drawing.Size(144, 23);
             this.btnConfig.TabIndex = 4;
             this.btnConfig.Text = "Configuration";
             this.btnConfig.UseVisualStyleBackColor = true;
@@ -257,22 +239,33 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(647, 223);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBox1.Location = new System.Drawing.Point(24, 138);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(333, 144);
+            this.listBox1.Size = new System.Drawing.Size(319, 108);
             this.listBox1.TabIndex = 5;
+            // 
+            // btnStartExam
+            // 
+            this.btnStartExam.AnimateHover = true;
+            this.btnStartExam.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
+            this.btnStartExam.ButtonEnabled = true;
+            this.btnStartExam.HandCursorHover = true;
+            this.btnStartExam.Location = new System.Drawing.Point(590, 244);
+            this.btnStartExam.Name = "btnStartExam";
+            this.btnStartExam.Size = new System.Drawing.Size(92, 89);
+            this.btnStartExam.TabIndex = 6;
+            this.btnStartExam.Click += new System.EventHandler(this.btnStartExam_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 531);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(694, 345);
+            this.Controls.Add(this.btnStartExam);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnConfig);
-            this.Controls.Add(this.btnStartExam);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbQuizPicker);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblPostcodeCity);
             this.Controls.Add(this.lblStreet);
@@ -280,7 +273,6 @@
             this.Controls.Add(this.lblAppTitle);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
@@ -314,10 +306,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnStartExam;
+        private System.Windows.Forms.ComboBox cbQuizPicker;
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.ListBox listBox1;
+        private GiladControllers.GiladButton btnStartExam;
     }
 }
 
