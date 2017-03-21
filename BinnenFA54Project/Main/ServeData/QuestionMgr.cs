@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Main.ResourceData;
+using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Main.ServeData
 {
     class QuestionMgr : QuizBase
     {
+        // Great way to debug regex pattern -> www.regexr.com
+        private string regexPattern = @"\{[a-zA-Z]+([0-9]+)\.[a-zA-Z0-9]+\}";
+
         List<Question> _questionslist = new List<Question>();
 
         public QuestionMgr()
@@ -36,8 +42,9 @@ namespace BinnenFA54Project.Main.ServeData
                     _questionslist.Add(new Question()
                     {
                         Id = result.P_Id,
-                        QuestionMeoww = result.Frage,
+                        QuestionMeoww = RegexCleanQuestion(result.Frage),
                         Options = optionsPackage,
+                        SignImg = QuestionImage(result.Frage)
                     });
                 }
             }
@@ -51,6 +58,30 @@ namespace BinnenFA54Project.Main.ServeData
             }
         }
 
+
+        private string RegexCleanQuestion(string question)
+        {
+            return Regex.Replace(question, regexPattern, String.Empty);
+        }
+
+        private Image QuestionImage(string question)
+        {
+            string fileName = "_" + Regex.Match(question, regexPattern).Groups[1];
+
+            if (String.IsNullOrEmpty(fileName))
+                return null;
+
+            try
+            {
+                return (Bitmap)Resources.ResourceManager.GetObject(fileName);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("[QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing.");
+                return null;
+            }
+
+        }
 
     }
 }
