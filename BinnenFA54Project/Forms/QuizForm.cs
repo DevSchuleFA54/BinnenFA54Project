@@ -32,10 +32,10 @@ namespace BinnenFA54Project.Forms
         {
             lblQuestionIndexer.Text = (questionIndexer + 1).ToString(); // +1 because array starts from 0 while db from 1.
             lblQuestion.Text = _questionMgr.QuestionList[questionIndexer].QuestionMeoww;
-            cbOption1.Text = _questionMgr.QuestionList[questionIndexer].Option1;
-            cbOption2.Text = _questionMgr.QuestionList[questionIndexer].Option2;
-            cbOption3.Text = _questionMgr.QuestionList[questionIndexer].Option3;
-            cbOption4.Text = _questionMgr.QuestionList[questionIndexer].Option4;
+            cbCombo.CheckBox1Text = _questionMgr.QuestionList[questionIndexer].Option1;
+            cbCombo.CheckBox2Text = _questionMgr.QuestionList[questionIndexer].Option2;
+            cbCombo.CheckBox3Text = _questionMgr.QuestionList[questionIndexer].Option3;
+            cbCombo.CheckBox4Text = _questionMgr.QuestionList[questionIndexer].Option4;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
