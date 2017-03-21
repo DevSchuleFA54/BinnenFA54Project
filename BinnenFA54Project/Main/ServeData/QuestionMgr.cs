@@ -26,19 +26,18 @@ namespace BinnenFA54Project.Main.ServeData
             try
             {
                 var results = from   query in base.dbContext.View_Topics_And_Questions
-                              where  query.FragebogenNr == SelectedExam
+                              where  query.FragebogenNr == SelectedTopic
                               select query;
 
                 foreach (var result in results)
                 {
+                    string[] optionsPackage = { result.Antwort1, result.Antwort2, result.Antwort3, result.Antwort4 };
+
                     _questionslist.Add(new Question()
                     {
-                        Id            = result.P_Id,
+                        Id = result.P_Id,
                         QuestionMeoww = result.Frage,
-                        Option1       = result.Antwort1,
-                        Option2       = result.Antwort2,
-                        Option3       = result.Antwort3,
-                        Option4       = result.Antwort4
+                        Options = optionsPackage,
                     });
                 }
             }

@@ -26,15 +26,20 @@ namespace BinnenFA54Project.Main.ServeData
             try
             {
                 var results = from   query in base.dbContext.View_Topics_And_Questions
-                              where  query.FragebogenNr == SelectedExam
+                              where  query.FragebogenNr == SelectedTopic
                               select query;
 
-                foreach (var result in results)
+                // ToList because it's easier to manipulate it with for loop indexer comparing to IQueryable.
+                var resultsList = results.ToList();
+                int resultsLength = results.Count();
+
+                for (int i = 0; i < resultsLength; i++)
                 {
                     _answerList.Add(new Answer()
                     {
-                        Id               = result.P_Id,
-                        CorrectAnswerNum = result.RichtigeAntwort
+                        Id = resultsList[i].P_Id,
+                        CorrectAnswerText = GetText(i, resultsList[i].RichtigeAntwort),
+                        CorrectAnswerNum = resultsList[i].RichtigeAntwort
                     });
                 }
             }
@@ -48,6 +53,13 @@ namespace BinnenFA54Project.Main.ServeData
             }
         }
 
+        private string GetText(int index, int? option)
+        {
+            if (option != null)
+                return QuizMgr.Questions.QuestionList[index].Options[(int)option - 1];
+
+            return "Keine Richtige Antwort.";
+        }
 
     }
 }

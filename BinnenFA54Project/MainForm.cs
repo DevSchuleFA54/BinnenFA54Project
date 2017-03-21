@@ -15,7 +15,8 @@ namespace BinnenFA54Project
 {
     public partial class MainForm : Form
     {
-        private QuizMgr _quizMgr = new QuizMgr();
+        private QuizMgr _quizMgr;
+        private TopicMgr _topics;
         private QuizForm quizForm;
         private ConfigurationForm configurationForm;
 
@@ -27,18 +28,36 @@ namespace BinnenFA54Project
 
         private void InitializeTopicList()
         {
-            for (int i = 0; i < _quizMgr.Topics.TopicList.Count; i++)
-                cbQuizPicker.Items.Add(_quizMgr.Topics.TopicList[i].Name);
+            // Creates and calls the db to initialize topics.
+            _topics = new TopicMgr();
 
+            foreach (var topic in _topics.TopicList)
+                cbQuizPicker.Items.Add(topic.Name);
+
+            // default selected item in combobox.
             cbQuizPicker.SelectedIndex = 0;
         }
 
         private void btnStartExam_Click(object sender, EventArgs e)
         {
+            // db based 1 value while CB based 0.
+            QuizBase.SelectedTopic = cbQuizPicker.SelectedIndex + 1;
+
+            // Updating staticly the topics in the QuizMgr.Topics so we have 
+            // better control instead of creating another instance in memory.
+            QuizMgr.Topics = _topics;
+
+            // Builds all the data structur including db calls.
+            _quizMgr = new QuizMgr();
+
             quizForm = new QuizForm();
             quizForm.Show();
         }
 
-
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            configurationForm = new ConfigurationForm();
+            configurationForm.Show();
+        }
     }
 }
