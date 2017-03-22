@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
 using BinnenFA54Project.Main.ServeData;
+using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
@@ -50,10 +51,73 @@ namespace BinnenFA54Project.Forms
         }
 
 
+
+        /// <summary>
+        /// Checks to see which question has beeen answered or waiting and display the checked checkbox
+        /// for
+        /// Gets a direction for knowing if a back or forward button has been pressed in order to know 
+        /// if we need to check the answer before or after a specific index.
+        /// </summary>
+        /// <param name="direction"></param>
+        private void UpdateQuestionState(CustomButtonDirection direction)
+        {
+            int index;
+
+            if (direction == CustomButtonDirection.Forward)
+                index = qIndex + 1;
+            else
+                index = qIndex - 1;
+
+
+            switch (answers.AnswerList[index].State)
+            {
+                case State.Waiting:
+                    // We updating the _checked boolean flags because of the events when a checkbox is
+                    // checked with Click or KeyPress events. otherwise it would results in some
+                    // cases clicking twice. So if the question not answered yet, set all to false.
+                    for (int i = 0; i < _checked.Length; i++)
+                        _checked[i] = false;
+                    cbCombo.ClearAllCheckMarks();
+                    break;
+
+                case State.Answered:
+                    cbCombo.ClearAllCheckMarks();
+                    // qIndex+1 since we want to check what is selected answer on the next question before showing to the user.
+                    switch (answers.AnswerList[index].SelectedAnswer)
+                    {
+                        case 0:
+                            _checked[0] = true;
+                            cbCombo.SelectCheckBox(CbIndex.First, true);
+                            break;
+                        case 1:
+                            _checked[1] = true;
+                            cbCombo.SelectCheckBox(CbIndex.Second, true);
+                            break;
+                        case 2:
+                            _checked[2] = true;
+                            cbCombo.SelectCheckBox(CbIndex.Third, true);
+                            break;
+                        case 3:
+                            _checked[3] = true;
+                            cbCombo.SelectCheckBox(CbIndex.Fourth, true);
+                            break;
+                        default:
+                            MessageBox.Show(@"[QuizForm::btnNext/Back_Click] - Unmatched <State> switch case.");
+                            break;
+                    }
+                    break;
+            }
+        }
+
+
+
         #region --------------- Events Handlers ---------------
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            UpdateQuestionState(CustomButtonDirection.Forward);
+
+            // We only want to increment after the switch cases, since we play with base 0 values.
             qIndex++;
 
             if (qIndex == 1)
@@ -67,6 +131,8 @@ namespace BinnenFA54Project.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            UpdateQuestionState(CustomButtonDirection.Back);
+
             qIndex--;
 
             if (qIndex == 0)
