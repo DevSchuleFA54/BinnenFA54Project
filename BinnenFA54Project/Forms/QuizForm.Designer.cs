@@ -104,6 +104,7 @@
             this.btnFinish.TabIndex = 5;
             this.btnFinish.Text = "Finish Exam";
             this.btnFinish.UseVisualStyleBackColor = true;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // lblQuestionIndexer
             // 
@@ -199,6 +200,8 @@
             this.Name = "QuizForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuizForm";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuizForm_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.QuizForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

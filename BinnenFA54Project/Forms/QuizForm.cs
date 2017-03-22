@@ -163,6 +163,12 @@ namespace BinnenFA54Project.Forms
 
 
         #region --------------- Extra Events Handlers ---------------
+        enum EventHandlerEnum
+        {
+            Click = 0,
+            KeyPress = 1,
+            Empty = 2
+        }
 
         /// <summary>
         /// Avoid from trying adding it to the designer file, it would cause some problems
@@ -178,71 +184,164 @@ namespace BinnenFA54Project.Forms
             cbCombo.cbOption4.pbCheckBox.Click += new EventHandler(cbOption4_CheckedChanged);
         }
 
+
         private void cbOption1_CheckedChanged(object sender, EventArgs e)
         {
-            if (_checked[0]) //  if unchecked
+            CheckBox1ChangeState(EventHandlerEnum.KeyPress);
+        }
+
+        private void cbOption2_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox2ChangeState(EventHandlerEnum.KeyPress);
+        }
+
+        private void cbOption3_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox3ChangeState(EventHandlerEnum.KeyPress);
+        }
+
+        private void cbOption4_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox4ChangeState(EventHandlerEnum.KeyPress);
+        }
+
+
+        private void QuizForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)49: // D1
+                    // saftey check, if not enable, do nothing.
+                    if (!cbCombo.cbOption1.CheckBoxEnabled)
+                        return;
+
+                    CheckBox1ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case (char)50: // D2
+                    if (!cbCombo.cbOption2.CheckBoxEnabled)
+                        return;
+
+                    CheckBox2ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case (char)51: // D3
+                    if (!cbCombo.cbOption3.CheckBoxEnabled)
+                        return;
+
+                    CheckBox3ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case (char)52: // D4
+                    if (!cbCombo.cbOption4.CheckBoxEnabled)
+                        return;
+
+                    CheckBox4ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+            }
+        }
+
+        private void QuizForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    if (!btnNext.ButtonEnabled)
+                        return;
+
+                    btnNext_Click(sender, e);
+                    break;
+
+                case Keys.Left:
+                    if (!btnBack.ButtonEnabled)
+                        return;
+
+                    btnBack_Click(sender, e);
+                    break;
+            }
+        }
+
+        #endregion --------------- Events Handlers ---------------
+
+
+
+        private void CheckBox1ChangeState(EventHandlerEnum handler)
+        {
+            if (_checked[0])
             {
                 _checked[0] = false;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.First, false);
                 answers.AnswerList[qIndex].SelectedAnswer = null;
                 answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[0] = true;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.First, true);
                 answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
                 answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
-        private void cbOption2_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox2ChangeState(EventHandlerEnum handler)
         {
             if (_checked[1])
             {
                 _checked[1] = false;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Second, false);
                 answers.AnswerList[qIndex].SelectedAnswer = null;
                 answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[1] = true;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Second, true);
                 answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
                 answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
-        private void cbOption3_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox3ChangeState(EventHandlerEnum handler)
         {
             if (_checked[2])
             {
                 _checked[2] = false;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Third, false);
                 answers.AnswerList[qIndex].SelectedAnswer = null;
                 answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[2] = true;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Third, true);
                 answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
                 answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
-        private void cbOption4_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox4ChangeState(EventHandlerEnum handler)
         {
             if (_checked[3])
             {
                 _checked[3] = false;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Fourth, false);
                 answers.AnswerList[qIndex].SelectedAnswer = null;
                 answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[3] = true;
+                if (handler == EventHandlerEnum.KeyPress)
+                    cbCombo.SelectCheckBox(CbIndex.Fourth, true);
                 answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
                 answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
-        #endregion --------------- Events Handlers ---------------
 
     }
 }
