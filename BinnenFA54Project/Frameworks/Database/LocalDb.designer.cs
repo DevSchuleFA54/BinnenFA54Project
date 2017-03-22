@@ -8,7 +8,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+#if LOCAL_DATABASE
 namespace BinnenFA54Project.Frameworks.Database
 {
 	using System.Data.Linq;
@@ -616,3 +616,4 @@ namespace BinnenFA54Project.Frameworks.Database
 	}
 }
 #pragma warning restore 1591
+#endif
