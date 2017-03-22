@@ -40,6 +40,8 @@ namespace BinnenFA54Project.Forms
             cbCombo.CheckBox2Text   = questions.QuestionList[qIndex].Options[1];
             cbCombo.CheckBox3Text   = questions.QuestionList[qIndex].Options[2];
             cbCombo.CheckBox4Text   = questions.QuestionList[qIndex].Options[3];
+            // if question has an image, display the image, otherwise null.
+            pbSign.Image            = questions.QuestionList[qIndex].SignImg ?? null;
             // db based 1 value while _questions.QuestionList<List> based 0.
             lblQuestionIndexer.Text = (qIndex + 1).ToString();
         }
