@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+#if SERVER_DATABASE
 namespace BinnenFA54Project.Frameworks.Database
 {
 	using System.Data.Linq;
@@ -28,7 +29,7 @@ namespace BinnenFA54Project.Frameworks.Database
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
-    #region Extensibility Method Definitions
+#region Extensibility Method Definitions
     partial void OnCreated();
     partial void InsertT_SBF_Binnen(T_SBF_Binnen instance);
     partial void UpdateT_SBF_Binnen(T_SBF_Binnen instance);
@@ -36,7 +37,7 @@ namespace BinnenFA54Project.Frameworks.Database
     partial void InsertT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
     partial void UpdateT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
     partial void DeleteT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
-    #endregion
+#endregion
 		
 		public DbDataContext() : 
 				base(global::BinnenFA54Project.Properties.Settings.Default.BinnenschifffahrtConnectionString, mappingSource)
@@ -166,7 +167,7 @@ namespace BinnenFA54Project.Frameworks.Database
 		
 		private System.Nullable<byte> _RichtigeAntwort;
 		
-    #region Extensibility Method Definitions
+#region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
@@ -184,7 +185,7 @@ namespace BinnenFA54Project.Frameworks.Database
     partial void OnAntwort4Changed();
     partial void OnRichtigeAntwortChanging(System.Nullable<byte> value);
     partial void OnRichtigeAntwortChanged();
-    #endregion
+#endregion
 		
 		public T_SBF_Binnen()
 		{
@@ -364,7 +365,7 @@ namespace BinnenFA54Project.Frameworks.Database
 		
 		private string _Beschreib;
 		
-    #region Extensibility Method Definitions
+#region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
@@ -374,7 +375,7 @@ namespace BinnenFA54Project.Frameworks.Database
     partial void OnThemaChanged();
     partial void OnBeschreibChanging(string value);
     partial void OnBeschreibChanged();
-    #endregion
+#endregion
 		
 		public T_Fragenbogen_Thema()
 		{
@@ -616,3 +617,4 @@ namespace BinnenFA54Project.Frameworks.Database
 	}
 }
 #pragma warning restore 1591
+#endif
