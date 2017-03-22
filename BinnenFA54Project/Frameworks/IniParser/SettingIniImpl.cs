@@ -39,7 +39,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingFilePath);
                 appOnTopMost = bool.Parse(data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"]);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_ON_TOP_MOST");
             }
@@ -62,7 +62,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingFilePath);
                 windowControls = bool.Parse(data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"]);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_UI_CONTROLS");
             }
@@ -85,7 +85,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingFilePath);
                 iconInTray = bool.Parse(data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"]);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_ICON_IN_TRAY");
             }
@@ -126,7 +126,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingFilePath);
                 sqlNameInstance = bool.Parse(data["MiscConfiguration"]["ENABLE_SQL_NAME_INSTANCE"]);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_SQL_NAME_INSTANCE");
             }
@@ -155,7 +155,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingFilePath, data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_ON_TOP_MOST");
             }
@@ -174,7 +174,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingFilePath, data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_UI_CONTROLS");
             }
@@ -193,7 +193,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString();
                 iniParser.WriteFile(settingFilePath, data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_ICON_IN_TRAY");
             }
@@ -212,7 +212,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["DATE_FORMAT"] = dateFormat;
                 iniParser.WriteFile(settingFilePath, data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("DATE_FORMAT");
             }
@@ -231,7 +231,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_SQL_NAME_INSTANCE"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingFilePath, data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMsgMissingFile("ENABLE_SQL_NAME_INSTANCE");
             }

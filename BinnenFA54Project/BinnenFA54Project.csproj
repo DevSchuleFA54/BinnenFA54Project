@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GiladControllers">
-      <HintPath>..\packages\GiladControllers\GiladControllers.dll</HintPath>
+      <HintPath>..\packages\Gilad.Controllers-1.0.0\GiladControllers.dll</HintPath>
     </Reference>
     <Reference Include="INIFileParser, Version=2.3.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
       <HintPath>..\packages\ini-parser.2.3.0\lib\net20\INIFileParser.dll</HintPath>
@@ -117,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Frameworks\Database\Db.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -142,6 +143,67 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+    <None Include="Resources\244.gif" />
+    <None Include="Resources\243.gif" />
+    <None Include="Resources\204.gif" />
+    <None Include="Resources\202.gif" />
+    <None Include="Resources\201.gif" />
+    <None Include="Resources\199.gif" />
+    <None Include="Resources\198.gif" />
+    <None Include="Resources\196.gif" />
+    <None Include="Resources\193.gif" />
+    <None Include="Resources\192.gif" />
+    <None Include="Resources\189.gif" />
+    <None Include="Resources\188.gif" />
+    <None Include="Resources\186.gif" />
+    <None Include="Resources\185.gif" />
+    <None Include="Resources\183.gif" />
+    <None Include="Resources\180.gif" />
+    <None Include="Resources\157.gif" />
+    <None Include="Resources\155.gif" />
+    <None Include="Resources\154.gif" />
+    <None Include="Resources\153.gif" />
+    <None Include="Resources\152.gif" />
+    <None Include="Resources\151.gif" />
+    <None Include="Resources\150.gif" />
+    <None Include="Resources\149.gif" />
+    <None Include="Resources\148.gif" />
+    <None Include="Resources\147.gif" />
+    <None Include="Resources\146.gif" />
+    <None Include="Resources\145.gif" />
+    <None Include="Resources\132.gif" />
+    <None Include="Resources\131.gif" />
+    <None Include="Resources\129.gif" />
+    <None Include="Resources\127.gif" />
+    <None Include="Resources\125.gif" />
+    <None Include="Resources\124.gif" />
+    <None Include="Resources\123.gif" />
+    <None Include="Resources\122.gif" />
+    <None Include="Resources\121.gif" />
+    <None Include="Resources\120.gif" />
+    <None Include="Resources\116.gif" />
+    <None Include="Resources\115.gif" />
+    <None Include="Resources\114.gif" />
+    <None Include="Resources\113.gif" />
+    <None Include="Resources\112.gif" />
+    <None Include="Resources\111.gif" />
+    <None Include="Resources\110.gif" />
+    <None Include="Resources\108.gif" />
+    <None Include="Resources\107.gif" />
+    <None Include="Resources\30.gif" />
+    <None Include="Resources\29.gif" />
+    <None Include="Resources\28.gif" />
+    <None Include="Resources\27.gif" />
+    <None Include="Resources\26.gif" />
+    <None Include="Resources\25.gif" />
+    <None Include="Resources\24.gif" />
+    <None Include="Resources\23.gif" />
+    <None Include="Resources\22.gif" />
+    <None Include="Resources\21.gif" />
+    <None Include="Resources\20.gif" />
+    <None Include="Resources\19.gif" />
+    <None Include="Resources\18.gif" />
+    <None Include="Resources\17.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.1.28.3\build\Fody.targets" Condition="Exists('..\packages\Fody.1.28.3\build\Fody.targets')" />
@@ -150,6 +212,42 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Fody.1.28.3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.28.3\build\Fody.targets'))" />
+  </Target>
+  <UsingTask TaskName="CosturaCleanup" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Config Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem" />
+      <Files Output="false" Required="true" ParameterType="Microsoft.Build.Framework.ITaskItem[]" />
+    </ParameterGroup>
+    <Task Evaluate="true">
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml" />
+      <Reference xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Include="System.Xml.Linq" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.IO" />
+      <Using xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Namespace="System.Xml.Linq" />
+      <Code xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Type="Fragment" Language="cs"><![CDATA[
+var config = XElement.Load(Config.ItemSpec).Elements("Costura").FirstOrDefault();
+
+if (config == null) return true;
+
+var excludedAssemblies = new List<string>();
+var attribute = config.Attribute("ExcludeAssemblies");
+if (attribute != null)
+    foreach (var item in attribute.Value.Split('|').Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+var element = config.Element("ExcludeAssemblies");
+if (element != null)
+    foreach (var item in element.Value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => x != string.Empty))
+        excludedAssemblies.Add(item);
+
+var filesToCleanup = Files.Select(f => f.ItemSpec).Where(f => !excludedAssemblies.Contains(Path.GetFileNameWithoutExtension(f), StringComparer.InvariantCultureIgnoreCase));
+
+foreach (var item in filesToCleanup)
+  File.Delete(item);
+]]></Code>
+    </Task>
+  </UsingTask>
+  <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
+    <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
