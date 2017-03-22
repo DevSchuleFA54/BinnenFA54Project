@@ -12,7 +12,16 @@ namespace BinnenFA54Project.Main.ServeData
     /// </summary>
     abstract class QuizBase
     {
+        // @Gilad: To define/use the SERVER_DATABASE go to:
+        // Project -> Properties -> Build -> Conditional complition symbols
+        // and change the name from LOCAL_DATABASE to SERVER_DATABASE
+#if SERVER_DATABASE 
         protected DbDataContext dbContext = new DbDataContext();
+#endif
+
+#if LOCAL_DATABASE
+        protected LocalDbDataContext localDbContext = new LocalDbDataContext();
+#endif
         private static int _selectTopic = 1;
 
 

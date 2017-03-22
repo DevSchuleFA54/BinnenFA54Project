@@ -25,9 +25,17 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
+#if SERVER_DATABASE // See comment in QuizBase.
                 var results = from   query in base.dbContext.View_Topics_And_Questions
                               where  query.FragebogenNr == SelectedTopic
                               select query;
+#endif
+
+#if LOCAL_DATABASE  // See comment in QuizBase.
+                var results = from   query in base.localDbContext.View_Topics_And_Questions
+                              where  query.FragebogenNr == SelectedTopic
+                              select query;
+#endif
 
                 // ToList because it's easier to manipulate it with for loop indexer comparing to IQueryable.
                 var resultsList = results.ToList();

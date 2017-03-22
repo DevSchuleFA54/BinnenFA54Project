@@ -25,8 +25,15 @@ namespace BinnenFA54Project.Main.ServeData
         {
             try
             {
+#if SERVER_DATABASE  // See comment in QuizBase.
                 var results = from   query in base.dbContext.T_Fragenbogen_Themas
                               select query;
+#endif
+
+#if LOCAL_DATABASE  // See comment in QuizBase.
+                var results = from   query in base.localDbContext.T_Fragenbogen_Themas
+                              select query;
+#endif
 
                 foreach (var result in results)
                 {
