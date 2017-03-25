@@ -187,21 +187,25 @@ namespace BinnenFA54Project.Forms
 
         private void cbOption1_CheckedChanged(object sender, EventArgs e)
         {
+            if (!cbCombo.cbOption1.Checked) return;
             CheckBox1ChangeState(EventHandlerEnum.KeyPress);
         }
 
         private void cbOption2_CheckedChanged(object sender, EventArgs e)
         {
+            if (!cbCombo.cbOption2.Checked) return;
             CheckBox2ChangeState(EventHandlerEnum.KeyPress);
         }
 
         private void cbOption3_CheckedChanged(object sender, EventArgs e)
         {
+            if (!cbCombo.cbOption3.Checked) return;
             CheckBox3ChangeState(EventHandlerEnum.KeyPress);
         }
 
         private void cbOption4_CheckedChanged(object sender, EventArgs e)
         {
+            if (!cbCombo.cbOption4.Checked) return;
             CheckBox4ChangeState(EventHandlerEnum.KeyPress);
         }
 
