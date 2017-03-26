@@ -23,6 +23,7 @@ namespace BinnenFA54Project.Forms
         FeedbackForm _feedbackForm;
         int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
+        bool already_checked = false;
 
         public QuizForm()
         {
@@ -31,6 +32,8 @@ namespace BinnenFA54Project.Forms
             questions = QuizMgr.Questions;
             answers   = QuizMgr.Answers;
             RegisterEventHandlers();
+            progressBar1.Maximum = questions.QuestionList.Count;
+
 
             //Thread.Sleep(1000); // TODO: create during that time loading indicator runs on another thread.
             UpdateQuestions();
@@ -39,6 +42,14 @@ namespace BinnenFA54Project.Forms
 
         private void UpdateQuestions()
         {
+
+            if (cbCombo.Checked == true)
+            {
+                already_checked = true;
+            }
+            else
+                already_checked = false;
+
             lblQuestion.Text        = questions.QuestionList[qIndex].QuestionMeoww;
             cbCombo.CheckBox1Text   = questions.QuestionList[qIndex].Options[0];
             cbCombo.CheckBox2Text   = questions.QuestionList[qIndex].Options[1];
@@ -115,6 +126,7 @@ namespace BinnenFA54Project.Forms
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            Answerchecking();
             UpdateQuestionState(CustomButtonDirection.Forward);
 
             // We only want to increment after the switch cases, since we play with base 0 values.
@@ -126,11 +138,13 @@ namespace BinnenFA54Project.Forms
             if (qIndex == questions.QuestionList.Count - 1) // last question.
                 btnNext.ButtonEnabled = false;
 
+            
             UpdateQuestions();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Answerchecking();
             UpdateQuestionState(CustomButtonDirection.Back);
 
             qIndex--;
@@ -141,21 +155,52 @@ namespace BinnenFA54Project.Forms
             if (qIndex == questions.QuestionList.Count - 2)
                 btnNext.ButtonEnabled = true;
 
+            
             UpdateQuestions();
+        }
+
+        private void Answerchecking()
+        {
+            if (cbCombo.Checked == true && already_checked == false)
+            {
+                progressBar1.Value++;
+            }
+            else if (cbCombo.Checked == true && already_checked == true)
+            {
+
+            }
+            else if (cbCombo.Checked == false && already_checked == true)
+            {
+                progressBar1.Value--;
+            }
+            else if (cbCombo.Checked == false && already_checked == false)
+            {
+
+            }
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
-                "Finish Exam", MessageBoxButtons.YesNo);
+                "Finish Exam", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialog == DialogResult.Yes)
             {
+                if (progressBar1.Value != progressBar1.Maximum)
+                {
+                    DialogResult pbarAnswer = MessageBox.Show("Are you really sure? You have only answered " + progressBar1.Value + " from " + progressBar1.Maximum + " answers, do you want finish?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                    if (pbarAnswer == DialogResult.No)
+                    {
+                        return;
+                    }
+                        
+                }
                 // TODO: Pass the results to store somewhere so we'll access it later from a different form.
 
                 _feedbackForm = new FeedbackForm();
                 _feedbackForm.Show();
+                this.Close();
             }
         }
 
