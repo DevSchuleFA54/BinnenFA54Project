@@ -123,6 +123,9 @@
     <None Include="Frameworks\Database\Db.dbml.layout">
       <DependentUpon>Db.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Forms\FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuizForm.resx">
       <DependentUpon>QuizForm.cs</DependentUpon>
     </EmbeddedResource>

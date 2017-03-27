@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
@@ -48,11 +49,14 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationUsuageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.cbQuizPicker = new System.Windows.Forms.ComboBox();
             this.btnConfig = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnStartExam = new GiladControllers.GiladButton();
+            this.maximize_MainForm = new System.Windows.Forms.Button();
+            this.minimize_MainForm = new System.Windows.Forms.Button();
+            this.exit_MainForm = new System.Windows.Forms.Button();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -96,13 +100,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(694, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(89, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -211,14 +216,6 @@
             this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Location = new System.Drawing.Point(582, 53);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(100, 50);
-            this.pbLogo.TabIndex = 2;
-            this.pbLogo.TabStop = false;
-            // 
             // cbQuizPicker
             // 
             this.cbQuizPicker.FormattingEnabled = true;
@@ -246,6 +243,7 @@
             // 
             // btnStartExam
             // 
+            this.btnStartExam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStartExam.AnimateHover = true;
             this.btnStartExam.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnStartExam.ButtonEnabled = true;
@@ -256,12 +254,58 @@
             this.btnStartExam.TabIndex = 6;
             this.btnStartExam.Click += new System.EventHandler(this.btnStartExam_Click);
             // 
+            // maximize_MainForm
+            // 
+            this.maximize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("maximize_MainForm.Image")));
+            this.maximize_MainForm.Location = new System.Drawing.Point(614, 0);
+            this.maximize_MainForm.Name = "maximize_MainForm";
+            this.maximize_MainForm.Size = new System.Drawing.Size(37, 27);
+            this.maximize_MainForm.TabIndex = 14;
+            this.maximize_MainForm.UseVisualStyleBackColor = true;
+            this.maximize_MainForm.Click += new System.EventHandler(this.maximize_MainForm_Click);
+            // 
+            // minimize_MainForm
+            // 
+            this.minimize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("minimize_MainForm.Image")));
+            this.minimize_MainForm.Location = new System.Drawing.Point(571, 0);
+            this.minimize_MainForm.Name = "minimize_MainForm";
+            this.minimize_MainForm.Size = new System.Drawing.Size(37, 27);
+            this.minimize_MainForm.TabIndex = 13;
+            this.minimize_MainForm.UseVisualStyleBackColor = true;
+            this.minimize_MainForm.Click += new System.EventHandler(this.minimize_MainForm_Click);
+            // 
+            // exit_MainForm
+            // 
+            this.exit_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit_MainForm.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.exit_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("exit_MainForm.Image")));
+            this.exit_MainForm.Location = new System.Drawing.Point(657, 0);
+            this.exit_MainForm.Name = "exit_MainForm";
+            this.exit_MainForm.Size = new System.Drawing.Size(37, 27);
+            this.exit_MainForm.TabIndex = 11;
+            this.exit_MainForm.UseVisualStyleBackColor = false;
+            this.exit_MainForm.Click += new System.EventHandler(this.exit_MainForm_Click);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Location = new System.Drawing.Point(582, 53);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(100, 50);
+            this.pbLogo.TabIndex = 2;
+            this.pbLogo.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(694, 345);
+            this.Controls.Add(this.maximize_MainForm);
+            this.Controls.Add(this.minimize_MainForm);
+            this.Controls.Add(this.exit_MainForm);
             this.Controls.Add(this.btnStartExam);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnConfig);
@@ -272,6 +316,7 @@
             this.Controls.Add(this.lblCompanyName);
             this.Controls.Add(this.lblAppTitle);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -310,6 +355,9 @@
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.ListBox listBox1;
         private GiladControllers.GiladButton btnStartExam;
+        private System.Windows.Forms.Button exit_MainForm;
+        private System.Windows.Forms.Button maximize_MainForm;
+        private System.Windows.Forms.Button minimize_MainForm;
     }
 }
 

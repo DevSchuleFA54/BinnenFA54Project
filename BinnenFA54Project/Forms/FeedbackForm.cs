@@ -28,5 +28,22 @@ namespace BinnenFA54Project.Forms
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
+        private void exit_FeedbackForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimize_Feedbackform_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximize_FeedbackForm_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;
+        }
     }
 }

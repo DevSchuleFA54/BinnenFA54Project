@@ -71,5 +71,23 @@ namespace BinnenFA54Project
             configurationForm = new ConfigurationForm();
             configurationForm.Show();
         }
+
+        private void exit_MainForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void maximize_MainForm_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void minimize_MainForm_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

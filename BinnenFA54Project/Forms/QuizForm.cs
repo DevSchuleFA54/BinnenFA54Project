@@ -17,7 +17,6 @@ namespace BinnenFA54Project.Forms
 {
     public partial class QuizForm : Form
     {
-        // TODO: Create a progress bar to update when questions index changing.
         QuestionMgr questions;
         AnswerMgr answers;
         FeedbackForm _feedbackForm;
@@ -405,8 +404,16 @@ namespace BinnenFA54Project.Forms
 
         private void exit_quizform_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult quizcloseAnswer = MessageBox.Show("Are you really want abort this exam?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (quizcloseAnswer == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void minimize_quizform_Click(object sender, EventArgs e)
@@ -416,7 +423,6 @@ namespace BinnenFA54Project.Forms
 
         private void maximize_quizform_Click(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
             if (WindowState == FormWindowState.Maximized)
                 this.WindowState = FormWindowState.Normal;
             else
