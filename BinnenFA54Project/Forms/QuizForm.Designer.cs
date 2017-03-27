@@ -51,6 +51,8 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(148, 442);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(530, 31);
@@ -85,6 +87,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(93, 450);
             this.label4.Name = "label4";
@@ -94,6 +97,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(684, 450);
             this.label5.Name = "label5";
@@ -103,6 +107,7 @@
             // 
             // btnFinish
             // 
+            this.btnFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFinish.Location = new System.Drawing.Point(747, 45);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(92, 40);
@@ -113,6 +118,7 @@
             // 
             // lblQuestionIndexer
             // 
+            this.lblQuestionIndexer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblQuestionIndexer.AutoSize = true;
             this.lblQuestionIndexer.Location = new System.Drawing.Point(462, 480);
             this.lblQuestionIndexer.Name = "lblQuestionIndexer";
@@ -122,6 +128,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(361, 480);
             this.label1.Name = "label1";
@@ -140,6 +147,9 @@
             // 
             // cbCombo
             // 
+            this.cbCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCombo.CheckBox1Text = "CheckBox Text";
             this.cbCombo.CheckBox2Text = "CheckBox Text";
             this.cbCombo.CheckBox3Text = "CheckBox Text";
@@ -159,6 +169,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBack.AnimateHover = true;
             this.btnBack.ButtonDirection = GiladControllers.CustomButtonDirection.Back;
             this.btnBack.ButtonEnabled = false;
@@ -172,6 +183,7 @@
             // 
             // btnNext
             // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.AnimateHover = true;
             this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnNext.ButtonEnabled = true;
