@@ -8,7 +8,7 @@ using BinnenFA54Project.Main.ResourceData;
 
 namespace BinnenFA54Project.Main.ServeData
 {
-    class TopicMgr : QuizBase
+    public class TopicMgr : QuizBase
     {
         List<Topic> _topicList = new List<Topic>();
 

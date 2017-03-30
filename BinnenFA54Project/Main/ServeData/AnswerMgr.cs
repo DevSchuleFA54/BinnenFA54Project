@@ -8,9 +8,10 @@ using BinnenFA54Project.Main.ResourceData;
 
 namespace BinnenFA54Project.Main.ServeData
 {
-    class AnswerMgr : QuizBase
+    public class AnswerMgr : QuizBase
     {
         List<Answer> _answerList = new List<Answer>();
+        private QuestionMgr _questionMgr = new QuestionMgr();
 
         public AnswerMgr()
         {
@@ -38,16 +39,16 @@ namespace BinnenFA54Project.Main.ServeData
 #endif
 
                 // ToList because it's easier to manipulate it with for loop indexer comparing to IQueryable.
-                var resultsList = results.ToList();
+                var resultsList   = results.ToList();
                 int resultsLength = results.Count();
 
                 for (int i = 0; i < resultsLength; i++)
                 {
                     _answerList.Add(new Answer()
                     {
-                        Id = resultsList[i].P_Id,
+                        Id                = resultsList[i].P_Id,
                         CorrectAnswerText = GetText(i, resultsList[i].RichtigeAntwort),
-                        CorrectAnswerNum = resultsList[i].RichtigeAntwort
+                        CorrectAnswerNum  = resultsList[i].RichtigeAntwort
                     });
                 }
             }
@@ -64,7 +65,7 @@ namespace BinnenFA54Project.Main.ServeData
         private string GetText(int index, int? option)
         {
             if (option != null)
-                return QuizMgr.Questions.QuestionList[index].Options[(int)option - 1];
+                return _questionMgr.QuestionList[index].Options[(int)option - 1];
 
             return "Keine Richtige Antwort.";
         }

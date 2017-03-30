@@ -17,35 +17,21 @@ namespace BinnenFA54Project.Forms
 {
     public partial class QuizForm : Form
     {
-        QuestionMgr questions;
-        AnswerMgr answers;
+        QuizMgr quiz;
         FeedbackForm _feedbackForm;
         int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
         bool already_checked = false;
-
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST)
-                m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
 
 
         public QuizForm()
         {
             Loader.StartLoader(LoaderSelector.Loader);
 
+            quiz = new QuizMgr();
             InitializeComponent();
-            // Creating manageable locally objects.
-            questions = QuizMgr.Questions;
-            answers   = QuizMgr.Answers;
             RegisterEventHandlers();
-            progressBar1.Maximum = questions.QuestionList.Count;
+            progressBar1.Maximum = quiz.Questions.QuestionList.Count;
             UpdateQuestions();
 
             Thread.Sleep(5000); // TODO: create during that time loading indicator runs on another thread.
@@ -63,13 +49,13 @@ namespace BinnenFA54Project.Forms
             else
                 already_checked = false;
 
-            lblQuestion.Text        = questions.QuestionList[qIndex].QuestionMeoww;
-            cbCombo.CheckBox1Text   = questions.QuestionList[qIndex].Options[0];
-            cbCombo.CheckBox2Text   = questions.QuestionList[qIndex].Options[1];
-            cbCombo.CheckBox3Text   = questions.QuestionList[qIndex].Options[2];
-            cbCombo.CheckBox4Text   = questions.QuestionList[qIndex].Options[3];
+            lblQuestion.Text        = quiz.Questions.QuestionList[qIndex].QuestionMeoww;
+            cbCombo.CheckBox1Text   = quiz.Questions.QuestionList[qIndex].Options[0];
+            cbCombo.CheckBox2Text   = quiz.Questions.QuestionList[qIndex].Options[1];
+            cbCombo.CheckBox3Text   = quiz.Questions.QuestionList[qIndex].Options[2];
+            cbCombo.CheckBox4Text   = quiz.Questions.QuestionList[qIndex].Options[3];
             // if question has an image, display the image, otherwise null.
-            pbSign.Image            = questions.QuestionList[qIndex].SignImg ?? null;
+            pbSign.Image            = quiz.Questions.QuestionList[qIndex].SignImg ?? null;
             // db based 1 value while _questions.QuestionList<List> based 0.
             lblQuestionIndexer.Text = (qIndex + 1).ToString();
         }
@@ -93,7 +79,7 @@ namespace BinnenFA54Project.Forms
                 index = qIndex - 1;
 
 
-            switch (answers.AnswerList[index].State)
+            switch (quiz.Answers.AnswerList[index].State)
             {
                 case State.Waiting:
                     // We updating the _checked boolean flags because of the events when a checkbox is
@@ -107,7 +93,7 @@ namespace BinnenFA54Project.Forms
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
                     // qIndex+1 since we want to check what is selected answer on the next question before showing to the user.
-                    switch (answers.AnswerList[index].SelectedAnswer)
+                    switch (quiz.Answers.AnswerList[index].SelectedAnswer)
                     {
                         case 0:
                             _checked[0] = true;
@@ -148,7 +134,7 @@ namespace BinnenFA54Project.Forms
             if (qIndex == 1)
                 btnBack.ButtonEnabled = true;
 
-            if (qIndex == questions.QuestionList.Count - 1) // last question.
+            if (qIndex == quiz.Questions.QuestionList.Count - 1) // last question.
                 btnNext.ButtonEnabled = false;
 
             
@@ -165,7 +151,7 @@ namespace BinnenFA54Project.Forms
             if (qIndex == 0)
                 btnBack.ButtonEnabled = false;
 
-            if (qIndex == questions.QuestionList.Count - 2)
+            if (qIndex == quiz.Questions.QuestionList.Count - 2)
                 btnNext.ButtonEnabled = true;
 
             
@@ -331,16 +317,16 @@ namespace BinnenFA54Project.Forms
                 _checked[0] = false;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.First, false);
-                answers.AnswerList[qIndex].SelectedAnswer = null;
-                answers.AnswerList[qIndex].State = State.Waiting;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = null;
+                quiz.Answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[0] = true;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.First, true);
-                answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
-                answers.AnswerList[qIndex].State = State.Answered;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
+                quiz.Answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
@@ -351,16 +337,16 @@ namespace BinnenFA54Project.Forms
                 _checked[1] = false;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Second, false);
-                answers.AnswerList[qIndex].SelectedAnswer = null;
-                answers.AnswerList[qIndex].State = State.Waiting;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = null;
+                quiz.Answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[1] = true;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Second, true);
-                answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
-                answers.AnswerList[qIndex].State = State.Answered;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
+                quiz.Answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
@@ -371,16 +357,16 @@ namespace BinnenFA54Project.Forms
                 _checked[2] = false;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Third, false);
-                answers.AnswerList[qIndex].SelectedAnswer = null;
-                answers.AnswerList[qIndex].State = State.Waiting;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = null;
+                quiz.Answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[2] = true;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Third, true);
-                answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
-                answers.AnswerList[qIndex].State = State.Answered;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
+                quiz.Answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
@@ -391,16 +377,16 @@ namespace BinnenFA54Project.Forms
                 _checked[3] = false;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Fourth, false);
-                answers.AnswerList[qIndex].SelectedAnswer = null;
-                answers.AnswerList[qIndex].State = State.Waiting;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = null;
+                quiz.Answers.AnswerList[qIndex].State = State.Waiting;
             }
             else
             {
                 _checked[3] = true;
                 if (handler == EventHandlerEnum.KeyPress)
                     cbCombo.SelectCheckBox(CbIndex.Fourth, true);
-                answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
-                answers.AnswerList[qIndex].State = State.Answered;
+                quiz.Answers.AnswerList[qIndex].SelectedAnswer = cbCombo.SelectedCheckBoxIndex;
+                quiz.Answers.AnswerList[qIndex].State = State.Answered;
             }
         }
 
@@ -429,6 +415,20 @@ namespace BinnenFA54Project.Forms
                 this.WindowState = FormWindowState.Normal;
             else
                 this.WindowState = FormWindowState.Maximized;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
         }
     }
 }

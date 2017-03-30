@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BinnenFA54Project.Main.ResourceData
 {
-    enum State
+    public enum State
     {
         
         Waiting  = 0, // Default value until the question as been answered.
         Answered = 1  // Mark for when a checkbox has been selected.
     }
 
-    enum Results
+    public enum Results
     {        
         Wrong     = 0, // Wrong answer
         Right     = 1, // Right answer
@@ -21,7 +21,7 @@ namespace BinnenFA54Project.Main.ResourceData
         NoAnswer  = 3  // Default value
     }
 
-    class Answer
+    public class Answer
     {
         public int Id                   { get; set; }
         public string CorrectAnswerText { get; set; }
