@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblExamNum = new System.Windows.Forms.Label();
@@ -41,11 +43,16 @@
             this.cbCombo = new GiladControllers.Gilad4CheckBox();
             this.btnBack = new GiladControllers.GiladButton();
             this.btnNext = new GiladControllers.GiladButton();
+            this.exit_quizform = new System.Windows.Forms.Button();
+            this.minimize_quizform = new System.Windows.Forms.Button();
+            this.maximize_quizform = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(148, 442);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(530, 31);
@@ -80,6 +87,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(93, 450);
             this.label4.Name = "label4";
@@ -89,6 +97,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(684, 450);
             this.label5.Name = "label5";
@@ -98,7 +107,8 @@
             // 
             // btnFinish
             // 
-            this.btnFinish.Location = new System.Drawing.Point(747, 12);
+            this.btnFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFinish.Location = new System.Drawing.Point(747, 45);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(92, 40);
             this.btnFinish.TabIndex = 5;
@@ -108,6 +118,7 @@
             // 
             // lblQuestionIndexer
             // 
+            this.lblQuestionIndexer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblQuestionIndexer.AutoSize = true;
             this.lblQuestionIndexer.Location = new System.Drawing.Point(462, 480);
             this.lblQuestionIndexer.Name = "lblQuestionIndexer";
@@ -117,6 +128,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(361, 480);
             this.label1.Name = "label1";
@@ -135,6 +147,9 @@
             // 
             // cbCombo
             // 
+            this.cbCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCombo.CheckBox1Text = "CheckBox Text";
             this.cbCombo.CheckBox2Text = "CheckBox Text";
             this.cbCombo.CheckBox3Text = "CheckBox Text";
@@ -154,6 +169,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBack.AnimateHover = true;
             this.btnBack.ButtonDirection = GiladControllers.CustomButtonDirection.Back;
             this.btnBack.ButtonEnabled = false;
@@ -167,6 +183,7 @@
             // 
             // btnNext
             // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.AnimateHover = true;
             this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnNext.ButtonEnabled = true;
@@ -177,12 +194,49 @@
             this.btnNext.TabIndex = 7;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // exit_quizform
+            // 
+            this.exit_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit_quizform.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.exit_quizform.Image = ((System.Drawing.Image)(resources.GetObject("exit_quizform.Image")));
+            this.exit_quizform.Location = new System.Drawing.Point(813, 0);
+            this.exit_quizform.Name = "exit_quizform";
+            this.exit_quizform.Size = new System.Drawing.Size(37, 27);
+            this.exit_quizform.TabIndex = 10;
+            this.exit_quizform.UseVisualStyleBackColor = false;
+            this.exit_quizform.Click += new System.EventHandler(this.exit_quizform_Click);
+            // 
+            // minimize_quizform
+            // 
+            this.minimize_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimize_quizform.Image = ((System.Drawing.Image)(resources.GetObject("minimize_quizform.Image")));
+            this.minimize_quizform.Location = new System.Drawing.Point(727, 0);
+            this.minimize_quizform.Name = "minimize_quizform";
+            this.minimize_quizform.Size = new System.Drawing.Size(37, 27);
+            this.minimize_quizform.TabIndex = 11;
+            this.minimize_quizform.UseVisualStyleBackColor = true;
+            this.minimize_quizform.Click += new System.EventHandler(this.minimize_quizform_Click);
+            // 
+            // maximize_quizform
+            // 
+            this.maximize_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximize_quizform.Image = ((System.Drawing.Image)(resources.GetObject("maximize_quizform.Image")));
+            this.maximize_quizform.Location = new System.Drawing.Point(770, 0);
+            this.maximize_quizform.Name = "maximize_quizform";
+            this.maximize_quizform.Size = new System.Drawing.Size(37, 27);
+            this.maximize_quizform.TabIndex = 12;
+            this.maximize_quizform.UseVisualStyleBackColor = true;
+            this.maximize_quizform.Click += new System.EventHandler(this.maximize_quizform_Click);
+            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(851, 505);
+            this.Controls.Add(this.maximize_quizform);
+            this.Controls.Add(this.minimize_quizform);
+            this.Controls.Add(this.exit_quizform);
             this.Controls.Add(this.pbSign);
             this.Controls.Add(this.cbCombo);
             this.Controls.Add(this.btnBack);
@@ -196,6 +250,7 @@
             this.Controls.Add(this.lblQuestionIndexer);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.progressBar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "QuizForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -223,5 +278,8 @@
         private GiladControllers.GiladButton btnBack;
         private GiladControllers.Gilad4CheckBox cbCombo;
         private System.Windows.Forms.PictureBox pbSign;
+        private System.Windows.Forms.Button exit_quizform;
+        private System.Windows.Forms.Button minimize_quizform;
+        private System.Windows.Forms.Button maximize_quizform;
     }
 }

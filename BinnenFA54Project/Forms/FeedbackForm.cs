@@ -16,5 +16,34 @@ namespace BinnenFA54Project.Forms
         {
             InitializeComponent();
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+        private void exit_FeedbackForm_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimize_Feedbackform_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximize_FeedbackForm_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;
+        }
     }
 }
