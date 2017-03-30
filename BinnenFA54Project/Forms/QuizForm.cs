@@ -38,16 +38,18 @@ namespace BinnenFA54Project.Forms
 
         public QuizForm()
         {
+            Loader.StartLoader(LoaderSelector.Loader);
+
             InitializeComponent();
             // Creating manageable locally objects.
             questions = QuizMgr.Questions;
             answers   = QuizMgr.Answers;
             RegisterEventHandlers();
             progressBar1.Maximum = questions.QuestionList.Count;
-
-
-            //Thread.Sleep(1000); // TODO: create during that time loading indicator runs on another thread.
             UpdateQuestions();
+
+            Thread.Sleep(5000); // TODO: create during that time loading indicator runs on another thread.
+            Loader.StopLoader();
         }
 
 
