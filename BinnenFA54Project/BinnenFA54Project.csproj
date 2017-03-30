@@ -84,6 +84,18 @@
     <Compile Include="Forms\FeedbackForm.Designer.cs">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Misc\MainAppLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misc\MainAppLoader.Designer.cs">
+      <DependentUpon>MainAppLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Misc\LoaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misc\LoaderForm.Designer.cs">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\QuizForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +122,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Loader.cs" />
     <Compile Include="Main\QuizMgr.cs" />
     <Compile Include="Main\ResourceData\Answer.cs" />
     <Compile Include="Main\ResourceData\Question.cs" />
@@ -125,6 +138,9 @@
     </None>
     <EmbeddedResource Include="Forms\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misc\LoaderForm.resx">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuizForm.resx">
       <DependentUpon>QuizForm.cs</DependentUpon>
@@ -181,6 +197,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\loader.gif" />
     <None Include="Resources\244.gif" />
     <None Include="Resources\243.gif" />
     <None Include="Resources\204.gif" />
