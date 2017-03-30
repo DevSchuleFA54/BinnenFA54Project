@@ -232,6 +232,7 @@
             this.btnConfig.TabIndex = 4;
             this.btnConfig.Text = "Configuration";
             this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // listBox1
             // 

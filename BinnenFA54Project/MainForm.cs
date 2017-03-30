@@ -26,7 +26,6 @@ namespace BinnenFA54Project
             InitializeTopicList();
         }
 
-
         private void InitializeTopicList()
         {
             // Creates and calls the db to initialize topics.
@@ -48,9 +47,6 @@ namespace BinnenFA54Project
             // better control instead of creating another instance in memory.
             QuizMgr.Topics = _topics;
 
-            // Builds all the data structur including db calls.
-            _quizMgr = new QuizMgr();
-
             quizForm = new QuizForm();
             quizForm.Show();
         }
@@ -60,6 +56,13 @@ namespace BinnenFA54Project
             configurationForm = new ConfigurationForm();
             configurationForm.Show();
         }
+
+
+
+
+
+
+
 
         private void exit_MainForm_Click(object sender, EventArgs e)
         {

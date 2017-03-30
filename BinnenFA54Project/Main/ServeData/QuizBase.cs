@@ -10,7 +10,7 @@ namespace BinnenFA54Project.Main.ServeData
     /// <summary>
     /// Common data that all members share with.
     /// </summary>
-    abstract class QuizBase
+    public abstract class QuizBase
     {
         // @Gilad: To define/use the SERVER_DATABASE go to:
         // Project -> Properties -> Build -> Conditional complition symbols

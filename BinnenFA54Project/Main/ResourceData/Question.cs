@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BinnenFA54Project.Main.ResourceData
 {
-    class Question
+    public class Question
     {
         private string[] _options = new string[4];
 

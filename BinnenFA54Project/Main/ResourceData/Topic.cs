@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinnenFA54Project.Main.ResourceData
 {
-    class Topic
+    public class Topic
     {
         public int Id                 { get; set; }
         public string Name            { get; set; }

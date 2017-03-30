@@ -11,7 +11,7 @@ using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Main.ServeData
 {
-    class QuestionMgr : QuizBase
+    public class QuestionMgr : QuizBase
     {
         // Great way to debug regex pattern -> www.regexr.com
         private string regexPattern = @"\{[a-zA-Z]+([0-9]+)\.[a-zA-Z0-9]+\}";
@@ -49,10 +49,10 @@ namespace BinnenFA54Project.Main.ServeData
 
                     _questionslist.Add(new Question()
                     {
-                        Id = result.P_Id,
+                        Id            = result.P_Id,
                         QuestionMeoww = RegexCleanQuestion(result.Frage),
-                        Options = optionsPackage,
-                        SignImg = QuestionImage(result.Frage)
+                        Options       = optionsPackage,
+                        SignImg       = QuestionImage(result.Frage)
                     });
                 }
             }
