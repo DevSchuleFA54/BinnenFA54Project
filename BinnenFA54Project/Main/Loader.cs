@@ -35,11 +35,15 @@ namespace BinnenFA54Project.Main
         {
             try
             {
-                _loader.Abort();
+                _loader.Abort(); // if failed to kill thread
             }
             catch (ThreadAbortException)
             {
-                Thread.ResetAbort();
+                _loader.Abort(); // try again
+            }
+            finally
+            {
+                _loader.Abort(); // if it didn't manage, give last shot.
             }
 
         }
