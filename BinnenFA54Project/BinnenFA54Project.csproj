@@ -131,6 +131,7 @@
     <Compile Include="Main\ServeData\QuestionMgr.cs" />
     <Compile Include="Main\ServeData\QuizBase.cs" />
     <Compile Include="Main\ServeData\TopicMgr.cs" />
+    <Compile Include="Main\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Frameworks\Database\Db.dbml.layout">

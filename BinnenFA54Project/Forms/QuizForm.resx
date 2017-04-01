@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="exit_quizform.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAc5JREFUeF7t
         mIFJRDEMht8IjuIIjuAIjuAmjuRIN8LZXwyU0Paa5I/0IB/8yEGbLwnveeJVFEVRFEVRFA+5P1nojCQn
@@ -131,7 +131,7 @@
         /tIFQdL704LTQ2ckOTl0RpKTQ2ckOTlFURRFURRFMeW6fgBG/U8i+KsjyAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="minimize_quizform.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMinimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAPVJREFUeF7t
         zjFqQEEMQ8F//0snvdngQjuwAQ24cvH0VVVVVVWtfv7ZXXeKvHzXnSIv33WnyMt3HQ+E+D4eCPF9PBDi
@@ -141,7 +141,7 @@
         7S94zTHmAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="maximize_quizform.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMaximize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAATBJREFUeF7t
         zjFqQDEQA9F//0snvXCYYixwQA+2GrD8zczMzMygn392151GXr7rTiMv33WnkZfvuvqAVP9ffUCq/68+

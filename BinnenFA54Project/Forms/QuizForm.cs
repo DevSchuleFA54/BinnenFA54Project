@@ -18,10 +18,10 @@ namespace BinnenFA54Project.Forms
     public partial class QuizForm : Form
     {
         QuizMgr quiz;
-        FeedbackForm _feedbackForm;
-        int qIndex = 0; // Question Indexer.
+        FeedbackForm feedbackForm;
+        private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
-        bool already_checked = false;
+        private bool alreadyChecked;
 
 
         public QuizForm()
@@ -31,10 +31,10 @@ namespace BinnenFA54Project.Forms
             quiz = new QuizMgr();
             InitializeComponent();
             RegisterEventHandlers();
-            progressBar1.Maximum = quiz.Questions.QuestionList.Count;
+            progressBar.Maximum = quiz.Questions.QuestionList.Count;
             UpdateQuestions();
 
-            Thread.Sleep(5000); // TODO: create during that time loading indicator runs on another thread.
+            Thread.Sleep(5000);
             Loader.StopLoader();
         }
 
@@ -42,12 +42,7 @@ namespace BinnenFA54Project.Forms
         private void UpdateQuestions()
         {
 
-            if (cbCombo.Checked == true)
-            {
-                already_checked = true;
-            }
-            else
-                already_checked = false;
+            alreadyChecked = cbCombo.Checked; // progressBar stuffs.
 
             lblQuestion.Text        = quiz.Questions.QuestionList[qIndex].QuestionMeoww;
             cbCombo.CheckBox1Text   = quiz.Questions.QuestionList[qIndex].Options[0];
@@ -119,13 +114,31 @@ namespace BinnenFA54Project.Forms
             }
         }
 
+        private void UpdateProgressBar()
+        {
+            if (cbCombo.Checked && alreadyChecked == false)
+            {
+                progressBar.Value++;
+            }
+            else if (cbCombo.Checked && alreadyChecked)
+            {
 
+            }
+            else if (cbCombo.Checked == false && alreadyChecked)
+            {
+                progressBar.Value--;
+            }
+            else if (cbCombo.Checked == false && alreadyChecked == false)
+            {
+
+            }
+        }
 
         #region --------------- Events Handlers ---------------
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            Answerchecking();
+            UpdateProgressBar();
             UpdateQuestionState(CustomButtonDirection.Forward);
 
             // We only want to increment after the switch cases, since we play with base 0 values.
@@ -143,7 +156,7 @@ namespace BinnenFA54Project.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Answerchecking();
+            UpdateProgressBar();
             UpdateQuestionState(CustomButtonDirection.Back);
 
             qIndex--;
@@ -158,26 +171,6 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
-        private void Answerchecking()
-        {
-            if (cbCombo.Checked == true && already_checked == false)
-            {
-                progressBar1.Value++;
-            }
-            else if (cbCombo.Checked == true && already_checked == true)
-            {
-
-            }
-            else if (cbCombo.Checked == false && already_checked == true)
-            {
-                progressBar1.Value--;
-            }
-            else if (cbCombo.Checked == false && already_checked == false)
-            {
-
-            }
-        }
-
         private void btnFinish_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
@@ -185,22 +178,28 @@ namespace BinnenFA54Project.Forms
 
             if (dialog == DialogResult.Yes)
             {
-                if (progressBar1.Value != progressBar1.Maximum)
+                if (progressBar.Value != progressBar.Maximum)
                 {
-                    DialogResult pbarAnswer = MessageBox.Show("Are you really sure? You have only answered " + progressBar1.Value + " from " + progressBar1.Maximum + " answers, do you want finish?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult pbarAnswer = MessageBox.Show(
+                            string.Format("Seems like you only answered {0} questions from {1}. To continue?",
+                            progressBar.Value, progressBar.Maximum),
+                            "WARNING",
+                            MessageBoxButtons.YesNo, 
+                            MessageBoxIcon.Warning);
 
-                    if (pbarAnswer == DialogResult.No)
-                    {
+                    if (pbarAnswer != DialogResult.Yes)
                         return;
-                    }
-                        
                 }
                 // TODO: Pass the results to store somewhere so we'll access it later from a different form.
 
-                _feedbackForm = new FeedbackForm();
-                _feedbackForm.Show();
+
+
+                feedbackForm = new FeedbackForm();
+                feedbackForm.Show();
                 this.Close();
             }
+
+
         }
 
         #endregion --------------- Events Handlers ---------------
@@ -209,9 +208,9 @@ namespace BinnenFA54Project.Forms
         #region --------------- Extra Events Handlers ---------------
         enum EventHandlerEnum
         {
-            Click = 0,
+            Click    = 0,
             KeyPress = 1,
-            Empty = 2
+            Empty    = 2
         }
 
         /// <summary>
@@ -306,6 +305,44 @@ namespace BinnenFA54Project.Forms
             }
         }
 
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dResult = MessageBox.Show("Are you sure you want to exit the exam?", 
+                "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dResult != DialogResult.Yes)
+                return;
+
+            this.Close();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
         #endregion --------------- Events Handlers ---------------
 
 
@@ -390,45 +427,6 @@ namespace BinnenFA54Project.Forms
             }
         }
 
-        private void exit_quizform_Click(object sender, EventArgs e)
-        {
-            DialogResult quizcloseAnswer = MessageBox.Show("Are you really want abort this exam?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (quizcloseAnswer == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
-                this.Close();
-            }
-        }
-
-        private void minimize_quizform_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void maximize_quizform_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-        }
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
     }
 }
