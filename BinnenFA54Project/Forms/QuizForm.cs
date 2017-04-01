@@ -31,6 +31,7 @@ namespace BinnenFA54Project.Forms
             quiz = new QuizMgr();
             InitializeComponent();
             RegisterEventHandlers();
+            GenerateQuestionSelectors();
             progressBar.Maximum = quiz.Questions.QuestionList.Count;
             UpdateQuestions();
 
@@ -58,22 +59,26 @@ namespace BinnenFA54Project.Forms
 
 
         /// <summary>
-        /// Checks to see which question has beeen answered or waiting and display the checked checkbox
-        /// for
-        /// Gets a direction for knowing if a back or forward button has been pressed in order to know 
-        /// if we need to check the answer before or after a specific index.
+        /// Simply selects the checkbox if state is answered.
         /// </summary>
         /// <param name="direction"></param>
-        private void UpdateQuestionState(CustomButtonDirection direction)
+        private void RenderQuestionResults(CustomButtonDirection? direction)
         {
-            int index;
+            int tmpIndex = qIndex;
+            if (direction != null)
+            {
+                if (direction == CustomButtonDirection.Forward)
+                    tmpIndex += 1;
+                else
+                    tmpIndex -= 1;
+            }
 
-            if (direction == CustomButtonDirection.Forward)
-                index = qIndex + 1;
-            else
-                index = qIndex - 1;
+            SetQuestionState(tmpIndex);
+        }
 
 
+        private void SetQuestionState(int index)
+        {
             switch (quiz.Answers.AnswerList[index].State)
             {
                 case State.Waiting:
@@ -87,7 +92,7 @@ namespace BinnenFA54Project.Forms
 
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
-                    // qIndex+1 since we want to check what is selected answer on the next question before showing to the user.
+                    // index+1 since we want to check what is selected answer on the next question before showing to the user.
                     switch (quiz.Answers.AnswerList[index].SelectedAnswer)
                     {
                         case 0:
@@ -139,7 +144,7 @@ namespace BinnenFA54Project.Forms
         private void btnNext_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
-            UpdateQuestionState(CustomButtonDirection.Forward);
+            RenderQuestionResults(CustomButtonDirection.Forward);
 
             // We only want to increment after the switch cases, since we play with base 0 values.
             qIndex++;
@@ -157,7 +162,7 @@ namespace BinnenFA54Project.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
-            UpdateQuestionState(CustomButtonDirection.Back);
+            RenderQuestionResults(CustomButtonDirection.Back);
 
             qIndex--;
 
@@ -428,5 +433,80 @@ namespace BinnenFA54Project.Forms
         }
 
 
+
+        #region -------------- Button Question Selectors --------------
+        /// <summary>
+        /// There are 30 questions in this particular quiz.
+        /// </summary>
+        private int x;
+        private int y;
+        private int startX = 148;
+        private int startY = 499;
+        private int spacingX = 30;
+        private int spacingY = 28;
+        private Button[] buttons;
+
+        public void GenerateQuestionSelectors()
+        {
+            x = startX;
+            y = startY;
+            buttons = new Button[quiz.Questions.QuestionList.Count];
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i] = new Button();
+                buttons[i].Text = (i + 1).ToString();
+                buttons[i].UseVisualStyleBackColor = true;
+                buttons[i].BackColor = Color.DeepSkyBlue;
+                buttons[i].Size = new Size(27, 23);
+                buttons[i].Tag = i.ToString();
+                buttons[i].TabIndex = 20;
+                buttons[i].Anchor = AnchorStyles.Bottom;
+
+                if (i == 18) // If 18 buttons generated go on the 19 button 1 floor down.
+                {
+                    // endX - startX / 2 + startX = centerX
+                    // if the number of the center is odd, do (results - incrementer / 2).
+                    x = (((x - startX) / 2) + startX) - (spacingX / 2);
+                    x = (x - (spacingX * 6) + (spacingX / 2)); // 6 is the rest.
+                    y += spacingY;
+                }
+
+                buttons[i].Location = new Point(x, y);
+                buttons[i].Click += btnSelector_Click;
+                x += spacingX;
+
+                this.Controls.Add(buttons[i]);
+            }
+
+        }
+
+
+        private void btnSelector_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(((Button)sender).Tag.ToString()); // gets the indexer of the generated button.
+
+            if (value == 0)
+            {
+                btnBack.ButtonEnabled = false;
+                btnNext.ButtonEnabled = true;
+            }
+            else if (value == (quiz.Questions.QuestionList.Count - 1)) // last question
+            {
+                btnBack.ButtonEnabled = true;
+                btnNext.ButtonEnabled = false;
+            }
+            else
+            {
+                btnBack.ButtonEnabled = true;
+                btnNext.ButtonEnabled = true;
+            }
+
+
+            qIndex = value;
+            RenderQuestionResults(null); UpdateQuestions();
+        }
+
+
+        #endregion -------------- Button Question Selectors --------------
     }
 }

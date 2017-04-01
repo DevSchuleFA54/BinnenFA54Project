@@ -53,7 +53,7 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(148, 442);
+            this.progressBar.Location = new System.Drawing.Point(148, 441);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(530, 31);
             this.progressBar.TabIndex = 1;
@@ -89,7 +89,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 450);
+            this.label4.Location = new System.Drawing.Point(93, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(684, 450);
+            this.label5.Location = new System.Drawing.Point(684, 449);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 2;
@@ -120,7 +120,7 @@
             // 
             this.lblQuestionIndexer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblQuestionIndexer.AutoSize = true;
-            this.lblQuestionIndexer.Location = new System.Drawing.Point(462, 480);
+            this.lblQuestionIndexer.Location = new System.Drawing.Point(462, 479);
             this.lblQuestionIndexer.Name = "lblQuestionIndexer";
             this.lblQuestionIndexer.Size = new System.Drawing.Size(13, 13);
             this.lblQuestionIndexer.TabIndex = 2;
@@ -130,7 +130,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(361, 480);
+            this.label1.Location = new System.Drawing.Point(361, 479);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 2;
@@ -156,16 +156,18 @@
             this.cbCombo.CheckBox4Text = "CheckBox Text";
             this.cbCombo.CheckBoxAutoSize = false;
             this.cbCombo.CheckBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(600, 40);
-            this.cbCombo.CheckBoxSize = new System.Drawing.Size(645, 55);
+            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(603, 52);
+            this.cbCombo.CheckBoxSize = new System.Drawing.Size(644, 52);
             this.cbCombo.HandCursorHover = true;
             this.cbCombo.LabelForeColor = System.Drawing.Color.NavajoWhite;
             this.cbCombo.LabelForeColorDisabled = System.Drawing.Color.Gray;
             this.cbCombo.LabelForeColorHover = System.Drawing.Color.White;
             this.cbCombo.Location = new System.Drawing.Point(96, 160);
+            this.cbCombo.MinimumSize = new System.Drawing.Size(230, 150);
             this.cbCombo.Name = "cbCombo";
-            this.cbCombo.Size = new System.Drawing.Size(650, 235);
+            this.cbCombo.Size = new System.Drawing.Size(650, 233);
             this.cbCombo.TabIndex = 8;
+            this.cbCombo.ViewModeState = GiladControllers.ControlViewMode.Active;
             // 
             // btnBack
             // 
@@ -175,7 +177,7 @@
             this.btnBack.ButtonEnabled = false;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnBack.HandCursorHover = true;
-            this.btnBack.Location = new System.Drawing.Point(12, 418);
+            this.btnBack.Location = new System.Drawing.Point(12, 417);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 75);
             this.btnBack.TabIndex = 7;
@@ -188,7 +190,7 @@
             this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnNext.ButtonEnabled = true;
             this.btnNext.HandCursorHover = true;
-            this.btnNext.Location = new System.Drawing.Point(764, 418);
+            this.btnNext.Location = new System.Drawing.Point(764, 417);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 75);
             this.btnNext.TabIndex = 7;
@@ -233,7 +235,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(851, 505);
+            this.ClientSize = new System.Drawing.Size(851, 560);
             this.Controls.Add(this.btnMaximize);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnExit);
