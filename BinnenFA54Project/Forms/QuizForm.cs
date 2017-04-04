@@ -22,6 +22,8 @@ namespace BinnenFA54Project.Forms
         private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
         private bool alreadyChecked;
+        private bool reviewExam = false;
+
 
 
         public QuizForm()
@@ -32,10 +34,30 @@ namespace BinnenFA54Project.Forms
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
-            progressBar.Maximum = quiz.Questions.QuestionList.Count;
             UpdateQuestions();
 
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
+            Loader.StopLoader();
+        }
+
+        public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
+        {
+            Loader.StartLoader(LoaderSelector.Loader);
+
+            reviewExam = true;
+            _checked   = new bool[4];
+
+            this.quiz  = quiz;
+            InitializeComponent();
+            btnFinish.Dispose();
+            GenerateQuestionSelectors();
+            RenderQuestionResults(null);
+            UpdateQuestions();
+
+            // Unregistering all the events in the sub controllers so the user will only review his exam.
+            this.KeyPress -= QuizForm_KeyPress;
+            cbCombo.ViewModeState = ControlViewMode.Inactive; // New property comes from the dll.
+
             Loader.StopLoader();
         }
 
@@ -92,51 +114,160 @@ namespace BinnenFA54Project.Forms
 
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
-                    // index+1 since we want to check what is selected answer on the next question before showing to the user.
+
+                    // TODO: Handle nullable correctAnswer.
+                    int? correctAnswer = quiz.Answers.AnswerList[index].CorrectAnswerNum;
                     switch (quiz.Answers.AnswerList[index].SelectedAnswer)
                     {
                         case 0:
                             _checked[0] = true;
-                            cbCombo.SelectCheckBox(CbIndex.First, true);
+                            cbCombo.SelectCheckBoxIndex = 0;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right) // wrong answer.
+                                {
+                                    // Mark the selected cb with WrongSelect.
+                                    cbCombo.cbOption1.WrongSelected = true;
+                                    // Select the correct answer.
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 1:
                             _checked[1] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Second, true);
+                            cbCombo.SelectCheckBoxIndex = 1;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption2.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 2:
                             _checked[2] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Third, true);
+                            cbCombo.SelectCheckBoxIndex = 2;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption3.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 3:
                             _checked[3] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Fourth, true);
+                            cbCombo.SelectCheckBoxIndex = 3;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption4.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
-                        default:
-                            MessageBox.Show(@"[QuizForm::btnNext/Back_Click] - Unmatched <State> switch case.");
+                        default: // if no selected answer.
+                            cbCombo.cbOption1.WrongAnswer = cbCombo.cbOption2.WrongAnswer =
+                            cbCombo.cbOption3.WrongAnswer = cbCombo.cbOption4.WrongAnswer = true;
+                            if (correctAnswer != null)
+                                cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                            // TODO: Add smiley netural.
+
                             break;
-                    }
+                    } // End State.Answered switch
+
                     break;
-            }
+            } // End switch.
+
         }
+
+
+        /// <summary>
+        /// Checks with the quiz.AnswerMgr answers which of the questions is wrong or right
+        /// and change their state in the list.
+        /// Also counting how many wrong and right.
+        /// </summary>
+        private void StoreResults()
+        {
+            int rightCount = 0;
+            int wrongCount = 0;
+
+            foreach (var answer in quiz.Answers.AnswerList)
+            {
+                int? correctAnswer = answer.CorrectAnswerNum;
+                int? selectedAnswer = answer.SelectedAnswer + 1;
+
+                if (correctAnswer != null)
+                {
+                    if (correctAnswer == selectedAnswer)
+                    {
+                        answer.Results = Results.Right;
+                        rightCount++;
+                    }
+                    else
+                    {
+                        answer.Results = Results.Wrong;
+                        wrongCount++;
+                    }
+
+                    // TODO: If there is a correct answer and he didn't answer, set the state to answered. because we check later.
+                    // Problem here that we don't have selected answer and switch case will fail later on btnNext.
+                    answer.State = State.Answered;
+                }
+                else
+                {
+                    // If the correct answer is null results to noone of the answers are correct.
+                    // So we check if the user selected one of the check boxes, and if he did, wrong, if not, right. 
+                    // if user have a selected answer for that question.
+                    if (selectedAnswer.In(0, 1, 2, 3)) // same as value == 0, value == 1... using extension method.
+                    {
+                        answer.Results = Results.Wrong;
+                        wrongCount++;
+                    }
+                    else
+                    {
+                        // Right because no correct answer for that question and user didn't select any.
+                        answer.Results = Results.Right;
+                        rightCount++;
+                    }
+                }
+            }
+#if DEBUG
+            MessageBox.Show(string.Format("{0} wrong and {1} right.", wrongCount, rightCount));
+#endif
+        }
+
+
 
         private void UpdateProgressBar()
         {
             if (cbCombo.Checked && alreadyChecked == false)
-            {
                 progressBar.Value++;
-            }
-            else if (cbCombo.Checked && alreadyChecked)
-            {
-
-            }
             else if (cbCombo.Checked == false && alreadyChecked)
-            {
                 progressBar.Value--;
-            }
-            else if (cbCombo.Checked == false && alreadyChecked == false)
-            {
-
-            }
         }
 
         #region --------------- Events Handlers ---------------
@@ -185,22 +316,20 @@ namespace BinnenFA54Project.Forms
             {
                 if (progressBar.Value != progressBar.Maximum)
                 {
-                    DialogResult pbarAnswer = MessageBox.Show(
+                    DialogResult dialogResult = MessageBox.Show(
                             string.Format("Seems like you only answered {0} questions from {1}. To continue?",
                             progressBar.Value, progressBar.Maximum),
                             "WARNING",
                             MessageBoxButtons.YesNo, 
                             MessageBoxIcon.Warning);
 
-                    if (pbarAnswer != DialogResult.Yes)
+                    if (dialogResult != DialogResult.Yes)
                         return;
                 }
-                // TODO: Pass the results to store somewhere so we'll access it later from a different form.
-
-
-
-                feedbackForm = new FeedbackForm();
-                feedbackForm.Show();
+                // TODO: Store the results in database.
+                StoreResults();
+                QuizForm quizForm = new QuizForm(quiz);
+                quizForm.Show();
                 this.Close();
             }
 
@@ -225,36 +354,54 @@ namespace BinnenFA54Project.Forms
         private void RegisterEventHandlers()
         {
             _checked = new bool[4];
-
-            cbCombo.cbOption1.pbCheckBox.Click += new EventHandler(cbOption1_CheckedChanged);
-            cbCombo.cbOption2.pbCheckBox.Click += new EventHandler(cbOption2_CheckedChanged);
-            cbCombo.cbOption3.pbCheckBox.Click += new EventHandler(cbOption3_CheckedChanged);
-            cbCombo.cbOption4.pbCheckBox.Click += new EventHandler(cbOption4_CheckedChanged);
+            cbCombo.cbOption1.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption2.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption3.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption4.pbCheckBox.Click += cbOption_CheckedChanged;
         }
 
 
-        private void cbOption1_CheckedChanged(object sender, EventArgs e)
+        private void cbOption_CheckedChanged(object sender, EventArgs e)
         {
-            if (!cbCombo.cbOption1.Checked) return;
-            CheckBox1ChangeState(EventHandlerEnum.KeyPress);
-        }
+            var tag = Convert.ToInt32(((PictureBox)sender).Tag);
 
-        private void cbOption2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption2.Checked) return;
-            CheckBox2ChangeState(EventHandlerEnum.KeyPress);
-        }
+            switch (tag)
+            {
+                case 0:
+                    if (!cbCombo.cbOption1.Checked)
+                    {
+                        _checked[0] = false;
+                        return;
+                    }
+                    CheckBox1ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 1:
+                    if (!cbCombo.cbOption2.Checked)
+                    {
+                        _checked[1] = false;
+                        return;
+                    }
+                    CheckBox2ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 2:
+                    if (!cbCombo.cbOption3.Checked)
+                    {
+                        _checked[2] = false;
+                        return;
+                    }
+                    CheckBox3ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 3:
+                    if (!cbCombo.cbOption4.Checked)
+                    {
+                        _checked[3] = false;
+                        return;
+                    }
+                    CheckBox4ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+            }
 
-        private void cbOption3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption3.Checked) return;
-            CheckBox3ChangeState(EventHandlerEnum.KeyPress);
-        }
 
-        private void cbOption4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption4.Checked) return;
-            CheckBox4ChangeState(EventHandlerEnum.KeyPress);
         }
 
 

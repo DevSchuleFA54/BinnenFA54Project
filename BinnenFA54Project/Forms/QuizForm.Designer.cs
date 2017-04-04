@@ -57,6 +57,7 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(530, 31);
             this.progressBar.TabIndex = 1;
+            this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
             // 
             // lblTitle
             // 
