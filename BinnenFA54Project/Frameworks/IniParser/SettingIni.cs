@@ -11,7 +11,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
     /// Considering deleting this class, but if you want to use the configuration as properties,
     /// feel free to instanciat this class as all in one configuration.
     /// </summary>
-    class SettingIniUtility
+    class SettingIni
     {
         private ISettingIni setting = new SettingIniImpl();
         private ISettingIniEdit settingEdit = new SettingIniImpl();

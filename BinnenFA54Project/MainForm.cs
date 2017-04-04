@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Forms;
+using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
 
@@ -19,9 +20,12 @@ namespace BinnenFA54Project
         private TopicMgr _topics;
         private QuizForm quizForm;
         private ConfigurationForm configurationForm;
+        private SettingIni setting;
 
         public MainForm()
         {
+            setting = new SettingIni();
+
             InitializeComponent();
             InitializeTopicList();
         }

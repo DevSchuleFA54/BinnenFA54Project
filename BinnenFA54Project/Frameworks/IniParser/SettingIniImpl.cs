@@ -20,8 +20,61 @@ namespace BinnenFA54Project.Frameworks.IniParser
     class SettingIniImpl : ISettingIni, ISettingIniEdit
     {
         private static FileIniDataParser iniParser = new FileIniDataParser();
-        private static IniData data = new IniData();
-        private static string settingFilePath = AppDomain.CurrentDomain.BaseDirectory + "Setting.ini";
+        private static IniData data                = new IniData();
+        private static string settingPath          = AppDomain.CurrentDomain.BaseDirectory + "bbaaSetting.ini";
+
+
+        public SettingIniImpl()
+        {
+            if (!File.Exists(settingPath))
+                GenerateDefaultSettingFile();
+        }
+
+
+
+        private void GenerateDefaultSettingFile()
+        {
+            // Generates and creates default setting file.
+            File.Create(settingPath).Close();
+
+            // Sections:
+            data.Sections.AddSection("GeneralConfiguration");
+            data.Sections.AddSection("MiscConfiguration");
+            data.Sections.AddSection("UserConfiguration");
+
+            // Keys:
+            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_UI_CONTROLS", "true");
+            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_ON_TOP_MOST", "false");
+            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_ICON_IN_TRAY", "true");
+
+            data.Sections.GetSectionData("MiscConfiguration").Keys.AddKey("DATE_FORMAT", "D");
+            data.Sections.GetSectionData("MiscConfiguration").Keys.AddKey("ENABLE_SQL_NAME_INSTANCE", "false");
+
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("APPLICATION_NAME", "Sportbootfuehrerschein Binnen(Unter Antriebsmaschine)");
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("PASSED_WITH_PERCENT", "95");
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("COMPANY_NAME", "Segelschule OSZ IMT GmbH");
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("STREET_NAME", "Marine Weg 6b");
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("POSTCODE_AND_CITY", "54321");
+            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("TELEPHONE_NUMBER", "015015");
+
+
+            // Comments:
+            data.Sections.GetSectionData("GeneralConfiguration").LeadingComments
+                .Add("If you modify this file, make sure you restart your app so it will parse it.");
+            data.Sections.GetSectionData("GeneralConfiguration").LeadingComments.Add("");
+
+            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
+                Add(@"There is more, but this is enough, look at DateTime.Now.ToString(""); function and see if you need more formats.");
+            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
+                Add(@"yy-MM-dd	= 08-04-25");
+            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
+                Add(@"yyyy-M-d	= 2008-04-25");
+            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
+                Add(@"D 		= Thursday, 25 April 2008 ");
+
+
+            iniParser.WriteFile(settingPath, data);
+        }
 
 
         #region ------------------------------------- ISettingIni -------------------------------------
@@ -36,7 +89,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                data = iniParser.ReadFile(settingFilePath);
+                data = iniParser.ReadFile(settingPath);
                 appOnTopMost = bool.Parse(data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"]);
             }
             catch (Exception)
@@ -59,7 +112,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                data = iniParser.ReadFile(settingFilePath);
+                data = iniParser.ReadFile(settingPath);
                 windowControls = bool.Parse(data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"]);
             }
             catch (Exception)
@@ -82,7 +135,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                data = iniParser.ReadFile(settingFilePath);
+                data = iniParser.ReadFile(settingPath);
                 iconInTray = bool.Parse(data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"]);
             }
             catch (Exception)
@@ -101,13 +154,13 @@ namespace BinnenFA54Project.Frameworks.IniParser
         ///
         public string DateFormat()
         {
-            if (!File.Exists(settingFilePath))
+            if (!File.Exists(settingPath))
             {
                 ErrorMsgMissingFile("DATE_FORMAT");
                 return "yyyy-M-d"; // Format example -> 2008-04-15
             }
 
-            data = iniParser.ReadFile(settingFilePath);
+            data = iniParser.ReadFile(settingPath);
             return data["MiscConfiguration"]["DATE_FORMAT"];      
         }
 
@@ -123,7 +176,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             try
             {
-                data = iniParser.ReadFile(settingFilePath);
+                data = iniParser.ReadFile(settingPath);
                 sqlNameInstance = bool.Parse(data["MiscConfiguration"]["ENABLE_SQL_NAME_INSTANCE"]);
             }
             catch (Exception)
@@ -142,7 +195,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
 
 
-        #region region ------------------------------------- ISettingIniEdit -------------------------------------
+        #region ------------------------------------- ISettingIniEdit -------------------------------------
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditOnTopMost
         /// \param flag
@@ -153,7 +206,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
             try
             {
                 data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"] = flag.ToString().ToLower();
-                iniParser.WriteFile(settingFilePath, data);
+                iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
             {
@@ -172,7 +225,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
             try
             {
                 data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"] = flag.ToString().ToLower();
-                iniParser.WriteFile(settingFilePath, data);
+                iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
             {
@@ -191,7 +244,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
             try
             {
                 data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString();
-                iniParser.WriteFile(settingFilePath, data);
+                iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
             {
@@ -210,7 +263,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
             try
             {
                 data["GeneralConfiguration"]["DATE_FORMAT"] = dateFormat;
-                iniParser.WriteFile(settingFilePath, data);
+                iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
             {
@@ -229,7 +282,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
             try
             {
                 data["GeneralConfiguration"]["ENABLE_SQL_NAME_INSTANCE"] = flag.ToString().ToLower();
-                iniParser.WriteFile(settingFilePath, data);
+                iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
             {
