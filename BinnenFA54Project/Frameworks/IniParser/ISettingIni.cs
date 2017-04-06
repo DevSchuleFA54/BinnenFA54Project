@@ -43,14 +43,5 @@ namespace BinnenFA54Project.Frameworks.IniParser
          */
         string DateFormat();
 
-
-        /**
-         * Returns true or false property.
-         *
-         * @return      bool
-         * @discussion  None
-         */
-        bool SQLNameInstance();
-
     }
 }

@@ -34,9 +34,6 @@ namespace BinnenFA54Project.Frameworks.IniParser
         public string DateFormat => setting.DateFormat();
 
 
-        [Description("Name instance enabled or not. default: Server=localhost\\sqlexpress."), Category("MiscConfiguration")]
-        public bool SQLNameInstance => setting.SQLNameInstance();
-
         #endregion ---------------------------- GET PROPERTIES -------------------------------
 
 
@@ -60,8 +57,6 @@ namespace BinnenFA54Project.Frameworks.IniParser
         public string SetDateFormat { set { settingEdit.EditDateFormat(value); } }
 
 
-        [Description("Name instance enabled or not. default: Server=localhost\\sqlexpress."), Category("MiscConfiguration")]
-        public bool SetSQLNameInstance { set { settingEdit.EditSQLNameInstance(value); } }
 
         #endregion ---------------------------- SET PROPERTIES -------------------------------
 

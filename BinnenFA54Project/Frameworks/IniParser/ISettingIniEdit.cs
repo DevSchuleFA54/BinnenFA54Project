@@ -43,13 +43,5 @@ namespace BinnenFA54Project.Frameworks.IniParser
          */
         void EditDateFormat(string dateFormat);
 
-
-        /**
-         * Modify the Setting.ini values.
-         *
-         * @return      None
-         * @discussion  None
-         */
-        void EditSQLNameInstance(bool flag);
     }
 }

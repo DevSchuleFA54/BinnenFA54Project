@@ -124,28 +124,6 @@ namespace BinnenFA54Project.Frameworks.IniParser
         }
 
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// \brief SettingIniImpl::SQLNameInstance
-        /// \param
-        /// \return bool
-        ///
-        public bool SQLNameInstance()
-        {
-            bool sqlNameInstance = false; // default setting
-
-            try
-            {
-                data = iniParser.ReadFile(settingPath);
-                sqlNameInstance = bool.Parse(data["MiscConfiguration"]["ENABLE_SQL_NAME_INSTANCE"]);
-            }
-            catch (Exception)
-            {
-                ErrorMsgMissingFile("ENABLE_SQL_NAME_INSTANCE");
-            }
-
-            return sqlNameInstance;
-        }
-
         #endregion ------------------------------------- ISettingIni -------------------------------------
 
 
@@ -230,24 +208,6 @@ namespace BinnenFA54Project.Frameworks.IniParser
             }
         }
 
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// \brief SettingIniImpl::EditSQLNameInstance
-        /// \param flag
-        /// \return 
-        ///
-        public void EditSQLNameInstance(bool flag)
-        {
-            try
-            {
-                data["GeneralConfiguration"]["ENABLE_SQL_NAME_INSTANCE"] = flag.ToString().ToLower();
-                iniParser.WriteFile(settingPath, data);
-            }
-            catch (Exception)
-            {
-                ErrorMsgMissingFile("ENABLE_SQL_NAME_INSTANCE");
-            }
-        }
         #endregion ------------------------------------- ISettingIniEdit -------------------------------------
 
 
