@@ -679,5 +679,32 @@ namespace BinnenFA54Project.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ; If you modify this file, make sure you restart your app so it will parse it.
+        ///
+        ///[GeneralConfiguration] 
+        ///ENABLE_UI_CONTROLS	= true
+        ///ENABLE_ON_TOP_MOST	= false
+        ///ENABLE_ICON_IN_TRAY	= true
+        ///
+        ///
+        ///[MiscConfiguration]
+        ///; There is more, but this is enough, look at DateTime.Now.ToString(&quot;&quot;); function and see if you need more formats.
+        ///; yy-MM-dd	= 08-04-25
+        ///; yyyy-M-d	= 2008-04-25
+        ///; D 		= Thursday, 25 April 2008 
+        ///DATE_FORMAT				 = D
+        ///ENABLE_SQL_NAME_INSTANCE = false
+        ///
+        ///
+        ///[UserConfiguration]
+        ///APPLICATION_NAME    [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
     }
 }

@@ -21,60 +21,19 @@ namespace BinnenFA54Project.Frameworks.IniParser
     {
         private static FileIniDataParser iniParser = new FileIniDataParser();
         private static IniData data                = new IniData();
-        private static string settingPath          = AppDomain.CurrentDomain.BaseDirectory + "bbaaSetting.ini";
+        private static string settingPath          = AppDomain.CurrentDomain.BaseDirectory + "Settings.ini";
 
 
         public SettingIniImpl()
         {
             if (!File.Exists(settingPath))
-                GenerateDefaultSettingFile();
+            {
+                MessageBox.Show("Missing Settings.ini file. Generating Settings.ini with default settings for you.", 
+                    "Missing Settings File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                File.WriteAllText(settingPath, Properties.Resources.Settings);
+            }
         }
 
-
-
-        private void GenerateDefaultSettingFile()
-        {
-            // Generates and creates default setting file.
-            File.Create(settingPath).Close();
-
-            // Sections:
-            data.Sections.AddSection("GeneralConfiguration");
-            data.Sections.AddSection("MiscConfiguration");
-            data.Sections.AddSection("UserConfiguration");
-
-            // Keys:
-            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_UI_CONTROLS", "true");
-            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_ON_TOP_MOST", "false");
-            data.Sections.GetSectionData("GeneralConfiguration").Keys.AddKey("ENABLE_ICON_IN_TRAY", "true");
-
-            data.Sections.GetSectionData("MiscConfiguration").Keys.AddKey("DATE_FORMAT", "D");
-            data.Sections.GetSectionData("MiscConfiguration").Keys.AddKey("ENABLE_SQL_NAME_INSTANCE", "false");
-
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("APPLICATION_NAME", "Sportbootfuehrerschein Binnen(Unter Antriebsmaschine)");
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("PASSED_WITH_PERCENT", "95");
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("COMPANY_NAME", "Segelschule OSZ IMT GmbH");
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("STREET_NAME", "Marine Weg 6b");
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("POSTCODE_AND_CITY", "54321");
-            data.Sections.GetSectionData("UserConfiguration").Keys.AddKey("TELEPHONE_NUMBER", "015015");
-
-
-            // Comments:
-            data.Sections.GetSectionData("GeneralConfiguration").LeadingComments
-                .Add("If you modify this file, make sure you restart your app so it will parse it.");
-            data.Sections.GetSectionData("GeneralConfiguration").LeadingComments.Add("");
-
-            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
-                Add(@"There is more, but this is enough, look at DateTime.Now.ToString(""); function and see if you need more formats.");
-            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
-                Add(@"yy-MM-dd	= 08-04-25");
-            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
-                Add(@"yyyy-M-d	= 2008-04-25");
-            data.Sections.GetSectionData("MiscConfiguration").Keys.GetKeyData("DATE_FORMAT").Comments.
-                Add(@"D 		= Thursday, 25 April 2008 ");
-
-
-            iniParser.WriteFile(settingPath, data);
-        }
 
 
         #region ------------------------------------- ISettingIni -------------------------------------
