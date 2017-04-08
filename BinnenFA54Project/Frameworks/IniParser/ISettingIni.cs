@@ -43,5 +43,68 @@ namespace BinnenFA54Project.Frameworks.IniParser
          */
         string DateFormat();
 
+
+         /**
+         * Returns a string of the application title.
+         *
+         * @return      string
+         * @discussion  None
+         */
+        string ApplicationTitle();
+
+
+        /**
+        * Returns a int of the percent to pass.
+        *
+        * @return      int
+        * @discussion  None
+        */
+        int PassedWithPercent();
+
+
+        /**
+        * Returns a string of the developers company name.
+        *
+        * @return      string
+        * @discussion  None
+        */
+        string CompanyName();
+
+
+        /**
+        * Returns a string of the street name and house number.
+        *
+        * @return      string
+        * @discussion  None
+        */
+        string StreetName();
+
+
+        /**
+        * Returns a string of the post code and city name.
+        *
+        * @return      string
+        * @discussion  None
+        */
+        string PostcodeAndCity();
+
+
+        /**
+        * Returns a string of the country name.
+        *
+        * @return      string
+        * @discussion  None
+        */
+        string Country();
+
+
+        /**
+        * Returns a string of the developers company phone number.
+        *
+        * @return      string
+        * @discussion  None
+        */
+        string PhoneNumber();
+
     }
 }
