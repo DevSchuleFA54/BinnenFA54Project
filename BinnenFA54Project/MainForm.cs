@@ -27,7 +27,17 @@ namespace BinnenFA54Project
             setting = new SettingIni();
 
             InitializeComponent();
+            InitializeSettings();
+
             InitializeTopicList();
+        }
+
+        private void InitializeSettings()
+        {
+            lblAppTitle.Text     = setting.ApplicationTitle;
+            lblCompanyName.Text  = setting.CompanyName;
+            lblStreet.Text       = setting.StreetName;
+            lblPostcodeCity.Text = setting.PostcodeAndCity + " " + setting.Country;
         }
 
         private void InitializeTopicList()

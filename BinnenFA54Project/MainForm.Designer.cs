@@ -65,7 +65,7 @@
             // 
             this.lblAppTitle.AutoSize = true;
             this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppTitle.Location = new System.Drawing.Point(52, 56);
+            this.lblAppTitle.Location = new System.Drawing.Point(12, 47);
             this.lblAppTitle.Name = "lblAppTitle";
             this.lblAppTitle.Size = new System.Drawing.Size(248, 22);
             this.lblAppTitle.TabIndex = 0;
@@ -73,28 +73,25 @@
             // 
             // lblCompanyName
             // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(459, 56);
+            this.lblCompanyName.Location = new System.Drawing.Point(671, 63);
             this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(82, 13);
+            this.lblCompanyName.Size = new System.Drawing.Size(155, 21);
             this.lblCompanyName.TabIndex = 0;
             this.lblCompanyName.Text = "Company Name";
             // 
             // lblStreet
             // 
-            this.lblStreet.AutoSize = true;
-            this.lblStreet.Location = new System.Drawing.Point(459, 69);
+            this.lblStreet.Location = new System.Drawing.Point(671, 84);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(35, 13);
+            this.lblStreet.Size = new System.Drawing.Size(155, 19);
             this.lblStreet.TabIndex = 0;
             this.lblStreet.Text = "Street";
             // 
             // lblPostcodeCity
             // 
-            this.lblPostcodeCity.AutoSize = true;
-            this.lblPostcodeCity.Location = new System.Drawing.Point(459, 82);
+            this.lblPostcodeCity.Location = new System.Drawing.Point(671, 103);
             this.lblPostcodeCity.Name = "lblPostcodeCity";
-            this.lblPostcodeCity.Size = new System.Drawing.Size(72, 13);
+            this.lblPostcodeCity.Size = new System.Drawing.Size(155, 25);
             this.lblPostcodeCity.TabIndex = 0;
             this.lblPostcodeCity.Text = "Postcode City";
             // 
@@ -102,9 +99,6 @@
             // 
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filToolStripMenuItem,
-            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(89, 24);
@@ -219,7 +213,7 @@
             // cbQuizPicker
             // 
             this.cbQuizPicker.FormattingEnabled = true;
-            this.cbQuizPicker.Location = new System.Drawing.Point(396, 151);
+            this.cbQuizPicker.Location = new System.Drawing.Point(565, 138);
             this.cbQuizPicker.Name = "cbQuizPicker";
             this.cbQuizPicker.Size = new System.Drawing.Size(286, 21);
             this.cbQuizPicker.TabIndex = 3;
@@ -249,7 +243,7 @@
             this.btnStartExam.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnStartExam.ButtonEnabled = true;
             this.btnStartExam.HandCursorHover = true;
-            this.btnStartExam.Location = new System.Drawing.Point(590, 244);
+            this.btnStartExam.Location = new System.Drawing.Point(776, 359);
             this.btnStartExam.Name = "btnStartExam";
             this.btnStartExam.Size = new System.Drawing.Size(92, 89);
             this.btnStartExam.TabIndex = 6;
@@ -259,7 +253,7 @@
             // 
             this.maximize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maximize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("maximize_MainForm.Image")));
-            this.maximize_MainForm.Location = new System.Drawing.Point(614, 0);
+            this.maximize_MainForm.Location = new System.Drawing.Point(800, 0);
             this.maximize_MainForm.Name = "maximize_MainForm";
             this.maximize_MainForm.Size = new System.Drawing.Size(37, 27);
             this.maximize_MainForm.TabIndex = 14;
@@ -270,7 +264,7 @@
             // 
             this.minimize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("minimize_MainForm.Image")));
-            this.minimize_MainForm.Location = new System.Drawing.Point(571, 0);
+            this.minimize_MainForm.Location = new System.Drawing.Point(757, 0);
             this.minimize_MainForm.Name = "minimize_MainForm";
             this.minimize_MainForm.Size = new System.Drawing.Size(37, 27);
             this.minimize_MainForm.TabIndex = 13;
@@ -282,7 +276,7 @@
             this.exit_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exit_MainForm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.exit_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("exit_MainForm.Image")));
-            this.exit_MainForm.Location = new System.Drawing.Point(657, 0);
+            this.exit_MainForm.Location = new System.Drawing.Point(843, 0);
             this.exit_MainForm.Name = "exit_MainForm";
             this.exit_MainForm.Size = new System.Drawing.Size(37, 27);
             this.exit_MainForm.TabIndex = 11;
@@ -291,7 +285,7 @@
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(582, 53);
+            this.pbLogo.Location = new System.Drawing.Point(565, 63);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(100, 50);
             this.pbLogo.TabIndex = 2;
@@ -302,8 +296,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(694, 345);
+            this.ClientSize = new System.Drawing.Size(880, 460);
             this.Controls.Add(this.maximize_MainForm);
             this.Controls.Add(this.minimize_MainForm);
             this.Controls.Add(this.exit_MainForm);
