@@ -73,43 +73,5 @@ namespace BinnenFA54Project
 
 
 
-
-
-
-
-
-        private void exit_MainForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void maximize_MainForm_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void minimize_MainForm_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
     }
 }

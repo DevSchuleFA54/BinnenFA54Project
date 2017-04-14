@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 namespace BinnenFA54Project.Frameworks.IniParser
 {
     /// <summary>
-    /// Considering deleting this class, but if you want to use the configuration as properties,
-    /// feel free to instanciat this class as all in one configuration.
+    /// This is the class you want to instantiate to access settings.
     /// </summary>
     class SettingIni
     {
-        SettingIniImpl a = new SettingIniImpl();
         private ISettingIni setting = new SettingIniImpl();
         private ISettingIniEdit settingEdit = new SettingIniImpl();
 

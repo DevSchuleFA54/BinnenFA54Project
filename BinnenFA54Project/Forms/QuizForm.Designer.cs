@@ -29,9 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.lblExamNum = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,9 +41,6 @@
             this.cbCombo = new GiladControllers.Gilad4CheckBox();
             this.btnBack = new GiladControllers.GiladButton();
             this.btnNext = new GiladControllers.GiladButton();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnMaximize = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +52,6 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(530, 31);
             this.progressBar.TabIndex = 1;
-            this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(9, 26);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(82, 13);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Application Title";
             // 
             // lblExamNum
             // 
@@ -197,49 +182,12 @@
             this.btnNext.TabIndex = 7;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(813, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(37, 27);
-            this.btnExit.TabIndex = 10;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(727, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(37, 27);
-            this.btnMinimize.TabIndex = 11;
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximize.Image")));
-            this.btnMaximize.Location = new System.Drawing.Point(770, 0);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(37, 27);
-            this.btnMaximize.TabIndex = 12;
-            this.btnMaximize.UseVisualStyleBackColor = true;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(851, 560);
-            this.Controls.Add(this.btnMaximize);
-            this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pbSign);
             this.Controls.Add(this.cbCombo);
             this.Controls.Add(this.btnBack);
@@ -251,7 +199,6 @@
             this.Controls.Add(this.lblExamNum);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblQuestionIndexer);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -269,7 +216,6 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblExamNum;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label label4;
@@ -281,8 +227,5 @@
         private GiladControllers.GiladButton btnBack;
         private GiladControllers.Gilad4CheckBox cbCombo;
         private System.Windows.Forms.PictureBox pbSign;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.Button btnMaximize;
     }
 }

@@ -458,43 +458,6 @@ namespace BinnenFA54Project.Forms
         }
 
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult dResult = MessageBox.Show("Are you sure you want to exit the exam?", 
-                "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dResult != DialogResult.Yes)
-                return;
-
-            this.Close();
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-        }
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
         #endregion --------------- Events Handlers ---------------
 
 

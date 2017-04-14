@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblPostcodeCity = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openExistingConfigurationFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurationFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,11 +51,8 @@
             this.btnConfig = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnStartExam = new GiladControllers.GiladButton();
-            this.maximize_MainForm = new System.Windows.Forms.Button();
-            this.minimize_MainForm = new System.Windows.Forms.Button();
-            this.exit_MainForm = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
+            this.lblExamTopics = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,16 +89,6 @@
             this.lblPostcodeCity.Size = new System.Drawing.Size(155, 25);
             this.lblPostcodeCity.TabIndex = 0;
             this.lblPostcodeCity.Text = "Postcode City";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(89, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // filToolStripMenuItem
             // 
@@ -184,10 +169,6 @@
             // 
             // helpToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.applicationUsuageToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
@@ -213,7 +194,7 @@
             // cbQuizPicker
             // 
             this.cbQuizPicker.FormattingEnabled = true;
-            this.cbQuizPicker.Location = new System.Drawing.Point(565, 138);
+            this.cbQuizPicker.Location = new System.Drawing.Point(565, 196);
             this.cbQuizPicker.Name = "cbQuizPicker";
             this.cbQuizPicker.Size = new System.Drawing.Size(286, 21);
             this.cbQuizPicker.TabIndex = 3;
@@ -243,45 +224,11 @@
             this.btnStartExam.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnStartExam.ButtonEnabled = true;
             this.btnStartExam.HandCursorHover = true;
-            this.btnStartExam.Location = new System.Drawing.Point(776, 359);
+            this.btnStartExam.Location = new System.Drawing.Point(759, 346);
             this.btnStartExam.Name = "btnStartExam";
             this.btnStartExam.Size = new System.Drawing.Size(92, 89);
             this.btnStartExam.TabIndex = 6;
             this.btnStartExam.Click += new System.EventHandler(this.btnStartExam_Click);
-            // 
-            // maximize_MainForm
-            // 
-            this.maximize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("maximize_MainForm.Image")));
-            this.maximize_MainForm.Location = new System.Drawing.Point(800, 0);
-            this.maximize_MainForm.Name = "maximize_MainForm";
-            this.maximize_MainForm.Size = new System.Drawing.Size(37, 27);
-            this.maximize_MainForm.TabIndex = 14;
-            this.maximize_MainForm.UseVisualStyleBackColor = true;
-            this.maximize_MainForm.Click += new System.EventHandler(this.maximize_MainForm_Click);
-            // 
-            // minimize_MainForm
-            // 
-            this.minimize_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("minimize_MainForm.Image")));
-            this.minimize_MainForm.Location = new System.Drawing.Point(757, 0);
-            this.minimize_MainForm.Name = "minimize_MainForm";
-            this.minimize_MainForm.Size = new System.Drawing.Size(37, 27);
-            this.minimize_MainForm.TabIndex = 13;
-            this.minimize_MainForm.UseVisualStyleBackColor = true;
-            this.minimize_MainForm.Click += new System.EventHandler(this.minimize_MainForm_Click);
-            // 
-            // exit_MainForm
-            // 
-            this.exit_MainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit_MainForm.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.exit_MainForm.Image = ((System.Drawing.Image)(resources.GetObject("exit_MainForm.Image")));
-            this.exit_MainForm.Location = new System.Drawing.Point(843, 0);
-            this.exit_MainForm.Name = "exit_MainForm";
-            this.exit_MainForm.Size = new System.Drawing.Size(37, 27);
-            this.exit_MainForm.TabIndex = 11;
-            this.exit_MainForm.UseVisualStyleBackColor = false;
-            this.exit_MainForm.Click += new System.EventHandler(this.exit_MainForm_Click);
             // 
             // pbLogo
             // 
@@ -291,32 +238,34 @@
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
             // 
+            // lblExamTopics
+            // 
+            this.lblExamTopics.Location = new System.Drawing.Point(562, 168);
+            this.lblExamTopics.Name = "lblExamTopics";
+            this.lblExamTopics.Size = new System.Drawing.Size(155, 25);
+            this.lblExamTopics.TabIndex = 0;
+            this.lblExamTopics.Text = "Exam Topics:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(880, 460);
-            this.Controls.Add(this.maximize_MainForm);
-            this.Controls.Add(this.minimize_MainForm);
-            this.Controls.Add(this.exit_MainForm);
             this.Controls.Add(this.btnStartExam);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.cbQuizPicker);
             this.Controls.Add(this.pbLogo);
+            this.Controls.Add(this.lblExamTopics);
             this.Controls.Add(this.lblPostcodeCity);
             this.Controls.Add(this.lblStreet);
             this.Controls.Add(this.lblCompanyName);
             this.Controls.Add(this.lblAppTitle);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -329,7 +278,6 @@
         private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.Label lblStreet;
         private System.Windows.Forms.Label lblPostcodeCity;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem filToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openExistingConfigurationFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurationFileToolStripMenuItem;
@@ -350,9 +298,7 @@
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.ListBox listBox1;
         private GiladControllers.GiladButton btnStartExam;
-        private System.Windows.Forms.Button exit_MainForm;
-        private System.Windows.Forms.Button maximize_MainForm;
-        private System.Windows.Forms.Button minimize_MainForm;
+        private System.Windows.Forms.Label lblExamTopics;
     }
 }
 
