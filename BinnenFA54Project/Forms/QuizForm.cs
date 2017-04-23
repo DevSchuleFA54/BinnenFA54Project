@@ -15,39 +15,58 @@ using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
-    public partial class QuizForm : Form
+    public partial class QuizForm : GiladForm
     {
         QuizMgr quiz;
-        FeedbackForm _feedbackForm;
-        int qIndex = 0; // Question Indexer.
+        FeedbackForm feedbackForm;
+        private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
-        bool already_checked = false;
+        private bool alreadyChecked;
+        private bool reviewExam = false;
+
 
 
         public QuizForm()
         {
-            Loader.StartLoader(LoaderSelector.Loader);
+            //Loader.StartLoader(LoaderSelector.Loader);
 
             quiz = new QuizMgr();
             InitializeComponent();
             RegisterEventHandlers();
-            progressBar1.Maximum = quiz.Questions.QuestionList.Count;
+            GenerateQuestionSelectors();
+            UpdateQuestions();
+            this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
+
+            //Thread.Sleep(5000);
+            //Loader.StopLoader();
+        }
+
+        public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
+        {
+            //Loader.StartLoader(LoaderSelector.Loader);
+
+            reviewExam = true;
+            _checked   = new bool[4];
+
+            this.quiz  = quiz;
+            InitializeComponent();
+            btnFinish.Dispose();
+            GenerateQuestionSelectors();
+            RenderQuestionResults(null);
             UpdateQuestions();
 
-            Thread.Sleep(5000); // TODO: create during that time loading indicator runs on another thread.
-            Loader.StopLoader();
+            // Unregistering all the events in the sub controllers so the user will only review his exam.
+            this.KeyPress -= QuizForm_KeyPress;
+            cbCombo.ViewModeState = ControlViewMode.Inactive; // New property comes from the dll.
+
+            //Loader.StopLoader();
         }
 
 
         private void UpdateQuestions()
         {
 
-            if (cbCombo.Checked == true)
-            {
-                already_checked = true;
-            }
-            else
-                already_checked = false;
+            alreadyChecked = cbCombo.Checked; // progressBar stuffs.
 
             lblQuestion.Text        = quiz.Questions.QuestionList[qIndex].QuestionMeoww;
             cbCombo.CheckBox1Text   = quiz.Questions.QuestionList[qIndex].Options[0];
@@ -63,22 +82,26 @@ namespace BinnenFA54Project.Forms
 
 
         /// <summary>
-        /// Checks to see which question has beeen answered or waiting and display the checked checkbox
-        /// for
-        /// Gets a direction for knowing if a back or forward button has been pressed in order to know 
-        /// if we need to check the answer before or after a specific index.
+        /// Simply selects the checkbox if state is answered.
         /// </summary>
         /// <param name="direction"></param>
-        private void UpdateQuestionState(CustomButtonDirection direction)
+        private void RenderQuestionResults(CustomButtonDirection? direction)
         {
-            int index;
+            int tmpIndex = qIndex;
+            if (direction != null)
+            {
+                if (direction == CustomButtonDirection.Forward)
+                    tmpIndex += 1;
+                else
+                    tmpIndex -= 1;
+            }
 
-            if (direction == CustomButtonDirection.Forward)
-                index = qIndex + 1;
-            else
-                index = qIndex - 1;
+            SetQuestionState(tmpIndex);
+        }
 
 
+        private void SetQuestionState(int index)
+        {
             switch (quiz.Answers.AnswerList[index].State)
             {
                 case State.Waiting:
@@ -92,41 +115,168 @@ namespace BinnenFA54Project.Forms
 
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
-                    // qIndex+1 since we want to check what is selected answer on the next question before showing to the user.
+
+                    // TODO: Handle nullable correctAnswer.
+                    int? correctAnswer = quiz.Answers.AnswerList[index].CorrectAnswerNum;
                     switch (quiz.Answers.AnswerList[index].SelectedAnswer)
                     {
                         case 0:
                             _checked[0] = true;
-                            cbCombo.SelectCheckBox(CbIndex.First, true);
+                            cbCombo.SelectCheckBoxIndex = 0;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right) // wrong answer.
+                                {
+                                    // Mark the selected cb with WrongSelect.
+                                    cbCombo.cbOption1.WrongSelected = true;
+                                    // Select the correct answer.
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 1:
                             _checked[1] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Second, true);
+                            cbCombo.SelectCheckBoxIndex = 1;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption2.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 2:
                             _checked[2] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Third, true);
+                            cbCombo.SelectCheckBoxIndex = 2;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption3.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
                         case 3:
                             _checked[3] = true;
-                            cbCombo.SelectCheckBox(CbIndex.Fourth, true);
+                            cbCombo.SelectCheckBoxIndex = 3;
+                            if (reviewExam)
+                            {
+                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                {
+                                    cbCombo.cbOption4.WrongSelected = true;
+                                    if (correctAnswer != null)
+                                        cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                                    // TODO: Add smiley sad.
+
+                                }
+                                // TODO: Add smiley happy.
+
+                            }
                             break;
-                        default:
-                            MessageBox.Show(@"[QuizForm::btnNext/Back_Click] - Unmatched <State> switch case.");
+                        default: // if no selected answer.
+                            cbCombo.cbOption1.WrongAnswer = cbCombo.cbOption2.WrongAnswer =
+                            cbCombo.cbOption3.WrongAnswer = cbCombo.cbOption4.WrongAnswer = true;
+                            if (correctAnswer != null)
+                                cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
+                            // TODO: Add smiley netural.
+
                             break;
-                    }
+                    } // End State.Answered switch
+
                     break;
-            }
+            } // End switch.
+
         }
 
 
+        /// <summary>
+        /// Checks with the quiz.AnswerMgr answers which of the questions is wrong or right
+        /// and change their state in the list.
+        /// Also counting how many wrong and right.
+        /// </summary>
+        private void StoreResults()
+        {
+            int rightCount = 0;
+            int wrongCount = 0;
+
+            foreach (var answer in quiz.Answers.AnswerList)
+            {
+                int? correctAnswer = answer.CorrectAnswerNum;
+                int? selectedAnswer = answer.SelectedAnswer + 1;
+
+                if (correctAnswer != null)
+                {
+                    if (correctAnswer == selectedAnswer)
+                    {
+                        answer.Results = Results.Right;
+                        rightCount++;
+                    }
+                    else
+                    {
+                        answer.Results = Results.Wrong;
+                        wrongCount++;
+                    }
+
+                    // TODO: If there is a correct answer and he didn't answer, set the state to answered. because we check later.
+                    // Problem here that we don't have selected answer and switch case will fail later on btnNext.
+                    answer.State = State.Answered;
+                }
+                else
+                {
+                    // If the correct answer is null results to noone of the answers are correct.
+                    // So we check if the user selected one of the check boxes, and if he did, wrong, if not, right. 
+                    // if user have a selected answer for that question.
+                    if (selectedAnswer.In(0, 1, 2, 3)) // same as value == 0, value == 1... using extension method.
+                    {
+                        answer.Results = Results.Wrong;
+                        wrongCount++;
+                    }
+                    else
+                    {
+                        // Right because no correct answer for that question and user didn't select any.
+                        answer.Results = Results.Right;
+                        rightCount++;
+                    }
+                }
+            }
+#if DEBUG
+            MessageBox.Show(string.Format("{0} wrong and {1} right.", wrongCount, rightCount));
+#endif
+        }
+
+
+
+        private void UpdateProgressBar()
+        {
+            if (cbCombo.Checked && alreadyChecked == false)
+                progressBar.Value++;
+            else if (cbCombo.Checked == false && alreadyChecked)
+                progressBar.Value--;
+        }
 
         #region --------------- Events Handlers ---------------
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            Answerchecking();
-            UpdateQuestionState(CustomButtonDirection.Forward);
+            UpdateProgressBar();
+            RenderQuestionResults(CustomButtonDirection.Forward);
 
             // We only want to increment after the switch cases, since we play with base 0 values.
             qIndex++;
@@ -143,8 +293,8 @@ namespace BinnenFA54Project.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Answerchecking();
-            UpdateQuestionState(CustomButtonDirection.Back);
+            UpdateProgressBar();
+            RenderQuestionResults(CustomButtonDirection.Back);
 
             qIndex--;
 
@@ -158,26 +308,6 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
-        private void Answerchecking()
-        {
-            if (cbCombo.Checked == true && already_checked == false)
-            {
-                progressBar1.Value++;
-            }
-            else if (cbCombo.Checked == true && already_checked == true)
-            {
-
-            }
-            else if (cbCombo.Checked == false && already_checked == true)
-            {
-                progressBar1.Value--;
-            }
-            else if (cbCombo.Checked == false && already_checked == false)
-            {
-
-            }
-        }
-
         private void btnFinish_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
@@ -185,22 +315,26 @@ namespace BinnenFA54Project.Forms
 
             if (dialog == DialogResult.Yes)
             {
-                if (progressBar1.Value != progressBar1.Maximum)
+                if (progressBar.Value != progressBar.Maximum)
                 {
-                    DialogResult pbarAnswer = MessageBox.Show("Are you really sure? You have only answered " + progressBar1.Value + " from " + progressBar1.Maximum + " answers, do you want finish?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show(
+                            string.Format("Seems like you only answered {0} questions from {1}. To continue?",
+                            progressBar.Value, progressBar.Maximum),
+                            "WARNING",
+                            MessageBoxButtons.YesNo, 
+                            MessageBoxIcon.Warning);
 
-                    if (pbarAnswer == DialogResult.No)
-                    {
+                    if (dialogResult != DialogResult.Yes)
                         return;
-                    }
-                        
                 }
-                // TODO: Pass the results to store somewhere so we'll access it later from a different form.
-
-                _feedbackForm = new FeedbackForm();
-                _feedbackForm.Show();
+                // TODO: Store the results in database.
+                StoreResults();
+                QuizForm quizForm = new QuizForm(quiz);
+                quizForm.Show();
                 this.Close();
             }
+
+
         }
 
         #endregion --------------- Events Handlers ---------------
@@ -209,9 +343,9 @@ namespace BinnenFA54Project.Forms
         #region --------------- Extra Events Handlers ---------------
         enum EventHandlerEnum
         {
-            Click = 0,
+            Click    = 0,
             KeyPress = 1,
-            Empty = 2
+            Empty    = 2
         }
 
         /// <summary>
@@ -221,36 +355,54 @@ namespace BinnenFA54Project.Forms
         private void RegisterEventHandlers()
         {
             _checked = new bool[4];
-
-            cbCombo.cbOption1.pbCheckBox.Click += new EventHandler(cbOption1_CheckedChanged);
-            cbCombo.cbOption2.pbCheckBox.Click += new EventHandler(cbOption2_CheckedChanged);
-            cbCombo.cbOption3.pbCheckBox.Click += new EventHandler(cbOption3_CheckedChanged);
-            cbCombo.cbOption4.pbCheckBox.Click += new EventHandler(cbOption4_CheckedChanged);
+            cbCombo.cbOption1.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption2.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption3.pbCheckBox.Click += cbOption_CheckedChanged;
+            cbCombo.cbOption4.pbCheckBox.Click += cbOption_CheckedChanged;
         }
 
 
-        private void cbOption1_CheckedChanged(object sender, EventArgs e)
+        private void cbOption_CheckedChanged(object sender, EventArgs e)
         {
-            if (!cbCombo.cbOption1.Checked) return;
-            CheckBox1ChangeState(EventHandlerEnum.KeyPress);
-        }
+            var tag = Convert.ToInt32(((PictureBox)sender).Tag);
 
-        private void cbOption2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption2.Checked) return;
-            CheckBox2ChangeState(EventHandlerEnum.KeyPress);
-        }
+            switch (tag)
+            {
+                case 0:
+                    if (!cbCombo.cbOption1.Checked)
+                    {
+                        _checked[0] = false;
+                        return;
+                    }
+                    CheckBox1ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 1:
+                    if (!cbCombo.cbOption2.Checked)
+                    {
+                        _checked[1] = false;
+                        return;
+                    }
+                    CheckBox2ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 2:
+                    if (!cbCombo.cbOption3.Checked)
+                    {
+                        _checked[2] = false;
+                        return;
+                    }
+                    CheckBox3ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+                case 3:
+                    if (!cbCombo.cbOption4.Checked)
+                    {
+                        _checked[3] = false;
+                        return;
+                    }
+                    CheckBox4ChangeState(EventHandlerEnum.KeyPress);
+                    break;
+            }
 
-        private void cbOption3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption3.Checked) return;
-            CheckBox3ChangeState(EventHandlerEnum.KeyPress);
-        }
 
-        private void cbOption4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbCombo.cbOption4.Checked) return;
-            CheckBox4ChangeState(EventHandlerEnum.KeyPress);
         }
 
 
@@ -305,6 +457,7 @@ namespace BinnenFA54Project.Forms
                     break;
             }
         }
+
 
         #endregion --------------- Events Handlers ---------------
 
@@ -390,45 +543,81 @@ namespace BinnenFA54Project.Forms
             }
         }
 
-        private void exit_quizform_Click(object sender, EventArgs e)
-        {
-            DialogResult quizcloseAnswer = MessageBox.Show("Are you really want abort this exam?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (quizcloseAnswer == DialogResult.No)
+
+        #region -------------- Button Question Selectors --------------
+        /// <summary>
+        /// There are 30 questions in this particular quiz.
+        /// </summary>
+        private int x;
+        private int y;
+        private int startX = 148;
+        private int startY = 475;
+        private int spacingX = 30;
+        private int spacingY = 28;
+        private Button[] buttons;
+
+        public void GenerateQuestionSelectors()
+        {
+            x = startX;
+            y = startY;
+            buttons = new Button[quiz.Questions.QuestionList.Count];
+            for (int i = 0; i < buttons.Length; i++)
             {
-                return;
+                buttons[i] = new Button();
+                buttons[i].Text = (i + 1).ToString();
+                buttons[i].UseVisualStyleBackColor = true;
+                buttons[i].BackColor = Color.DeepSkyBlue;
+                buttons[i].Size = new Size(27, 23);
+                buttons[i].Tag = i.ToString();
+                buttons[i].TabIndex = 20;
+                buttons[i].Anchor = AnchorStyles.Bottom;
+
+                if (i == 18) // If 18 buttons generated go on the 19 button 1 floor down.
+                {
+                    // endX - startX / 2 + startX = centerX
+                    // if the number of the center is odd, do (results - incrementer / 2).
+                    x = (((x - startX) / 2) + startX) - (spacingX / 2);
+                    x = (x - (spacingX * 6) + (spacingX / 2)); // 6 is the rest.
+                    y += spacingY;
+                }
+
+                buttons[i].Location = new Point(x, y);
+                buttons[i].Click += btnSelector_Click;
+                x += spacingX;
+
+                this.giladGradientPanel1.Controls.Add(buttons[i]);
+            }
+
+        }
+
+
+        private void btnSelector_Click(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(((Button)sender).Tag.ToString()); // gets the indexer of the generated button.
+
+            if (value == 0)
+            {
+                btnBack.ButtonEnabled = false;
+                btnNext.ButtonEnabled = true;
+            }
+            else if (value == (quiz.Questions.QuestionList.Count - 1)) // last question
+            {
+                btnBack.ButtonEnabled = true;
+                btnNext.ButtonEnabled = false;
             }
             else
             {
-                this.Close();
-            }
-        }
-
-        private void minimize_quizform_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void maximize_quizform_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-        }
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
+                btnBack.ButtonEnabled = true;
+                btnNext.ButtonEnabled = true;
             }
 
-            base.WndProc(ref m);
+
+            qIndex = value;
+            RenderQuestionResults(null); UpdateQuestions();
         }
+
+
+        #endregion -------------- Button Question Selectors --------------
     }
 }

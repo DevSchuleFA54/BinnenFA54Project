@@ -14,7 +14,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
-        void EditOnTopMost(bool flag);
+        void SetOnTopMost(bool flag);
 
 
         /**
@@ -23,7 +23,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
-        void EditUIControls(bool flag);
+        void SetUIControls(bool flag);
 
 
         /**
@@ -32,7 +32,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
-        void EditIconInTray(bool flag);
+        void SetIconInTray(bool flag);
 
 
         /**
@@ -41,7 +41,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
-        void EditDateFormat(string dateFormat);
+        void SetDateFormat(string dateFormat);
 
 
         /**
@@ -50,6 +50,61 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
-        void EditSQLNameInstance(bool flag);
+        void SetApplicationTitle(string applicationTitle);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetPassedWithPercent(int passedWithPercent);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetCompanyName(string companyName);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetStreetName(string streetName);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetPostcodeAndCity(string postcodeAndCity);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetCountry(string country);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      None
+         * @discussion  None
+         */
+        void SetPhoneNumber(string phoneNumber);
+
     }
 }

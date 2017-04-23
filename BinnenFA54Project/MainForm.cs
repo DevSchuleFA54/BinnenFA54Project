@@ -8,22 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Forms;
+using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
+using GiladControllers;
 
 namespace BinnenFA54Project
 {
-    public partial class MainForm : Form
+    public partial class MainForm : GiladForm
     {
         private QuizMgr _quizMgr;
         private TopicMgr _topics;
         private QuizForm quizForm;
         private ConfigurationForm configurationForm;
+        private SettingIni setting;
 
         public MainForm()
         {
+            setting = new SettingIni();
+
             InitializeComponent();
+            InitializeSettings();
             InitializeTopicList();
+            this.ResizeRedraw = true;
+        }
+
+        private void InitializeSettings()
+        {
+            AppTitle.Text = setting.ApplicationTitle;
+            lblCompanyName.Text  = setting.CompanyName;
+            lblStreet.Text       = setting.StreetName;
+            lblPostcodeCity.Text = setting.PostcodeAndCity + " " + setting.Country;
         }
 
         private void InitializeTopicList()
@@ -59,43 +74,5 @@ namespace BinnenFA54Project
 
 
 
-
-
-
-
-
-        private void exit_MainForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void maximize_MainForm_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void minimize_MainForm_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
-        }
     }
 }

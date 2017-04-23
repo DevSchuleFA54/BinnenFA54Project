@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.cbDateFormat = new System.Windows.Forms.ComboBox();
             this.lblDateFormat = new System.Windows.Forms.Label();
             this.cbUiControls = new System.Windows.Forms.CheckBox();
@@ -56,7 +57,7 @@
             // cbDateFormat
             // 
             this.cbDateFormat.FormattingEnabled = true;
-            this.cbDateFormat.Location = new System.Drawing.Point(126, 204);
+            this.cbDateFormat.Location = new System.Drawing.Point(144, 310);
             this.cbDateFormat.Name = "cbDateFormat";
             this.cbDateFormat.Size = new System.Drawing.Size(121, 21);
             this.cbDateFormat.TabIndex = 0;
@@ -64,7 +65,8 @@
             // lblDateFormat
             // 
             this.lblDateFormat.AutoSize = true;
-            this.lblDateFormat.Location = new System.Drawing.Point(55, 207);
+            this.lblDateFormat.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateFormat.Location = new System.Drawing.Point(73, 313);
             this.lblDateFormat.Name = "lblDateFormat";
             this.lblDateFormat.Size = new System.Drawing.Size(65, 13);
             this.lblDateFormat.TabIndex = 1;
@@ -114,53 +116,54 @@
             // 
             // tbAppTitle
             // 
-            this.tbAppTitle.Location = new System.Drawing.Point(126, 28);
+            this.tbAppTitle.Location = new System.Drawing.Point(144, 134);
             this.tbAppTitle.Name = "tbAppTitle";
             this.tbAppTitle.Size = new System.Drawing.Size(136, 20);
             this.tbAppTitle.TabIndex = 3;
             // 
             // tbPassedWithPrercent
             // 
-            this.tbPassedWithPrercent.Location = new System.Drawing.Point(126, 54);
+            this.tbPassedWithPrercent.Location = new System.Drawing.Point(144, 160);
             this.tbPassedWithPrercent.Name = "tbPassedWithPrercent";
             this.tbPassedWithPrercent.Size = new System.Drawing.Size(136, 20);
             this.tbPassedWithPrercent.TabIndex = 3;
             // 
             // tbCompanyName
             // 
-            this.tbCompanyName.Location = new System.Drawing.Point(126, 80);
+            this.tbCompanyName.Location = new System.Drawing.Point(144, 186);
             this.tbCompanyName.Name = "tbCompanyName";
             this.tbCompanyName.Size = new System.Drawing.Size(136, 20);
             this.tbCompanyName.TabIndex = 3;
             // 
             // tbStreetName
             // 
-            this.tbStreetName.Location = new System.Drawing.Point(126, 106);
+            this.tbStreetName.Location = new System.Drawing.Point(144, 212);
             this.tbStreetName.Name = "tbStreetName";
             this.tbStreetName.Size = new System.Drawing.Size(136, 20);
             this.tbStreetName.TabIndex = 3;
             // 
             // tbPostcodeCity
             // 
-            this.tbPostcodeCity.Location = new System.Drawing.Point(126, 132);
+            this.tbPostcodeCity.Location = new System.Drawing.Point(144, 238);
             this.tbPostcodeCity.Name = "tbPostcodeCity";
             this.tbPostcodeCity.Size = new System.Drawing.Size(136, 20);
             this.tbPostcodeCity.TabIndex = 3;
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(126, 158);
+            this.tbPhone.Location = new System.Drawing.Point(144, 264);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(136, 20);
             this.tbPhone.TabIndex = 3;
             // 
             // groupBoxGC
             // 
+            this.groupBoxGC.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxGC.Controls.Add(this.cbUiControls);
             this.groupBoxGC.Controls.Add(this.cbOnTopMost);
             this.groupBoxGC.Controls.Add(this.cbIconInTray);
             this.groupBoxGC.Controls.Add(this.cbSqlInstance);
-            this.groupBoxGC.Location = new System.Drawing.Point(363, 28);
+            this.groupBoxGC.Location = new System.Drawing.Point(355, 156);
             this.groupBoxGC.Name = "groupBoxGC";
             this.groupBoxGC.Size = new System.Drawing.Size(210, 124);
             this.groupBoxGC.TabIndex = 4;
@@ -170,7 +173,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 28);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(56, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 5;
@@ -179,7 +183,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 57);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(48, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 5;
@@ -188,7 +193,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 83);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(56, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 5;
@@ -197,7 +203,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 109);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(72, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 5;
@@ -206,7 +213,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 135);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(45, 241);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 5;
@@ -215,7 +223,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 161);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(56, 267);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 5;
@@ -223,7 +232,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(479, 244);
+            this.btnSave.Location = new System.Drawing.Point(490, 326);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -232,7 +241,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(398, 244);
+            this.btnApply.Location = new System.Drawing.Point(409, 326);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 6;
@@ -241,7 +250,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(317, 244);
+            this.btnClose.Location = new System.Drawing.Point(328, 326);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 6;
@@ -252,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 279);
+            this.ClientSize = new System.Drawing.Size(613, 425);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnSave);

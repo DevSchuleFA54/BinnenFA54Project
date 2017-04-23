@@ -28,14 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedbackForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lblPassedOrNot = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblResults = new System.Windows.Forms.Label();
-            this.maximize_FeedbackForm = new System.Windows.Forms.Button();
-            this.minimize_Feedbackform = new System.Windows.Forms.Button();
-            this.exit_FeedbackForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,48 +75,11 @@
             this.lblResults.TabIndex = 0;
             this.lblResults.Text = "Results:";
             // 
-            // maximize_FeedbackForm
-            // 
-            this.maximize_FeedbackForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximize_FeedbackForm.Image = ((System.Drawing.Image)(resources.GetObject("maximize_FeedbackForm.Image")));
-            this.maximize_FeedbackForm.Location = new System.Drawing.Point(249, 0);
-            this.maximize_FeedbackForm.Name = "maximize_FeedbackForm";
-            this.maximize_FeedbackForm.Size = new System.Drawing.Size(37, 27);
-            this.maximize_FeedbackForm.TabIndex = 17;
-            this.maximize_FeedbackForm.UseVisualStyleBackColor = true;
-            this.maximize_FeedbackForm.Click += new System.EventHandler(this.maximize_FeedbackForm_Click);
-            // 
-            // minimize_Feedbackform
-            // 
-            this.minimize_Feedbackform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize_Feedbackform.Image = ((System.Drawing.Image)(resources.GetObject("minimize_Feedbackform.Image")));
-            this.minimize_Feedbackform.Location = new System.Drawing.Point(206, 0);
-            this.minimize_Feedbackform.Name = "minimize_Feedbackform";
-            this.minimize_Feedbackform.Size = new System.Drawing.Size(37, 27);
-            this.minimize_Feedbackform.TabIndex = 16;
-            this.minimize_Feedbackform.UseVisualStyleBackColor = true;
-            this.minimize_Feedbackform.Click += new System.EventHandler(this.minimize_Feedbackform_Click);
-            // 
-            // exit_FeedbackForm
-            // 
-            this.exit_FeedbackForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit_FeedbackForm.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.exit_FeedbackForm.Image = ((System.Drawing.Image)(resources.GetObject("exit_FeedbackForm.Image")));
-            this.exit_FeedbackForm.Location = new System.Drawing.Point(292, 0);
-            this.exit_FeedbackForm.Name = "exit_FeedbackForm";
-            this.exit_FeedbackForm.Size = new System.Drawing.Size(37, 27);
-            this.exit_FeedbackForm.TabIndex = 15;
-            this.exit_FeedbackForm.UseVisualStyleBackColor = false;
-            this.exit_FeedbackForm.Click += new System.EventHandler(this.exit_FeedbackForm_Click);
-            // 
             // FeedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 339);
-            this.Controls.Add(this.maximize_FeedbackForm);
-            this.Controls.Add(this.minimize_Feedbackform);
-            this.Controls.Add(this.exit_FeedbackForm);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblPassedOrNot);
             this.Controls.Add(this.lblResults);
@@ -139,8 +98,5 @@
         private System.Windows.Forms.Label lblPassedOrNot;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label lblResults;
-        private System.Windows.Forms.Button maximize_FeedbackForm;
-        private System.Windows.Forms.Button minimize_Feedbackform;
-        private System.Windows.Forms.Button exit_FeedbackForm;
     }
 }

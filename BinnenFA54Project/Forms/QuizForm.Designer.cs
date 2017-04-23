@@ -30,8 +30,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.lblExamNum = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,43 +42,39 @@
             this.cbCombo = new GiladControllers.Gilad4CheckBox();
             this.btnBack = new GiladControllers.GiladButton();
             this.btnNext = new GiladControllers.GiladButton();
-            this.exit_quizform = new System.Windows.Forms.Button();
-            this.minimize_quizform = new System.Windows.Forms.Button();
-            this.maximize_quizform = new System.Windows.Forms.Button();
+            this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.giladControlBox1 = new GiladControllers.GiladControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).BeginInit();
+            this.giladGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // progressBar1
+            // progressBar
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(148, 442);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(530, 31);
-            this.progressBar1.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(9, 26);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(82, 13);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Application Title";
+            this.progressBar.Location = new System.Drawing.Point(157, 407);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(515, 31);
+            this.progressBar.TabIndex = 1;
             // 
             // lblExamNum
             // 
             this.lblExamNum.AutoSize = true;
-            this.lblExamNum.Location = new System.Drawing.Point(9, 72);
+            this.lblExamNum.BackColor = System.Drawing.Color.Transparent;
+            this.lblExamNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExamNum.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblExamNum.Location = new System.Drawing.Point(8, 17);
             this.lblExamNum.Name = "lblExamNum";
-            this.lblExamNum.Size = new System.Drawing.Size(73, 13);
+            this.lblExamNum.Size = new System.Drawing.Size(107, 17);
             this.lblExamNum.TabIndex = 2;
             this.lblExamNum.Text = "Exam Number";
             // 
             // lblQuestion
             // 
-            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(14, 125);
+            this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblQuestion.Location = new System.Drawing.Point(48, 61);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(655, 32);
             this.lblQuestion.TabIndex = 2;
@@ -89,9 +84,12 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(93, 450);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label4.Location = new System.Drawing.Point(91, 417);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(60, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Go Back";
             // 
@@ -99,16 +97,19 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(684, 450);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label5.Location = new System.Drawing.Point(678, 417);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(97, 15);
             this.label5.TabIndex = 2;
             this.label5.Text = "Next Question";
             // 
             // btnFinish
             // 
             this.btnFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFinish.Location = new System.Drawing.Point(747, 45);
+            this.btnFinish.Location = new System.Drawing.Point(753, 3);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(92, 40);
             this.btnFinish.TabIndex = 5;
@@ -120,9 +121,12 @@
             // 
             this.lblQuestionIndexer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblQuestionIndexer.AutoSize = true;
-            this.lblQuestionIndexer.Location = new System.Drawing.Point(462, 480);
+            this.lblQuestionIndexer.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestionIndexer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestionIndexer.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblQuestionIndexer.Location = new System.Drawing.Point(456, 447);
             this.lblQuestionIndexer.Name = "lblQuestionIndexer";
-            this.lblQuestionIndexer.Size = new System.Drawing.Size(13, 13);
+            this.lblQuestionIndexer.Size = new System.Drawing.Size(14, 13);
             this.lblQuestionIndexer.TabIndex = 2;
             this.lblQuestionIndexer.Text = "0";
             // 
@@ -130,17 +134,22 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(361, 480);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label1.Location = new System.Drawing.Point(355, 447);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Question Number: ";
             // 
             // pbSign
             // 
-            this.pbSign.Location = new System.Drawing.Point(12, 198);
+            this.pbSign.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pbSign.BackColor = System.Drawing.Color.Transparent;
+            this.pbSign.Location = new System.Drawing.Point(681, 145);
             this.pbSign.Name = "pbSign";
-            this.pbSign.Size = new System.Drawing.Size(79, 135);
+            this.pbSign.Size = new System.Drawing.Size(164, 167);
             this.pbSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSign.TabIndex = 9;
             this.pbSign.TabStop = false;
@@ -150,22 +159,25 @@
             this.cbCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCombo.BackColor = System.Drawing.Color.Transparent;
             this.cbCombo.CheckBox1Text = "CheckBox Text";
             this.cbCombo.CheckBox2Text = "CheckBox Text";
             this.cbCombo.CheckBox3Text = "CheckBox Text";
             this.cbCombo.CheckBox4Text = "CheckBox Text";
             this.cbCombo.CheckBoxAutoSize = false;
             this.cbCombo.CheckBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(600, 40);
-            this.cbCombo.CheckBoxSize = new System.Drawing.Size(645, 55);
+            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(546, 60);
+            this.cbCombo.CheckBoxSize = new System.Drawing.Size(587, 60);
             this.cbCombo.HandCursorHover = true;
             this.cbCombo.LabelForeColor = System.Drawing.Color.NavajoWhite;
             this.cbCombo.LabelForeColorDisabled = System.Drawing.Color.Gray;
             this.cbCombo.LabelForeColorHover = System.Drawing.Color.White;
-            this.cbCombo.Location = new System.Drawing.Point(96, 160);
+            this.cbCombo.Location = new System.Drawing.Point(82, 96);
+            this.cbCombo.MinimumSize = new System.Drawing.Size(230, 150);
             this.cbCombo.Name = "cbCombo";
-            this.cbCombo.Size = new System.Drawing.Size(650, 235);
+            this.cbCombo.Size = new System.Drawing.Size(593, 267);
             this.cbCombo.TabIndex = 8;
+            this.cbCombo.ViewModeState = GiladControllers.ControlViewMode.Active;
             // 
             // btnBack
             // 
@@ -174,8 +186,8 @@
             this.btnBack.ButtonDirection = GiladControllers.CustomButtonDirection.Back;
             this.btnBack.ButtonEnabled = false;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnBack.HandCursorHover = true;
-            this.btnBack.Location = new System.Drawing.Point(12, 418);
+            this.btnBack.HandCursor = true;
+            this.btnBack.Location = new System.Drawing.Point(6, 385);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 75);
             this.btnBack.TabIndex = 7;
@@ -187,86 +199,92 @@
             this.btnNext.AnimateHover = true;
             this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnNext.ButtonEnabled = true;
-            this.btnNext.HandCursorHover = true;
-            this.btnNext.Location = new System.Drawing.Point(764, 418);
+            this.btnNext.HandCursor = true;
+            this.btnNext.Location = new System.Drawing.Point(781, 385);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 75);
             this.btnNext.TabIndex = 7;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // exit_quizform
+            // giladGradientPanel1
             // 
-            this.exit_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit_quizform.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.exit_quizform.Image = ((System.Drawing.Image)(resources.GetObject("exit_quizform.Image")));
-            this.exit_quizform.Location = new System.Drawing.Point(813, 0);
-            this.exit_quizform.Name = "exit_quizform";
-            this.exit_quizform.Size = new System.Drawing.Size(37, 27);
-            this.exit_quizform.TabIndex = 10;
-            this.exit_quizform.UseVisualStyleBackColor = false;
-            this.exit_quizform.Click += new System.EventHandler(this.exit_quizform_Click);
+            this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
+            this.giladGradientPanel1.Color2 = System.Drawing.Color.Black;
+            this.giladGradientPanel1.Controls.Add(this.btnNext);
+            this.giladGradientPanel1.Controls.Add(this.btnFinish);
+            this.giladGradientPanel1.Controls.Add(this.pbSign);
+            this.giladGradientPanel1.Controls.Add(this.lblExamNum);
+            this.giladGradientPanel1.Controls.Add(this.lblQuestion);
+            this.giladGradientPanel1.Controls.Add(this.progressBar);
+            this.giladGradientPanel1.Controls.Add(this.cbCombo);
+            this.giladGradientPanel1.Controls.Add(this.lblQuestionIndexer);
+            this.giladGradientPanel1.Controls.Add(this.btnBack);
+            this.giladGradientPanel1.Controls.Add(this.label1);
+            this.giladGradientPanel1.Controls.Add(this.label4);
+            this.giladGradientPanel1.Controls.Add(this.label5);
+            this.giladGradientPanel1.CustomCursor = true;
+            this.giladGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.giladGradientPanel1.DraggableForm = true;
+            this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.giladGradientPanel1.Location = new System.Drawing.Point(9, 50);
+            this.giladGradientPanel1.Name = "giladGradientPanel1";
+            this.giladGradientPanel1.Size = new System.Drawing.Size(855, 535);
+            this.giladGradientPanel1.TabIndex = 10;
             // 
-            // minimize_quizform
+            // giladControlBox1
             // 
-            this.minimize_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize_quizform.Image = ((System.Drawing.Image)(resources.GetObject("minimize_quizform.Image")));
-            this.minimize_quizform.Location = new System.Drawing.Point(727, 0);
-            this.minimize_quizform.Name = "minimize_quizform";
-            this.minimize_quizform.Size = new System.Drawing.Size(37, 27);
-            this.minimize_quizform.TabIndex = 11;
-            this.minimize_quizform.UseVisualStyleBackColor = true;
-            this.minimize_quizform.Click += new System.EventHandler(this.minimize_quizform_Click);
-            // 
-            // maximize_quizform
-            // 
-            this.maximize_quizform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximize_quizform.Image = ((System.Drawing.Image)(resources.GetObject("maximize_quizform.Image")));
-            this.maximize_quizform.Location = new System.Drawing.Point(770, 0);
-            this.maximize_quizform.Name = "maximize_quizform";
-            this.maximize_quizform.Size = new System.Drawing.Size(37, 27);
-            this.maximize_quizform.TabIndex = 12;
-            this.maximize_quizform.UseVisualStyleBackColor = true;
-            this.maximize_quizform.Click += new System.EventHandler(this.maximize_quizform_Click);
+            this.giladControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.giladControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.giladControlBox1.Color1 = System.Drawing.Color.White;
+            this.giladControlBox1.Color2 = System.Drawing.Color.Black;
+            this.giladControlBox1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.giladControlBox1.Location = new System.Drawing.Point(753, 9);
+            this.giladControlBox1.Name = "giladControlBox1";
+            this.giladControlBox1.Size = new System.Drawing.Size(110, 40);
+            this.giladControlBox1.TabIndex = 11;
             // 
             // QuizForm
             // 
+            this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
+            this.AppTitle.IconLocation = new System.Drawing.Point(10, 10);
+            this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
+            this.AppTitle.ShowIcon = true;
+            this.AppTitle.ShowTextTitle = true;
+            this.AppTitle.Text = "Application Title";
+            this.AppTitle.TextColor = System.Drawing.Color.Red;
+            this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppTitle.TextLocation = new System.Drawing.Point(50, 15);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(851, 505);
-            this.Controls.Add(this.maximize_quizform);
-            this.Controls.Add(this.minimize_quizform);
-            this.Controls.Add(this.exit_quizform);
-            this.Controls.Add(this.pbSign);
-            this.Controls.Add(this.cbCombo);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnFinish);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblQuestion);
-            this.Controls.Add(this.lblExamNum);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblQuestionIndexer);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.progressBar1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(872, 594);
+            this.Controls.Add(this.giladControlBox1);
+            this.Controls.Add(this.giladGradientPanel1);
+            this.CustomCursor = true;
+            this.FormBackColor.GradientColor1 = System.Drawing.Color.BurlyWood;
+            this.FormBackColor.GradientColor2 = System.Drawing.Color.Brown;
+            this.FormBackColor.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.FormBorders.Color = System.Drawing.Color.AntiqueWhite;
+            this.FormBorders.DrawBorders = true;
+            this.FormBorders.Width = 8;
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(850, 560);
             this.Name = "QuizForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuizForm";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuizForm_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.QuizForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).EndInit();
+            this.giladGradientPanel1.ResumeLayout(false);
+            this.giladGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblExamNum;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label label4;
@@ -278,8 +296,7 @@
         private GiladControllers.GiladButton btnBack;
         private GiladControllers.Gilad4CheckBox cbCombo;
         private System.Windows.Forms.PictureBox pbSign;
-        private System.Windows.Forms.Button exit_quizform;
-        private System.Windows.Forms.Button minimize_quizform;
-        private System.Windows.Forms.Button maximize_quizform;
+        private GiladControllers.GiladGradientPanel giladGradientPanel1;
+        private GiladControllers.GiladControlBox giladControlBox1;
     }
 }

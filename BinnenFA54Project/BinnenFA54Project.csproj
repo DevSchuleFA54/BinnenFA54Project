@@ -51,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GiladControllers">
-      <HintPath>..\packages\Gilad.Controllers-1.0.0\GiladControllers.dll</HintPath>
+      <HintPath>..\packages\Gilad.Controllers-1.0.3\GiladControllers.dll</HintPath>
     </Reference>
     <Reference Include="INIFileParser, Version=2.3.0.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
       <HintPath>..\packages\ini-parser.2.3.0\lib\net20\INIFileParser.dll</HintPath>
@@ -115,7 +115,7 @@
     <Compile Include="Frameworks\IniParser\ISettingIni.cs" />
     <Compile Include="Frameworks\IniParser\ISettingIniEdit.cs" />
     <Compile Include="Frameworks\IniParser\SettingIniImpl.cs" />
-    <Compile Include="Frameworks\IniParser\SettingIniUtility.cs" />
+    <Compile Include="Frameworks\IniParser\SettingIni.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,11 +131,15 @@
     <Compile Include="Main\ServeData\QuestionMgr.cs" />
     <Compile Include="Main\ServeData\QuizBase.cs" />
     <Compile Include="Main\ServeData\TopicMgr.cs" />
+    <Compile Include="Main\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Frameworks\Database\Db.dbml.layout">
       <DependentUpon>Db.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Forms\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +185,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Settings.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
