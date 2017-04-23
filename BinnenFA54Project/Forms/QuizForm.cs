@@ -15,7 +15,7 @@ using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
-    public partial class QuizForm : Form
+    public partial class QuizForm : GiladForm
     {
         QuizMgr quiz;
         FeedbackForm feedbackForm;
@@ -28,21 +28,22 @@ namespace BinnenFA54Project.Forms
 
         public QuizForm()
         {
-            Loader.StartLoader(LoaderSelector.Loader);
+            //Loader.StartLoader(LoaderSelector.Loader);
 
             quiz = new QuizMgr();
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
             UpdateQuestions();
+            this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
 
             //Thread.Sleep(5000);
-            Loader.StopLoader();
+            //Loader.StopLoader();
         }
 
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
-            Loader.StartLoader(LoaderSelector.Loader);
+            //Loader.StartLoader(LoaderSelector.Loader);
 
             reviewExam = true;
             _checked   = new bool[4];
@@ -58,7 +59,7 @@ namespace BinnenFA54Project.Forms
             this.KeyPress -= QuizForm_KeyPress;
             cbCombo.ViewModeState = ControlViewMode.Inactive; // New property comes from the dll.
 
-            Loader.StopLoader();
+            //Loader.StopLoader();
         }
 
 
@@ -551,7 +552,7 @@ namespace BinnenFA54Project.Forms
         private int x;
         private int y;
         private int startX = 148;
-        private int startY = 499;
+        private int startY = 475;
         private int spacingX = 30;
         private int spacingY = 28;
         private Button[] buttons;
@@ -585,7 +586,7 @@ namespace BinnenFA54Project.Forms
                 buttons[i].Click += btnSelector_Click;
                 x += spacingX;
 
-                this.Controls.Add(buttons[i]);
+                this.giladGradientPanel1.Controls.Add(buttons[i]);
             }
 
         }
