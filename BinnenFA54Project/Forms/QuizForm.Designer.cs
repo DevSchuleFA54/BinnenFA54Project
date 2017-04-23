@@ -162,7 +162,7 @@
             this.btnBack.ButtonDirection = GiladControllers.CustomButtonDirection.Back;
             this.btnBack.ButtonEnabled = false;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnBack.HandCursorHover = true;
+            this.btnBack.HandCursor = true;
             this.btnBack.Location = new System.Drawing.Point(12, 417);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 75);
@@ -175,7 +175,7 @@
             this.btnNext.AnimateHover = true;
             this.btnNext.ButtonDirection = GiladControllers.CustomButtonDirection.Forward;
             this.btnNext.ButtonEnabled = true;
-            this.btnNext.HandCursorHover = true;
+            this.btnNext.HandCursor = true;
             this.btnNext.Location = new System.Drawing.Point(764, 417);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 75);

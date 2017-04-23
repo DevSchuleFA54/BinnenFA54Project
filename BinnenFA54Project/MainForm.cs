@@ -11,10 +11,11 @@ using BinnenFA54Project.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
+using GiladControllers;
 
 namespace BinnenFA54Project
 {
-    public partial class MainForm : Form
+    public partial class MainForm : GiladForm
     {
         private QuizMgr _quizMgr;
         private TopicMgr _topics;
@@ -28,13 +29,13 @@ namespace BinnenFA54Project
 
             InitializeComponent();
             InitializeSettings();
-
             InitializeTopicList();
+            this.ResizeRedraw = true;
         }
 
         private void InitializeSettings()
         {
-            lblAppTitle.Text     = setting.ApplicationTitle;
+            AppTitle.Text = setting.ApplicationTitle;
             lblCompanyName.Text  = setting.CompanyName;
             lblStreet.Text       = setting.StreetName;
             lblPostcodeCity.Text = setting.PostcodeAndCity + " " + setting.Country;
