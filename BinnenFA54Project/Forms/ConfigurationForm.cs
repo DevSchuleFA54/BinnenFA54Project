@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GiladControllers;
+using System.Globalization;
+using System.Threading;
 
 namespace BinnenFA54Project.Forms
 {
@@ -17,8 +19,11 @@ namespace BinnenFA54Project.Forms
 
         public ConfigurationForm()
         {
+            // NOTE: It has to be before the InitializeComponent function.
+            // If Language Selected == German, do this:
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
+            // TODO: Implement settings for Multilanguage support.
             InitializeComponent();
-
         }
 
 
