@@ -137,6 +137,9 @@
     <None Include="Frameworks\Database\Db.dbml.layout">
       <DependentUpon>Db.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Forms\ConfigurationForm.de.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
