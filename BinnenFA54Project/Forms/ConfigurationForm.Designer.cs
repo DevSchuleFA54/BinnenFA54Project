@@ -64,9 +64,10 @@
             // cbDateFormat
             // 
             resources.ApplyResources(this.cbDateFormat, "cbDateFormat");
-            this.cbDateFormat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDateFormat.FormattingEnabled = true;
             this.cbDateFormat.Name = "cbDateFormat";
+            this.cbDateFormat.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // lblDateFormat
             // 
@@ -80,48 +81,57 @@
             resources.ApplyResources(this.cbUiControls, "cbUiControls");
             this.cbUiControls.Name = "cbUiControls";
             this.cbUiControls.UseVisualStyleBackColor = true;
+            this.cbUiControls.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // cbOnTopMost
             // 
             resources.ApplyResources(this.cbOnTopMost, "cbOnTopMost");
             this.cbOnTopMost.Name = "cbOnTopMost";
             this.cbOnTopMost.UseVisualStyleBackColor = true;
+            this.cbOnTopMost.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // cbIconInTray
             // 
             resources.ApplyResources(this.cbIconInTray, "cbIconInTray");
             this.cbIconInTray.Name = "cbIconInTray";
             this.cbIconInTray.UseVisualStyleBackColor = true;
+            this.cbIconInTray.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // tbAppTitle
             // 
             resources.ApplyResources(this.tbAppTitle, "tbAppTitle");
             this.tbAppTitle.Name = "tbAppTitle";
+            this.tbAppTitle.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPassedWithPrercent
             // 
             resources.ApplyResources(this.tbPassedWithPrercent, "tbPassedWithPrercent");
             this.tbPassedWithPrercent.Name = "tbPassedWithPrercent";
+            this.tbPassedWithPrercent.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbCompanyName
             // 
             resources.ApplyResources(this.tbCompanyName, "tbCompanyName");
             this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbStreetName
             // 
             resources.ApplyResources(this.tbStreetName, "tbStreetName");
             this.tbStreetName.Name = "tbStreetName";
+            this.tbStreetName.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPostcodeCity
             // 
             resources.ApplyResources(this.tbPostcodeCity, "tbPostcodeCity");
             this.tbPostcodeCity.Name = "tbPostcodeCity";
+            this.tbPostcodeCity.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPhone
             // 
             resources.ApplyResources(this.tbPhone, "tbPhone");
             this.tbPhone.Name = "tbPhone";
+            this.tbPhone.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // groupBoxGC
             // 
@@ -181,12 +191,14 @@
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnApply
             // 
             resources.ApplyResources(this.btnApply, "btnApply");
             this.btnApply.Name = "btnApply";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnClose
             // 
@@ -199,6 +211,7 @@
             // 
             resources.ApplyResources(this.tbCountry, "tbCountry");
             this.tbCountry.Name = "tbCountry";
+            this.tbCountry.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // label7
             // 
@@ -209,7 +222,6 @@
             // 
             // giladGradientPanel1
             // 
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
@@ -217,6 +229,7 @@
             this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel1);
             this.giladGradientPanel1.Controls.Add(this.groupBoxGC);
             this.giladGradientPanel1.CustomCursor = true;
+            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.DraggableForm = true;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.giladGradientPanel1.Name = "giladGradientPanel1";
@@ -252,17 +265,16 @@
             // 
             // ConfigurationForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AllowResize = false;
             this.AppTitle.Icon = null;
             this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
             this.AppTitle.IconSize = new System.Drawing.Size(0, 0);
             this.AppTitle.ShowIcon = false;
             this.AppTitle.ShowTextTitle = true;
-            this.AppTitle.Text = "Konfiguration";
             this.AppTitle.TextColor = System.Drawing.Color.SeaShell;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(10, 15);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.giladGradientPanel1);
             this.CustomCursor = true;

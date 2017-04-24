@@ -347,7 +347,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             try
             {
-                data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString();
+                data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
@@ -366,7 +366,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             try
             {
-                data["GeneralConfiguration"]["DATE_FORMAT"] = dateFormat;
+                data["MiscConfiguration"]["DATE_FORMAT"] = dateFormat;
                 iniParser.WriteFile(settingPath, data);
             }
             catch (Exception)
@@ -522,7 +522,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         private void ErrorMsg(string msg)
         {
             MessageBox.Show(
-                string.Format("[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! /n Using default configurations...", msg),
+                string.Format("[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! \nRooling back to default configurations...", msg),
                 "ERROR", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Error
