@@ -33,7 +33,6 @@
             this.cbUiControls = new System.Windows.Forms.CheckBox();
             this.cbOnTopMost = new System.Windows.Forms.CheckBox();
             this.cbIconInTray = new System.Windows.Forms.CheckBox();
-            this.cbSqlInstance = new System.Windows.Forms.CheckBox();
             this.tbAppTitle = new System.Windows.Forms.TextBox();
             this.tbPassedWithPrercent = new System.Windows.Forms.TextBox();
             this.tbCompanyName = new System.Windows.Forms.TextBox();
@@ -50,24 +49,37 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.tbCountry = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxGC.SuspendLayout();
+            this.giladGradientPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbDateFormat
             // 
+            this.cbDateFormat.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbDateFormat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cbDateFormat.FormattingEnabled = true;
-            this.cbDateFormat.Location = new System.Drawing.Point(144, 310);
+            this.cbDateFormat.Location = new System.Drawing.Point(133, 201);
             this.cbDateFormat.Name = "cbDateFormat";
-            this.cbDateFormat.Size = new System.Drawing.Size(121, 21);
+            this.cbDateFormat.Size = new System.Drawing.Size(204, 21);
             this.cbDateFormat.TabIndex = 0;
             // 
             // lblDateFormat
             // 
+            this.lblDateFormat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblDateFormat.AutoSize = true;
             this.lblDateFormat.BackColor = System.Drawing.Color.Transparent;
-            this.lblDateFormat.Location = new System.Drawing.Point(73, 313);
+            this.lblDateFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateFormat.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblDateFormat.Location = new System.Drawing.Point(41, 204);
             this.lblDateFormat.Name = "lblDateFormat";
-            this.lblDateFormat.Size = new System.Drawing.Size(65, 13);
+            this.lblDateFormat.Size = new System.Drawing.Size(86, 15);
             this.lblDateFormat.TabIndex = 1;
             this.lblDateFormat.Text = "Date Format";
             // 
@@ -76,7 +88,7 @@
             this.cbUiControls.AutoSize = true;
             this.cbUiControls.Location = new System.Drawing.Point(6, 19);
             this.cbUiControls.Name = "cbUiControls";
-            this.cbUiControls.Size = new System.Drawing.Size(109, 17);
+            this.cbUiControls.Size = new System.Drawing.Size(139, 19);
             this.cbUiControls.TabIndex = 2;
             this.cbUiControls.Text = "Interface Controls";
             this.cbUiControls.UseVisualStyleBackColor = true;
@@ -86,7 +98,7 @@
             this.cbOnTopMost.AutoSize = true;
             this.cbOnTopMost.Location = new System.Drawing.Point(6, 42);
             this.cbOnTopMost.Name = "cbOnTopMost";
-            this.cbOnTopMost.Size = new System.Drawing.Size(157, 17);
+            this.cbOnTopMost.Size = new System.Drawing.Size(199, 19);
             this.cbOnTopMost.TabIndex = 2;
             this.cbOnTopMost.Text = "Exam Window on Top Most";
             this.cbOnTopMost.UseVisualStyleBackColor = true;
@@ -96,196 +108,310 @@
             this.cbIconInTray.AutoSize = true;
             this.cbIconInTray.Location = new System.Drawing.Point(6, 65);
             this.cbIconInTray.Name = "cbIconInTray";
-            this.cbIconInTray.Size = new System.Drawing.Size(82, 17);
+            this.cbIconInTray.Size = new System.Drawing.Size(100, 19);
             this.cbIconInTray.TabIndex = 2;
             this.cbIconInTray.Text = "Icon in Tray";
             this.cbIconInTray.UseVisualStyleBackColor = true;
             // 
-            // cbSqlInstance
-            // 
-            this.cbSqlInstance.AccessibleDescription = "When this enabled, the SQL Instance will be set to true since some db connections" +
-    " needs the instance of the sql db.";
-            this.cbSqlInstance.AutoSize = true;
-            this.cbSqlInstance.Location = new System.Drawing.Point(6, 88);
-            this.cbSqlInstance.Name = "cbSqlInstance";
-            this.cbSqlInstance.Size = new System.Drawing.Size(127, 17);
-            this.cbSqlInstance.TabIndex = 2;
-            this.cbSqlInstance.Text = "Enable SQL Instance";
-            this.cbSqlInstance.UseVisualStyleBackColor = true;
-            // 
             // tbAppTitle
             // 
-            this.tbAppTitle.Location = new System.Drawing.Point(144, 134);
+            this.tbAppTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbAppTitle.Location = new System.Drawing.Point(133, 4);
             this.tbAppTitle.Name = "tbAppTitle";
-            this.tbAppTitle.Size = new System.Drawing.Size(136, 20);
+            this.tbAppTitle.Size = new System.Drawing.Size(204, 20);
             this.tbAppTitle.TabIndex = 3;
             // 
             // tbPassedWithPrercent
             // 
-            this.tbPassedWithPrercent.Location = new System.Drawing.Point(144, 160);
+            this.tbPassedWithPrercent.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbPassedWithPrercent.Location = new System.Drawing.Point(133, 32);
             this.tbPassedWithPrercent.Name = "tbPassedWithPrercent";
-            this.tbPassedWithPrercent.Size = new System.Drawing.Size(136, 20);
+            this.tbPassedWithPrercent.Size = new System.Drawing.Size(204, 20);
             this.tbPassedWithPrercent.TabIndex = 3;
             // 
             // tbCompanyName
             // 
-            this.tbCompanyName.Location = new System.Drawing.Point(144, 186);
+            this.tbCompanyName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbCompanyName.Location = new System.Drawing.Point(133, 60);
             this.tbCompanyName.Name = "tbCompanyName";
-            this.tbCompanyName.Size = new System.Drawing.Size(136, 20);
+            this.tbCompanyName.Size = new System.Drawing.Size(204, 20);
             this.tbCompanyName.TabIndex = 3;
             // 
             // tbStreetName
             // 
-            this.tbStreetName.Location = new System.Drawing.Point(144, 212);
+            this.tbStreetName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbStreetName.Location = new System.Drawing.Point(133, 88);
             this.tbStreetName.Name = "tbStreetName";
-            this.tbStreetName.Size = new System.Drawing.Size(136, 20);
+            this.tbStreetName.Size = new System.Drawing.Size(204, 20);
             this.tbStreetName.TabIndex = 3;
             // 
             // tbPostcodeCity
             // 
-            this.tbPostcodeCity.Location = new System.Drawing.Point(144, 238);
+            this.tbPostcodeCity.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbPostcodeCity.Location = new System.Drawing.Point(133, 116);
             this.tbPostcodeCity.Name = "tbPostcodeCity";
-            this.tbPostcodeCity.Size = new System.Drawing.Size(136, 20);
+            this.tbPostcodeCity.Size = new System.Drawing.Size(204, 20);
             this.tbPostcodeCity.TabIndex = 3;
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(144, 264);
+            this.tbPhone.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbPhone.Location = new System.Drawing.Point(133, 172);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(136, 20);
+            this.tbPhone.Size = new System.Drawing.Size(204, 20);
             this.tbPhone.TabIndex = 3;
             // 
             // groupBoxGC
             // 
+            this.groupBoxGC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxGC.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxGC.Controls.Add(this.cbUiControls);
             this.groupBoxGC.Controls.Add(this.cbOnTopMost);
             this.groupBoxGC.Controls.Add(this.cbIconInTray);
-            this.groupBoxGC.Controls.Add(this.cbSqlInstance);
-            this.groupBoxGC.Location = new System.Drawing.Point(355, 156);
+            this.groupBoxGC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxGC.ForeColor = System.Drawing.Color.Cornsilk;
+            this.groupBoxGC.Location = new System.Drawing.Point(372, 14);
             this.groupBoxGC.Name = "groupBoxGC";
-            this.groupBoxGC.Size = new System.Drawing.Size(210, 124);
+            this.groupBoxGC.Size = new System.Drawing.Size(204, 97);
             this.groupBoxGC.TabIndex = 4;
             this.groupBoxGC.TabStop = false;
             this.groupBoxGC.Text = "General Configuration";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(56, 134);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label1.Location = new System.Drawing.Point(17, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(110, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "Application Title";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(48, 163);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label2.Location = new System.Drawing.Point(8, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.Size = new System.Drawing.Size(119, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "Required Percent";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(56, 189);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label3.Location = new System.Drawing.Point(19, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.Size = new System.Drawing.Size(108, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "Company Name";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(72, 215);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label4.Location = new System.Drawing.Point(40, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(87, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Street Name";
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(45, 241);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label5.Location = new System.Drawing.Point(6, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.Size = new System.Drawing.Size(121, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "Postcode and City";
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(56, 267);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label6.Location = new System.Drawing.Point(24, 174);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(103, 15);
             this.label6.TabIndex = 5;
             this.label6.Text = "Phone Number";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(490, 326);
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.Location = new System.Drawing.Point(195, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(93, 27);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(409, 326);
+            this.btnApply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnApply.Location = new System.Drawing.Point(99, 3);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.Size = new System.Drawing.Size(90, 27);
             this.btnApply.TabIndex = 6;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(328, 326);
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.Location = new System.Drawing.Point(3, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(90, 27);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // tbCountry
+            // 
+            this.tbCountry.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbCountry.Location = new System.Drawing.Point(133, 144);
+            this.tbCountry.Name = "tbCountry";
+            this.tbCountry.Size = new System.Drawing.Size(204, 20);
+            this.tbCountry.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label7.Location = new System.Drawing.Point(72, 146);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 15);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Country";
+            // 
+            // giladGradientPanel1
+            // 
+            this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
+            this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
+            this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.giladGradientPanel1.Controls.Add(this.groupBoxGC);
+            this.giladGradientPanel1.CustomCursor = true;
+            this.giladGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.giladGradientPanel1.DraggableForm = true;
+            this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.giladGradientPanel1.Location = new System.Drawing.Point(9, 50);
+            this.giladGradientPanel1.Name = "giladGradientPanel1";
+            this.giladGradientPanel1.Size = new System.Drawing.Size(598, 306);
+            this.giladGradientPanel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tbAppTitle, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tbPassedWithPrercent, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbDateFormat, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lblDateFormat, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tbCompanyName, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tbStreetName, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tbPostcodeCity, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tbCountry, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tbPhone, 1, 6);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 15);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(345, 227);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.btnClose, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnApply, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSave, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(292, 261);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(291, 33);
+            this.tableLayoutPanel2.TabIndex = 8;
+            // 
             // ConfigurationForm
             // 
+            this.AllowResize = false;
+            this.AppTitle.Icon = null;
+            this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
+            this.AppTitle.IconSize = new System.Drawing.Size(0, 0);
+            this.AppTitle.ShowIcon = false;
+            this.AppTitle.ShowTextTitle = true;
+            this.AppTitle.Text = "Configuration";
+            this.AppTitle.TextColor = System.Drawing.Color.SeaShell;
+            this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppTitle.TextLocation = new System.Drawing.Point(10, 15);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 425);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnApply);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBoxGC);
-            this.Controls.Add(this.tbPhone);
-            this.Controls.Add(this.tbPostcodeCity);
-            this.Controls.Add(this.tbStreetName);
-            this.Controls.Add(this.tbCompanyName);
-            this.Controls.Add(this.tbPassedWithPrercent);
-            this.Controls.Add(this.tbAppTitle);
-            this.Controls.Add(this.lblDateFormat);
-            this.Controls.Add(this.cbDateFormat);
+            this.ClientSize = new System.Drawing.Size(615, 365);
+            this.Controls.Add(this.giladGradientPanel1);
+            this.CustomCursor = true;
+            this.FormBackColor.GradientColor1 = System.Drawing.Color.DarkRed;
+            this.FormBackColor.GradientColor2 = System.Drawing.Color.LightSeaGreen;
+            this.FormBackColor.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.FormBorders.Color = System.Drawing.Color.FloralWhite;
+            this.FormBorders.DrawBorders = true;
+            this.FormBorders.Width = 8;
+            this.MinimumSize = new System.Drawing.Size(615, 365);
             this.Name = "ConfigurationForm";
+            this.ResizeGrip = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfigurationForm";
             this.groupBoxGC.ResumeLayout(false);
             this.groupBoxGC.PerformLayout();
+            this.giladGradientPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -296,7 +422,6 @@
         private System.Windows.Forms.CheckBox cbUiControls;
         private System.Windows.Forms.CheckBox cbOnTopMost;
         private System.Windows.Forms.CheckBox cbIconInTray;
-        private System.Windows.Forms.CheckBox cbSqlInstance;
         private System.Windows.Forms.TextBox tbAppTitle;
         private System.Windows.Forms.TextBox tbPassedWithPrercent;
         private System.Windows.Forms.TextBox tbCompanyName;
@@ -313,5 +438,10 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox tbCountry;
+        private System.Windows.Forms.Label label7;
+        private GiladControllers.GiladGradientPanel giladGradientPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

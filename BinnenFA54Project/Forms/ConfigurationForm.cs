@@ -11,7 +11,7 @@ using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
-    public partial class ConfigurationForm : Form
+    public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;
 
@@ -57,6 +57,7 @@ namespace BinnenFA54Project.Forms
 
         }
 
+
         // Close Button only Closes...
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -80,5 +81,7 @@ namespace BinnenFA54Project.Forms
 
 
         }
+
+
     }
 }

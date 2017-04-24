@@ -168,7 +168,7 @@
             this.cbCombo.CheckBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(546, 60);
             this.cbCombo.CheckBoxSize = new System.Drawing.Size(587, 60);
-            this.cbCombo.HandCursorHover = true;
+            this.cbCombo.HandCursorHover = false;
             this.cbCombo.LabelForeColor = System.Drawing.Color.NavajoWhite;
             this.cbCombo.LabelForeColorDisabled = System.Drawing.Color.Gray;
             this.cbCombo.LabelForeColorHover = System.Drawing.Color.White;
@@ -239,9 +239,9 @@
             this.giladControlBox1.Color1 = System.Drawing.Color.White;
             this.giladControlBox1.Color2 = System.Drawing.Color.Black;
             this.giladControlBox1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.giladControlBox1.Location = new System.Drawing.Point(753, 9);
+            this.giladControlBox1.Location = new System.Drawing.Point(747, 9);
             this.giladControlBox1.Name = "giladControlBox1";
-            this.giladControlBox1.Size = new System.Drawing.Size(110, 40);
+            this.giladControlBox1.Size = new System.Drawing.Size(115, 40);
             this.giladControlBox1.TabIndex = 11;
             // 
             // QuizForm
@@ -272,7 +272,6 @@
             this.MinimumSize = new System.Drawing.Size(850, 560);
             this.Name = "QuizForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QuizForm";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuizForm_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.QuizForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).EndInit();
