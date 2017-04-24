@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.cbDateFormat = new System.Windows.Forms.ComboBox();
             this.lblDateFormat = new System.Windows.Forms.Label();
             this.cbUiControls = new System.Windows.Forms.CheckBox();
@@ -256,6 +255,7 @@
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ConfigurationForm
             // 
