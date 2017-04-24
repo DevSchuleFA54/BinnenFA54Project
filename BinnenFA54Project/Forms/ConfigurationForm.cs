@@ -13,6 +13,7 @@ using System.Threading;
 
 namespace BinnenFA54Project.Forms
 {
+    // TODO: @togi - Improve German Translation.
     public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;

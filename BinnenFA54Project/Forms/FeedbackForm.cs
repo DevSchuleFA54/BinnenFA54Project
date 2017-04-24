@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace BinnenFA54Project.Forms
 {
+    // TODO: @togi - Create German Translation. See ConfigurationForm as example.
     public partial class FeedbackForm : Form
     {
         public FeedbackForm()

@@ -15,6 +15,7 @@ using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
+    // TODO: @togi - Create German Translation.  See ConfigurationForm as example.
     public partial class QuizForm : GiladForm
     {
         QuizMgr quiz;
