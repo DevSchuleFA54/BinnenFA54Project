@@ -671,6 +671,24 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string ENGLISH {
+            get {
+                return ResourceManager.GetString("ENGLISH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to German (Default).
+        /// </summary>
+        internal static string GERMAN {
+            get {
+                return ResourceManager.GetString("GERMAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap loader {
@@ -681,12 +699,40 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Make sure to restart application for changes to take effect..
+        /// </summary>
+        internal static string NOTIF_RESTARTAPP {
+            get {
+                return ResourceManager.GetString("NOTIF_RESTARTAPP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string SAVE {
+            get {
+                return ResourceManager.GetString("SAVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully saved your changes! .
+        /// </summary>
+        internal static string SAVED_CHANGES {
+            get {
+                return ResourceManager.GetString("SAVED_CHANGES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ; If you modify this file, make sure you restart your app so it will parse it.
         ///
         ///[GeneralConfiguration] 
         ///ENABLE_UI_CONTROLS	= true
         ///ENABLE_ON_TOP_MOST	= false
         ///ENABLE_ICON_IN_TRAY	= true
+        ///LANGUAGE		= de-DE
         ///
         ///
         ///[MiscConfiguration]
@@ -694,12 +740,11 @@ namespace BinnenFA54Project.Properties {
         ///; yy-MM-dd	= 08-04-25
         ///; yyyy-M-d	= 2008-04-25
         ///; D 		= Thursday, 25 April 2008 
-        ///DATE_FORMAT				 = D
-        ///ENABLE_SQL_NAME_INSTANCE = false
+        ///DATE_FORMAT = D
         ///
         ///
         ///[UserConfiguration]
-        ///APPLICATION_NAME    [rest of string was truncated]&quot;;.
+        ///APPLICATION_NAME    = Sportbootfuehrer [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Settings {
             get {

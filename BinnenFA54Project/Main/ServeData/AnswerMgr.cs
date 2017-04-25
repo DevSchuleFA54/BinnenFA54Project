@@ -67,6 +67,7 @@ namespace BinnenFA54Project.Main.ServeData
             if (option != null)
                 return _questionMgr.QuestionList[index].Options[(int)option - 1];
 
+            // TODO: Localize text.
             return "Keine Richtige Antwort.";
         }
 

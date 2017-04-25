@@ -308,18 +308,18 @@
     <value>..\settings.ini;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="GERMAN" xml:space="preserve">
-    <value>German (Default)</value>
+    <value>Deutsch (Standard)</value>
   </data>
   <data name="ENGLISH" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="SAVED_CHANGES" xml:space="preserve">
-    <value>Successfully saved your changes! </value>
+    <value>Englisch</value>
   </data>
   <data name="NOTIF_RESTARTAPP" xml:space="preserve">
-    <value>Make sure to restart application for changes to take effect.</value>
+    <value>Bitte starten Sie zum Übernehmen der Einstellungen das Programm neu</value>
   </data>
   <data name="SAVE" xml:space="preserve">
-    <value>Save</value>
+    <value>Speichern</value>
+  </data>
+  <data name="SAVED_CHANGES" xml:space="preserve">
+    <value>Einstellungen erfolgreich gespeichert! </value>
   </data>
 </root>
