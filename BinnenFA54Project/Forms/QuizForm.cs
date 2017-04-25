@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
 using BinnenFA54Project.Main.ServeData;
@@ -24,6 +26,7 @@ namespace BinnenFA54Project.Forms
         private bool[] _checked; // Event handlers flag.
         private bool alreadyChecked;
         private bool reviewExam = false;
+        private SettingIni setting;
 
 
 
@@ -31,13 +34,18 @@ namespace BinnenFA54Project.Forms
         {
             //Loader.StartLoader(LoaderSelector.Loader);
 
+            setting = new SettingIni();
+            //// NOTE: It has to be before the InitializeComponent function in order to take effect.
+            //Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
+            //    new CultureInfo("en-US") : new CultureInfo("de-DE");
+
             quiz = new QuizMgr();
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
             UpdateQuestions();
             this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
-
+            this.Text = setting.ApplicationTitle;
             //Thread.Sleep(5000);
             //Loader.StopLoader();
         }
@@ -46,19 +54,24 @@ namespace BinnenFA54Project.Forms
         {
             //Loader.StartLoader(LoaderSelector.Loader);
 
+            setting = new SettingIni();
+            //Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
+            //    new CultureInfo("en-US") : new CultureInfo("de-DE");
+
             reviewExam = true;
             _checked   = new bool[4];
 
             this.quiz  = quiz;
             InitializeComponent();
-            btnFinish.Dispose();
+            this.btnFinish.Dispose();
             GenerateQuestionSelectors();
             RenderQuestionResults(null);
             UpdateQuestions();
+            this.Text = setting.ApplicationTitle;
 
             // Unregistering all the events in the sub controllers so the user will only review his exam.
             this.KeyPress -= QuizForm_KeyPress;
-            cbCombo.ViewModeState = ControlViewMode.Inactive; // New property comes from the dll.
+            this.cbCombo.ViewModeState = ControlViewMode.Inactive;
 
             //Loader.StopLoader();
         }
@@ -570,11 +583,14 @@ namespace BinnenFA54Project.Forms
                 buttons[i] = new Button();
                 buttons[i].Text = (i + 1).ToString();
                 buttons[i].UseVisualStyleBackColor = true;
-                buttons[i].BackColor = Color.DeepSkyBlue;
+                buttons[i].BackColor = SystemColors.HotTrack;
+                buttons[i].ForeColor = Color.Azure;
+                buttons[i].Font = new Font("Microsoft Sans Serif", 6.50F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
                 buttons[i].Size = new Size(27, 23);
                 buttons[i].Tag = i.ToString();
                 buttons[i].TabIndex = 20;
                 buttons[i].Anchor = AnchorStyles.Bottom;
+
 
                 if (i == 18) // If 18 buttons generated go on the 19 button 1 floor down.
                 {

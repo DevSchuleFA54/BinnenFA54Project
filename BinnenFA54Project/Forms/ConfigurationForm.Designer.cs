@@ -57,10 +57,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.comboLanguage = new System.Windows.Forms.ComboBox();
+            this.pbIcon = new System.Windows.Forms.PictureBox();
             this.groupBoxGC.SuspendLayout();
             this.giladGradientPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // comboDateFormat
@@ -282,6 +284,14 @@
             this.comboLanguage.Name = "comboLanguage";
             this.comboLanguage.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
+            // pbIcon
+            // 
+            this.pbIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pbIcon.Image = global::BinnenFA54Project.Properties.Resources.settings_icon;
+            resources.ApplyResources(this.pbIcon, "pbIcon");
+            this.pbIcon.Name = "pbIcon";
+            this.pbIcon.TabStop = false;
+            // 
             // ConfigurationForm
             // 
             this.AllowResize = false;
@@ -295,12 +305,13 @@
             this.AppTitle.TextLocation = new System.Drawing.Point(10, 15);
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbIcon);
             this.Controls.Add(this.giladGradientPanel1);
             this.CustomCursor = true;
             this.FormBackColor.GradientColor1 = System.Drawing.Color.DarkRed;
             this.FormBackColor.GradientColor2 = System.Drawing.Color.LightSeaGreen;
             this.FormBackColor.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.FormBorders.Color = System.Drawing.Color.FloralWhite;
+            this.FormBorders.Color = System.Drawing.SystemColors.InactiveBorder;
             this.FormBorders.DrawBorders = true;
             this.FormBorders.Width = 8;
             this.Name = "ConfigurationForm";
@@ -311,6 +322,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,5 +357,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboLanguage;
+        private System.Windows.Forms.PictureBox pbIcon;
     }
 }

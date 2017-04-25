@@ -130,7 +130,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="comboDateFormat.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;comboDateFormat.Name" xml:space="preserve">
     <value>comboDateFormat</value>
@@ -187,7 +187,7 @@
     <value>139, 19</value>
   </data>
   <data name="cbUiControls.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>9</value>
   </data>
   <data name="cbUiControls.Text" xml:space="preserve">
     <value>Interface Controls</value>
@@ -214,7 +214,7 @@
     <value>199, 19</value>
   </data>
   <data name="cbOnTopMost.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>10</value>
   </data>
   <data name="cbOnTopMost.Text" xml:space="preserve">
     <value>Exam Window on Top Most</value>
@@ -241,7 +241,7 @@
     <value>100, 19</value>
   </data>
   <data name="cbIconInTray.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>11</value>
   </data>
   <data name="cbIconInTray.Text" xml:space="preserve">
     <value>Icon in Tray</value>
@@ -268,7 +268,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbAppTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;tbAppTitle.Name" xml:space="preserve">
     <value>tbAppTitle</value>
@@ -292,7 +292,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbPassedWithPrercent.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;tbPassedWithPrercent.Name" xml:space="preserve">
     <value>tbPassedWithPrercent</value>
@@ -316,7 +316,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbCompanyName.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;tbCompanyName.Name" xml:space="preserve">
     <value>tbCompanyName</value>
@@ -364,7 +364,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbPostcodeCity.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;tbPostcodeCity.Name" xml:space="preserve">
     <value>tbPostcodeCity</value>
@@ -388,7 +388,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbPhone.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;tbPhone.Name" xml:space="preserve">
     <value>tbPhone</value>
@@ -640,7 +640,7 @@
     <value>91, 27</value>
   </data>
   <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>12</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>Save</value>
@@ -667,7 +667,7 @@
     <value>91, 27</value>
   </data>
   <data name="btnApply.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>13</value>
   </data>
   <data name="btnApply.Text" xml:space="preserve">
     <value>Apply</value>
@@ -694,7 +694,7 @@
     <value>91, 27</value>
   </data>
   <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>14</value>
   </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>Close</value>
@@ -721,7 +721,7 @@
     <value>204, 20</value>
   </data>
   <data name="tbCountry.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;tbCountry.Name" xml:space="preserve">
     <value>tbCountry</value>
@@ -775,7 +775,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 294</value>
+    <value>311, 280</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -853,7 +853,7 @@
     <value>204, 21</value>
   </data>
   <data name="comboLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;comboLanguage.Name" xml:space="preserve">
     <value>comboLanguage</value>
@@ -868,7 +868,7 @@
     <value>17</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 31</value>
+    <value>12, 24</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>9</value>
@@ -898,10 +898,10 @@
     <value>Fill</value>
   </data>
   <data name="giladGradientPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 50</value>
+    <value>9, 64</value>
   </data>
   <data name="giladGradientPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 339</value>
+    <value>617, 325</value>
   </data>
   <data name="giladGradientPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -916,6 +916,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;giladGradientPanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pbIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>566, 9</value>
+  </data>
+  <data name="pbIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 55</value>
+  </data>
+  <data name="pbIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;pbIcon.Name" xml:space="preserve">
+    <value>pbIcon</value>
+  </data>
+  <data name="&gt;&gt;pbIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbIcon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbIcon.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -929,6 +953,9 @@
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>615, 365</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 64, 8, 9</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
