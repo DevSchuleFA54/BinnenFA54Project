@@ -36,7 +36,7 @@ namespace BinnenFA54Project
 
         private void InitializeSettings()
         {
-            AppTitle.Text = setting.ApplicationTitle;
+            this.Text = setting.ApplicationTitle;
             lblCompanyName.Text  = setting.CompanyName;
             lblStreet.Text       = setting.StreetName;
             lblPostcodeCity.Text = setting.PostcodeAndCity + " " + setting.Country;

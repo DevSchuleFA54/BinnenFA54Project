@@ -34,6 +34,13 @@ namespace BinnenFA54Project.Frameworks.IniParser
          */
         bool IconInTray();
 
+        /**
+         * Returns a string of the language.
+         *
+         * @return      string
+         * @discussion  None
+         */
+        string LocalizeLanguage();
 
         /**
          * Returns a string of the date format.

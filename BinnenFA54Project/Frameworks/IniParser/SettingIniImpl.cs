@@ -28,7 +28,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             if (!File.Exists(settingPath))
             {
-                MessageBox.Show("Missing Settings.ini file. Generating Settings.ini with default settings for you.",
+                MessageBox.Show("Missing Settings.ini file! \nGenerating new Settings.ini file with default settings for you.",
                     "Missing Settings File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 File.WriteAllText(settingPath, Properties.Resources.Settings);
             }
@@ -53,7 +53,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 windowControls = bool.Parse(data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"]);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_UI_CONTROLS");
             }
@@ -76,7 +76,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 appOnTopMost = bool.Parse(data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"]);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_ON_TOP_MOST");
             }
@@ -99,12 +99,35 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 iconInTray = bool.Parse(data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"]);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_ICON_IN_TRAY");
             }
 
             return iconInTray;
+        }
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// \brief SettingIniImpl::LocalizeLanguage
+        /// \param
+        /// \return string
+        ///
+        public string LocalizeLanguage()
+        {
+            string language = "en-US";  // English default language
+
+            try
+            {
+                data = iniParser.ReadFile(settingPath);
+                language = data["GeneralConfiguration"]["LANGUAGE"];
+            }
+            catch
+            {
+                ErrorMsg("LANGUAGE");
+            }
+
+            return language;
         }
 
 
@@ -122,7 +145,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 dateFormat = data["MiscConfiguration"]["DATE_FORMAT"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("DATE_FORMAT");
             }
@@ -145,7 +168,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 applicationTitle = data["UserConfiguration"]["APPLICATION_NAME"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("APPLICATION_NAME");
             }
@@ -168,7 +191,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 passedWithPercent = int.Parse(data["UserConfiguration"]["PASSED_WITH_PERCENT"]);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("PASSED_WITH_PERCENT");
             }
@@ -191,7 +214,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 companyName = data["UserConfiguration"]["COMPANY_NAME"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("COMPANY_NAME");
             }
@@ -214,7 +237,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 streetName = data["UserConfiguration"]["STREET_NAME"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("STREET_NAME");
             }
@@ -237,7 +260,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 postcodeAndCity = data["UserConfiguration"]["POSTCODE_AND_CITY"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("POSTCODE_AND_CITY");
             }
@@ -260,7 +283,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 country = data["UserConfiguration"]["COUNTRY_NAME"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("COUNTRY_NAME");
             }
@@ -283,7 +306,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data = iniParser.ReadFile(settingPath);
                 phoneNumber = data["UserConfiguration"]["TELEPHONE_NUMBER"];
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("TELEPHONE_NUMBER");
             }
@@ -312,7 +335,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_UI_CONTROLS"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_UI_CONTROLS");
             }
@@ -331,7 +354,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["GeneralConfiguration"]["ENABLE_ON_TOP_MOST"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_ON_TOP_MOST");
             }
@@ -347,15 +370,32 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             try
             {
-                data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString();
+                data["GeneralConfiguration"]["ENABLE_ICON_IN_TRAY"] = flag.ToString().ToLower();
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("ENABLE_ICON_IN_TRAY");
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// \brief SettingIniImpl::SetLocalizeLanguage
+        /// \param
+        /// \return 
+        ///
+        public void SetLocalizeLanguage(string language)
+        {
+            try
+            {
+                data["GeneralConfiguration"]["LANGUAGE"] = language;
+                iniParser.WriteFile(settingPath, data);
+            }
+            catch
+            {
+                ErrorMsg("LANGUAGE");
+            }
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// \brief SettingIniImpl::EditGetDateFormat
@@ -366,10 +406,10 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             try
             {
-                data["GeneralConfiguration"]["DATE_FORMAT"] = dateFormat;
+                data["MiscConfiguration"]["DATE_FORMAT"] = dateFormat;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("DATE_FORMAT");
             }
@@ -388,7 +428,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["APPLICATION_NAME"] = applicationTitle;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("APPLICATION_NAME");
             }
@@ -410,7 +450,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["PASSED_WITH_PERCENT"] = passedWithPercent.ToString();
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("PASSED_WITH_PERCENT");
             }
@@ -429,7 +469,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["COMPANY_NAME"] = companyName;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("COMPANY_NAME");
             }
@@ -448,7 +488,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["STREET_NAME"] = streetName;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("STREET_NAME");
             }
@@ -467,7 +507,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["POSTCODE_AND_CITY"] = postcodeAndCity;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("POSTCODE_AND_CITY");
             }
@@ -486,7 +526,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["COUNTRY_NAME"] = country;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("COUNTRY_NAME");
             }
@@ -505,7 +545,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 data["UserConfiguration"]["TELEPHONE_NUMBER"] = phoneNumber;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch (Exception)
+            catch
             {
                 ErrorMsg("TELEPHONE_NUMBER");
             }
@@ -522,7 +562,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         private void ErrorMsg(string msg)
         {
             MessageBox.Show(
-                string.Format("[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! /n Using default configurations...", msg),
+                string.Format("[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! \nRooling back to default configurations...", msg),
                 "ERROR", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Error

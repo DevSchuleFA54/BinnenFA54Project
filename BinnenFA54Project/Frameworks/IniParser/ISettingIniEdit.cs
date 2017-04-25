@@ -41,6 +41,15 @@ namespace BinnenFA54Project.Frameworks.IniParser
          * @return      None
          * @discussion  None
          */
+        void SetLocalizeLanguage(string language);
+
+
+        /**
+         * Modify the Setting.ini values.
+         *
+         * @return      Nones
+         * @discussion  None
+         */
         void SetDateFormat(string dateFormat);
 
 
