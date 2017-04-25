@@ -30,6 +30,7 @@ namespace BinnenFA54Project
         {
             setting = new SettingIni();
 
+            // NOTE: It has to be before the InitializeComponent function in order to take effect.
             Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
                 new CultureInfo("en-US") : new CultureInfo("de-DE");
 

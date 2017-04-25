@@ -33,16 +33,19 @@
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblPostcodeCity = new System.Windows.Forms.Label();
             this.cbQuizPicker = new System.Windows.Forms.ComboBox();
-            this.btnConfig = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lblExamTopics = new System.Windows.Forms.Label();
             this.btnStartExam = new GiladControllers.GiladButton();
             this.lblHistory = new System.Windows.Forms.Label();
             this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.pbConfig = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.giladControlBox1 = new GiladControllers.GiladControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.giladGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCompanyName
@@ -73,13 +76,6 @@
             this.cbQuizPicker.FormattingEnabled = true;
             this.cbQuizPicker.Name = "cbQuizPicker";
             // 
-            // btnConfig
-            // 
-            resources.ApplyResources(this.btnConfig, "btnConfig");
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.UseVisualStyleBackColor = true;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
-            // 
             // listBox1
             // 
             resources.ApplyResources(this.listBox1, "listBox1");
@@ -90,6 +86,7 @@
             // 
             resources.ApplyResources(this.pbLogo, "pbLogo");
             this.pbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pbLogo.Image = global::BinnenFA54Project.Properties.Resources.developer_logo;
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.TabStop = false;
             // 
@@ -120,14 +117,16 @@
             resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
-            this.giladGradientPanel1.Color2 = System.Drawing.SystemColors.MenuText;
+            this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
+            this.giladGradientPanel1.Controls.Add(this.pbConfig);
             this.giladGradientPanel1.Controls.Add(this.btnStartExam);
             this.giladGradientPanel1.Controls.Add(this.cbQuizPicker);
             this.giladGradientPanel1.Controls.Add(this.lblPostcodeCity);
-            this.giladGradientPanel1.Controls.Add(this.btnConfig);
             this.giladGradientPanel1.Controls.Add(this.listBox1);
             this.giladGradientPanel1.Controls.Add(this.lblExamTopics);
             this.giladGradientPanel1.Controls.Add(this.lblCompanyName);
+            this.giladGradientPanel1.Controls.Add(this.label2);
+            this.giladGradientPanel1.Controls.Add(this.label1);
             this.giladGradientPanel1.Controls.Add(this.lblHistory);
             this.giladGradientPanel1.Controls.Add(this.lblStreet);
             this.giladGradientPanel1.Controls.Add(this.pbLogo);
@@ -136,6 +135,27 @@
             this.giladGradientPanel1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.giladGradientPanel1.Name = "giladGradientPanel1";
+            // 
+            // pbConfig
+            // 
+            resources.ApplyResources(this.pbConfig, "pbConfig");
+            this.pbConfig.BackColor = System.Drawing.Color.Transparent;
+            this.pbConfig.Image = global::BinnenFA54Project.Properties.Resources.settings_icon;
+            this.pbConfig.Name = "pbConfig";
+            this.pbConfig.TabStop = false;
+            this.pbConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label1.Name = "label1";
             // 
             // giladControlBox1
             // 
@@ -154,7 +174,7 @@
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
             this.AppTitle.ShowIcon = true;
             this.AppTitle.ShowTextTitle = true;
-            this.AppTitle.TextColor = System.Drawing.Color.Tan;
+            this.AppTitle.TextColor = System.Drawing.Color.AntiqueWhite;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 20);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,10 +182,10 @@
             this.Controls.Add(this.giladControlBox1);
             this.Controls.Add(this.giladGradientPanel1);
             this.CustomCursor = true;
-            this.FormBackColor.GradientColor1 = System.Drawing.Color.Firebrick;
-            this.FormBackColor.GradientColor2 = System.Drawing.Color.MediumTurquoise;
+            this.FormBackColor.GradientColor1 = System.Drawing.Color.DarkRed;
+            this.FormBackColor.GradientColor2 = System.Drawing.Color.Black;
             this.FormBackColor.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.FormBorders.Color = System.Drawing.Color.GreenYellow;
+            this.FormBorders.Color = System.Drawing.Color.LightSteelBlue;
             this.FormBorders.DrawBorders = true;
             this.FormBorders.Width = 12;
             this.Name = "MainForm";
@@ -173,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.giladGradientPanel1.ResumeLayout(false);
             this.giladGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfig)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,10 +208,12 @@
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ComboBox cbQuizPicker;
-        private System.Windows.Forms.Button btnConfig;
         private GiladControllers.GiladButton btnStartExam;
         private GiladControllers.GiladGradientPanel giladGradientPanel1;
         private GiladControllers.GiladControlBox giladControlBox1;
+        private System.Windows.Forms.PictureBox pbConfig;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

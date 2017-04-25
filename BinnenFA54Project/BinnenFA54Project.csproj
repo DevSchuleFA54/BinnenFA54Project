@@ -221,6 +221,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\developer_logo.png" />
+    <None Include="Resources\settings_icon.gif" />
     <None Include="Resources\loader.gif" />
     <None Include="Resources\244.gif" />
     <None Include="Resources\243.gif" />

@@ -126,21 +126,30 @@
   <data name="lblPostcodeCity.Text" xml:space="preserve">
     <value>PLZ</value>
   </data>
-  <data name="btnConfig.Text" xml:space="preserve">
-    <value>Konfiguration</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblExamTopics.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 15</value>
+    <value>260, 18</value>
   </data>
   <data name="lblExamTopics.Text" xml:space="preserve">
     <value>Exam Themen:</value>
   </data>
   <data name="lblHistory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 15</value>
+    <value>130, 18</value>
   </data>
   <data name="lblHistory.Text" xml:space="preserve">
     <value>Fertige Themen:</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 404</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Los Geht's!</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Konfiguration</value>
   </data>
   <data name="resource.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
