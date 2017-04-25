@@ -152,6 +152,9 @@
     <EmbeddedResource Include="Forms\Misc\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misc\MainAppLoader.resx">
+      <DependentUpon>MainAppLoader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuizForm.resx">
       <DependentUpon>QuizForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +224,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\loading_letter.gif" />
+    <None Include="Resources\water_splash.gif" />
     <None Include="Resources\developer_logo.png" />
     <None Include="Resources\settings_icon.gif" />
     <None Include="Resources\loader.gif" />
