@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
-            this.cbDateFormat = new System.Windows.Forms.ComboBox();
+            this.comboDateFormat = new System.Windows.Forms.ComboBox();
             this.lblDateFormat = new System.Windows.Forms.Label();
             this.cbUiControls = new System.Windows.Forms.CheckBox();
             this.cbOnTopMost = new System.Windows.Forms.CheckBox();
@@ -55,19 +55,21 @@
             this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboLanguage = new System.Windows.Forms.ComboBox();
             this.groupBoxGC.SuspendLayout();
             this.giladGradientPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cbDateFormat
+            // comboDateFormat
             // 
-            resources.ApplyResources(this.cbDateFormat, "cbDateFormat");
-            this.cbDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDateFormat.FormattingEnabled = true;
-            this.cbDateFormat.Name = "cbDateFormat";
-            this.cbDateFormat.TextChanged += new System.EventHandler(this.OnValueTextChanged);
+            resources.ApplyResources(this.comboDateFormat, "comboDateFormat");
+            this.comboDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDateFormat.FormattingEnabled = true;
+            this.comboDateFormat.Name = "comboDateFormat";
+            this.comboDateFormat.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // lblDateFormat
             // 
@@ -247,7 +249,7 @@
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.tbAppTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbPassedWithPrercent, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cbDateFormat, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.comboDateFormat, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.lblDateFormat, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -261,7 +263,24 @@
             this.tableLayoutPanel1.Controls.Add(this.tbPostcodeCity, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbCountry, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.tbPhone, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.comboLanguage, 1, 8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label8.Name = "label8";
+            // 
+            // comboLanguage
+            // 
+            resources.ApplyResources(this.comboLanguage, "comboLanguage");
+            this.comboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLanguage.FormattingEnabled = true;
+            this.comboLanguage.Name = "comboLanguage";
+            this.comboLanguage.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // ConfigurationForm
             // 
@@ -298,7 +317,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbDateFormat;
+        private System.Windows.Forms.ComboBox comboDateFormat;
         private System.Windows.Forms.Label lblDateFormat;
         private System.Windows.Forms.CheckBox cbUiControls;
         private System.Windows.Forms.CheckBox cbOnTopMost;
@@ -324,5 +343,7 @@
         private GiladControllers.GiladGradientPanel giladGradientPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboLanguage;
     }
 }

@@ -21,11 +21,12 @@ namespace BinnenFA54Project.Forms
 
         public ConfigurationForm()
         {
-            // NOTE: It has to be before the InitializeComponent function.
-            // If Language Selected == German, do this:
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
-            // TODO: Implement settings for Multilanguage support.
             setting = new SettingIni();
+
+            // NOTE: It has to be before the InitializeComponent function.
+            Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
+                new CultureInfo("en-US") : new CultureInfo("de-DE");
+
             InitializeComponent();
             InitializeValues();
         }
@@ -44,12 +45,13 @@ namespace BinnenFA54Project.Forms
             tbCountry.Text            = setting.Country;
             tbPhone.Text              = setting.PhoneNumber;
 
-            cbDateFormat.Items.Add(DateTime.Now.ToString("D"));
-            cbDateFormat.Items.Add(DateTime.Now.ToString("dd-MM-yyyy"));
-            cbDateFormat.Items.Add(DateTime.Now.ToString("yy-MM-dd"));
-            cbDateFormat.Items.Add(DateTime.Now.ToString("yyyy-M-d"));
-            cbDateFormat.SelectedIndex = 0;
-
+            comboDateFormat.Items.Add(DateTime.Now.ToString("D"));
+            comboDateFormat.Items.Add(DateTime.Now.ToString("dd-MM-yyyy"));
+            comboDateFormat.Items.Add(DateTime.Now.ToString("yy-MM-dd"));
+            comboDateFormat.Items.Add(DateTime.Now.ToString("yyyy-M-d"));
+            comboLanguage.Items.Add("German (Default)");
+            comboLanguage.Items.Add("English");
+            SelectComboBoxes();
 
             if (setting.UIControls)
                 cbUiControls.Checked = true;
@@ -71,7 +73,9 @@ namespace BinnenFA54Project.Forms
         }
 
 
-
+        /// <summary>
+        /// Applying changes to the Settings.ini in the executeable path.
+        /// </summary>
         private void WriteNewConfiguration()
         {
             setting.SetApplicationTitle  = tbAppTitle.Text;
@@ -82,24 +86,60 @@ namespace BinnenFA54Project.Forms
             setting.SetCountry           = tbCountry.Text;
             setting.SetPhoneNumber       = tbPhone.Text;
             setting.SetDateFormat        = ValidateDateFormat();
-
+            setting.SetLanguage          = ValidateLanguage();
 
             setting.SetUIControls        = cbUiControls.Checked;
             setting.SetOnTopMost         = cbOnTopMost.Checked;
-            setting.SetIconInTray        = cbOnTopMost.Checked;
+            setting.SetIconInTray        = cbIconInTray.Checked;
         }
 
+
+        private void SelectComboBoxes()
+        {
+            switch (setting.DateFormat)
+            {
+                case "D":
+                    comboDateFormat.SelectedIndex = 0;
+                    break;
+                case "dd-MM-yyyy":
+                    comboDateFormat.SelectedIndex = 1;
+                    break;
+                case "yy-MM-dd":
+                    comboDateFormat.SelectedIndex = 2;
+                    break;
+                case "yyyy-M-d":
+                    comboDateFormat.SelectedIndex = 3;
+                    break;
+                default:
+                    comboDateFormat.SelectedIndex = 0;
+                    break;
+            }
+
+
+            comboLanguage.SelectedIndex = setting.Language == "de-DE" ? 0 : 1;
+        }
 
 
         private string ValidateDateFormat()
         {
-            switch (cbDateFormat.SelectedIndex)
+            switch (comboDateFormat.SelectedIndex)
             {
                 case 0: return "D";
                 case 1: return "dd-MM-yyyy";
                 case 2: return "yy-MM-dd";
                 case 3: return "yyyy-M-d";
-                default: return "";
+                default: return "D";
+            }
+        }
+
+
+        private string ValidateLanguage()
+        {
+            switch (comboLanguage.SelectedIndex)
+            {
+                case 0: return "de-DE";
+                case 1: return "en-US";
+                default: return "de-DE"; // default language
             }
         }
 
@@ -108,21 +148,26 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                MessageBox.Show("Successfully saved your changes!");
+                MessageBox.Show("Successfully saved your changes! " +
+                                "\nMake sure to restart application for changes to take effect."
+                                , "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 WriteNewConfiguration();
                 this.Close();
             }
+            else
+                MessageBox.Show("No changes has been made, nothing to save.");
         }
 
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            if (configChanged)
-            {
-                MessageBox.Show("Successfully saved your changes!");
-                WriteNewConfiguration();
-                configChanged = false; // Finished writting changes, so it won't promote if user click close.
-            }
+            if (!configChanged) return;
+
+            MessageBox.Show("Successfully saved your changes! " +
+                            "\nMake sure to restart application for changes to take effect."
+                            , "Apply", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            WriteNewConfiguration();
+            configChanged = false; // Finished writting changes, so it won't promote if user click close.
         }
 
 
@@ -159,6 +204,7 @@ namespace BinnenFA54Project.Forms
             if (!finishedLoading) return;
             configChanged = true;
         }
+
 
     }
 }

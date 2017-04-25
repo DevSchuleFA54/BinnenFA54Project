@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cbDateFormat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="comboDateFormat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cbDateFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 201</value>
+  <data name="comboDateFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 178</value>
   </data>
-  <data name="cbDateFormat.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="comboDateFormat.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 21</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cbDateFormat.TabIndex" type="System.Int32, mscorlib">
+  <data name="comboDateFormat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;cbDateFormat.Name" xml:space="preserve">
-    <value>cbDateFormat</value>
+  <data name="&gt;&gt;comboDateFormat.Name" xml:space="preserve">
+    <value>comboDateFormat</value>
   </data>
-  <data name="&gt;&gt;cbDateFormat.Type" xml:space="preserve">
+  <data name="&gt;&gt;comboDateFormat.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cbDateFormat.Parent" xml:space="preserve">
+  <data name="&gt;&gt;comboDateFormat.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;cbDateFormat.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;comboDateFormat.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="lblDateFormat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -154,7 +154,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="lblDateFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 204</value>
+    <value>41, 180</value>
   </data>
   <data name="lblDateFormat.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 15</value>
@@ -262,7 +262,7 @@
     <value>Left</value>
   </data>
   <data name="tbAppTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 4</value>
+    <value>133, 3</value>
   </data>
   <data name="tbAppTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -286,7 +286,7 @@
     <value>Left</value>
   </data>
   <data name="tbPassedWithPrercent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 32</value>
+    <value>133, 28</value>
   </data>
   <data name="tbPassedWithPrercent.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -310,7 +310,7 @@
     <value>Left</value>
   </data>
   <data name="tbCompanyName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 60</value>
+    <value>133, 53</value>
   </data>
   <data name="tbCompanyName.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -334,7 +334,7 @@
     <value>Left</value>
   </data>
   <data name="tbStreetName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 88</value>
+    <value>133, 78</value>
   </data>
   <data name="tbStreetName.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -358,7 +358,7 @@
     <value>Left</value>
   </data>
   <data name="tbPostcodeCity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 116</value>
+    <value>133, 103</value>
   </data>
   <data name="tbPostcodeCity.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -382,7 +382,7 @@
     <value>Left</value>
   </data>
   <data name="tbPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 172</value>
+    <value>133, 153</value>
   </data>
   <data name="tbPhone.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -409,7 +409,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="groupBoxGC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>372, 14</value>
+    <value>398, 29</value>
   </data>
   <data name="groupBoxGC.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 97</value>
@@ -442,7 +442,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 6</value>
+    <value>17, 5</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 15</value>
@@ -475,7 +475,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 34</value>
+    <value>8, 30</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 15</value>
@@ -508,7 +508,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 62</value>
+    <value>19, 55</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 15</value>
@@ -541,7 +541,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 90</value>
+    <value>40, 80</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 15</value>
@@ -574,7 +574,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 118</value>
+    <value>6, 105</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 15</value>
@@ -607,7 +607,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 174</value>
+    <value>24, 155</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 15</value>
@@ -715,7 +715,7 @@
     <value>Left</value>
   </data>
   <data name="tbCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 144</value>
+    <value>133, 128</value>
   </data>
   <data name="tbCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 20</value>
@@ -745,7 +745,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 146</value>
+    <value>72, 130</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 15</value>
@@ -775,7 +775,7 @@
     <value>3</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 261</value>
+    <value>311, 294</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -807,11 +807,71 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="label8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 206</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 15</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="comboLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="comboLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 203</value>
+  </data>
+  <data name="comboLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="comboLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Name" xml:space="preserve">
+    <value>comboLanguage</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 15</value>
+    <value>12, 31</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>345, 227</value>
@@ -832,7 +892,7 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tbAppTitle" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPassedWithPrercent" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbDateFormat" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDateFormat" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbCompanyName" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbStreetName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbPostcodeCity" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbCountry" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPhone" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,130,Percent,100" /&gt;&lt;Rows Styles="Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tbAppTitle" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPassedWithPrercent" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="comboDateFormat" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDateFormat" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbCompanyName" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbStreetName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbPostcodeCity" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbCountry" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPhone" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label8" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboLanguage" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,130,Percent,100" /&gt;&lt;Rows Styles="Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="giladGradientPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -841,7 +901,7 @@
     <value>9, 50</value>
   </data>
   <data name="giladGradientPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 306</value>
+    <value>617, 339</value>
   </data>
   <data name="giladGradientPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -865,7 +925,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>615, 365</value>
+    <value>634, 398</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>615, 365</value>
