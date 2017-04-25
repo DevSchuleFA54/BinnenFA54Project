@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
-            this.cbDateFormat = new System.Windows.Forms.ComboBox();
+            this.comboDateFormat = new System.Windows.Forms.ComboBox();
             this.lblDateFormat = new System.Windows.Forms.Label();
             this.cbUiControls = new System.Windows.Forms.CheckBox();
             this.cbOnTopMost = new System.Windows.Forms.CheckBox();
@@ -55,18 +55,21 @@
             this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboLanguage = new System.Windows.Forms.ComboBox();
             this.groupBoxGC.SuspendLayout();
             this.giladGradientPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cbDateFormat
+            // comboDateFormat
             // 
-            resources.ApplyResources(this.cbDateFormat, "cbDateFormat");
-            this.cbDateFormat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbDateFormat.FormattingEnabled = true;
-            this.cbDateFormat.Name = "cbDateFormat";
+            resources.ApplyResources(this.comboDateFormat, "comboDateFormat");
+            this.comboDateFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDateFormat.FormattingEnabled = true;
+            this.comboDateFormat.Name = "comboDateFormat";
+            this.comboDateFormat.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // lblDateFormat
             // 
@@ -80,48 +83,57 @@
             resources.ApplyResources(this.cbUiControls, "cbUiControls");
             this.cbUiControls.Name = "cbUiControls";
             this.cbUiControls.UseVisualStyleBackColor = true;
+            this.cbUiControls.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // cbOnTopMost
             // 
             resources.ApplyResources(this.cbOnTopMost, "cbOnTopMost");
             this.cbOnTopMost.Name = "cbOnTopMost";
             this.cbOnTopMost.UseVisualStyleBackColor = true;
+            this.cbOnTopMost.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // cbIconInTray
             // 
             resources.ApplyResources(this.cbIconInTray, "cbIconInTray");
             this.cbIconInTray.Name = "cbIconInTray";
             this.cbIconInTray.UseVisualStyleBackColor = true;
+            this.cbIconInTray.CheckedChanged += new System.EventHandler(this.cbUiControls_CheckedChanged);
             // 
             // tbAppTitle
             // 
             resources.ApplyResources(this.tbAppTitle, "tbAppTitle");
             this.tbAppTitle.Name = "tbAppTitle";
+            this.tbAppTitle.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPassedWithPrercent
             // 
             resources.ApplyResources(this.tbPassedWithPrercent, "tbPassedWithPrercent");
             this.tbPassedWithPrercent.Name = "tbPassedWithPrercent";
+            this.tbPassedWithPrercent.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbCompanyName
             // 
             resources.ApplyResources(this.tbCompanyName, "tbCompanyName");
             this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbStreetName
             // 
             resources.ApplyResources(this.tbStreetName, "tbStreetName");
             this.tbStreetName.Name = "tbStreetName";
+            this.tbStreetName.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPostcodeCity
             // 
             resources.ApplyResources(this.tbPostcodeCity, "tbPostcodeCity");
             this.tbPostcodeCity.Name = "tbPostcodeCity";
+            this.tbPostcodeCity.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // tbPhone
             // 
             resources.ApplyResources(this.tbPhone, "tbPhone");
             this.tbPhone.Name = "tbPhone";
+            this.tbPhone.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // groupBoxGC
             // 
@@ -181,12 +193,14 @@
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnApply
             // 
             resources.ApplyResources(this.btnApply, "btnApply");
             this.btnApply.Name = "btnApply";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnClose
             // 
@@ -199,6 +213,7 @@
             // 
             resources.ApplyResources(this.tbCountry, "tbCountry");
             this.tbCountry.Name = "tbCountry";
+            this.tbCountry.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // label7
             // 
@@ -209,7 +224,6 @@
             // 
             // giladGradientPanel1
             // 
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
@@ -217,6 +231,7 @@
             this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel1);
             this.giladGradientPanel1.Controls.Add(this.groupBoxGC);
             this.giladGradientPanel1.CustomCursor = true;
+            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.DraggableForm = true;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.giladGradientPanel1.Name = "giladGradientPanel1";
@@ -234,7 +249,7 @@
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.tbAppTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbPassedWithPrercent, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cbDateFormat, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.comboDateFormat, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.lblDateFormat, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -248,21 +263,37 @@
             this.tableLayoutPanel1.Controls.Add(this.tbPostcodeCity, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbCountry, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.tbPhone, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.comboLanguage, 1, 8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label8.Name = "label8";
+            // 
+            // comboLanguage
+            // 
+            resources.ApplyResources(this.comboLanguage, "comboLanguage");
+            this.comboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLanguage.FormattingEnabled = true;
+            this.comboLanguage.Name = "comboLanguage";
+            this.comboLanguage.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
             // ConfigurationForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AllowResize = false;
             this.AppTitle.Icon = null;
             this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
             this.AppTitle.IconSize = new System.Drawing.Size(0, 0);
             this.AppTitle.ShowIcon = false;
             this.AppTitle.ShowTextTitle = true;
-            this.AppTitle.Text = "Konfiguration";
             this.AppTitle.TextColor = System.Drawing.Color.SeaShell;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(10, 15);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.giladGradientPanel1);
             this.CustomCursor = true;
@@ -286,7 +317,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbDateFormat;
+        private System.Windows.Forms.ComboBox comboDateFormat;
         private System.Windows.Forms.Label lblDateFormat;
         private System.Windows.Forms.CheckBox cbUiControls;
         private System.Windows.Forms.CheckBox cbOnTopMost;
@@ -312,5 +343,7 @@
         private GiladControllers.GiladGradientPanel giladGradientPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboLanguage;
     }
 }
