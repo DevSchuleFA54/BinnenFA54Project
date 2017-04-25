@@ -28,6 +28,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             if (!File.Exists(settingPath))
             {
+                // TODO: Localize text.
                 MessageBox.Show("Missing Settings.ini file! \nGenerating new Settings.ini file with default settings for you.",
                     "Missing Settings File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 File.WriteAllText(settingPath, Properties.Resources.Settings);
@@ -561,6 +562,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         ///
         private void ErrorMsg(string msg)
         {
+            // TODO: Localize text.
             MessageBox.Show(
                 string.Format("[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! \nRooling back to default configurations...", msg),
                 "ERROR", 
