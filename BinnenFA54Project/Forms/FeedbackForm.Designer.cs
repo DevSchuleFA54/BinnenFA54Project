@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedbackForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lblPassedOrNot = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -36,57 +37,35 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 37);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Personal Feedback";
             // 
             // lblPassedOrNot
             // 
-            this.lblPassedOrNot.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPassedOrNot.Location = new System.Drawing.Point(56, 284);
+            resources.ApplyResources(this.lblPassedOrNot, "lblPassedOrNot");
             this.lblPassedOrNot.Name = "lblPassedOrNot";
-            this.lblPassedOrNot.Size = new System.Drawing.Size(212, 50);
-            this.lblPassedOrNot.TabIndex = 0;
-            this.lblPassedOrNot.Text = "Passed or Not label";
-            this.lblPassedOrNot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // listBox1
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.listBox1, "listBox1");
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(17, 68);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(293, 199);
-            this.listBox1.TabIndex = 1;
             // 
             // lblResults
             // 
-            this.lblResults.AutoSize = true;
-            this.lblResults.Location = new System.Drawing.Point(17, 52);
+            resources.ApplyResources(this.lblResults, "lblResults");
             this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(45, 13);
-            this.lblResults.TabIndex = 0;
-            this.lblResults.Text = "Results:";
             // 
             // FeedbackForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 339);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblPassedOrNot);
             this.Controls.Add(this.lblResults);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FeedbackForm";
-            this.Text = "FeedbackForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Forms;
@@ -15,6 +17,7 @@ using GiladControllers;
 
 namespace BinnenFA54Project
 {
+    // TODO: @togi - Create German Translation. See ConfigurationForm as example.
     public partial class MainForm : GiladForm
     {
         private QuizMgr _quizMgr;
@@ -26,6 +29,9 @@ namespace BinnenFA54Project
         public MainForm()
         {
             setting = new SettingIni();
+
+            Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
+                new CultureInfo("en-US") : new CultureInfo("de-DE");
 
             InitializeComponent();
             InitializeSettings();
@@ -71,8 +77,5 @@ namespace BinnenFA54Project
             configurationForm = new ConfigurationForm();
             configurationForm.Show();
         }
-
-
-
     }
 }

@@ -15,6 +15,7 @@ using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
+    // TODO: @togi - Create German Translation.  See ConfigurationForm as example.
     public partial class QuizForm : GiladForm
     {
         QuizMgr quiz;
@@ -310,6 +311,7 @@ namespace BinnenFA54Project.Forms
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
+            // TODO: Localize text.
             DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
                 "Finish Exam", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -317,6 +319,7 @@ namespace BinnenFA54Project.Forms
             {
                 if (progressBar.Value != progressBar.Maximum)
                 {
+                    // TODO: Localize text.
                     DialogResult dialogResult = MessageBox.Show(
                             string.Format("Seems like you only answered {0} questions from {1}. To continue?",
                             progressBar.Value, progressBar.Maximum),

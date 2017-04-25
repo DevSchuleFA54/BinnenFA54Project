@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GiladControllers;
 using System.Globalization;
+using System.Reflection;
+using System.Resources;
 using System.Threading;
 using BinnenFA54Project.Frameworks.IniParser;
+using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Forms
 {
+    // TODO: @togi - Improve German Translation.
     public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;
@@ -49,8 +53,8 @@ namespace BinnenFA54Project.Forms
             comboDateFormat.Items.Add(DateTime.Now.ToString("dd-MM-yyyy"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yy-MM-dd"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yyyy-M-d"));
-            comboLanguage.Items.Add("German (Default)");
-            comboLanguage.Items.Add("English");
+            comboLanguage.Items.Add(Resources.ResourceManager.GetString("GERMAN"));
+            comboLanguage.Items.Add(Resources.ResourceManager.GetString("ENGLISH"));
             SelectComboBoxes();
 
             if (setting.UIControls)
@@ -148,14 +152,21 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                MessageBox.Show("Successfully saved your changes! " +
-                                "\nMake sure to restart application for changes to take effect."
-                                , "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // TODO: @togi - Here is an example that might seems a bit complicated.
+                //MessageBox.Show("Successfully saved your changes! " +
+                //                "\nMake sure to restart application for changes to take effect."
+                //                , "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);      
+
+                MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
+                                Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
+                                Resources.ResourceManager.GetString("SAVE"), 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 WriteNewConfiguration();
-                this.Close();
+                Application.Restart();
             }
             else
                 MessageBox.Show("No changes has been made, nothing to save.");
+
         }
 
 
@@ -163,9 +174,10 @@ namespace BinnenFA54Project.Forms
         {
             if (!configChanged) return;
 
-            MessageBox.Show("Successfully saved your changes! " +
-                            "\nMake sure to restart application for changes to take effect."
-                            , "Apply", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
+                            Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
+                            Resources.ResourceManager.GetString("SAVE"),
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
             WriteNewConfiguration();
             configChanged = false; // Finished writting changes, so it won't promote if user click close.
         }
@@ -175,6 +187,7 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
+                // TODO: Localize text.
                 DialogResult dialogResult = MessageBox.Show(
                     "Are you really want to close without saving the Changes?", 
                     "Close Window Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
