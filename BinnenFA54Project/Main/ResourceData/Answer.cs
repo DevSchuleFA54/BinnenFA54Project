@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BinnenFA54Project.Main.ResourceData
+﻿namespace BinnenFA54Project.Main.ResourceData
 {
     public enum State
     {
