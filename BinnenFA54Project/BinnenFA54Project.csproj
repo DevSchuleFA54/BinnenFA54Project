@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ship.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GiladControllers">
       <HintPath>..\packages\Gilad.Controllers-1.0.3\GiladControllers.dll</HintPath>
@@ -215,6 +218,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
+    <Content Include="ship.ico" />
     <None Include="Resources\loading_letter.gif" />
     <None Include="Resources\water_splash.gif" />
     <None Include="Resources\developer_logo.png" />

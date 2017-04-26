@@ -62,8 +62,8 @@
             // 
             // lblQuestion
             // 
-            resources.ApplyResources(this.lblQuestion, "lblQuestion");
             this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lblQuestion, "lblQuestion");
             this.lblQuestion.ForeColor = System.Drawing.Color.Azure;
             this.lblQuestion.Name = "lblQuestion";
             // 
@@ -153,7 +153,6 @@
             // 
             // giladGradientPanel1
             // 
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkSlateBlue;
@@ -170,6 +169,7 @@
             this.giladGradientPanel1.Controls.Add(this.label4);
             this.giladGradientPanel1.Controls.Add(this.label5);
             this.giladGradientPanel1.CustomCursor = true;
+            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.DraggableForm = true;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.giladGradientPanel1.Name = "giladGradientPanel1";
@@ -185,7 +185,6 @@
             // 
             // QuizForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(10, 10);
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
@@ -194,6 +193,7 @@
             this.AppTitle.TextColor = System.Drawing.Color.Bisque;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 15);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.giladControlBox1);
