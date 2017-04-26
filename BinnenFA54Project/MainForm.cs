@@ -14,17 +14,20 @@ using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
 using GiladControllers;
+using System.Runtime.InteropServices;
 
 namespace BinnenFA54Project
 {
     // TODO: @togi - Create German Translation. See ConfigurationForm as example.
     public partial class MainForm : GiladForm
     {
+
         private QuizMgr _quizMgr;
         private TopicMgr _topics;
         private QuizForm quizForm;
         private ConfigurationForm configurationForm;
         private SettingIni setting;
+
 
         public MainForm()
         {
@@ -33,11 +36,12 @@ namespace BinnenFA54Project
             // NOTE: It has to be before the InitializeComponent function in order to take effect.
             Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
                 new CultureInfo("en-US") : new CultureInfo("de-DE");
-
+            Thread.Sleep(3000);
             InitializeComponent();
             InitializeSettings();
             InitializeTopicList();
             this.ResizeRedraw = true;
+            
         }
 
         private void InitializeSettings()
