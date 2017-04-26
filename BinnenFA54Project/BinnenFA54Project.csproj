@@ -152,6 +152,9 @@
     <EmbeddedResource Include="Forms\Misc\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuizForm.de.resx">
+      <DependentUpon>QuizForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuizForm.resx">
       <DependentUpon>QuizForm.cs</DependentUpon>
     </EmbeddedResource>

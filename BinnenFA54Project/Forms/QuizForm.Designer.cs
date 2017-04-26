@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -121,8 +121,8 @@
             this.cbCombo.CheckBox4Text = "CheckBox Text";
             this.cbCombo.CheckBoxAutoSize = false;
             this.cbCombo.CheckBoxFont = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(818, 86);
-            this.cbCombo.CheckBoxSize = new System.Drawing.Size(878, 86);
+            this.cbCombo.CheckBoxLabelSize = new System.Drawing.Size(546, 60);
+            this.cbCombo.CheckBoxSize = new System.Drawing.Size(587, 60);
             this.cbCombo.HandCursorHover = false;
             this.cbCombo.LabelForeColor = System.Drawing.Color.Azure;
             this.cbCombo.LabelForeColorDisabled = System.Drawing.Color.Gray;
