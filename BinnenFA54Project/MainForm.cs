@@ -33,11 +33,13 @@ namespace BinnenFA54Project
             // NOTE: It has to be before the InitializeComponent function in order to take effect.
             Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
                 new CultureInfo("en-US") : new CultureInfo("de-DE");
-
+            Loader.StartLoader(LoaderSelector.MainAppLoader);
             InitializeComponent();
             InitializeSettings();
             InitializeTopicList();
             this.ResizeRedraw = true;
+            // Not Construktor...
+            Loader.StopLoader();
         }
 
         private void InitializeSettings()
