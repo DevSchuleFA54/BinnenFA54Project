@@ -114,7 +114,6 @@
             // 
             // giladGradientPanel1
             // 
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
             this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
@@ -131,6 +130,7 @@
             this.giladGradientPanel1.Controls.Add(this.lblStreet);
             this.giladGradientPanel1.Controls.Add(this.pbLogo);
             this.giladGradientPanel1.CustomCursor = true;
+            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
             this.giladGradientPanel1.DraggableForm = true;
             this.giladGradientPanel1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -138,9 +138,9 @@
             // 
             // pbConfig
             // 
-            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.BackColor = System.Drawing.Color.Transparent;
             this.pbConfig.Image = global::BinnenFA54Project.Properties.Resources.settings_icon;
+            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.Name = "pbConfig";
             this.pbConfig.TabStop = false;
             this.pbConfig.Click += new System.EventHandler(this.btnConfig_Click);
@@ -168,7 +168,6 @@
             // 
             // MainForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(15, 15);
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
@@ -177,6 +176,7 @@
             this.AppTitle.TextColor = System.Drawing.Color.AntiqueWhite;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 20);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.giladControlBox1);
