@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BinnenFA54Project.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
 using GiladControllers;
-using System.Runtime.InteropServices;
 
 namespace BinnenFA54Project
 {
@@ -31,17 +22,19 @@ namespace BinnenFA54Project
 
         public MainForm()
         {
-            setting = new SettingIni();
+            Loader.StartLoader(LoaderSelector.MainAppLoader);
 
+            setting = new SettingIni();
             // NOTE: It has to be before the InitializeComponent function in order to take effect.
             Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
                 new CultureInfo("en-US") : new CultureInfo("de-DE");
-            Thread.Sleep(3000);
+
+            Thread.Sleep(3000); // keeps the fancy splash bar up for a bit
             InitializeComponent();
             InitializeSettings();
             InitializeTopicList();
-            this.ResizeRedraw = true;
-            
+
+            Loader.StopLoader(this.Handle); // stops the splash screen.
         }
 
         private void InitializeSettings()
@@ -66,6 +59,7 @@ namespace BinnenFA54Project
 
         private void btnStartExam_Click(object sender, EventArgs e)
         {
+
             // db based 1 value while CB based 0.
             QuizBase.SelectedTopic = cbQuizPicker.SelectedIndex + 1;
 
@@ -73,14 +67,13 @@ namespace BinnenFA54Project
             // better control instead of creating another instance in memory.
             QuizMgr.Topics = _topics;
 
-            quizForm = new QuizForm();
-            quizForm.Show();
+            new QuizForm().Show();
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            configurationForm = new ConfigurationForm();
-            configurationForm.Show();
+            new ConfigurationForm().Show();
         }
+
     }
 }

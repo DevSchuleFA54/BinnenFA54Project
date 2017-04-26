@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GiladControllers;
-using System.Globalization;
-using System.Reflection;
-using System.Resources;
 using System.Threading;
 using BinnenFA54Project.Frameworks.IniParser;
+using BinnenFA54Project.Main;
 using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Forms
@@ -25,14 +16,15 @@ namespace BinnenFA54Project.Forms
 
         public ConfigurationForm()
         {
+            Loader.StartLoader(LoaderSelector.Loader);
+
+
             setting = new SettingIni();
-
-            // NOTE: It has to be before the InitializeComponent function in order to take effect.
-            Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
-                new CultureInfo("en-US") : new CultureInfo("de-DE");
-
+            Thread.Sleep(2000);
             InitializeComponent();
             InitializeValues();
+
+            Loader.StopLoader(this.Handle);
         }
 
         private bool finishedLoading = false;

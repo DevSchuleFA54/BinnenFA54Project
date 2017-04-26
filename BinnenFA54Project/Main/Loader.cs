@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Forms.Misc;
 
@@ -17,52 +14,64 @@ namespace BinnenFA54Project.Main
 
     class Loader
     {
-        private static Thread _loader;
+        [DllImport("User32.dll")]
+        public static extern Int32 SetForegroundWindow(int hWnd);
+
+
+
         private static LoaderSelector _loaderSelector;
 
-
+        // Forms
+        private static LoaderForm loaderForm;
+        private static MainAppLoader mainAppLoader;
 
         public static void StartLoader(LoaderSelector loader)
         {
             _loaderSelector = loader;
-            _loader = new Thread(new ThreadStart(Load));
-            _loader.Start();
+
+            switch (loader)
+            {
+                case LoaderSelector.Loader:
+                    LoadFormOnThread(loaderForm = new LoaderForm());
+                    break;
+                case LoaderSelector.MainAppLoader:
+                    LoadFormOnThread(mainAppLoader = new MainAppLoader());
+                    break;
+            }
         }
 
 
-
-        public static void StopLoader()
+        public static void StopLoader(IntPtr handle)
         {
-            try
-            {
-                _loader.Abort(); // if failed to kill thread
-            }
-            catch (ThreadAbortException)
-            {
-                _loader.Abort(); // try again
-            }
-            finally
-            {
-                _loader.Abort(); // if it didn't manage, give last shot.
-            }
+            WindowToFront(handle);
 
+            switch (_loaderSelector)
+            {
+                case LoaderSelector.Loader:
+                    loaderForm?.Close();
+                    break;
+                case LoaderSelector.MainAppLoader:
+                    mainAppLoader?.Close();
+                    break;
+            }
         }
 
 
-        private static void Load()
+        private static void LoadFormOnThread(Form form)
         {
-            if (LoaderSelector.MainAppLoader == _loaderSelector)
-            {
-                MainAppLoader appMainLoader = new MainAppLoader();
-                Application.Run(appMainLoader);
-            }
-            else
-            {
-                LoaderForm loader = new LoaderForm();
-                Application.Run(loader);
-            }
+            new Thread(() => form.ShowDialog()).Start(); // same as delegate
         }
 
+
+        /// <summary>
+        /// Brings the window on front.
+        /// Useful when using loaders.
+        /// </summary>
+        /// <param name="handle"></param>
+        private static void WindowToFront(IntPtr handle)
+        {
+            SetForegroundWindow(handle.ToInt32());
+        }
 
     }
 }

@@ -1,27 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
-using BinnenFA54Project.Main.ServeData;
 using GiladControllers;
 
 namespace BinnenFA54Project.Forms
 {
-    // TODO: @togi - Create German Translation.  See ConfigurationForm as example.
     public partial class QuizForm : GiladForm
     {
         QuizMgr quiz;
-        FeedbackForm feedbackForm;
         private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
         private bool alreadyChecked;
@@ -32,36 +22,33 @@ namespace BinnenFA54Project.Forms
 
         public QuizForm()
         {
-            //Loader.StartLoader(LoaderSelector.Loader);
+            Loader.StartLoader(LoaderSelector.Loader);
 
             setting = new SettingIni();
-            //// NOTE: It has to be before the InitializeComponent function in order to take effect.
-            //Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
-            //    new CultureInfo("en-US") : new CultureInfo("de-DE");
-
             quiz = new QuizMgr();
+
+            Thread.Sleep(3000);
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
             UpdateQuestions();
+
             this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
             this.Text = setting.ApplicationTitle;
-            //Thread.Sleep(5000);
-            //Loader.StopLoader();
+
+            Loader.StopLoader(this.Handle);
         }
 
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
-            //Loader.StartLoader(LoaderSelector.Loader);
+            Loader.StartLoader(LoaderSelector.Loader);
 
             setting = new SettingIni();
-            //Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
-            //    new CultureInfo("en-US") : new CultureInfo("de-DE");
-
             reviewExam = true;
             _checked   = new bool[4];
-
             this.quiz  = quiz;
+
+            Thread.Sleep(5000);
             InitializeComponent();
             this.btnFinish.Dispose();
             GenerateQuestionSelectors();
@@ -73,7 +60,7 @@ namespace BinnenFA54Project.Forms
             this.KeyPress -= QuizForm_KeyPress;
             this.cbCombo.ViewModeState = ControlViewMode.Inactive;
 
-            //Loader.StopLoader();
+            Loader.StopLoader(this.Handle);
         }
 
 
@@ -345,8 +332,7 @@ namespace BinnenFA54Project.Forms
                 }
                 // TODO: Store the results in database.
                 StoreResults();
-                QuizForm quizForm = new QuizForm(quiz);
-                quizForm.Show();
+                new QuizForm(quiz).Show();
                 this.Close();
             }
 

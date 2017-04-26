@@ -78,12 +78,6 @@
     <Compile Include="Forms\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Misc\MainAppLoader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,19 +137,13 @@
     <EmbeddedResource Include="Forms\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FeedbackForm.de.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Misc\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Misc\MainAppLoader.resx">
       <DependentUpon>MainAppLoader.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="Forms\QuizForm.de.resx">
+    <EmbeddedResource Include="Forms\QuizForm.de.resx">
       <DependentUpon>QuizForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuizForm.resx">
