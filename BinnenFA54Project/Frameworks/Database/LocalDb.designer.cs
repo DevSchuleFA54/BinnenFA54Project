@@ -8,7 +8,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-#if LOCAL_DATABASE
+
 namespace BinnenFA54Project.Frameworks.Database
 {
 	using System.Data.Linq;
@@ -28,15 +28,18 @@ namespace BinnenFA54Project.Frameworks.Database
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
-#region Extensibility Method Definitions
+    #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertT_SBF_Binnen(T_SBF_Binnen instance);
-    partial void UpdateT_SBF_Binnen(T_SBF_Binnen instance);
-    partial void DeleteT_SBF_Binnen(T_SBF_Binnen instance);
     partial void InsertT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
     partial void UpdateT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
     partial void DeleteT_Fragenbogen_Thema(T_Fragenbogen_Thema instance);
-#endregion
+    partial void InsertT_SBF_Binnen(T_SBF_Binnen instance);
+    partial void UpdateT_SBF_Binnen(T_SBF_Binnen instance);
+    partial void DeleteT_SBF_Binnen(T_SBF_Binnen instance);
+    partial void InsertEXAM_RESULT(EXAM_RESULT instance);
+    partial void UpdateEXAM_RESULT(EXAM_RESULT instance);
+    partial void DeleteEXAM_RESULT(EXAM_RESULT instance);
+    #endregion
 		
 		public LocalDbDataContext() : 
 				base(global::BinnenFA54Project.Properties.Settings.Default.LocalBinnenschifffahrtConnectionString, mappingSource)
@@ -68,6 +71,14 @@ namespace BinnenFA54Project.Frameworks.Database
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<T_Fragenbogen_Thema> T_Fragenbogen_Themas
+		{
+			get
+			{
+				return this.GetTable<T_Fragenbogen_Thema>();
+			}
+		}
+		
 		public System.Data.Linq.Table<T_Fragebogen_unter_Maschine> T_Fragebogen_unter_Maschines
 		{
 			get
@@ -84,19 +95,129 @@ namespace BinnenFA54Project.Frameworks.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<T_Fragenbogen_Thema> T_Fragenbogen_Themas
-		{
-			get
-			{
-				return this.GetTable<T_Fragenbogen_Thema>();
-			}
-		}
-		
 		public System.Data.Linq.Table<View_Topics_And_Question> View_Topics_And_Questions
 		{
 			get
 			{
 				return this.GetTable<View_Topics_And_Question>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EXAM_RESULT> EXAM_RESULTs
+		{
+			get
+			{
+				return this.GetTable<EXAM_RESULT>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.T_Fragenbogen_Thema")]
+	public partial class T_Fragenbogen_Thema : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _FragebogenNr;
+		
+		private string _Thema;
+		
+		private string _Beschreib;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFragebogenNrChanging(int value);
+    partial void OnFragebogenNrChanged();
+    partial void OnThemaChanging(string value);
+    partial void OnThemaChanged();
+    partial void OnBeschreibChanging(string value);
+    partial void OnBeschreibChanged();
+    #endregion
+		
+		public T_Fragenbogen_Thema()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FragebogenNr", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int FragebogenNr
+		{
+			get
+			{
+				return this._FragebogenNr;
+			}
+			set
+			{
+				if ((this._FragebogenNr != value))
+				{
+					this.OnFragebogenNrChanging(value);
+					this.SendPropertyChanging();
+					this._FragebogenNr = value;
+					this.SendPropertyChanged("FragebogenNr");
+					this.OnFragebogenNrChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thema", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string Thema
+		{
+			get
+			{
+				return this._Thema;
+			}
+			set
+			{
+				if ((this._Thema != value))
+				{
+					this.OnThemaChanging(value);
+					this.SendPropertyChanging();
+					this._Thema = value;
+					this.SendPropertyChanged("Thema");
+					this.OnThemaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Beschreib", DbType="NChar(100)")]
+		public string Beschreib
+		{
+			get
+			{
+				return this._Beschreib;
+			}
+			set
+			{
+				if ((this._Beschreib != value))
+				{
+					this.OnBeschreibChanging(value);
+					this.SendPropertyChanging();
+					this._Beschreib = value;
+					this.SendPropertyChanged("Beschreib");
+					this.OnBeschreibChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -166,7 +287,7 @@ namespace BinnenFA54Project.Frameworks.Database
 		
 		private System.Nullable<byte> _RichtigeAntwort;
 		
-#region Extensibility Method Definitions
+    #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
@@ -184,7 +305,7 @@ namespace BinnenFA54Project.Frameworks.Database
     partial void OnAntwort4Changed();
     partial void OnRichtigeAntwortChanging(System.Nullable<byte> value);
     partial void OnRichtigeAntwortChanged();
-#endregion
+    #endregion
 		
 		public T_SBF_Binnen()
 		{
@@ -327,116 +448,6 @@ namespace BinnenFA54Project.Frameworks.Database
 					this._RichtigeAntwort = value;
 					this.SendPropertyChanged("RichtigeAntwort");
 					this.OnRichtigeAntwortChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.T_Fragenbogen_Thema")]
-	public partial class T_Fragenbogen_Thema : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _FragebogenNr;
-		
-		private string _Thema;
-		
-		private string _Beschreib;
-		
-#region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnFragebogenNrChanging(int value);
-    partial void OnFragebogenNrChanged();
-    partial void OnThemaChanging(string value);
-    partial void OnThemaChanged();
-    partial void OnBeschreibChanging(string value);
-    partial void OnBeschreibChanged();
-#endregion
-		
-		public T_Fragenbogen_Thema()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FragebogenNr", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int FragebogenNr
-		{
-			get
-			{
-				return this._FragebogenNr;
-			}
-			set
-			{
-				if ((this._FragebogenNr != value))
-				{
-					this.OnFragebogenNrChanging(value);
-					this.SendPropertyChanging();
-					this._FragebogenNr = value;
-					this.SendPropertyChanged("FragebogenNr");
-					this.OnFragebogenNrChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thema", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Thema
-		{
-			get
-			{
-				return this._Thema;
-			}
-			set
-			{
-				if ((this._Thema != value))
-				{
-					this.OnThemaChanging(value);
-					this.SendPropertyChanging();
-					this._Thema = value;
-					this.SendPropertyChanged("Thema");
-					this.OnThemaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Beschreib", DbType="NChar(100)")]
-		public string Beschreib
-		{
-			get
-			{
-				return this._Beschreib;
-			}
-			set
-			{
-				if ((this._Beschreib != value))
-				{
-					this.OnBeschreibChanging(value);
-					this.SendPropertyChanging();
-					this._Beschreib = value;
-					this.SendPropertyChanged("Beschreib");
-					this.OnBeschreibChanged();
 				}
 			}
 		}
@@ -614,6 +625,427 @@ namespace BinnenFA54Project.Frameworks.Database
 			}
 		}
 	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EXAM_RESULT")]
+	public partial class EXAM_RESULT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _pExamNum;
+		
+		private string _examDesc;
+		
+		private int _sPercent;
+		
+		private bool _sPassOrNot;
+		
+		private string _question;
+		
+		private string _imageName;
+		
+		private string _answer1;
+		
+		private string _answer2;
+		
+		private string _answer3;
+		
+		private string _answer4;
+		
+		private System.Nullable<byte> _correctAnswerNum;
+		
+		private System.Nullable<byte> _selectedAnswerNum;
+		
+		private System.Nullable<bool> _noSelectedAnswer;
+		
+		private string _date;
+		
+		private int _UserSession;
+		
+		private int _pId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnpExamNumChanging(int value);
+    partial void OnpExamNumChanged();
+    partial void OnexamDescChanging(string value);
+    partial void OnexamDescChanged();
+    partial void OnsPercentChanging(int value);
+    partial void OnsPercentChanged();
+    partial void OnsPassOrNotChanging(bool value);
+    partial void OnsPassOrNotChanged();
+    partial void OnquestionChanging(string value);
+    partial void OnquestionChanged();
+    partial void OnimageNameChanging(string value);
+    partial void OnimageNameChanged();
+    partial void Onanswer1Changing(string value);
+    partial void Onanswer1Changed();
+    partial void Onanswer2Changing(string value);
+    partial void Onanswer2Changed();
+    partial void Onanswer3Changing(string value);
+    partial void Onanswer3Changed();
+    partial void Onanswer4Changing(string value);
+    partial void Onanswer4Changed();
+    partial void OncorrectAnswerNumChanging(System.Nullable<byte> value);
+    partial void OncorrectAnswerNumChanged();
+    partial void OnselectedAnswerNumChanging(System.Nullable<byte> value);
+    partial void OnselectedAnswerNumChanged();
+    partial void OnnoSelectedAnswerChanging(System.Nullable<bool> value);
+    partial void OnnoSelectedAnswerChanged();
+    partial void OndateChanging(string value);
+    partial void OndateChanged();
+    partial void OnUserSessionChanging(int value);
+    partial void OnUserSessionChanged();
+    partial void OnpIdChanging(int value);
+    partial void OnpIdChanged();
+    #endregion
+		
+		public EXAM_RESULT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pExamNum", DbType="Int NOT NULL")]
+		public int pExamNum
+		{
+			get
+			{
+				return this._pExamNum;
+			}
+			set
+			{
+				if ((this._pExamNum != value))
+				{
+					this.OnpExamNumChanging(value);
+					this.SendPropertyChanging();
+					this._pExamNum = value;
+					this.SendPropertyChanged("pExamNum");
+					this.OnpExamNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_examDesc", DbType="NChar(80)")]
+		public string examDesc
+		{
+			get
+			{
+				return this._examDesc;
+			}
+			set
+			{
+				if ((this._examDesc != value))
+				{
+					this.OnexamDescChanging(value);
+					this.SendPropertyChanging();
+					this._examDesc = value;
+					this.SendPropertyChanged("examDesc");
+					this.OnexamDescChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sPercent", DbType="Int NOT NULL")]
+		public int sPercent
+		{
+			get
+			{
+				return this._sPercent;
+			}
+			set
+			{
+				if ((this._sPercent != value))
+				{
+					this.OnsPercentChanging(value);
+					this.SendPropertyChanging();
+					this._sPercent = value;
+					this.SendPropertyChanged("sPercent");
+					this.OnsPercentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sPassOrNot", DbType="Bit NOT NULL")]
+		public bool sPassOrNot
+		{
+			get
+			{
+				return this._sPassOrNot;
+			}
+			set
+			{
+				if ((this._sPassOrNot != value))
+				{
+					this.OnsPassOrNotChanging(value);
+					this.SendPropertyChanging();
+					this._sPassOrNot = value;
+					this.SendPropertyChanged("sPassOrNot");
+					this.OnsPassOrNotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_question", DbType="NChar(500) NOT NULL", CanBeNull=false)]
+		public string question
+		{
+			get
+			{
+				return this._question;
+			}
+			set
+			{
+				if ((this._question != value))
+				{
+					this.OnquestionChanging(value);
+					this.SendPropertyChanging();
+					this._question = value;
+					this.SendPropertyChanged("question");
+					this.OnquestionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_imageName", DbType="NChar(30)")]
+		public string imageName
+		{
+			get
+			{
+				return this._imageName;
+			}
+			set
+			{
+				if ((this._imageName != value))
+				{
+					this.OnimageNameChanging(value);
+					this.SendPropertyChanging();
+					this._imageName = value;
+					this.SendPropertyChanged("imageName");
+					this.OnimageNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_answer1", DbType="NChar(500) NOT NULL", CanBeNull=false)]
+		public string answer1
+		{
+			get
+			{
+				return this._answer1;
+			}
+			set
+			{
+				if ((this._answer1 != value))
+				{
+					this.Onanswer1Changing(value);
+					this.SendPropertyChanging();
+					this._answer1 = value;
+					this.SendPropertyChanged("answer1");
+					this.Onanswer1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_answer2", DbType="NChar(500) NOT NULL", CanBeNull=false)]
+		public string answer2
+		{
+			get
+			{
+				return this._answer2;
+			}
+			set
+			{
+				if ((this._answer2 != value))
+				{
+					this.Onanswer2Changing(value);
+					this.SendPropertyChanging();
+					this._answer2 = value;
+					this.SendPropertyChanged("answer2");
+					this.Onanswer2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_answer3", DbType="NChar(500) NOT NULL", CanBeNull=false)]
+		public string answer3
+		{
+			get
+			{
+				return this._answer3;
+			}
+			set
+			{
+				if ((this._answer3 != value))
+				{
+					this.Onanswer3Changing(value);
+					this.SendPropertyChanging();
+					this._answer3 = value;
+					this.SendPropertyChanged("answer3");
+					this.Onanswer3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_answer4", DbType="NChar(500) NOT NULL", CanBeNull=false)]
+		public string answer4
+		{
+			get
+			{
+				return this._answer4;
+			}
+			set
+			{
+				if ((this._answer4 != value))
+				{
+					this.Onanswer4Changing(value);
+					this.SendPropertyChanging();
+					this._answer4 = value;
+					this.SendPropertyChanged("answer4");
+					this.Onanswer4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correctAnswerNum", DbType="TinyInt")]
+		public System.Nullable<byte> correctAnswerNum
+		{
+			get
+			{
+				return this._correctAnswerNum;
+			}
+			set
+			{
+				if ((this._correctAnswerNum != value))
+				{
+					this.OncorrectAnswerNumChanging(value);
+					this.SendPropertyChanging();
+					this._correctAnswerNum = value;
+					this.SendPropertyChanged("correctAnswerNum");
+					this.OncorrectAnswerNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_selectedAnswerNum", DbType="TinyInt")]
+		public System.Nullable<byte> selectedAnswerNum
+		{
+			get
+			{
+				return this._selectedAnswerNum;
+			}
+			set
+			{
+				if ((this._selectedAnswerNum != value))
+				{
+					this.OnselectedAnswerNumChanging(value);
+					this.SendPropertyChanging();
+					this._selectedAnswerNum = value;
+					this.SendPropertyChanged("selectedAnswerNum");
+					this.OnselectedAnswerNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_noSelectedAnswer", DbType="Bit")]
+		public System.Nullable<bool> noSelectedAnswer
+		{
+			get
+			{
+				return this._noSelectedAnswer;
+			}
+			set
+			{
+				if ((this._noSelectedAnswer != value))
+				{
+					this.OnnoSelectedAnswerChanging(value);
+					this.SendPropertyChanging();
+					this._noSelectedAnswer = value;
+					this.SendPropertyChanged("noSelectedAnswer");
+					this.OnnoSelectedAnswerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="NChar(100)")]
+		public string date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserSession", DbType="Int NOT NULL")]
+		public int UserSession
+		{
+			get
+			{
+				return this._UserSession;
+			}
+			set
+			{
+				if ((this._UserSession != value))
+				{
+					this.OnUserSessionChanging(value);
+					this.SendPropertyChanging();
+					this._UserSession = value;
+					this.SendPropertyChanged("UserSession");
+					this.OnUserSessionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int pId
+		{
+			get
+			{
+				return this._pId;
+			}
+			set
+			{
+				if ((this._pId != value))
+				{
+					this.OnpIdChanging(value);
+					this.SendPropertyChanging();
+					this._pId = value;
+					this.SendPropertyChanged("pId");
+					this.OnpIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
 }
 #pragma warning restore 1591
-#endif

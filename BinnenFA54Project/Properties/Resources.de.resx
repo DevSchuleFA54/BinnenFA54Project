@@ -322,4 +322,7 @@
   <data name="SAVED_CHANGES" xml:space="preserve">
     <value>Einstellungen erfolgreich gespeichert! </value>
   </data>
+  <data name="EXAM_NUMBER" xml:space="preserve">
+    <value>Fragenbogen </value>
+  </data>
 </root>

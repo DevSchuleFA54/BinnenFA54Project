@@ -1,4 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 
 namespace BinnenFA54Project.Frameworks.IniParser
@@ -10,6 +16,60 @@ namespace BinnenFA54Project.Frameworks.IniParser
     {
         private ISettingIni setting = new SettingIniImpl();
         private ISettingIniEdit settingEdit = new SettingIniImpl();
+
+        private static FileIniDataParser iniParser = new FileIniDataParser();
+        private static IniData data = new IniData();
+        private static string settingPath = AppDomain.CurrentDomain.BaseDirectory + "Results.ini";
+
+
+        public void SaveExamResults(string examName, int passWithP, bool pass)
+        {
+            if (!File.Exists(settingPath))
+            {
+                MessageBox.Show("Created Results.ini");
+                File.WriteAllText(settingPath, Properties.Resources.Results);
+            }
+
+            try
+            {
+                data = iniParser.ReadFile(settingPath);
+                var sectionData = data.Sections.GetSectionData("ExamResults");
+                string lastNewKeyName = String.Empty;
+
+                // Get the amount of keys and store in lastNewKeyName.
+                lastNewKeyName = ("LOG" + (sectionData.Keys.Count + 1));
+                string value = string.Format("{0} - ({1}%) - {2}",
+                    examName, passWithP, pass ? "Bestanden" : "Nicht bestanden");
+
+                sectionData.Keys.AddKey(lastNewKeyName, value);
+               
+                //data["MiscConfiguration"]["DATE_FORMAT"] = dateFormat;
+                iniParser.WriteFile(settingPath, data);
+            }
+            catch { }
+        }
+
+        public Dictionary<int, string> GetExamResults()
+        {
+            Dictionary<int, string> examResultsDic = new Dictionary<int, string>();
+
+            try
+            {
+                data = iniParser.ReadFile(settingPath);
+                var sectionData = data.Sections.GetSectionData("ExamResults");
+
+                for (int i = 1; i <= sectionData.Keys.Count; i++)
+                {
+                    examResultsDic.Add(i, data["ExamResults"]["LOG"+i]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return examResultsDic;
+        }
 
         #region ----- GET PROPERTIES ---------------------------------------------------------------------------------------------
         [Category("GeneralConfiguration")]

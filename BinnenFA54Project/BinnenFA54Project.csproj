@@ -119,14 +119,17 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FormsBase.cs" />
     <Compile Include="Main\Loader.cs" />
     <Compile Include="Main\QuizMgr.cs" />
     <Compile Include="Main\ResourceData\Answer.cs" />
     <Compile Include="Main\ResourceData\Question.cs" />
+    <Compile Include="Main\ResourceData\Result.cs" />
     <Compile Include="Main\ResourceData\Topic.cs" />
     <Compile Include="Main\ServeData\AnswerMgr.cs" />
     <Compile Include="Main\ServeData\QuestionMgr.cs" />
     <Compile Include="Main\ServeData\QuizBase.cs" />
+    <Compile Include="Main\ServeData\ResultsMgr.cs" />
     <Compile Include="Main\ServeData\TopicMgr.cs" />
     <Compile Include="Main\Utilities.cs" />
     <Compile Include="Program.cs" />
@@ -201,6 +204,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Results.ini" />
     <None Include="Settings.ini" />
   </ItemGroup>
   <ItemGroup>
@@ -218,7 +222,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
-    <Content Include="ship.ico" />
+	<Content Include="ship.ico" />
+    <None Include="Resources\smiley_sad.png" />
+    <None Include="Resources\smiley_upset.png" />
+    <None Include="Resources\smiley_happy.png" />
     <None Include="Resources\loading_letter.gif" />
     <None Include="Resources\water_splash.gif" />
     <None Include="Resources\developer_logo.png" />

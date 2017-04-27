@@ -7,7 +7,7 @@
         Answered = 1  // Mark for when a checkbox has been selected.
     }
 
-    public enum Results
+    public enum ResultsEnum
     {        
         Wrong     = 0, // Wrong answer
         Right     = 1, // Right answer
@@ -21,7 +21,7 @@
         public string CorrectAnswerText { get; set; }
         public int? CorrectAnswerNum    { get; set; } // nullable type of int.
         public int? SelectedAnswer      { get; set; }
-        public Results Results          { get; set; } = Results.NoAnswer;
+        public ResultsEnum ResultsEnum  { get; set; } = ResultsEnum.NoAnswer;
         public State State              { get; set; } = State.Waiting;
     }
 }

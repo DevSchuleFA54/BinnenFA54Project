@@ -18,6 +18,8 @@ namespace BinnenFA54Project.Main.ServeData
         protected LocalDbDataContext localDbContext = new LocalDbDataContext();
 #endif
         private static int _selectTopic = 1;
+        private static int _rightAnswerCount;
+        private static int _wrongAnswerCount;
 
 
 
@@ -25,6 +27,20 @@ namespace BinnenFA54Project.Main.ServeData
         {
             get { return _selectTopic; }
             set { _selectTopic = value; }
+        }
+
+        public static int RightAnswerCount
+        {
+            get { return _rightAnswerCount; }
+
+            set { _rightAnswerCount = value; }
+        }
+
+        public static int WrongAnswerCount
+        {
+            get { return _wrongAnswerCount; }
+
+            set { _wrongAnswerCount = value; }
         }
     }
 }

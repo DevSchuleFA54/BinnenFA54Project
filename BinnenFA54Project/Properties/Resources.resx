@@ -334,4 +334,19 @@
   <data name="loading_letter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading_letter.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="smiley_happy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smiley_happy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smiley_sad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smiley_sad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smiley_upset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smiley_upset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXAM_NUMBER" xml:space="preserve">
+    <value>Exam Number </value>
+  </data>
+  <data name="Results" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\results.ini;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>
