@@ -48,10 +48,18 @@ namespace BinnenFA54Project.Main
             switch (_loaderSelector)
             {
                 case LoaderSelector.Loader:
-                    loaderForm?.Close();
+                    
+                    loaderForm.Invoke((MethodInvoker)delegate
+                    {
+                        loaderForm?.Close();
+                    });
                     break;
                 case LoaderSelector.MainAppLoader:
-                    mainAppLoader?.Close();
+
+                    mainAppLoader.Invoke((MethodInvoker)delegate
+                    {
+                        mainAppLoader?.Close();
+                    });
                     break;
             }
         }
