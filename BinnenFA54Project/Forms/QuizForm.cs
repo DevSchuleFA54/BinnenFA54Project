@@ -33,7 +33,7 @@ namespace BinnenFA54Project.Forms
             GenerateQuestionSelectors();
             UpdateQuestions();
 
-            this.progressBar.Maximum = quiz.Questions.QuestionList.Count;
+            this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
             this.Text = setting.ApplicationTitle;
 
             Loader.StopLoader(this.Handle);
@@ -266,7 +266,7 @@ namespace BinnenFA54Project.Forms
 
         private void UpdateProgressBar()
         {
-            if (cbCombo.Checked && alreadyChecked == false)
+            if (cbCombo.Checked && alreadyChecked == false && progressBar.Value < quiz.Questions.QuestionList.Count - 1)
                 progressBar.Value++;
             else if (cbCombo.Checked == false && alreadyChecked)
                 progressBar.Value--;
