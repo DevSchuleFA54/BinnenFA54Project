@@ -26,7 +26,7 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             if (!File.Exists(settingPath))
             {
-                MessageBox.Show("Created Results.ini");
+                // MessageBox.Show("Created Results.ini");
                 File.WriteAllText(settingPath, Properties.Resources.Results);
             }
 
