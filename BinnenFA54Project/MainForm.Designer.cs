@@ -33,7 +33,7 @@
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblPostcodeCity = new System.Windows.Forms.Label();
             this.cbQuizPicker = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxResults = new System.Windows.Forms.ListBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lblExamTopics = new System.Windows.Forms.Label();
             this.btnStartExam = new GiladControllers.GiladButton();
@@ -76,11 +76,11 @@
             this.cbQuizPicker.FormattingEnabled = true;
             this.cbQuizPicker.Name = "cbQuizPicker";
             // 
-            // listBox1
+            // listBoxResults
             // 
-            resources.ApplyResources(this.listBox1, "listBox1");
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Name = "listBox1";
+            resources.ApplyResources(this.listBoxResults, "listBoxResults");
+            this.listBoxResults.FormattingEnabled = true;
+            this.listBoxResults.Name = "listBoxResults";
             // 
             // pbLogo
             // 
@@ -121,7 +121,7 @@
             this.giladGradientPanel1.Controls.Add(this.btnStartExam);
             this.giladGradientPanel1.Controls.Add(this.cbQuizPicker);
             this.giladGradientPanel1.Controls.Add(this.lblPostcodeCity);
-            this.giladGradientPanel1.Controls.Add(this.listBox1);
+            this.giladGradientPanel1.Controls.Add(this.listBoxResults);
             this.giladGradientPanel1.Controls.Add(this.lblExamTopics);
             this.giladGradientPanel1.Controls.Add(this.lblCompanyName);
             this.giladGradientPanel1.Controls.Add(this.label2);
@@ -206,7 +206,7 @@
         private System.Windows.Forms.Label lblExamTopics;
         private System.Windows.Forms.Label lblHistory;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.ListBox listBox1;
+        public System.Windows.Forms.ListBox listBoxResults;
         private System.Windows.Forms.ComboBox cbQuizPicker;
         private GiladControllers.GiladButton btnStartExam;
         private GiladControllers.GiladGradientPanel giladGradientPanel1;

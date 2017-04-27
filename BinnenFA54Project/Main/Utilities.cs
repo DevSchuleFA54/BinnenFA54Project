@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace BinnenFA54Project.Main
 {
@@ -16,6 +17,27 @@ namespace BinnenFA54Project.Main
         public static bool In<T>(this T obj, params T[] args)
         {
             return args.Contains(obj);
+        }
+
+
+
+
+        /// <summary>
+        /// Converter for nullable types.
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TDest"></typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static TDest? ConvertTo<TSource, TDest>(this TSource? source)
+            where TDest : struct
+            where TSource : struct
+        {
+            if (source == null)
+            {
+                return null;
+            }
+            return (TDest) Convert.ChangeType(source.Value, typeof(TDest));
         }
 
     }

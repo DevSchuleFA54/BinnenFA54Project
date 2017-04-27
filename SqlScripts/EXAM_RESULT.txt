@@ -1,0 +1,19 @@
+CREATE TABLE [dbo].[EXAM_RESULT] (
+    [pExamNum]          INT         NOT NULL,
+    [examDesc]          NCHAR (80)  NULL,
+    [sPercent]          INT         NOT NULL,
+    [sPassOrNot]        BIT         NOT NULL,
+    [question]          NCHAR (500) NOT NULL,
+    [imageName]         NCHAR (30)  NULL,
+    [answer1]           NCHAR (500) NOT NULL,
+    [answer2]           NCHAR (500) NOT NULL,
+    [answer3]           NCHAR (500) NOT NULL,
+    [answer4]           NCHAR (500) NOT NULL,
+    [correctAnswerNum]  TINYINT     NULL,
+    [selectedAnswerNum] TINYINT     NULL,
+    [noSelectedAnswer]  BIT         NULL,
+    [date]              NCHAR (100) NULL,
+    [UserSession]       INT         NOT NULL,
+    [pId]               INT         NOT NULL,
+    CONSTRAINT [PK_EXAM_RESULT] PRIMARY KEY CLUSTERED ([pId] ASC)
+);

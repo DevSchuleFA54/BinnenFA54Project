@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
+using BinnenFA54Project.Main.ServeData;
+using BinnenFA54Project.Properties;
 using GiladControllers;
 
 namespace BinnenFA54Project.Forms
@@ -35,6 +37,8 @@ namespace BinnenFA54Project.Forms
 
             this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
             this.Text = setting.ApplicationTitle;
+            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") 
+                + QuizBase.SelectedTopic.ToString();
 
             Loader.StopLoader(this.Handle);
         }
@@ -48,6 +52,7 @@ namespace BinnenFA54Project.Forms
             _checked   = new bool[4];
             this.quiz  = quiz;
 
+
             Thread.Sleep(5000);
             InitializeComponent();
             this.btnFinish.Dispose();
@@ -55,12 +60,27 @@ namespace BinnenFA54Project.Forms
             RenderQuestionResults(null);
             UpdateQuestions();
             this.Text = setting.ApplicationTitle;
+            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER")
+                + QuizBase.SelectedTopic.ToString();
 
             // Unregistering all the events in the sub controllers so the user will only review his exam.
             this.KeyPress -= QuizForm_KeyPress;
             this.cbCombo.ViewModeState = ControlViewMode.Inactive;
 
             Loader.StopLoader(this.Handle);
+        }
+
+        private void PassResultsToMainForm()
+        {
+            if (FormsBase.MainForm == null) return;
+
+
+            var results = setting.GetExamResults();
+
+            foreach (var result in results.Values)
+            {
+                FormsBase.MainForm.listBoxResults.Items.Add(result);
+            }
         }
 
 
@@ -117,8 +137,11 @@ namespace BinnenFA54Project.Forms
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
 
-                    // TODO: Handle nullable correctAnswer.
+                    // TODO: Handle nullable correctAnswer(Feature), atm not necessary.
                     int? correctAnswer = quiz.Answers.AnswerList[index].CorrectAnswerNum;
+
+                    // If he already checked the checkbox before, we want to see which has been selected before
+                    // with the flag we added on keypress or click on the checkboxes.
                     switch (quiz.Answers.AnswerList[index].SelectedAnswer)
                     {
                         case 0:
@@ -126,18 +149,18 @@ namespace BinnenFA54Project.Forms
                             cbCombo.SelectCheckBoxIndex = 0;
                             if (reviewExam)
                             {
-                                if (quiz.Answers.AnswerList[index].Results != Results.Right) // wrong answer.
+                                if (quiz.Answers.AnswerList[index].ResultsEnum != ResultsEnum.Right) // wrong answer.
                                 {
                                     // Mark the selected cb with WrongSelect.
                                     cbCombo.cbOption1.WrongSelected = true;
                                     // Select the correct answer.
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    // TODO: Add smiley sad.
+                                    this.pbSmiley.Image = Resources.smiley_sad;
 
                                 }
-                                // TODO: Add smiley happy.
-
+                                else
+                                    this.pbSmiley.Image = Resources.smiley_happy;
                             }
                             break;
                         case 1:
@@ -145,16 +168,15 @@ namespace BinnenFA54Project.Forms
                             cbCombo.SelectCheckBoxIndex = 1;
                             if (reviewExam)
                             {
-                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                if (quiz.Answers.AnswerList[index].ResultsEnum != ResultsEnum.Right)
                                 {
                                     cbCombo.cbOption2.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    // TODO: Add smiley sad.
-
+                                    this.pbSmiley.Image = Resources.smiley_sad;
                                 }
-                                // TODO: Add smiley happy.
-
+                                else
+                                    this.pbSmiley.Image = Resources.smiley_happy;
                             }
                             break;
                         case 2:
@@ -162,16 +184,15 @@ namespace BinnenFA54Project.Forms
                             cbCombo.SelectCheckBoxIndex = 2;
                             if (reviewExam)
                             {
-                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                if (quiz.Answers.AnswerList[index].ResultsEnum != ResultsEnum.Right)
                                 {
                                     cbCombo.cbOption3.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    // TODO: Add smiley sad.
-
+                                    this.pbSmiley.Image = Resources.smiley_sad;
                                 }
-                                // TODO: Add smiley happy.
-
+                                else
+                                    this.pbSmiley.Image = Resources.smiley_happy;
                             }
                             break;
                         case 3:
@@ -179,16 +200,15 @@ namespace BinnenFA54Project.Forms
                             cbCombo.SelectCheckBoxIndex = 3;
                             if (reviewExam)
                             {
-                                if (quiz.Answers.AnswerList[index].Results != Results.Right)
+                                if (quiz.Answers.AnswerList[index].ResultsEnum != ResultsEnum.Right)
                                 {
                                     cbCombo.cbOption4.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    // TODO: Add smiley sad.
-
+                                    this.pbSmiley.Image = Resources.smiley_sad;
                                 }
-                                // TODO: Add smiley happy.
-
+                                else
+                                    this.pbSmiley.Image = Resources.smiley_happy;
                             }
                             break;
                         default: // if no selected answer.
@@ -196,8 +216,7 @@ namespace BinnenFA54Project.Forms
                             cbCombo.cbOption3.WrongAnswer = cbCombo.cbOption4.WrongAnswer = true;
                             if (correctAnswer != null)
                                 cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                            // TODO: Add smiley netural.
-
+                            this.pbSmiley.Image = Resources.smiley_upset;
                             break;
                     } // End State.Answered switch
 
@@ -226,12 +245,12 @@ namespace BinnenFA54Project.Forms
                 {
                     if (correctAnswer == selectedAnswer)
                     {
-                        answer.Results = Results.Right;
+                        answer.ResultsEnum = ResultsEnum.Right;
                         rightCount++;
                     }
                     else
                     {
-                        answer.Results = Results.Wrong;
+                        answer.ResultsEnum = ResultsEnum.Wrong;
                         wrongCount++;
                     }
 
@@ -246,21 +265,26 @@ namespace BinnenFA54Project.Forms
                     // if user have a selected answer for that question.
                     if (selectedAnswer.In(0, 1, 2, 3)) // same as value == 0, value == 1... using extension method.
                     {
-                        answer.Results = Results.Wrong;
+                        answer.ResultsEnum = ResultsEnum.Wrong;
                         wrongCount++;
                     }
                     else
                     {
                         // Right because no correct answer for that question and user didn't select any.
-                        answer.Results = Results.Right;
+                        answer.ResultsEnum = ResultsEnum.Right;
                         rightCount++;
                     }
                 }
             }
+
+            QuizBase.WrongAnswerCount = wrongCount;
+            QuizBase.RightAnswerCount = rightCount;
+
 #if DEBUG
             MessageBox.Show(string.Format("{0} wrong and {1} right.", wrongCount, rightCount));
 #endif
         }
+
 
 
 
@@ -331,13 +355,25 @@ namespace BinnenFA54Project.Forms
                         return;
                 }
                 // TODO: Store the results in database.
+
                 StoreResults();
+
+                string examName = string.Format("Fragenbogen " + QuizBase.SelectedTopic);
+                int percent = (100 / quiz.Questions.QuestionList.Count) * QuizBase.RightAnswerCount;
+                bool pass = percent > setting.PassedWithPercent;
+
+                setting.SaveExamResults(examName, percent, pass);
+
+
+                //new ResultsMgr().StoreResultsInDb(quiz); // NOT STABLE YET.
                 new QuizForm(quiz).Show();
                 this.Close();
             }
 
-
         }
+
+
+
 
         #endregion --------------- Events Handlers ---------------
 
@@ -624,5 +660,11 @@ namespace BinnenFA54Project.Forms
 
 
         #endregion -------------- Button Question Selectors --------------
+
+        private void QuizForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (reviewExam)
+                Application.Restart();
+        }
     }
 }

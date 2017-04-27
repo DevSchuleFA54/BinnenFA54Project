@@ -34,6 +34,29 @@ namespace BinnenFA54Project
             InitializeSettings();
             InitializeTopicList();
 
+            var myDicResults = setting.GetExamResults();
+            for (int i = 1; i <= myDicResults.Count; i++)
+                listBoxResults.Items.Add(myDicResults[i]);
+
+
+            #region Work in Progress.
+            // NOT STABLE YET!!!
+            // Example:
+            //listBox1.Items.Add("Fragenbogen 3 - 50% - nicht bestanden");
+            //listBox1.Items.Add("Fragenbogen 7 - 83% - bestanden");
+            //listBox1.Items.Add("Fragenbogen 1 - 64% - nicht bestanden");
+            //listBox1.Items.Add("Fragenbogen 12 - 72% - bestanden");
+            //ResultsMgr resultMgr = new ResultsMgr(true);
+            //if (resultMgr.ResultsList != null)
+            //{
+            //    foreach (var result in resultMgr.ResultsList)
+            //    {
+            //        listBox1.Items.Add(
+            //            string.Format("{0}-{1}-{2}", result.ExamName, result.Percent, result.Passed.ToString()));
+            //    }
+            //}
+            #endregion Work in Progress.
+
             Loader.StopLoader(this.Handle); // stops the splash screen.
         }
 
@@ -66,6 +89,7 @@ namespace BinnenFA54Project
             // Updating staticly the topics in the QuizMgr.Topics so we have 
             // better control instead of creating another instance in memory.
             QuizMgr.Topics = _topics;
+
 
             new QuizForm().Show();
         }

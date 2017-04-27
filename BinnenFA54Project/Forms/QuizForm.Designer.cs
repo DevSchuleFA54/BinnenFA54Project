@@ -43,9 +43,11 @@
             this.btnBack = new GiladControllers.GiladButton();
             this.btnNext = new GiladControllers.GiladButton();
             this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.pbSmiley = new System.Windows.Forms.PictureBox();
             this.giladControlBox1 = new GiladControllers.GiladControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).BeginInit();
             this.giladGradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSmiley)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar
@@ -158,6 +160,7 @@
             this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkSlateBlue;
             this.giladGradientPanel1.Controls.Add(this.btnNext);
             this.giladGradientPanel1.Controls.Add(this.btnFinish);
+            this.giladGradientPanel1.Controls.Add(this.pbSmiley);
             this.giladGradientPanel1.Controls.Add(this.pbSign);
             this.giladGradientPanel1.Controls.Add(this.lblExamNum);
             this.giladGradientPanel1.Controls.Add(this.lblQuestion);
@@ -173,6 +176,13 @@
             this.giladGradientPanel1.DraggableForm = true;
             this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.giladGradientPanel1.Name = "giladGradientPanel1";
+            // 
+            // pbSmiley
+            // 
+            resources.ApplyResources(this.pbSmiley, "pbSmiley");
+            this.pbSmiley.BackColor = System.Drawing.Color.Transparent;
+            this.pbSmiley.Name = "pbSmiley";
+            this.pbSmiley.TabStop = false;
             // 
             // giladControlBox1
             // 
@@ -208,11 +218,13 @@
             this.KeyPreview = true;
             this.Name = "QuizForm";
             this.ResizeGripColor = System.Drawing.Color.Lavender;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuizForm_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuizForm_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.QuizForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).EndInit();
             this.giladGradientPanel1.ResumeLayout(false);
             this.giladGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSmiley)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +245,6 @@
         private System.Windows.Forms.PictureBox pbSign;
         private GiladControllers.GiladGradientPanel giladGradientPanel1;
         private GiladControllers.GiladControlBox giladControlBox1;
+        private System.Windows.Forms.PictureBox pbSmiley;
     }
 }
