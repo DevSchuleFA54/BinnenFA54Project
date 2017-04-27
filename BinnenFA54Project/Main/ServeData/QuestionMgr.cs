@@ -43,6 +43,8 @@ namespace BinnenFA54Project.Main.ServeData
 
                 foreach (var result in results)
                 {
+                    if (result.Frage == null) continue; // See comment in AnswerMgr line 45.
+
                     string[] optionsPackage = { result.Antwort1, result.Antwort2, result.Antwort3, result.Antwort4 };
 
                     _questionslist.Add(new Question()

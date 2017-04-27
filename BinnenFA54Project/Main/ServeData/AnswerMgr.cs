@@ -42,6 +42,15 @@ namespace BinnenFA54Project.Main.ServeData
 
                 for (int i = 0; i < resultsLength; i++)
                 {
+                    // Since we doing some regex and parsing question, check if null.
+                    // Because it throwed an error due to some useless row in db that is NULL.
+                    if (resultsList[i].Frage == null) 
+                    {
+
+                        resultsLength--;
+                        continue;
+                    }
+
                     _answerList.Add(new Answer()
                     {
                         Id                = resultsList[i].P_Id,

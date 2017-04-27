@@ -123,6 +123,8 @@ namespace BinnenFA54Project.Forms
 
         private void SetQuestionState(int index)
         {
+            // TODO: OutOfRangeException on Exam 8, need to check that later.
+            // TODO: Symptoms -> When the Count of the questions/answeres < 30.
             switch (quiz.Answers.AnswerList[index].State)
             {
                 case State.Waiting:
