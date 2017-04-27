@@ -16,15 +16,20 @@ namespace BinnenFA54Project.Forms
 
         public ConfigurationForm()
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(2000);
+#endif // !HIDE_LOADERS
 
 
             setting = new SettingIni();
-            Thread.Sleep(2000);
             InitializeComponent();
             InitializeValues();
 
+
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
         private bool finishedLoading = false;

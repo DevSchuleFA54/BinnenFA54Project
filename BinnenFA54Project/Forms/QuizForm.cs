@@ -24,12 +24,14 @@ namespace BinnenFA54Project.Forms
 
         public QuizForm()
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(3000);
+#endif // !HIDE_LOADERS
 
             setting = new SettingIni();
             quiz = new QuizMgr();
 
-            Thread.Sleep(3000);
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
@@ -40,12 +42,18 @@ namespace BinnenFA54Project.Forms
             this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") 
                 + QuizBase.SelectedTopic.ToString();
 
+
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(5000);
+#endif // !HIDE_LOADERS
 
             setting = new SettingIni();
             reviewExam = true;
@@ -53,7 +61,6 @@ namespace BinnenFA54Project.Forms
             this.quiz  = quiz;
 
 
-            Thread.Sleep(5000);
             InitializeComponent();
             this.btnFinish.Dispose();
             GenerateQuestionSelectors();
@@ -67,7 +74,10 @@ namespace BinnenFA54Project.Forms
             this.KeyPress -= QuizForm_KeyPress;
             this.cbCombo.ViewModeState = ControlViewMode.Inactive;
 
+
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
         private void PassResultsToMainForm()

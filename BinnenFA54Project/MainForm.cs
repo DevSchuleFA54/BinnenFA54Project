@@ -22,14 +22,16 @@ namespace BinnenFA54Project
 
         public MainForm()
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.MainAppLoader);
+            Thread.Sleep(3000); // keeps the fancy splash bar up for a bit
+#endif // !HIDE_LOADERS
 
             setting = new SettingIni();
             // NOTE: It has to be before the InitializeComponent function in order to take effect.
             Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
                 new CultureInfo("en-US") : new CultureInfo("de-DE");
 
-            Thread.Sleep(3000); // keeps the fancy splash bar up for a bit
             InitializeComponent();
             InitializeSettings();
             InitializeTopicList();
@@ -57,7 +59,9 @@ namespace BinnenFA54Project
             //}
             #endregion Work in Progress.
 
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle); // stops the splash screen.
+#endif // !HIDE_LOADERS
         }
 
         private void InitializeSettings()
