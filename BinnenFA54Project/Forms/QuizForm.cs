@@ -346,7 +346,7 @@ namespace BinnenFA54Project.Forms
                     // TODO: Localize text.
                     DialogResult dialogResult = MessageBox.Show(
                             string.Format("Seems like you only answered {0} questions from {1}. To continue?",
-                            progressBar.Value, progressBar.Maximum),
+                            progressBar.Value, progressBar.Maximum + 1),
                             "WARNING",
                             MessageBoxButtons.YesNo, 
                             MessageBoxIcon.Warning);
