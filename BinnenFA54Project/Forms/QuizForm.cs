@@ -673,7 +673,7 @@ namespace BinnenFA54Project.Forms
 
         #endregion -------------- Button Question Selectors --------------
 
-        private void QuizForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void QuizForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (reviewExam)
                 Application.Restart();

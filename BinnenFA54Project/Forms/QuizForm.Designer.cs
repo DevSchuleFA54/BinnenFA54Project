@@ -218,7 +218,7 @@
             this.KeyPreview = true;
             this.Name = "QuizForm";
             this.ResizeGripColor = System.Drawing.Color.Lavender;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuizForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.QuizForm_FormClosed);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuizForm_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.QuizForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbSign)).EndInit();
