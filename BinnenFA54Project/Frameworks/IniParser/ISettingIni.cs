@@ -28,6 +28,7 @@
          */
         bool IconInTray();
 
+
         /**
          * Returns a string of the language.
          *
@@ -35,6 +36,7 @@
          * @discussion  None
          */
         string LocalizeLanguage();
+
 
         /**
          * Returns a string of the date format.

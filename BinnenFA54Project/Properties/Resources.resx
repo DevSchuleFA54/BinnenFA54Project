@@ -200,7 +200,7 @@
     <value>..\Resources\113.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NOTIF_RESTARTAPP" xml:space="preserve">
-    <value>Make sure to restart application for changes to take effect.</value>
+    <value>Successfully saved your changes! \nMake sure to restart application for changes to take effect.</value>
   </data>
   <data name="_193" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\193.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,9 +295,6 @@
   <data name="_26" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\26.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SAVED_CHANGES" xml:space="preserve">
-    <value>Successfully saved your changes! </value>
-  </data>
   <data name="_192" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\192.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -348,5 +345,68 @@
   </data>
   <data name="Results" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\results.ini;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MSG_UNSAVED_CHANGES_CLOSED" xml:space="preserve">
+    <value>Are you really want to close without saving the Changes?</value>
+  </data>
+  <data name="CLOSE_TITLE" xml:space="preserve">
+    <value>Close Window Prompt</value>
+  </data>
+  <data name="NO_CHANGES" xml:space="preserve">
+    <value>No changes has been made, nothing to save.</value>
+  </data>
+  <data name="NOTIF_RESULTS" xml:space="preserve">
+    <value>{0} Wrong, {1} Right.</value>
+  </data>
+  <data name="ONE_INSTANCE_ALLOWED" xml:space="preserve">
+    <value>Only one instance of the current application allowed!</value>
+  </data>
+  <data name="NO_ANSWER" xml:space="preserve">
+    <value>No correct answer.</value>
+  </data>
+  <data name="ERR_ANSWERLIST_DB" xml:space="preserve">
+    <value>[InitializeAnswerList] - Failed to retrieve data from the database!</value>
+  </data>
+  <data name="ERR" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ERR_QUESTIONLIST_DB" xml:space="preserve">
+    <value>[InitializeQuestionList] - Failed to retrieve data from the database!</value>
+  </data>
+  <data name="ERR_QUESTIONLIST_IMG" xml:space="preserve">
+    <value>[QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing.</value>
+  </data>
+  <data name="ERR_SETTINGS_VALUE" xml:space="preserve">
+    <value>[{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! \nRooling back to default configurations...</value>
+  </data>
+  <data name="ERR_TOPICLIST_DB" xml:space="preserve">
+    <value>[InitializeTopicList] - Failed to retrieve data from the database!</value>
+  </data>
+  <data name="EXAM" xml:space="preserve">
+    <value>Exam </value>
+  </data>
+  <data name="FAILED" xml:space="preserve">
+    <value>Failed.</value>
+  </data>
+  <data name="NOTIF_FINISH_EXAM" xml:space="preserve">
+    <value>You are about to finish the exam, are you sure you want to continue?</value>
+  </data>
+  <data name="NOTIF_FINISH_EXAM_CP" xml:space="preserve">
+    <value>Finish Exam</value>
+  </data>
+  <data name="NOTIF_MISSING_SETTINGS" xml:space="preserve">
+    <value>Missing Settings.ini file! \nGenerating new Settings.ini file with default settings for you.</value>
+  </data>
+  <data name="NOTIF_MISSING_SETTINGS_CP" xml:space="preserve">
+    <value>Missing Settings File</value>
+  </data>
+  <data name="NOTIF_NOT_ALL_ANSWERED" xml:space="preserve">
+    <value>Seems like you only answered {0} questions from {1}. \nTo continue?</value>
+  </data>
+  <data name="NOTIF_NOT_ALL_ANSWERED_CP" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="PASSED" xml:space="preserve">
+    <value>Passed!</value>
   </data>
 </root>

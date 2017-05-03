@@ -9,7 +9,6 @@ using GiladControllers;
 
 namespace BinnenFA54Project
 {
-    // TODO: @togi - Create German Translation. See ConfigurationForm as example.
     public partial class MainForm : GiladForm
     {
 
@@ -28,9 +27,6 @@ namespace BinnenFA54Project
 #endif // !HIDE_LOADERS
 
             setting = new SettingIni();
-            // NOTE: It has to be before the InitializeComponent function in order to take effect.
-            Thread.CurrentThread.CurrentUICulture = setting.Language == "en-US" ?
-                new CultureInfo("en-US") : new CultureInfo("de-DE");
 
             InitializeComponent();
             InitializeSettings();

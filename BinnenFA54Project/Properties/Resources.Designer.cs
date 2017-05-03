@@ -671,6 +671,15 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close Window Prompt.
+        /// </summary>
+        internal static string CLOSE_TITLE {
+            get {
+                return ResourceManager.GetString("CLOSE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap developer_logo {
@@ -690,11 +699,83 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string ERR {
+            get {
+                return ResourceManager.GetString("ERR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [InitializeAnswerList] - Failed to retrieve data from the database!.
+        /// </summary>
+        internal static string ERR_ANSWERLIST_DB {
+            get {
+                return ResourceManager.GetString("ERR_ANSWERLIST_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [InitializeQuestionList] - Failed to retrieve data from the database!.
+        /// </summary>
+        internal static string ERR_QUESTIONLIST_DB {
+            get {
+                return ResourceManager.GetString("ERR_QUESTIONLIST_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing..
+        /// </summary>
+        internal static string ERR_QUESTIONLIST_IMG {
+            get {
+                return ResourceManager.GetString("ERR_QUESTIONLIST_IMG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{0}] - Missing or Wrong input in \&quot;Settings.ini\&quot; Configuration File! \nRooling back to default configurations....
+        /// </summary>
+        internal static string ERR_SETTINGS_VALUE {
+            get {
+                return ResourceManager.GetString("ERR_SETTINGS_VALUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [InitializeTopicList] - Failed to retrieve data from the database!.
+        /// </summary>
+        internal static string ERR_TOPICLIST_DB {
+            get {
+                return ResourceManager.GetString("ERR_TOPICLIST_DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam .
+        /// </summary>
+        internal static string EXAM {
+            get {
+                return ResourceManager.GetString("EXAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exam Number .
         /// </summary>
         internal static string EXAM_NUMBER {
             get {
                 return ResourceManager.GetString("EXAM_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed..
+        /// </summary>
+        internal static string FAILED {
+            get {
+                return ResourceManager.GetString("FAILED", resourceCulture);
             }
         }
         
@@ -728,7 +809,88 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make sure to restart application for changes to take effect..
+        ///   Looks up a localized string similar to Are you really want to close without saving the Changes?.
+        /// </summary>
+        internal static string MSG_UNSAVED_CHANGES_CLOSED {
+            get {
+                return ResourceManager.GetString("MSG_UNSAVED_CHANGES_CLOSED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No correct answer..
+        /// </summary>
+        internal static string NO_ANSWER {
+            get {
+                return ResourceManager.GetString("NO_ANSWER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No changes has been made, nothing to save..
+        /// </summary>
+        internal static string NO_CHANGES {
+            get {
+                return ResourceManager.GetString("NO_CHANGES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to finish the exam, are you sure you want to continue?.
+        /// </summary>
+        internal static string NOTIF_FINISH_EXAM {
+            get {
+                return ResourceManager.GetString("NOTIF_FINISH_EXAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish Exam.
+        /// </summary>
+        internal static string NOTIF_FINISH_EXAM_CP {
+            get {
+                return ResourceManager.GetString("NOTIF_FINISH_EXAM_CP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing Settings.ini file! \nGenerating new Settings.ini file with default settings for you..
+        /// </summary>
+        internal static string NOTIF_MISSING_SETTINGS {
+            get {
+                return ResourceManager.GetString("NOTIF_MISSING_SETTINGS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing Settings File.
+        /// </summary>
+        internal static string NOTIF_MISSING_SETTINGS_CP {
+            get {
+                return ResourceManager.GetString("NOTIF_MISSING_SETTINGS_CP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seems like you only answered {0} questions from {1}. \nTo continue?.
+        /// </summary>
+        internal static string NOTIF_NOT_ALL_ANSWERED {
+            get {
+                return ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string NOTIF_NOT_ALL_ANSWERED_CP {
+            get {
+                return ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully saved your changes! \nMake sure to restart application for changes to take effect..
         /// </summary>
         internal static string NOTIF_RESTARTAPP {
             get {
@@ -737,8 +899,34 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} Wrong, {1} Right..
+        /// </summary>
+        internal static string NOTIF_RESULTS {
+            get {
+                return ResourceManager.GetString("NOTIF_RESULTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only one instance of the current application allowed!.
+        /// </summary>
+        internal static string ONE_INSTANCE_ALLOWED {
+            get {
+                return ResourceManager.GetString("ONE_INSTANCE_ALLOWED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passed!.
+        /// </summary>
+        internal static string PASSED {
+            get {
+                return ResourceManager.GetString("PASSED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [ExamResults] 
-        ///LOG1 = Fragenbogen 1 - 60% - nicht bestanden
         ///.
         /// </summary>
         internal static string Results {
@@ -753,15 +941,6 @@ namespace BinnenFA54Project.Properties {
         internal static string SAVE {
             get {
                 return ResourceManager.GetString("SAVE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Successfully saved your changes! .
-        /// </summary>
-        internal static string SAVED_CHANGES {
-            get {
-                return ResourceManager.GetString("SAVED_CHANGES", resourceCulture);
             }
         }
         

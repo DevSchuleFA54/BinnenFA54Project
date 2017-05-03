@@ -117,21 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblCompanyName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 389</value>
+  </data>
   <data name="lblCompanyName.Text" xml:space="preserve">
     <value>Firma</value>
+  </data>
+  <data name="lblStreet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 410</value>
   </data>
   <data name="lblStreet.Text" xml:space="preserve">
     <value>Straße</value>
   </data>
+  <data name="lblPostcodeCity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 429</value>
+  </data>
   <data name="lblPostcodeCity.Text" xml:space="preserve">
     <value>PLZ</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cbQuizPicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 158</value>
+  </data>
+  <data name="listBoxResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 164</value>
+  </data>
+  <data name="pbLogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 389</value>
+  </data>
+  <data name="lblExamTopics.Location" type="System.Drawing.Point, System.Drawing">
+    <value>474, 135</value>
+  </data>
   <data name="lblExamTopics.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 18</value>
   </data>
   <data name="lblExamTopics.Text" xml:space="preserve">
     <value>Examen Themen:</value>
+  </data>
+  <data name="btnStartExam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>703, 360</value>
+  </data>
+  <data name="lblHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 141</value>
   </data>
   <data name="lblHistory.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 18</value>
@@ -140,7 +167,7 @@
     <value>Fertige Themen:</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>614, 404</value>
+    <value>618, 404</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 15</value>

@@ -222,7 +222,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>LocalBinnenschifffahrt.mdf</DependentUpon>
     </Content>
-	<Content Include="ship.ico" />
+    <Content Include="ship.ico" />
     <None Include="Resources\smiley_sad.png" />
     <None Include="Resources\smiley_upset.png" />
     <None Include="Resources\smiley_happy.png" />

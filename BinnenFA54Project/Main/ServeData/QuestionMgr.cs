@@ -58,8 +58,9 @@ namespace BinnenFA54Project.Main.ServeData
             }
             catch (Exception)
             {
+                // [InitializeQuestionList] - Failed to retrieve data from the database!
                 MessageBox.Show(
-                    "[InitializeQuestionList] - Failed to retrieve data from the database!",
+                    Resources.ResourceManager.GetString("ERR_QUESTIONLIST_DB"),
                     "ERROR",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -85,7 +86,8 @@ namespace BinnenFA54Project.Main.ServeData
             }
             catch (Exception)
             {
-                Console.WriteLine("[QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing.");
+                // [QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing.
+                Console.WriteLine(Resources.ResourceManager.GetString("ERR_QUESTIONLIST_IMG"));
                 return null;
             }
 

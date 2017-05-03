@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BinnenFA54Project.Main.ResourceData;
+using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Main.ServeData
 {
@@ -45,8 +46,9 @@ namespace BinnenFA54Project.Main.ServeData
             }
             catch (Exception)
             {
+                // [InitializeTopicList] - Failed to retrieve data from the database!
                 MessageBox.Show(
-                    "[InitializeTopicList] - Failed to retrieve data from the database!",
+                    Resources.ResourceManager.GetString("ERR_TOPICLIST_DB"),
                     "ERROR",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);

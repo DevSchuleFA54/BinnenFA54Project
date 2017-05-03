@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
@@ -149,7 +150,6 @@ namespace BinnenFA54Project.Forms
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
 
-                    // TODO: Handle nullable correctAnswer(Feature), atm not necessary.
                     int? correctAnswer = quiz.Answers.AnswerList[index].CorrectAnswerNum;
 
                     // If he already checked the checkbox before, we want to see which has been selected before
@@ -266,8 +266,6 @@ namespace BinnenFA54Project.Forms
                         wrongCount++;
                     }
 
-                    // TODO: If there is a correct answer and he didn't answer, set the state to answered. because we check later.
-                    // Problem here that we don't have selected answer and switch case will fail later on btnNext.
                     answer.State = State.Answered;
                 }
                 else
@@ -293,7 +291,9 @@ namespace BinnenFA54Project.Forms
             QuizBase.RightAnswerCount = rightCount;
 
 #if DEBUG
-            MessageBox.Show(string.Format("{0} wrong and {1} right.", wrongCount, rightCount));
+            // {0} wrong and {1} right. 
+            MessageBox.Show(string.Format(Regex.Unescape(Resources.ResourceManager.GetString("NOTIF_RESULTS")), 
+                wrongCount, rightCount));
 #endif
         }
 
@@ -347,35 +347,37 @@ namespace BinnenFA54Project.Forms
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            // TODO: Localize text.
-            DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
-                "Finish Exam", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            // Finish Exam
+            // You are about to finish the exam, are you sure you want to continue?
+            DialogResult dialog = MessageBox.Show(Resources.ResourceManager.GetString("NOTIF_FINISH_EXAM"),
+                                                  Resources.ResourceManager.GetString("NOTIF_FINISH_EXAM_CP"), 
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialog == DialogResult.Yes)
             {
                 if (progressBar.Value != progressBar.Maximum)
                 {
-                    // TODO: Localize text.
-                    DialogResult dialogResult = MessageBox.Show(
-                            string.Format("Seems like you only answered {0} questions from {1}. To continue?",
-                            progressBar.Value, progressBar.Maximum + 1),
-                            "WARNING",
-                            MessageBoxButtons.YesNo, 
-                            MessageBoxIcon.Warning);
+                    // WARNING
+                    // Seems like you only answered {0} questions from {1}. To continue?
+                    DialogResult dialogResult = MessageBox.Show(string.Format(Regex.Unescape(
+                                                Resources.ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED")), progressBar.Value, progressBar.Maximum + 1),
+                                                Resources.ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP"),
+                                                MessageBoxButtons.YesNo, 
+                                                MessageBoxIcon.Warning);
 
                     if (dialogResult != DialogResult.Yes)
                         return;
                 }
-                // TODO: Store the results in database.
+                // @Gilad: Feature -> Store the results in database.
 
                 StoreResults();
-
-                string examName = string.Format("Fragenbogen " + QuizBase.SelectedTopic);
+                
+                
+                string examName = string.Format(Resources.ResourceManager.GetString("EXAM") + QuizBase.SelectedTopic); // Exam
                 int percent = (100 / quiz.Questions.QuestionList.Count) * QuizBase.RightAnswerCount;
                 bool pass = percent > setting.PassedWithPercent;
 
                 setting.SaveExamResults(examName, percent, pass);
-
 
                 //new ResultsMgr().StoreResultsInDb(quiz); // NOT STABLE YET.
                 new QuizForm(quiz).Show();

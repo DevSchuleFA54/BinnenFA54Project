@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BinnenFA54Project.Main.ResourceData;
+using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Main.ServeData
 {
@@ -61,8 +62,9 @@ namespace BinnenFA54Project.Main.ServeData
             }
             catch (Exception)
             {
+                // [InitializeAnswerList] - Failed to retrieve data from the database!
                 MessageBox.Show(
-                    "[InitializeAnswerList] - Failed to retrieve data from the database!",
+                    Resources.ResourceManager.GetString("ERR_ANSWERLIST_DB"),
                     "ERROR",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -73,9 +75,9 @@ namespace BinnenFA54Project.Main.ServeData
         {
             if (option != null)
                 return _questionMgr.QuestionList[index].Options[(int)option - 1];
-
-            // TODO: Localize text.
-            return "Keine Richtige Antwort.";
+            
+            // No correct answer.
+            return Resources.ResourceManager.GetString("NO_ANSWER");
         }
 
     }

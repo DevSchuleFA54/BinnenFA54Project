@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using BinnenFA54Project.Properties;
 using IniParser;
 using IniParser.Model;
 
@@ -26,8 +27,10 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             if (!File.Exists(settingPath))
             {
-                // MessageBox.Show("Created Results.ini");
-                File.WriteAllText(settingPath, Properties.Resources.Results);
+#if DEBUG
+                MessageBox.Show("Created Results.ini");
+#endif // DEBUG
+                File.WriteAllText(settingPath, Resources.Results);
             }
 
             try
@@ -37,16 +40,20 @@ namespace BinnenFA54Project.Frameworks.IniParser
                 string lastNewKeyName = String.Empty;
 
                 // Get the amount of keys and store in lastNewKeyName.
-                lastNewKeyName = ("LOG" + (sectionData.Keys.Count + 1));
+                lastNewKeyName = ("LOG" + (sectionData.Keys.Count + 1)); // Key Name
+
+                // Key Value
                 string value = string.Format("{0} - ({1}%) - {2}",
-                    examName, passWithP, pass ? "Bestanden" : "Nicht bestanden");
+                    examName, passWithP, pass ? Resources.ResourceManager.GetString("PASSED") :
+                                                Resources.ResourceManager.GetString("FAILED"));
 
                 sectionData.Keys.AddKey(lastNewKeyName, value);
-               
-                //data["MiscConfiguration"]["DATE_FORMAT"] = dateFormat;
                 iniParser.WriteFile(settingPath, data);
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
 
         public Dictionary<int, string> GetExamResults()

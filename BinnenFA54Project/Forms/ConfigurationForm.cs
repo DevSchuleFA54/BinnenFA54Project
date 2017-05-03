@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using GiladControllers;
 using System.Threading;
@@ -8,7 +9,6 @@ using BinnenFA54Project.Properties;
 
 namespace BinnenFA54Project.Forms
 {
-    // TODO: @togi - Improve German Translation.
     public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;
@@ -149,20 +149,18 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                // TODO: @togi - Here is an example that might seems a bit complicated.
-                //MessageBox.Show("Successfully saved your changes! " +
-                //                "\nMake sure to restart application for changes to take effect."
-                //                , "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);      
+                // Successfully saved your changes! \nMake sure to restart application for changes to take effect.
+                // Save
+                MessageBox.Show(Regex.Unescape(
+                    Resources.ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                    Resources.ResourceManager.GetString("SAVE"), 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
-                                Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
-                                Resources.ResourceManager.GetString("SAVE"), 
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 WriteNewConfiguration();
                 Application.Restart();
             }
-            else
-                MessageBox.Show("No changes has been made, nothing to save.");
+            else // No changes has been made, nothing to save.
+                MessageBox.Show(Resources.ResourceManager.GetString("NO_CHANGES"));
 
         }
 
@@ -171,10 +169,14 @@ namespace BinnenFA54Project.Forms
         {
             if (!configChanged) return;
 
-            MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
-                            Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
-                            Resources.ResourceManager.GetString("SAVE"),
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Successfully saved your changes! 
+            // Make sure to restart application for changes to take effect.
+            // Save
+            MessageBox.Show(Regex.Unescape(
+                Resources.ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                Resources.ResourceManager.GetString("SAVE"),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             WriteNewConfiguration();
             configChanged = false; // Finished writting changes, so it won't promote if user click close.
         }
@@ -184,10 +186,12 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                // TODO: Localize text.
+                // Are you really want to close without saving the Changes?
+                // Close Window Prompt
                 DialogResult dialogResult = MessageBox.Show(
-                    "Are you really want to close without saving the Changes?", 
-                    "Close Window Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Resources.ResourceManager.GetString("MSG_UNSAVED_CHANGES_CLOSED"), 
+                    Resources.ResourceManager.GetString("CLOSE_TITLE"), 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult != DialogResult.Yes) return;   
             }
