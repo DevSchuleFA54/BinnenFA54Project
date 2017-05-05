@@ -86,7 +86,7 @@ namespace BinnenFA54Project.Forms
             if (FormsBase.MainForm == null) return;
 
 
-            var results = setting.GetExamResults();
+            var results = ResultsIni.GetExamResults();
 
             foreach (var result in results.Values)
             {
@@ -377,7 +377,7 @@ namespace BinnenFA54Project.Forms
                 int percent = (100 / quiz.Questions.QuestionList.Count) * QuizBase.RightAnswerCount;
                 bool pass = percent > setting.PassedWithPercent;
 
-                setting.SaveExamResults(examName, percent, pass);
+                ResultsIni.SaveExamResults(examName, percent, pass);
 
                 //new ResultsMgr().StoreResultsInDb(quiz); // NOT STABLE YET.
                 new QuizForm(quiz).Show();

@@ -45,7 +45,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;LOCAL_DATABASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Frameworks\IniParser\ISettingIni.cs" />
     <Compile Include="Frameworks\IniParser\ISettingIniEdit.cs" />
+    <Compile Include="Frameworks\IniParser\ResultsIni.cs" />
     <Compile Include="Frameworks\IniParser\SettingIniImpl.cs" />
     <Compile Include="Frameworks\IniParser\SettingIni.cs" />
     <Compile Include="MainForm.cs">

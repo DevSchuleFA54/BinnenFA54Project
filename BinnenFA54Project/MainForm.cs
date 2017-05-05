@@ -32,7 +32,7 @@ namespace BinnenFA54Project
             InitializeSettings();
             InitializeTopicList();
 
-            var myDicResults = setting.GetExamResults();
+            var myDicResults = ResultsIni.GetExamResults();
             for (int i = 1; i <= myDicResults.Count; i++)
                 listBoxResults.Items.Add(myDicResults[i]);
 
