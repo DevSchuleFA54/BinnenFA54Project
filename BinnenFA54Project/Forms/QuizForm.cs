@@ -22,7 +22,6 @@ namespace BinnenFA54Project.Forms
         private SettingIni setting;
 
 
-
         public QuizForm()
         {
 #if !HIDE_LOADERS
@@ -37,17 +36,13 @@ namespace BinnenFA54Project.Forms
             RegisterEventHandlers();
             GenerateQuestionSelectors();
             UpdateQuestions();
-
-            this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
-            this.Text = setting.ApplicationTitle;
-            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") 
-                + QuizBase.SelectedTopic.ToString();
-
+            SetFormConfiguration();
 
 #if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
 #endif // !HIDE_LOADERS
         }
+
 
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
@@ -56,24 +51,16 @@ namespace BinnenFA54Project.Forms
             Thread.Sleep(5000);
 #endif // !HIDE_LOADERS
 
-            setting = new SettingIni();
-            reviewExam = true;
+            setting = new SettingIni(); // reloading settings.
+            reviewExam = true; // Set the window in review mode.
             _checked   = new bool[4];
             this.quiz  = quiz;
 
-
             InitializeComponent();
-            this.btnFinish.Dispose();
             GenerateQuestionSelectors();
             RenderQuestionResults(null);
             UpdateQuestions();
-            this.Text = setting.ApplicationTitle;
-            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER")
-                + QuizBase.SelectedTopic.ToString();
-
-            // Unregistering all the events in the sub controllers so the user will only review his exam.
-            this.KeyPress -= QuizForm_KeyPress;
-            this.cbCombo.ViewModeState = ControlViewMode.Inactive;
+            SetFormConfiguration();
 
 
 #if !HIDE_LOADERS
@@ -81,17 +68,25 @@ namespace BinnenFA54Project.Forms
 #endif // !HIDE_LOADERS
         }
 
-        private void PassResultsToMainForm()
+
+        private void SetFormConfiguration()
         {
-            if (FormsBase.MainForm == null) return;
+            this.Text = setting.ApplicationTitle;
+            if (setting.OnTopMost) this.TopMost = true;
+            if (!setting.UIControls) this.controlsBox.Visible = false;
+            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") + QuizBase.SelectedTopic;
+            if (!reviewExam) this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
 
-
-            var results = ResultsIni.GetExamResults();
-
-            foreach (var result in results.Values)
+            if (reviewExam)
             {
-                FormsBase.MainForm.listBoxResults.Items.Add(result);
+                this.btnFinish.Dispose();
+                this.progressBar.Dispose();
+
+                // Unregistering all the events in the sub controllers so the user will only review his exam.
+                this.KeyPress -= QuizForm_KeyPress;
+                this.cbCombo.ViewModeState = ControlViewMode.Inactive;
             }
+
         }
 
 
@@ -641,7 +636,7 @@ namespace BinnenFA54Project.Forms
                 buttons[i].Click += btnSelector_Click;
                 x += spacingX;
 
-                this.giladGradientPanel1.Controls.Add(buttons[i]);
+                this.gradientPanel.Controls.Add(buttons[i]);
             }
 
         }

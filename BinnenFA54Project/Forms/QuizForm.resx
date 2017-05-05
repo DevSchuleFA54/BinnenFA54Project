@@ -139,7 +139,7 @@
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -169,7 +169,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblExamNum.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;lblExamNum.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -196,75 +196,75 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblQuestion.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;lblQuestion.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblGoBack.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblGoBack.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblGoBack.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblGoBack.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 417</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblGoBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 15</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblGoBack.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblGoBack.Text" xml:space="preserve">
     <value>Go Back</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;lblGoBack.Name" xml:space="preserve">
+    <value>lblGoBack</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblGoBack.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+  <data name="&gt;&gt;lblGoBack.Parent" xml:space="preserve">
+    <value>gradientPanel</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblGoBack.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblNext.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblNext.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>678, 417</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblNext.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="lblNext.Text" xml:space="preserve">
     <value>Next Question</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="&gt;&gt;lblNext.Name" xml:space="preserve">
+    <value>lblNext</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblNext.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+  <data name="&gt;&gt;lblNext.Parent" xml:space="preserve">
+    <value>gradientPanel</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblNext.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
   <data name="btnFinish.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -292,7 +292,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnFinish.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;btnFinish.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -325,42 +325,42 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblQuestionIndexer.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;lblQuestionIndexer.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="lblQuestionNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblQuestionNumber.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lblQuestionNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblQuestionNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>355, 447</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblQuestionNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 13</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblQuestionNumber.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="lblQuestionNumber.Text" xml:space="preserve">
     <value>Question Number: </value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;lblQuestionNumber.Name" xml:space="preserve">
+    <value>lblQuestionNumber</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblQuestionNumber.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+  <data name="&gt;&gt;lblQuestionNumber.Parent" xml:space="preserve">
+    <value>gradientPanel</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblQuestionNumber.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="pbSign.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -385,7 +385,7 @@
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pbSign.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;pbSign.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -412,7 +412,7 @@
     <value>GiladControllers.Gilad4CheckBox, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;cbCombo.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;cbCombo.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -436,7 +436,7 @@
     <value>GiladControllers.GiladButton, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnBack.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;btnBack.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -460,7 +460,7 @@
     <value>GiladControllers.GiladButton, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnNext.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -490,57 +490,57 @@
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pbSmiley.Parent" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+    <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;pbSmiley.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="giladGradientPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="gradientPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="giladGradientPanel1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="gradientPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 50</value>
   </data>
-  <data name="giladGradientPanel1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="gradientPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>855, 535</value>
   </data>
-  <data name="giladGradientPanel1.TabIndex" type="System.Int32, mscorlib">
+  <data name="gradientPanel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;giladGradientPanel1.Name" xml:space="preserve">
-    <value>giladGradientPanel1</value>
+  <data name="&gt;&gt;gradientPanel.Name" xml:space="preserve">
+    <value>gradientPanel</value>
   </data>
-  <data name="&gt;&gt;giladGradientPanel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;gradientPanel.Type" xml:space="preserve">
     <value>GiladControllers.GiladGradientPanel, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;giladGradientPanel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gradientPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;giladGradientPanel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;gradientPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="giladControlBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="controlsBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="giladControlBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="controlsBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>747, 9</value>
   </data>
-  <data name="giladControlBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="controlsBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
   </data>
-  <data name="giladControlBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="controlsBox.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;giladControlBox1.Name" xml:space="preserve">
-    <value>giladControlBox1</value>
+  <data name="&gt;&gt;controlsBox.Name" xml:space="preserve">
+    <value>controlsBox</value>
   </data>
-  <data name="&gt;&gt;giladControlBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;controlsBox.Type" xml:space="preserve">
     <value>GiladControllers.GiladControlBox, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;giladControlBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;controlsBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;giladControlBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;controlsBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -8,10 +8,10 @@ namespace BinnenFA54Project.Forms.Misc
         public MainAppLoader()
         {
             InitializeComponent();
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Controls.Add(pictureBox2);
-            pictureBox2.Location = new Point(231, 145);
-            pictureBox2.BackColor = Color.Transparent;
+            pbBackground.BackColor = Color.Transparent;
+            pbBackground.Controls.Add(pbLoading);
+            pbLoading.Location = new Point(231, 145);
+            pbLoading.BackColor = Color.Transparent;
         }
     }
 }

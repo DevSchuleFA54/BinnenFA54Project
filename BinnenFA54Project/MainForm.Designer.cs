@@ -38,13 +38,13 @@
             this.lblExamTopics = new System.Windows.Forms.Label();
             this.btnStartExam = new GiladControllers.GiladButton();
             this.lblHistory = new System.Windows.Forms.Label();
-            this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.gradientPanel = new GiladControllers.GiladGradientPanel();
             this.pbConfig = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.giladControlBox1 = new GiladControllers.GiladControlBox();
+            this.lblLetsGo = new System.Windows.Forms.Label();
+            this.lblConfig = new System.Windows.Forms.Label();
+            this.controlBox = new GiladControllers.GiladControlBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.giladGradientPanel1.SuspendLayout();
+            this.gradientPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfig)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,63 +112,62 @@
             this.lblHistory.ForeColor = System.Drawing.Color.Cornsilk;
             this.lblHistory.Name = "lblHistory";
             // 
-            // giladGradientPanel1
+            // gradientPanel
             // 
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
-            this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
-            this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
-            this.giladGradientPanel1.Controls.Add(this.pbConfig);
-            this.giladGradientPanel1.Controls.Add(this.btnStartExam);
-            this.giladGradientPanel1.Controls.Add(this.cbQuizPicker);
-            this.giladGradientPanel1.Controls.Add(this.lblPostcodeCity);
-            this.giladGradientPanel1.Controls.Add(this.listBoxResults);
-            this.giladGradientPanel1.Controls.Add(this.lblExamTopics);
-            this.giladGradientPanel1.Controls.Add(this.lblCompanyName);
-            this.giladGradientPanel1.Controls.Add(this.label2);
-            this.giladGradientPanel1.Controls.Add(this.label1);
-            this.giladGradientPanel1.Controls.Add(this.lblHistory);
-            this.giladGradientPanel1.Controls.Add(this.lblStreet);
-            this.giladGradientPanel1.Controls.Add(this.pbLogo);
-            this.giladGradientPanel1.CustomCursor = true;
-            this.giladGradientPanel1.DraggableForm = true;
-            this.giladGradientPanel1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.giladGradientPanel1.Name = "giladGradientPanel1";
+            this.gradientPanel.BackColor = System.Drawing.Color.Transparent;
+            this.gradientPanel.Color1 = System.Drawing.Color.Transparent;
+            this.gradientPanel.Color2 = System.Drawing.Color.DarkBlue;
+            this.gradientPanel.Controls.Add(this.pbConfig);
+            this.gradientPanel.Controls.Add(this.btnStartExam);
+            this.gradientPanel.Controls.Add(this.cbQuizPicker);
+            this.gradientPanel.Controls.Add(this.lblPostcodeCity);
+            this.gradientPanel.Controls.Add(this.listBoxResults);
+            this.gradientPanel.Controls.Add(this.lblExamTopics);
+            this.gradientPanel.Controls.Add(this.lblCompanyName);
+            this.gradientPanel.Controls.Add(this.lblLetsGo);
+            this.gradientPanel.Controls.Add(this.lblConfig);
+            this.gradientPanel.Controls.Add(this.lblHistory);
+            this.gradientPanel.Controls.Add(this.lblStreet);
+            this.gradientPanel.Controls.Add(this.pbLogo);
+            this.gradientPanel.CustomCursor = true;
+            resources.ApplyResources(this.gradientPanel, "gradientPanel");
+            this.gradientPanel.DraggableForm = true;
+            this.gradientPanel.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.gradientPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gradientPanel.Name = "gradientPanel";
             // 
             // pbConfig
             // 
-            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.BackColor = System.Drawing.Color.Transparent;
             this.pbConfig.Image = global::BinnenFA54Project.Properties.Resources.settings_icon;
+            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.Name = "pbConfig";
             this.pbConfig.TabStop = false;
             this.pbConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
-            // label2
+            // lblLetsGo
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lblLetsGo, "lblLetsGo");
+            this.lblLetsGo.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblLetsGo.Name = "lblLetsGo";
             // 
-            // label1
+            // lblConfig
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lblConfig, "lblConfig");
+            this.lblConfig.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblConfig.Name = "lblConfig";
             // 
-            // giladControlBox1
+            // controlBox
             // 
-            resources.ApplyResources(this.giladControlBox1, "giladControlBox1");
-            this.giladControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.giladControlBox1.Color1 = System.Drawing.Color.White;
-            this.giladControlBox1.Color2 = System.Drawing.Color.Black;
-            this.giladControlBox1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.giladControlBox1.Name = "giladControlBox1";
+            resources.ApplyResources(this.controlBox, "controlBox");
+            this.controlBox.BackColor = System.Drawing.Color.Transparent;
+            this.controlBox.Color1 = System.Drawing.Color.White;
+            this.controlBox.Color2 = System.Drawing.Color.Black;
+            this.controlBox.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.controlBox.Name = "controlBox";
             // 
             // MainForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(15, 15);
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
@@ -177,10 +176,11 @@
             this.AppTitle.TextColor = System.Drawing.Color.AntiqueWhite;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 20);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Controls.Add(this.giladControlBox1);
-            this.Controls.Add(this.giladGradientPanel1);
+            this.Controls.Add(this.controlBox);
+            this.Controls.Add(this.gradientPanel);
             this.CustomCursor = true;
             this.FormBackColor.GradientColor1 = System.Drawing.Color.DarkRed;
             this.FormBackColor.GradientColor2 = System.Drawing.Color.Black;
@@ -191,8 +191,8 @@
             this.Name = "MainForm";
             this.ResizeGripColor = System.Drawing.SystemColors.ButtonHighlight;
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.giladGradientPanel1.ResumeLayout(false);
-            this.giladGradientPanel1.PerformLayout();
+            this.gradientPanel.ResumeLayout(false);
+            this.gradientPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfig)).EndInit();
             this.ResumeLayout(false);
 
@@ -209,11 +209,11 @@
         public System.Windows.Forms.ListBox listBoxResults;
         private System.Windows.Forms.ComboBox cbQuizPicker;
         private GiladControllers.GiladButton btnStartExam;
-        private GiladControllers.GiladGradientPanel giladGradientPanel1;
-        private GiladControllers.GiladControlBox giladControlBox1;
+        private GiladControllers.GiladGradientPanel gradientPanel;
+        private GiladControllers.GiladControlBox controlBox;
         private System.Windows.Forms.PictureBox pbConfig;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblConfig;
+        private System.Windows.Forms.Label lblLetsGo;
     }
 }
 

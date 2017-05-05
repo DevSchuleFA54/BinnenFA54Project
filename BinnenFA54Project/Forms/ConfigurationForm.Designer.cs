@@ -41,27 +41,27 @@
             this.tbPostcodeCity = new System.Windows.Forms.TextBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.groupBoxGC = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblAppTitle = new System.Windows.Forms.Label();
+            this.lblReqPercent = new System.Windows.Forms.Label();
+            this.lblCompanyName = new System.Windows.Forms.Label();
+            this.lblStreetName = new System.Windows.Forms.Label();
+            this.lblPostcodeCity = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tbCountry = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.giladGradientPanel1 = new GiladControllers.GiladGradientPanel();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.gradientPanel = new GiladControllers.GiladGradientPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.lblLang = new System.Windows.Forms.Label();
             this.comboLanguage = new System.Windows.Forms.ComboBox();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.groupBoxGC.SuspendLayout();
-            this.giladGradientPanel1.SuspendLayout();
+            this.gradientPanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,47 +148,47 @@
             this.groupBoxGC.Name = "groupBoxGC";
             this.groupBoxGC.TabStop = false;
             // 
-            // label1
+            // lblAppTitle
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lblAppTitle, "lblAppTitle");
+            this.lblAppTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblAppTitle.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblAppTitle.Name = "lblAppTitle";
             // 
-            // label2
+            // lblReqPercent
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lblReqPercent, "lblReqPercent");
+            this.lblReqPercent.BackColor = System.Drawing.Color.Transparent;
+            this.lblReqPercent.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblReqPercent.Name = "lblReqPercent";
             // 
-            // label3
+            // lblCompanyName
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.lblCompanyName, "lblCompanyName");
+            this.lblCompanyName.BackColor = System.Drawing.Color.Transparent;
+            this.lblCompanyName.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblCompanyName.Name = "lblCompanyName";
             // 
-            // label4
+            // lblStreetName
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lblStreetName, "lblStreetName");
+            this.lblStreetName.BackColor = System.Drawing.Color.Transparent;
+            this.lblStreetName.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblStreetName.Name = "lblStreetName";
             // 
-            // label5
+            // lblPostcodeCity
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lblPostcodeCity, "lblPostcodeCity");
+            this.lblPostcodeCity.BackColor = System.Drawing.Color.Transparent;
+            this.lblPostcodeCity.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblPostcodeCity.Name = "lblPostcodeCity";
             // 
-            // label6
+            // lblPhone
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lblPhone, "lblPhone");
+            this.lblPhone.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhone.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblPhone.Name = "lblPhone";
             // 
             // btnSave
             // 
@@ -217,26 +217,26 @@
             this.tbCountry.Name = "tbCountry";
             this.tbCountry.TextChanged += new System.EventHandler(this.OnValueTextChanged);
             // 
-            // label7
+            // lblCountry
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lblCountry, "lblCountry");
+            this.lblCountry.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountry.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblCountry.Name = "lblCountry";
             // 
-            // giladGradientPanel1
+            // gradientPanel
             // 
-            this.giladGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.giladGradientPanel1.Color1 = System.Drawing.Color.Transparent;
-            this.giladGradientPanel1.Color2 = System.Drawing.Color.DarkBlue;
-            this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel2);
-            this.giladGradientPanel1.Controls.Add(this.tableLayoutPanel1);
-            this.giladGradientPanel1.Controls.Add(this.groupBoxGC);
-            this.giladGradientPanel1.CustomCursor = true;
-            resources.ApplyResources(this.giladGradientPanel1, "giladGradientPanel1");
-            this.giladGradientPanel1.DraggableForm = true;
-            this.giladGradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.giladGradientPanel1.Name = "giladGradientPanel1";
+            this.gradientPanel.BackColor = System.Drawing.Color.Transparent;
+            this.gradientPanel.Color1 = System.Drawing.Color.Transparent;
+            this.gradientPanel.Color2 = System.Drawing.Color.DarkBlue;
+            this.gradientPanel.Controls.Add(this.tableLayoutPanel2);
+            this.gradientPanel.Controls.Add(this.tableLayout);
+            this.gradientPanel.Controls.Add(this.groupBoxGC);
+            this.gradientPanel.CustomCursor = true;
+            resources.ApplyResources(this.gradientPanel, "gradientPanel");
+            this.gradientPanel.DraggableForm = true;
+            this.gradientPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gradientPanel.Name = "gradientPanel";
             // 
             // tableLayoutPanel2
             // 
@@ -246,35 +246,35 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 2, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
-            // tableLayoutPanel1
+            // tableLayout
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.tbAppTitle, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tbPassedWithPrercent, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboDateFormat, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.lblDateFormat, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tbCompanyName, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tbStreetName, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tbPostcodeCity, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tbCountry, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tbPhone, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.comboLanguage, 1, 8);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            resources.ApplyResources(this.tableLayout, "tableLayout");
+            this.tableLayout.Controls.Add(this.tbAppTitle, 1, 0);
+            this.tableLayout.Controls.Add(this.tbPassedWithPrercent, 1, 1);
+            this.tableLayout.Controls.Add(this.comboDateFormat, 1, 7);
+            this.tableLayout.Controls.Add(this.lblDateFormat, 0, 7);
+            this.tableLayout.Controls.Add(this.lblAppTitle, 0, 0);
+            this.tableLayout.Controls.Add(this.lblReqPercent, 0, 1);
+            this.tableLayout.Controls.Add(this.lblPhone, 0, 6);
+            this.tableLayout.Controls.Add(this.lblCountry, 0, 5);
+            this.tableLayout.Controls.Add(this.tbCompanyName, 1, 2);
+            this.tableLayout.Controls.Add(this.lblCompanyName, 0, 2);
+            this.tableLayout.Controls.Add(this.lblPostcodeCity, 0, 4);
+            this.tableLayout.Controls.Add(this.tbStreetName, 1, 3);
+            this.tableLayout.Controls.Add(this.lblStreetName, 0, 3);
+            this.tableLayout.Controls.Add(this.tbPostcodeCity, 1, 4);
+            this.tableLayout.Controls.Add(this.tbCountry, 1, 5);
+            this.tableLayout.Controls.Add(this.tbPhone, 1, 6);
+            this.tableLayout.Controls.Add(this.lblLang, 0, 8);
+            this.tableLayout.Controls.Add(this.comboLanguage, 1, 8);
+            this.tableLayout.Name = "tableLayout";
             // 
-            // label8
+            // lblLang
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.lblLang, "lblLang");
+            this.lblLang.BackColor = System.Drawing.Color.Transparent;
+            this.lblLang.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblLang.Name = "lblLang";
             // 
             // comboLanguage
             // 
@@ -306,7 +306,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pbIcon);
-            this.Controls.Add(this.giladGradientPanel1);
+            this.Controls.Add(this.gradientPanel);
             this.CustomCursor = true;
             this.FormBackColor.GradientColor1 = System.Drawing.Color.DarkRed;
             this.FormBackColor.GradientColor2 = System.Drawing.Color.LightSeaGreen;
@@ -318,10 +318,10 @@
             this.ResizeGrip = false;
             this.groupBoxGC.ResumeLayout(false);
             this.groupBoxGC.PerformLayout();
-            this.giladGradientPanel1.ResumeLayout(false);
+            this.gradientPanel.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayout.ResumeLayout(false);
+            this.tableLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -341,21 +341,21 @@
         private System.Windows.Forms.TextBox tbPostcodeCity;
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.GroupBox groupBoxGC;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblAppTitle;
+        private System.Windows.Forms.Label lblReqPercent;
+        private System.Windows.Forms.Label lblCompanyName;
+        private System.Windows.Forms.Label lblStreetName;
+        private System.Windows.Forms.Label lblPostcodeCity;
+        private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox tbCountry;
-        private System.Windows.Forms.Label label7;
-        private GiladControllers.GiladGradientPanel giladGradientPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblCountry;
+        private GiladControllers.GiladGradientPanel gradientPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayout;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblLang;
         private System.Windows.Forms.ComboBox comboLanguage;
         private System.Windows.Forms.PictureBox pbIcon;
     }
