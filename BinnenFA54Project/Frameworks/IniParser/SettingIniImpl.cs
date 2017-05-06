@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using BinnenFA54Project.Properties;
 using IniParser;
 using IniParser.Model;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Frameworks.IniParser
 {
@@ -28,8 +29,9 @@ namespace BinnenFA54Project.Frameworks.IniParser
             {
                 // NOTE: Regex.Unescape will parse the escape characters for new line or any other.
                 // Missing Settings.ini file! Generating new Settings.ini file with default settings for you.
-                MessageBox.Show(Regex.Unescape(Resources.ResourceManager.GetString("NOTIF_MISSING_SETTINGS")),
-                                Resources.ResourceManager.GetString("NOTIF_MISSING_SETTINGS_CP"), 
+                MessageBox.Show(Regex.Unescape(
+                                ResourceManager.GetString("NOTIF_MISSING_SETTINGS")),
+                                ResourceManager.GetString("NOTIF_MISSING_SETTINGS_CP"), 
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 File.WriteAllText(settingPath, Resources.Settings);
@@ -565,8 +567,9 @@ namespace BinnenFA54Project.Frameworks.IniParser
         {
             // [{0}] - Missing or Wrong input in \"Settings.ini\" Configuration File! \nRooling back to default configurations...
             MessageBox.Show(
-                string.Format(Regex.Unescape(Resources.ResourceManager.GetString("ERR_SETTINGS_VALUE")), msg),
-                              Resources.ResourceManager.GetString("ERR"), 
+                string.Format(Regex.Unescape(
+                              ResourceManager.GetString("ERR_SETTINGS_VALUE")), msg),
+                              ResourceManager.GetString("ERR"), 
                               MessageBoxButtons.OK, 
                               MessageBoxIcon.Error
             );

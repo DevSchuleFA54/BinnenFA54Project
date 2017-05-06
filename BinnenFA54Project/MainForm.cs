@@ -8,8 +8,8 @@ using BinnenFA54Project.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
-using BinnenFA54Project.Properties;
 using GiladControllers;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project
 {
@@ -36,11 +36,7 @@ namespace BinnenFA54Project
             InitializeTopicList();
             InitIconInTray();
 
-            var myDicResults = ResultsIni.GetExamResults();
-            for (int i = 1; i <= myDicResults.Count; i++)
-                listBoxResults.Items.Add(myDicResults[i]);
-
-
+            FormsBase.MainForm = this; // holds a reference pointer in FormsBase.
 
             #region Work in Progress.
             // NOT STABLE YET!!!
@@ -59,7 +55,6 @@ namespace BinnenFA54Project
             //    }
             //}
             #endregion Work in Progress.
-
 #if !HIDE_LOADERS
             Loader.StopLoader(this.Handle); // stops the splash screen.
 #endif // !HIDE_LOADERS
@@ -98,6 +93,7 @@ namespace BinnenFA54Project
 
 
             new QuizForm().Show();
+            this.Visible = false;
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
@@ -106,8 +102,20 @@ namespace BinnenFA54Project
         }
 
 
-
-
+        /// <summary>
+        /// As soon as visibility changes, we reload the quiz results list 
+        /// on the form so if the QuizForm in reviewExam mode closes, then 
+        /// we get the updated results to be displayed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            listBoxResults.Items.Clear();
+            var myDicResults = ResultsIni.GetExamResults();
+            for (int i = 1; i <= myDicResults.Count; i++)
+                listBoxResults.Items.Add(myDicResults[i]);
+        }
 
 
         #region --- Icon in Tray Stuff ----------------------------------------------------------
@@ -118,9 +126,9 @@ namespace BinnenFA54Project
 
             // Sets the icon in tray icon.
             // Configuration, Open, Exit
-            MenuItem configMI = new MenuItem(Resources.ResourceManager.GetString("MI_CONFIG"), ShowConfigForm);
-            MenuItem openMI   = new MenuItem(Resources.ResourceManager.GetString("MI_OPEN"), Open);
-            MenuItem exitMI   = new MenuItem(Resources.ResourceManager.GetString("MI_EXIT"), Exit);
+            MenuItem configMI = new MenuItem(ResourceManager.GetString("MI_CONFIG"), ShowConfigForm);
+            MenuItem openMI   = new MenuItem(ResourceManager.GetString("MI_OPEN"), Open);
+            MenuItem exitMI   = new MenuItem(ResourceManager.GetString("MI_EXIT"), Exit);
 
 
             this.notifyIcon.ContextMenu = new ContextMenu(new[] { configMI, openMI, exitMI });
@@ -160,6 +168,7 @@ namespace BinnenFA54Project
         {
             new ConfigurationForm().Show();
         }
+
 
         #endregion Icon in Tray Events ----------------------------------------------------------
 

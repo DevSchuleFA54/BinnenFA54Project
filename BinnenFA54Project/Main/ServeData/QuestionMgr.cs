@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using BinnenFA54Project.Main.ResourceData;
-using BinnenFA54Project.Properties;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Main.ServeData
 {
@@ -60,7 +60,7 @@ namespace BinnenFA54Project.Main.ServeData
             {
                 // [InitializeQuestionList] - Failed to retrieve data from the database!
                 MessageBox.Show(
-                    Resources.ResourceManager.GetString("ERR_QUESTIONLIST_DB"),
+                    ResourceManager.GetString("ERR_QUESTIONLIST_DB"),
                     "ERROR",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -82,12 +82,12 @@ namespace BinnenFA54Project.Main.ServeData
 
             try
             {
-                return (Bitmap)Resources.ResourceManager.GetObject(fileName);
+                return (Bitmap)ResourceManager.GetObject(fileName);
             }
             catch (Exception)
             {
                 // [QuestionMgr::RegexImageName] - Failed to retrieve image from resource or missing.
-                Console.WriteLine(Resources.ResourceManager.GetString("ERR_QUESTIONLIST_IMG"));
+                Console.WriteLine(ResourceManager.GetString("ERR_QUESTIONLIST_IMG"));
                 return null;
             }
 

@@ -5,7 +5,7 @@ using GiladControllers;
 using System.Threading;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
-using BinnenFA54Project.Properties;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
@@ -50,8 +50,8 @@ namespace BinnenFA54Project.Forms
             comboDateFormat.Items.Add(DateTime.Now.ToString("dd-MM-yyyy"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yy-MM-dd"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yyyy-M-d"));
-            comboLanguage.Items.Add(Resources.ResourceManager.GetString("GERMAN"));
-            comboLanguage.Items.Add(Resources.ResourceManager.GetString("ENGLISH"));
+            comboLanguage.Items.Add(ResourceManager.GetString("GERMAN"));
+            comboLanguage.Items.Add(ResourceManager.GetString("ENGLISH"));
             SelectComboBoxes();
 
             if (setting.UIControls)
@@ -152,15 +152,15 @@ namespace BinnenFA54Project.Forms
                 // Successfully saved your changes! \nMake sure to restart application for changes to take effect.
                 // Save
                 MessageBox.Show(Regex.Unescape(
-                    Resources.ResourceManager.GetString("NOTIF_RESTARTAPP")),
-                    Resources.ResourceManager.GetString("SAVE"), 
+                    ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                    ResourceManager.GetString("SAVE"), 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 WriteNewConfiguration();
                 Application.Restart();
             }
             else // No changes has been made, nothing to save.
-                MessageBox.Show(Resources.ResourceManager.GetString("NO_CHANGES"));
+                MessageBox.Show(ResourceManager.GetString("NO_CHANGES"));
 
         }
 
@@ -173,8 +173,8 @@ namespace BinnenFA54Project.Forms
             // Make sure to restart application for changes to take effect.
             // Save
             MessageBox.Show(Regex.Unescape(
-                Resources.ResourceManager.GetString("NOTIF_RESTARTAPP")),
-                Resources.ResourceManager.GetString("SAVE"),
+                ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                ResourceManager.GetString("SAVE"),
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             WriteNewConfiguration();
@@ -189,8 +189,8 @@ namespace BinnenFA54Project.Forms
                 // Are you really want to close without saving the Changes?
                 // Close Window Prompt
                 DialogResult dialogResult = MessageBox.Show(
-                    Resources.ResourceManager.GetString("MSG_UNSAVED_CHANGES_CLOSED"), 
-                    Resources.ResourceManager.GetString("CLOSE_TITLE"), 
+                    ResourceManager.GetString("MSG_UNSAVED_CHANGES_CLOSED"), 
+                    ResourceManager.GetString("CLOSE_TITLE"), 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult != DialogResult.Yes) return;   

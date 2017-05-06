@@ -7,8 +7,8 @@ using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
 using BinnenFA54Project.Main.ServeData;
-using BinnenFA54Project.Properties;
 using GiladControllers;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
@@ -18,7 +18,8 @@ namespace BinnenFA54Project.Forms
         private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
         private bool alreadyChecked;
-        private bool reviewExam = false;
+        private bool reviewExam;
+        private bool btnFinishClicked;
         private SettingIni setting;
 
 
@@ -75,7 +76,7 @@ namespace BinnenFA54Project.Forms
             this.Text = setting.ApplicationTitle;
             if (setting.OnTopMost) this.TopMost = true;
             if (!setting.UIControls) this.controlsBox.Visible = false;
-            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") + QuizBase.SelectedTopic;
+            this.lblExamNum.Text = ResourceManager.GetString("EXAM_NUMBER") + QuizBase.SelectedTopic;
             if (!reviewExam) this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
 
             if (reviewExam)
@@ -164,11 +165,11 @@ namespace BinnenFA54Project.Forms
                                     // Select the correct answer.
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
 
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 1:
@@ -181,10 +182,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption2.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 2:
@@ -197,10 +198,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption3.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 3:
@@ -213,10 +214,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption4.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         default: // if no selected answer.
@@ -224,7 +225,7 @@ namespace BinnenFA54Project.Forms
                             cbCombo.cbOption3.WrongAnswer = cbCombo.cbOption4.WrongAnswer = true;
                             if (correctAnswer != null)
                                 cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                            this.pbSmiley.Image = Resources.smiley_upset;
+                            this.pbSmiley.Image = smiley_upset;
                             break;
                     } // End State.Answered switch
 
@@ -288,7 +289,7 @@ namespace BinnenFA54Project.Forms
 
 #if DEBUG
             // {0} wrong and {1} right. 
-            MessageBox.Show(string.Format(Regex.Unescape(Resources.ResourceManager.GetString("NOTIF_RESULTS")), 
+            MessageBox.Show(string.Format(Regex.Unescape(ResourceManager.GetString("NOTIF_RESULTS")), 
                 wrongCount, rightCount));
 #endif
         }
@@ -345,8 +346,8 @@ namespace BinnenFA54Project.Forms
         {
             // Finish Exam
             // You are about to finish the exam, are you sure you want to continue?
-            DialogResult dialog = MessageBox.Show(Resources.ResourceManager.GetString("NOTIF_FINISH_EXAM"),
-                                                  Resources.ResourceManager.GetString("NOTIF_FINISH_EXAM_CP"), 
+            DialogResult dialog = MessageBox.Show(ResourceManager.GetString("NOTIF_FINISH_EXAM"),
+                                                  ResourceManager.GetString("NOTIF_FINISH_EXAM_CP"), 
                                                   MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialog == DialogResult.Yes)
@@ -356,8 +357,8 @@ namespace BinnenFA54Project.Forms
                     // WARNING
                     // Seems like you only answered {0} questions from {1}. To continue?
                     DialogResult dialogResult = MessageBox.Show(string.Format(Regex.Unescape(
-                                                Resources.ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED")), progressBar.Value, progressBar.Maximum + 1),
-                                                Resources.ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP"),
+                                                ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED")), progressBar.Value, progressBar.Maximum + 1),
+                                                ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP"),
                                                 MessageBoxButtons.YesNo, 
                                                 MessageBoxIcon.Warning);
 
@@ -369,7 +370,7 @@ namespace BinnenFA54Project.Forms
                 StoreResults();
                 
                 
-                string examName = string.Format(Resources.ResourceManager.GetString("EXAM") + QuizBase.SelectedTopic); // Exam
+                string examName = string.Format(ResourceManager.GetString("EXAM") + QuizBase.SelectedTopic); // Exam
                 int percent = (100 / quiz.Questions.QuestionList.Count) * QuizBase.RightAnswerCount;
                 bool pass = percent > setting.PassedWithPercent;
 
@@ -377,6 +378,7 @@ namespace BinnenFA54Project.Forms
 
                 //new ResultsMgr().StoreResultsInDb(quiz); // NOT STABLE YET.
                 new QuizForm(quiz).Show();
+                btnFinishClicked = true;
                 this.Close();
             }
 
@@ -673,8 +675,8 @@ namespace BinnenFA54Project.Forms
 
         private void QuizForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (reviewExam)
-                Application.Restart();
+            if (reviewExam || !btnFinishClicked)
+                FormsBase.MainForm.Visible = true;
         }
     }
 }
