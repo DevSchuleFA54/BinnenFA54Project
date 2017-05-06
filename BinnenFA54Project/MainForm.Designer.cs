@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.lblStreet = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.lblLetsGo = new System.Windows.Forms.Label();
             this.lblConfig = new System.Windows.Forms.Label();
             this.controlBox = new GiladControllers.GiladControlBox();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.gradientPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfig)).BeginInit();
@@ -114,6 +116,7 @@
             // 
             // gradientPanel
             // 
+            resources.ApplyResources(this.gradientPanel, "gradientPanel");
             this.gradientPanel.BackColor = System.Drawing.Color.Transparent;
             this.gradientPanel.Color1 = System.Drawing.Color.Transparent;
             this.gradientPanel.Color2 = System.Drawing.Color.DarkBlue;
@@ -130,7 +133,6 @@
             this.gradientPanel.Controls.Add(this.lblStreet);
             this.gradientPanel.Controls.Add(this.pbLogo);
             this.gradientPanel.CustomCursor = true;
-            resources.ApplyResources(this.gradientPanel, "gradientPanel");
             this.gradientPanel.DraggableForm = true;
             this.gradientPanel.ForeColor = System.Drawing.SystemColors.Desktop;
             this.gradientPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -138,9 +140,9 @@
             // 
             // pbConfig
             // 
+            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.BackColor = System.Drawing.Color.Transparent;
             this.pbConfig.Image = global::BinnenFA54Project.Properties.Resources.settings_icon;
-            resources.ApplyResources(this.pbConfig, "pbConfig");
             this.pbConfig.Name = "pbConfig";
             this.pbConfig.TabStop = false;
             this.pbConfig.Click += new System.EventHandler(this.btnConfig_Click);
@@ -166,8 +168,14 @@
             this.controlBox.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.controlBox.Name = "controlBox";
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            resources.ApplyResources(this.notifyIcon, "notifyIcon");
+            // 
             // MainForm
             // 
+            resources.ApplyResources(this, "$this");
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(15, 15);
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
@@ -176,7 +184,6 @@
             this.AppTitle.TextColor = System.Drawing.Color.AntiqueWhite;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 20);
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.controlBox);
@@ -214,6 +221,7 @@
         private System.Windows.Forms.PictureBox pbConfig;
         private System.Windows.Forms.Label lblConfig;
         private System.Windows.Forms.Label lblLetsGo;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

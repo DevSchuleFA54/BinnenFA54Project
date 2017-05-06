@@ -809,6 +809,33 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration.
+        /// </summary>
+        internal static string MI_CONFIG {
+            get {
+                return ResourceManager.GetString("MI_CONFIG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string MI_EXIT {
+            get {
+                return ResourceManager.GetString("MI_EXIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string MI_OPEN {
+            get {
+                return ResourceManager.GetString("MI_OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you really want to close without saving the Changes?.
         /// </summary>
         internal static string MSG_UNSAVED_CHANGES_CLOSED {
@@ -978,6 +1005,16 @@ namespace BinnenFA54Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("settings_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon ship {
+            get {
+                object obj = ResourceManager.GetObject("ship", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

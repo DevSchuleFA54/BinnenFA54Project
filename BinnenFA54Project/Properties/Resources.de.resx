@@ -385,4 +385,16 @@
   <data name="PASSED" xml:space="preserve">
     <value>Bestanden!</value>
   </data>
+  <data name="ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ship.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MI_CONFIG" xml:space="preserve">
+    <value>Konfiguration</value>
+  </data>
+  <data name="MI_EXIT" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="MI_OPEN" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
 </root>

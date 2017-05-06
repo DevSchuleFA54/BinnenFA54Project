@@ -64,8 +64,8 @@
             // 
             // lblQuestion
             // 
-            this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblQuestion, "lblQuestion");
+            this.lblQuestion.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion.ForeColor = System.Drawing.Color.Azure;
             this.lblQuestion.Name = "lblQuestion";
             // 
@@ -155,6 +155,7 @@
             // 
             // gradientPanel
             // 
+            resources.ApplyResources(this.gradientPanel, "gradientPanel");
             this.gradientPanel.BackColor = System.Drawing.Color.Transparent;
             this.gradientPanel.Color1 = System.Drawing.Color.Transparent;
             this.gradientPanel.Color2 = System.Drawing.Color.DarkSlateBlue;
@@ -172,7 +173,6 @@
             this.gradientPanel.Controls.Add(this.lblGoBack);
             this.gradientPanel.Controls.Add(this.lblNext);
             this.gradientPanel.CustomCursor = true;
-            resources.ApplyResources(this.gradientPanel, "gradientPanel");
             this.gradientPanel.DraggableForm = true;
             this.gradientPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.gradientPanel.Name = "gradientPanel";
@@ -195,6 +195,7 @@
             // 
             // QuizForm
             // 
+            resources.ApplyResources(this, "$this");
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(10, 10);
             this.AppTitle.IconSize = new System.Drawing.Size(32, 32);
@@ -203,7 +204,6 @@
             this.AppTitle.TextColor = System.Drawing.Color.Bisque;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(50, 15);
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.controlsBox);

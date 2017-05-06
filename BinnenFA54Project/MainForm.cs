@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
+using System.Reflection;
 using System.Threading;
+using System.Windows.Forms;
 using BinnenFA54Project.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ServeData;
+using BinnenFA54Project.Properties;
 using GiladControllers;
 
 namespace BinnenFA54Project
@@ -27,14 +31,15 @@ namespace BinnenFA54Project
 #endif // !HIDE_LOADERS
 
             setting = new SettingIni();
-
             InitializeComponent();
             InitializeSettings();
             InitializeTopicList();
+            InitIconInTray();
 
             var myDicResults = ResultsIni.GetExamResults();
             for (int i = 1; i <= myDicResults.Count; i++)
                 listBoxResults.Items.Add(myDicResults[i]);
+
 
 
             #region Work in Progress.
@@ -59,6 +64,7 @@ namespace BinnenFA54Project
             Loader.StopLoader(this.Handle); // stops the splash screen.
 #endif // !HIDE_LOADERS
         }
+
 
         private void InitializeSettings()
         {
@@ -98,6 +104,65 @@ namespace BinnenFA54Project
         {
             new ConfigurationForm().Show();
         }
+
+
+
+
+
+
+        #region --- Icon in Tray Stuff ----------------------------------------------------------
+
+        private void InitIconInTray()
+        {
+            if (!setting.IconInTray) return;
+
+            // Sets the icon in tray icon.
+            // Configuration, Open, Exit
+            MenuItem configMI = new MenuItem(Resources.ResourceManager.GetString("MI_CONFIG"), ShowConfigForm);
+            MenuItem openMI   = new MenuItem(Resources.ResourceManager.GetString("MI_OPEN"), Open);
+            MenuItem exitMI   = new MenuItem(Resources.ResourceManager.GetString("MI_EXIT"), Exit);
+
+
+            this.notifyIcon.ContextMenu = new ContextMenu(new[] { configMI, openMI, exitMI });
+            this.Resize += MainForm_Resize;
+            this.notifyIcon.DoubleClick += notifyIcon_DoubleClick;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Minimized) return;
+
+            this.Hide();
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.ShowBalloonTip(700);
+        }
+
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.notifyIcon.Visible = false;
+        }
+
+        private void Open(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.notifyIcon.Visible = false;
+        }
+
+        private void Exit(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ShowConfigForm(object sender, EventArgs e)
+        {
+            new ConfigurationForm().Show();
+        }
+
+        #endregion Icon in Tray Events ----------------------------------------------------------
+
 
     }
 }

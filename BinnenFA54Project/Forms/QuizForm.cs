@@ -38,6 +38,7 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
             SetFormConfiguration();
 
+
 #if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
 #endif // !HIDE_LOADERS
