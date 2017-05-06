@@ -400,4 +400,7 @@
   <data name="WARNING" xml:space="preserve">
     <value>Warnung</value>
   </data>
+  <data name="NOTIF_RESET_DEFAULTS" xml:space="preserve">
+    <value>Setzen Sie alle Einstellungen auf die Standardwerte zurück?</value>
+  </data>
 </root>

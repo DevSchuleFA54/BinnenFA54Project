@@ -55,6 +55,7 @@
             this.gradientPanel = new GiladControllers.GiladGradientPanel();
             this.btnRemoveHistory = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnResetDefaults = new System.Windows.Forms.Button();
             this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.lblLang = new System.Windows.Forms.Label();
             this.comboLanguage = new System.Windows.Forms.ComboBox();
@@ -255,7 +256,15 @@
             this.tableLayoutPanel2.Controls.Add(this.btnClose, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnApply, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnResetDefaults, 3, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // btnResetDefaults
+            // 
+            resources.ApplyResources(this.btnResetDefaults, "btnResetDefaults");
+            this.btnResetDefaults.Name = "btnResetDefaults";
+            this.btnResetDefaults.UseVisualStyleBackColor = true;
+            this.btnResetDefaults.Click += new System.EventHandler(this.btnResetDefaults_Click);
             // 
             // tableLayout
             // 
@@ -327,6 +336,7 @@
             this.FormBorders.Width = 8;
             this.Name = "ConfigurationForm";
             this.ResizeGrip = false;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigurationForm_FormClosed);
             this.groupBoxGC.ResumeLayout(false);
             this.groupBoxGC.PerformLayout();
             this.gradientPanel.ResumeLayout(false);
@@ -370,5 +380,6 @@
         private System.Windows.Forms.ComboBox comboLanguage;
         private System.Windows.Forms.PictureBox pbIcon;
         private System.Windows.Forms.Button btnRemoveHistory;
+        private System.Windows.Forms.Button btnResetDefaults;
     }
 }

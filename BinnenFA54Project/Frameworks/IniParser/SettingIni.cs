@@ -19,6 +19,10 @@ namespace BinnenFA54Project.Frameworks.IniParser
         private ISettingIniEdit settingEdit = new SettingIniImpl();
 
 
+        public static void ResetDefaults()
+        {
+            SettingIniImpl.ResetsDefaults();
+        }
 
         #region ----- GET PROPERTIES ---------------------------------------------------------------------------------------------
         [Category("GeneralConfiguration")]

@@ -193,11 +193,26 @@
   <data name="lblPhone.Text" xml:space="preserve">
     <value>Telefonnummer</value>
   </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 3</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 25</value>
+  </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>Speichern</value>
   </data>
+  <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 3</value>
+  </data>
+  <data name="btnApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 25</value>
+  </data>
   <data name="btnApply.Text" xml:space="preserve">
     <value>Anwenden</value>
+  </data>
+  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 25</value>
   </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>Schließen</value>
@@ -226,6 +241,21 @@
   </data>
   <data name="btnRemoveHistory.Text" xml:space="preserve">
     <value>Fragenbogen Ergebnisse entfernen</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 282</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 31</value>
+  </data>
+  <data name="btnResetDefaults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 3</value>
+  </data>
+  <data name="btnResetDefaults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 25</value>
+  </data>
+  <data name="btnResetDefaults.Text" xml:space="preserve">
+    <value>Zurückzusetzen</value>
   </data>
   <data name="lblLang.Location" type="System.Drawing.Point, System.Drawing">
     <value>67, 206</value>

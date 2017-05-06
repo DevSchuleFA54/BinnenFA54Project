@@ -38,7 +38,11 @@ namespace BinnenFA54Project.Frameworks.IniParser
             }
         }
 
-
+        public static void ResetsDefaults()
+        {
+            File.Delete(settingPath);
+            File.WriteAllText(settingPath, Resources.Settings);
+        }
 
         #region ------ ISettingIni ---------------------------------------------------------------------------------------------
 

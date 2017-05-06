@@ -424,4 +424,7 @@
   <data name="WARNING" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="NOTIF_RESET_DEFAULTS" xml:space="preserve">
+    <value>Reset all the settings to defaults?</value>
+  </data>
 </root>

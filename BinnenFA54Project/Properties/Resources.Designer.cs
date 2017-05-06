@@ -917,6 +917,15 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset all the settings to defaults?.
+        /// </summary>
+        internal static string NOTIF_RESET_DEFAULTS {
+            get {
+                return ResourceManager.GetString("NOTIF_RESET_DEFAULTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully saved your changes! \nMake sure to restart application for changes to take effect..
         /// </summary>
         internal static string NOTIF_RESTARTAPP {

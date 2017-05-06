@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using GiladControllers;
@@ -233,6 +234,24 @@ namespace BinnenFA54Project.Forms
             // It will execute the MainForm_VisibleChanged event and re-load the results.
             FormsBase.RefreshMainForm();
             this.Focus();
+        }
+
+        private void btnResetDefaults_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(
+                                ResourceManager.GetString("NOTIF_RESET_DEFAULTS"),
+                                ResourceManager.GetString("WARNING"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult != DialogResult.Yes) return;
+
+            SettingIni.ResetDefaults();
+            InitializeValues();
+        }
+
+        private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormsBase.ConfigurationInstanceOpened = false;
         }
     }
 }

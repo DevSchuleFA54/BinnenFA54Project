@@ -98,6 +98,8 @@ namespace BinnenFA54Project
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
+            if (FormsBase.ConfigurationInstanceOpened) return;
+            FormsBase.ConfigurationInstanceOpened = true;
             new ConfigurationForm().Show();
         }
 

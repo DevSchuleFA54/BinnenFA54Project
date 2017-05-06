@@ -19,6 +19,13 @@ namespace BinnenFA54Project.Main
         public static QuizForm QuizForm { get; set; }
         public static ConfigurationForm ConfigurationForm { get; set; }
 
+
+        public static bool MainInstanceOpened { get; set; }
+        public static bool QuizInstanceOpened { get; set; }
+        public static bool ConfigurationInstanceOpened { get; set; }
+
+
+
         public static void RefreshMainForm()
         {
             MainForm.Visible = false;
