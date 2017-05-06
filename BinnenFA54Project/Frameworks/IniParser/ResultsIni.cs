@@ -72,5 +72,22 @@ namespace BinnenFA54Project.Frameworks.IniParser
 
             return examResultsDic;
         }
+
+
+        /// <summary>
+        /// Deletes all keys and their data.
+        /// Used for clearing the results history of the exam.
+        /// </summary>
+        public static void ClearExamResults()
+        {
+            data = iniParser.ReadFile(settingPath);
+
+            data.Sections.GetSectionData("ExamResults").Keys.RemoveAllKeys();
+
+            iniParser.WriteFile(settingPath, data);
+        }
+
+
+
     }
 }

@@ -908,11 +908,11 @@ namespace BinnenFA54Project.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warning.
+        ///   Looks up a localized string similar to This will remove all the results in history of the exams that you&apos;ve done so far. \nAre you sure you want to continue and remove them?.
         /// </summary>
-        internal static string NOTIF_NOT_ALL_ANSWERED_CP {
+        internal static string NOTIF_REMOVE_RESULTS {
             get {
-                return ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP", resourceCulture);
+                return ResourceManager.GetString("NOTIF_REMOVE_RESULTS", resourceCulture);
             }
         }
         
@@ -1045,6 +1045,15 @@ namespace BinnenFA54Project.Properties {
             get {
                 object obj = ResourceManager.GetObject("smiley_upset", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string WARNING {
+            get {
+                return ResourceManager.GetString("WARNING", resourceCulture);
             }
         }
         

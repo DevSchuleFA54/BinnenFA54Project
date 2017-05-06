@@ -18,7 +18,7 @@ namespace BinnenFA54Project.Forms
         {
 #if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
-            Thread.Sleep(2000);
+            Thread.Sleep(700);
 #endif // !HIDE_LOADERS
 
 
@@ -219,6 +219,20 @@ namespace BinnenFA54Project.Forms
             configChanged = true;
         }
 
+        private void btnRemoveHistory_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(Regex.Unescape(
+                                            ResourceManager.GetString("NOTIF_REMOVE_RESULTS")),
+                                            ResourceManager.GetString("WARNING"),
+                                            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (dialogResult != DialogResult.Yes) return;
+
+            ResultsIni.ClearExamResults();
+
+            // It will execute the MainForm_VisibleChanged event and re-load the results.
+            FormsBase.RefreshMainForm();
+            this.Focus();
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.tbCountry = new System.Windows.Forms.TextBox();
             this.lblCountry = new System.Windows.Forms.Label();
             this.gradientPanel = new GiladControllers.GiladGradientPanel();
+            this.btnRemoveHistory = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.lblLang = new System.Windows.Forms.Label();
@@ -229,6 +230,7 @@
             this.gradientPanel.BackColor = System.Drawing.Color.Transparent;
             this.gradientPanel.Color1 = System.Drawing.Color.Transparent;
             this.gradientPanel.Color2 = System.Drawing.Color.DarkBlue;
+            this.gradientPanel.Controls.Add(this.btnRemoveHistory);
             this.gradientPanel.Controls.Add(this.tableLayoutPanel2);
             this.gradientPanel.Controls.Add(this.tableLayout);
             this.gradientPanel.Controls.Add(this.groupBoxGC);
@@ -237,6 +239,15 @@
             this.gradientPanel.DraggableForm = true;
             this.gradientPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.gradientPanel.Name = "gradientPanel";
+            // 
+            // btnRemoveHistory
+            // 
+            this.btnRemoveHistory.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnRemoveHistory, "btnRemoveHistory");
+            this.btnRemoveHistory.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnRemoveHistory.Name = "btnRemoveHistory";
+            this.btnRemoveHistory.UseVisualStyleBackColor = false;
+            this.btnRemoveHistory.Click += new System.EventHandler(this.btnRemoveHistory_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -358,5 +369,6 @@
         private System.Windows.Forms.Label lblLang;
         private System.Windows.Forms.ComboBox comboLanguage;
         private System.Windows.Forms.PictureBox pbIcon;
+        private System.Windows.Forms.Button btnRemoveHistory;
     }
 }

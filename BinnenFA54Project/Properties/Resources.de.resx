@@ -373,9 +373,6 @@
   <data name="NOTIF_NOT_ALL_ANSWERED" xml:space="preserve">
     <value>Scheint, wie Sie nur beantwortet {0} Fragen von {1}. \nWeitermachen?</value>
   </data>
-  <data name="NOTIF_NOT_ALL_ANSWERED_CP" xml:space="preserve">
-    <value>Warnung</value>
-  </data>
   <data name="NO_ANSWER" xml:space="preserve">
     <value>Keine Richtige Antwort.</value>
   </data>
@@ -396,5 +393,11 @@
   </data>
   <data name="MI_OPEN" xml:space="preserve">
     <value>Öffnen</value>
+  </data>
+  <data name="NOTIF_REMOVE_RESULTS" xml:space="preserve">
+    <value>Dies wird alle Ergebnisse in der Geschichte der Fragenbogen, die Sie bisher getan haben, zu entfernen. \nSind Sie sicher, dass Sie fortfahren und entfernen alles?</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>Warnung</value>
   </data>
 </root>

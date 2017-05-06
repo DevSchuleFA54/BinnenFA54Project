@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BinnenFA54Project.Forms;
 
 namespace BinnenFA54Project.Main
@@ -17,6 +18,12 @@ namespace BinnenFA54Project.Main
         public static MainForm MainForm { get; set; }
         public static QuizForm QuizForm { get; set; }
         public static ConfigurationForm ConfigurationForm { get; set; }
+
+        public static void RefreshMainForm()
+        {
+            MainForm.Visible = false;
+            MainForm.Visible = true;
+        }
     }
 
 }

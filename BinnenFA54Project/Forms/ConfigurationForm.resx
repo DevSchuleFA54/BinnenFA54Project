@@ -430,7 +430,7 @@
     <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;groupBoxGC.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblAppTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -768,6 +768,33 @@
   <data name="&gt;&gt;lblCountry.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="btnRemoveHistory.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt, style=Bold</value>
+  </data>
+  <data name="btnRemoveHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 263</value>
+  </data>
+  <data name="btnRemoveHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 54</value>
+  </data>
+  <data name="btnRemoveHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnRemoveHistory.Text" xml:space="preserve">
+    <value>Clear Exams History</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveHistory.Name" xml:space="preserve">
+    <value>btnRemoveHistory</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveHistory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveHistory.Parent" xml:space="preserve">
+    <value>gradientPanel</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveHistory.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="tableLayoutPanel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
@@ -796,7 +823,7 @@
     <value>gradientPanel</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnClose" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnApply" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btnSave" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,33333,Percent,33,33333,Percent,33,33333" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -806,6 +833,81 @@
   </data>
   <data name="tableLayout.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblLang.Name" xml:space="preserve">
+    <value>lblLang</value>
+  </data>
+  <data name="&gt;&gt;lblLang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblLang.Parent" xml:space="preserve">
+    <value>tableLayout</value>
+  </data>
+  <data name="&gt;&gt;lblLang.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Name" xml:space="preserve">
+    <value>comboLanguage</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.Parent" xml:space="preserve">
+    <value>tableLayout</value>
+  </data>
+  <data name="&gt;&gt;comboLanguage.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="tableLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 24</value>
+  </data>
+  <data name="tableLayout.RowCount" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="tableLayout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 227</value>
+  </data>
+  <data name="tableLayout.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tableLayout.Name" xml:space="preserve">
+    <value>tableLayout</value>
+  </data>
+  <data name="&gt;&gt;tableLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayout.Parent" xml:space="preserve">
+    <value>gradientPanel</value>
+  </data>
+  <data name="&gt;&gt;tableLayout.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tableLayout.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tbAppTitle" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPassedWithPrercent" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="comboDateFormat" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDateFormat" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblAppTitle" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblReqPercent" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblPhone" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblCountry" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbCompanyName" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblCompanyName" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblPostcodeCity" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbStreetName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblStreetName" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbPostcodeCity" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbCountry" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPhone" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblLang" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboLanguage" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,130,Percent,100" /&gt;&lt;Rows Styles="Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="gradientPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gradientPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 64</value>
+  </data>
+  <data name="gradientPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>617, 325</value>
+  </data>
+  <data name="gradientPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;gradientPanel.Name" xml:space="preserve">
+    <value>gradientPanel</value>
+  </data>
+  <data name="&gt;&gt;gradientPanel.Type" xml:space="preserve">
+    <value>GiladControllers.GiladGradientPanel, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;gradientPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gradientPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblLang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -866,57 +968,6 @@
   </data>
   <data name="&gt;&gt;comboLanguage.ZOrder" xml:space="preserve">
     <value>17</value>
-  </data>
-  <data name="tableLayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 24</value>
-  </data>
-  <data name="tableLayout.RowCount" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="tableLayout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 227</value>
-  </data>
-  <data name="tableLayout.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tableLayout.Name" xml:space="preserve">
-    <value>tableLayout</value>
-  </data>
-  <data name="&gt;&gt;tableLayout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayout.Parent" xml:space="preserve">
-    <value>gradientPanel</value>
-  </data>
-  <data name="&gt;&gt;tableLayout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayout.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tbAppTitle" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPassedWithPrercent" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="comboDateFormat" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblDateFormat" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblAppTitle" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblReqPercent" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblPhone" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblCountry" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbCompanyName" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblCompanyName" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblPostcodeCity" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbStreetName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblStreetName" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tbPostcodeCity" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbCountry" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbPhone" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblLang" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboLanguage" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,130,Percent,100" /&gt;&lt;Rows Styles="Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Percent,12,5,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="gradientPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gradientPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 64</value>
-  </data>
-  <data name="gradientPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 325</value>
-  </data>
-  <data name="gradientPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;gradientPanel.Name" xml:space="preserve">
-    <value>gradientPanel</value>
-  </data>
-  <data name="&gt;&gt;gradientPanel.Type" xml:space="preserve">
-    <value>GiladControllers.GiladGradientPanel, GiladControllers, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;gradientPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gradientPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="pbIcon.Location" type="System.Drawing.Point, System.Drawing">
     <value>579, 9</value>

@@ -211,6 +211,22 @@
   <data name="lblCountry.Text" xml:space="preserve">
     <value>Land</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnRemoveHistory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnRemoveHistory.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="btnRemoveHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 265</value>
+  </data>
+  <data name="btnRemoveHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 54</value>
+  </data>
+  <data name="btnRemoveHistory.Text" xml:space="preserve">
+    <value>Fragenbogen Ergebnisse entfernen</value>
+  </data>
   <data name="lblLang.Location" type="System.Drawing.Point, System.Drawing">
     <value>67, 206</value>
   </data>

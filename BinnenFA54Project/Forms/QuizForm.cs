@@ -358,7 +358,7 @@ namespace BinnenFA54Project.Forms
                     // Seems like you only answered {0} questions from {1}. To continue?
                     DialogResult dialogResult = MessageBox.Show(string.Format(Regex.Unescape(
                                                 ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED")), progressBar.Value, progressBar.Maximum + 1),
-                                                ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED_CP"),
+                                                ResourceManager.GetString("WARNING"),
                                                 MessageBoxButtons.YesNo, 
                                                 MessageBoxIcon.Warning);
 
