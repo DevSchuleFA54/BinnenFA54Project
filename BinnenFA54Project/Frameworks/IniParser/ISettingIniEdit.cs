@@ -1,5 +1,8 @@
 namespace BinnenFA54Project.Frameworks.IniParser
 {
+    /// <summary>
+    /// Interface for the SettingIniImpl.
+    /// </summary>
     interface ISettingIniEdit
     {
         /**

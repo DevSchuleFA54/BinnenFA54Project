@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BinnenFA54Project.Main.ResourceData
 {
+    /// <summary>
+    /// The structure of the Result class which will be used as list in the ResultMgr.
+    /// </summary>
     public class Result
     {
         public int ExamNum { get; set; }

@@ -9,22 +9,44 @@ using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Main.ServeData
 {
+    /// <summary>
+    /// The QuestionMgr class will serialize the data into the QuestionList from the data we retrieving from 
+    /// the database.
+    /// </summary>
     public class QuestionMgr : QuizBase
     {
+        #region --- Variables -----------------------------------------------------------------
+
         // Great way to debug regex pattern -> www.regexr.com
         private string regexPattern = @"\{[a-zA-Z]+([0-9]+)\.[a-zA-Z0-9]+\}";
 
+        #endregion // Variables -----------------------------------------------------------------
+
+
+        /// <summary>
+        /// This list will store all the values that serialized from the database.
+        /// </summary>
         List<Question> _questionslist = new List<Question>();
 
+
+        /// <summary>
+        /// The constructor will call the InitializeQuestionList which will call the database.
+        /// </summary>
         public QuestionMgr()
         {
             InitializeQuestionList();
         }
 
 
+        /// <summary>
+        /// This list will store all the values that serialized from the database.
+        /// </summary>
         public List<Question> QuestionList { get { return _questionslist; } set { _questionslist = value; } }
 
 
+        /// <summary>
+        /// This list will store all the values that serialized from the database.
+        /// </summary>
         private void InitializeQuestionList()
         {
             try
@@ -68,11 +90,24 @@ namespace BinnenFA54Project.Main.ServeData
         }
 
 
+        /// <summary>
+        /// We receive sometimes question with curly brackets with the image name, so we clean out the
+        /// {} and returning a clean question text.
+        /// </summary>
+        /// <param name="question"></param>
+        /// <returns></returns>
         private string RegexCleanQuestion(string question)
         {
             return Regex.Replace(question, regexPattern, String.Empty);
         }
 
+
+        /// <summary>
+        /// Some of questions have images in their name as string {123.gif}, so we get that string name
+        /// by the power of regex and fill the question with an image by calling the resource.
+        /// </summary>
+        /// <param name="question"></param>
+        /// <returns></returns>
         private Image QuestionImage(string question)
         {
             string fileName = "_" + Regex.Match(question, regexPattern).Groups[1];

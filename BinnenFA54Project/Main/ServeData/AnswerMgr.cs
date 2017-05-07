@@ -7,17 +7,33 @@ using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Main.ServeData
 {
+    /// <summary>
+    /// The AnswerMgr class will serialize the data into the QuestionList from the data we retrieving from 
+    /// the database.
+    /// </summary>
     public class AnswerMgr : QuizBase
     {
+
+        #region --- Variables -----------------------------------------------------------------
+
         List<Answer> _answerList = new List<Answer>();
         private QuestionMgr _questionMgr = new QuestionMgr();
 
+        #endregion // Variables -----------------------------------------------------------------
+
+
+        /// <summary>
+        /// The constructor will call the InitializeAnswerList which will call the database.
+        /// </summary>
         public AnswerMgr()
         {
             InitializeAnswerList();
         }
 
 
+        /// <summary>
+        /// This list will store all the values that serialized from the database.
+        /// </summary>
         public List<Answer> AnswerList { get { return _answerList; } set { _answerList = value; } }
 
 
@@ -71,6 +87,15 @@ namespace BinnenFA54Project.Main.ServeData
             }
         }
 
+
+        /// <summary>
+        /// Returns the correct answer as text.
+        /// Checks wether the answer is null or not, so if it's an empty answer for that 
+        /// question, we can no correct answer text.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="option"></param>
+        /// <returns></returns>
         private string GetText(int index, int? option)
         {
             if (option != null)

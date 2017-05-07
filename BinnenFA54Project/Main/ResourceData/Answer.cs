@@ -1,5 +1,9 @@
 ﻿namespace BinnenFA54Project.Main.ResourceData
 {
+
+    /// <summary>
+    /// In the QuizForm if a CheckBox event used, we updating the state of the question.
+    /// </summary>
     public enum State
     {
         
@@ -7,6 +11,10 @@
         Answered = 1  // Mark for when a checkbox has been selected.
     }
 
+
+    /// <summary>
+    /// Answer flags when we store results in the QuizForm.
+    /// </summary>
     public enum ResultsEnum
     {        
         Wrong     = 0, // Wrong answer
@@ -15,6 +23,10 @@
         NoAnswer  = 3  // Default value
     }
 
+
+    /// <summary>
+    /// The structure of the Answer class which will be used as list in the AnswerMgr.
+    /// </summary>
     public class Answer
     {
         public int Id                   { get; set; }

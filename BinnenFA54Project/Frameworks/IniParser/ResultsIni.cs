@@ -11,6 +11,9 @@ using IniParser.Model;
 
 namespace BinnenFA54Project.Frameworks.IniParser
 {
+    /// <summary>
+    /// In this class we using static methods which will be used to Save or Get Exam results.
+    /// </summary>
     class ResultsIni
     {
         private static FileIniDataParser iniParser = new FileIniDataParser();

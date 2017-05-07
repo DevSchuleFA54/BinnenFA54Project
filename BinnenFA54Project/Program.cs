@@ -14,6 +14,7 @@ namespace BinnenFA54Project
 
         /// <summary>
         /// The main entry point for the application.
+        /// Only one instance of the application allowed to be run at a time.
         /// </summary>
         [STAThread]
         static void Main()

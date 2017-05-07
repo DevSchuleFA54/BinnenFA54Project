@@ -10,6 +10,12 @@ using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
+    /// <summary>
+    /// This is the Configuration form of the program which inherited from GiladForm part of the custom framework,
+    /// in order to isolate the design code from the application it self.
+    /// In this form we can change all the configuration related to the layout and exam. We can also clear the 
+    /// exam results that being displayed on the main form or reset the configuration to their deault state.
+    /// </summary>
     public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;

@@ -12,8 +12,20 @@ using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
+    /// <summary>
+    /// This is the Quiz form of the program which inherited from GiladForm part of the custom framework,
+    /// in order to isolate the design code from the application it self.
+    /// In this form we'll have the questions and images that we retrieve from the database. For production
+    /// We'll need to change the build preprocessor to SERVER_DATABASE, but for local testing or simple usage
+    /// use the LOCAL_DATABASE preprocessor.
+    /// The progress will be updated every time an question is answered. We can also jump to a specific question
+    /// by the buttons selector on the bottom of the form.
+    /// After the exam is done, the same window will be displayed for revewing our exam which being called from
+    /// the second constructor and when the form is closed, the results will be updated on the Main form.
+    /// </summary>
     public partial class QuizForm : GiladForm
     {
+        #region --- Variables -----------------------------------------------------------------
         QuizMgr quiz;
         private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
@@ -21,8 +33,18 @@ namespace BinnenFA54Project.Forms
         private bool reviewExam;
         private bool btnFinishClicked;
         private SettingIni setting;
+        #endregion // Variables -----------------------------------------------------------------
 
 
+        /// <summary>
+        /// The first constructor will:
+        /// 1. Initialize the UI components.
+        /// 2. Load the setting model, QuizMgr-> builds the data structure which will call the database 
+        /// to retrieve the questions and answers.
+        /// 3. Register our event handlers for our CheckBoxes.
+        /// 4. Generate the buttons selectors for jumping between questions.
+        /// 5. Update the configuration in the UI from the Settings.ini.
+        /// </summary>
         public QuizForm()
         {
 #if !HIDE_LOADERS
@@ -46,6 +68,16 @@ namespace BinnenFA54Project.Forms
         }
 
 
+        /// <summary>
+        /// The second and last constructor will:
+        /// 1. Initialize the UI components.
+        /// 2. Retrieves the QuizMgr data when exam is finished so we display the results after all the flags that
+        /// has been added, such as if question answered right or false or answered or not.
+        /// 3. Set our exam in review mode by setting reviewExam to true.
+        /// 4. Generate the buttons selectors for jumping between questions.
+        /// 5. Update the questions results for the first question to be displayed.
+        /// 6. Update the configuration in the UI from the Settings.ini.
+        /// </summary>
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
 #if !HIDE_LOADERS
@@ -71,6 +103,13 @@ namespace BinnenFA54Project.Forms
         }
 
 
+
+        /// <summary>
+        /// Reads all the values from the Settings.ini file and setting the UI values such as:
+        /// application title, if app on top most(used for reviewing your students), control box on top
+        /// right visible or not, Exam number and if the exam in review mode, it will remove the finish and
+        /// progress bar controls from the UI and unsubscribe the events for checking checkboxes. 
+        /// </summary>
         private void SetFormConfiguration()
         {
             this.Text = setting.ApplicationTitle;
@@ -92,6 +131,10 @@ namespace BinnenFA54Project.Forms
         }
 
 
+        /// <summary>
+        /// Updated the next or forward question and if there is an image for that specific question, 
+        /// display it in the picturebox.
+        /// </summary>
         private void UpdateQuestions()
         {
 
@@ -111,7 +154,9 @@ namespace BinnenFA54Project.Forms
 
 
         /// <summary>
-        /// Simply selects the checkbox if state is answered.
+        /// Before we set a question, we incrementing or decrementing the indexer for the questions
+        /// so that way we know if a next or back button is clicked in order to the display the right question.
+        /// And then we pass that indexer to the SetQuestionState.
         /// </summary>
         /// <param name="direction"></param>
         private void RenderQuestionResults(CustomButtonDirection? direction)
@@ -129,6 +174,16 @@ namespace BinnenFA54Project.Forms
         }
 
 
+        /// <summary>
+        /// Receives an indexer from the RenderQuestionResults and checks the state of the question so 
+        /// that way we can display the selected question if the user already selected before in case if 
+        /// he wants to go back and changed his selected answer.
+        /// In the sub switch statement we updating what is the selected answer and checking if it's in review mode.
+        /// If it's in review mode, we display an image wether he got is right or not and showing the user 
+        /// what is the right answer and what he checked.
+        /// If he didn't check anything, we display him the correct answer when it's in review mode of course.
+        /// </summary>
+        /// <param name="index"></param>
         private void SetQuestionState(int index)
         {
             // TODO: OutOfRangeException on Exam 8, need to check that later.
@@ -296,7 +351,9 @@ namespace BinnenFA54Project.Forms
 
 
 
-
+        /// <summary>
+        /// Update the progress bar depending if the user selected a question or not.
+        /// </summary>
         private void UpdateProgressBar()
         {
             if (cbCombo.Checked && alreadyChecked == false && progressBar.Value < quiz.Questions.QuestionList.Count - 1)
@@ -307,6 +364,14 @@ namespace BinnenFA54Project.Forms
 
         #region --------------- Events Handlers ---------------
 
+
+        /// <summary>
+        /// When the button next clicked, we update progress bar, rendering the question, incrementing the 
+        /// indexer and also checking if we are in the last question so that we disable the button when we 
+        /// reach to the end of the exam.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
@@ -325,6 +390,14 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
+
+        /// <summary>
+        /// When the button back clicked, we update progress bar, rendering the question, decrementing the 
+        /// indexer and also checking if we are in the first question so that we disable the button when we 
+        /// reach to the first question of the exam or enabling when it's not at the first question.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
@@ -342,6 +415,17 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
+
+        /// <summary>
+        /// When a button finish is clicked, we checking wether all the questions has been answered and 
+        /// displaying a warning window so the user can re-check his answers in case he missed something. 
+        /// Then we store the results in our data structure and passing that object in the second constructor 
+        /// which will start the quiz form again in a review mode.
+        /// We also storing the results in the Results.ini which will display later in the user history on the
+        /// MainForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFinish_Click(object sender, EventArgs e)
         {
             // Finish Exam
@@ -607,6 +691,13 @@ namespace BinnenFA54Project.Forms
         private int spacingY = 28;
         private Button[] buttons;
 
+        /// <summary>
+        /// We generating here buttons programmatically with the amount of questions to be displayed on the bottom 
+        /// of the form so the user can select or jump to a specific question.
+        /// We also registering to each button an event of course so the right answer will be displayed when the user
+        /// selects one of them.
+        /// </summary>
+
         public void GenerateQuestionSelectors()
         {
             x = startX;
@@ -644,7 +735,11 @@ namespace BinnenFA54Project.Forms
 
         }
 
-
+        /// <summary>
+        /// Main event for the buttons selectors to display the answer that the user selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSelector_Click(object sender, EventArgs e)
         {
             int value = Convert.ToInt32(((Button)sender).Tag.ToString()); // gets the indexer of the generated button.
@@ -673,6 +768,14 @@ namespace BinnenFA54Project.Forms
 
         #endregion -------------- Button Question Selectors --------------
 
+
+        /// <summary>
+        /// When the form closes and it's in Review mode or not the button finish click, 
+        /// we setting the MainForm visibility to true which will refresh the UI of the MainForm and display
+        /// the results of the all the exams history.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void QuizForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (reviewExam || !btnFinishClicked)

@@ -16,19 +16,37 @@ namespace BinnenFA54Project.Main.ServeData
     /// Builded this class in order to access the necessary data for previewing exam with all information
     /// just as viewing the exam in preview mode after finish.
     /// Not stable yet.
+    /// WORK IN PROGRESS!
     /// </summary>
     public class ResultsMgr : QuizBase
     {
+        #region --- Variables -----------------------------------------------------------------
+
         private static SettingIni setting;
         private List<Result> resultsList;
 
+        #endregion // Variables -----------------------------------------------------------------
+
+
+        /// <summary>
+        /// The results list object so when we want to display the results on review mode exam, we use the
+        /// data that stores in that list.
+        /// </summary>
         public List<Result> ResultsList { get; set; }
 
 
+        /// <summary>
+        /// Constructor that doesn't do nothing yet.
+        /// </summary>
         public ResultsMgr()
         {
         }
 
+
+        /// <summary>
+        /// Overload constructor.
+        /// </summary>
+        /// <param name="toInitList"></param>
         public ResultsMgr(bool toInitList)
         {
             resultsList = new List<Result>();
@@ -37,6 +55,10 @@ namespace BinnenFA54Project.Main.ServeData
         }
 
 
+
+        /// <summary>
+        /// Initializing the results list into the list.
+        /// </summary>
         private void InitResultList()
         {
 
@@ -57,6 +79,11 @@ namespace BinnenFA54Project.Main.ServeData
         }
 
 
+        /// <summary>
+        /// Receiving a QuizMgr object in order to serialize the data so we store all the results in the 
+        /// EXAM_RESULTS table.
+        /// </summary>
+        /// <param name="quizMgr"></param>
         public void StoreResultsInDb(QuizMgr quizMgr)
         {
             setting = new SettingIni();
@@ -88,6 +115,13 @@ namespace BinnenFA54Project.Main.ServeData
             localDbContext.SubmitChanges();
         }
 
+
+
+        /// <summary>
+        /// Evaluating the results by percentage.
+        /// </summary>
+        /// <param name="questionCount"></param>
+        /// <returns></returns>
         private int EvaluateExamPercent(int questionCount)
         {
             return (100/questionCount) * RightAnswerCount;
