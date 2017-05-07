@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="LocalDb">
+  <DataContextMoniker Name="/LocalDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="120827f1-b766-49f9-afed-cff492e4f1ea" absoluteBounds="6.75, 0.75, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/LocalDbDataContext/T_Fragenbogen_Thema" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fa6369d-6de4-4fc1-99a4-28dd7a4562e0" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efc47ff0-aea7-4a46-9708-240cd8af1af0" absoluteBounds="3.5, 1.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/LocalDbDataContext/T_Fragebogen_unter_Maschine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be82c126-56dc-40b3-aecd-6ac820f19cf0" absoluteBounds="3.515, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="342a4840-ea62-4933-94ca-adb290c0f635" absoluteBounds="0.75, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LocalDbDataContext/T_SBF_Binnen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc2eb0fa-dfd3-4a2b-abae-a9bd53ac4d56" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.97199625651042); (3.5 : 1.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocalDbDataContext/T_SBF_Binnen/T_SBF_Binnen_T_Fragebogen_unter_Maschine" />
+      <nodes>
+        <classShapeMoniker Id="342a4840-ea62-4933-94ca-adb290c0f635" />
+        <classShapeMoniker Id="efc47ff0-aea7-4a46-9708-240cd8af1af0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6f4384d4-83b0-43df-a7d0-cb7b97496cdf" absoluteBounds="6, 3.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LocalDbDataContext/View_Topics_And_Question" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ca115f2-6d83-4f0b-804d-9046ba741fb5" absoluteBounds="6.015, 4.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a453abb-49bd-4e64-a980-733d6938e735" absoluteBounds="2, 4.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LocalDbDataContext/EXAM_RESULT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68ca832f-5c32-4770-a523-22d2c478138a" absoluteBounds="2.015, 4.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

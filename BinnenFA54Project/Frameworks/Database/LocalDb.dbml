@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LocalBinnenschifffahrt" Class="LocalDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Frameworks\Database\LocalBinnenschifffahrt.mdf;Integrated Security=True" SettingsObjectName="BinnenFA54Project.Properties.Settings" SettingsPropertyName="LocalBinnenschifffahrtConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.T_Fragenbogen_Thema" Member="T_Fragenbogen_Themas">
+    <Type Name="T_Fragenbogen_Thema">
+      <Column Name="FragebogenNr" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Thema" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Beschreib" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Fragebogen_unter_Maschine" Member="T_Fragebogen_unter_Maschines">
+    <Type Name="T_Fragebogen_unter_Maschine">
+      <Column Name="FragebogenNr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="F_Id_SBF_Binnen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="T_SBF_Binnen_T_Fragebogen_unter_Maschine" Member="T_SBF_Binnen" ThisKey="F_Id_SBF_Binnen" OtherKey="P_Id" Type="T_SBF_Binnen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SBF_Binnen" Member="T_SBF_Binnens">
+    <Type Name="T_SBF_Binnen">
+      <Column Name="P_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Frage" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort2" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort3" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort4" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="RichtigeAntwort" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="T_SBF_Binnen_T_Fragebogen_unter_Maschine" Member="T_Fragebogen_unter_Maschines" ThisKey="P_Id" OtherKey="F_Id_SBF_Binnen" Type="T_Fragebogen_unter_Maschine" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Topics_And_Questions" Member="View_Topics_And_Questions">
+    <Type Name="View_Topics_And_Question">
+      <Column Name="P_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Frage" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort2" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort3" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Antwort4" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FragebogenNr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RichtigeAntwort" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EXAM_RESULT" Member="EXAM_RESULTs">
+    <Type Name="EXAM_RESULT">
+      <Column Name="pExamNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="examDesc" Type="System.String" DbType="NChar(80)" CanBeNull="true" />
+      <Column Name="sPercent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sPassOrNot" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="imageName" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="answer1" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="answer2" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="answer3" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="answer4" Type="System.String" DbType="NChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="correctAnswerNum" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="selectedAnswerNum" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="noSelectedAnswer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="date" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="UserSession" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
