@@ -135,6 +135,7 @@
     <Compile Include="Main\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="ClassDiagram.cd" />
     <None Include="Frameworks\Database\Db.dbml.layout">
       <DependentUpon>Db.dbml</DependentUpon>
     </None>
