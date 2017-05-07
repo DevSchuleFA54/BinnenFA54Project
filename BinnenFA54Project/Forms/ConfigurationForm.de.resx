@@ -127,85 +127,143 @@
   <data name="lblDateFormat.Text" xml:space="preserve">
     <value>Datum Format</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 5</value>
+  <data name="cbOnTopMost.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 19</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 15</value>
+  <data name="cbOnTopMost.Text" xml:space="preserve">
+    <value>Exam Window auf Oberseite</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Programm Titel</value>
+  <data name="groupBoxGC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 29</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="groupBoxGC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 97</value>
+  </data>
+  <data name="lblAppTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 5</value>
+  </data>
+  <data name="lblAppTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 15</value>
+  </data>
+  <data name="lblAppTitle.Text" xml:space="preserve">
+    <value>Anwendung Titel</value>
+  </data>
+  <data name="lblReqPercent.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 30</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblReqPercent.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 15</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="lblReqPercent.Text" xml:space="preserve">
     <value>Prozentsatz</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblCompanyName.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 55</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblCompanyName.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 15</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="lblCompanyName.Text" xml:space="preserve">
     <value>Firma Name</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblStreetName.Location" type="System.Drawing.Point, System.Drawing">
     <value>78, 80</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblStreetName.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 15</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblStreetName.Text" xml:space="preserve">
     <value>Straße</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblPostcodeCity.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 105</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblPostcodeCity.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="lblPostcodeCity.Text" xml:space="preserve">
     <value>PLZ und Stadt</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 155</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblPhone.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 15</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
+  <data name="lblPhone.Text" xml:space="preserve">
     <value>Telefonnummer</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 3</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 25</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>Speichern</value>
   </data>
+  <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 3</value>
+  </data>
+  <data name="btnApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 25</value>
+  </data>
   <data name="btnApply.Text" xml:space="preserve">
     <value>Anwenden</value>
+  </data>
+  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 25</value>
   </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>Schließen</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblCountry.Location" type="System.Drawing.Point, System.Drawing">
     <value>88, 130</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblCountry.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 15</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
+  <data name="lblCountry.Text" xml:space="preserve">
     <value>Land</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnRemoveHistory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btnRemoveHistory.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="btnRemoveHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 265</value>
+  </data>
+  <data name="btnRemoveHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 54</value>
+  </data>
+  <data name="btnRemoveHistory.Text" xml:space="preserve">
+    <value>Fragenbogen Ergebnisse entfernen</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 282</value>
+  </data>
+  <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 31</value>
+  </data>
+  <data name="btnResetDefaults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 3</value>
+  </data>
+  <data name="btnResetDefaults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 25</value>
+  </data>
+  <data name="btnResetDefaults.Text" xml:space="preserve">
+    <value>Zurückzusetzen</value>
+  </data>
+  <data name="lblLang.Location" type="System.Drawing.Point, System.Drawing">
     <value>67, 206</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblLang.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 15</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
+  <data name="lblLang.Text" xml:space="preserve">
     <value>Sprache</value>
   </data>
   <data name="$this.Text" xml:space="preserve">

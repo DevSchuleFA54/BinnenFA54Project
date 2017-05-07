@@ -1,89 +1,140 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
 using BinnenFA54Project.Main.ResourceData;
 using BinnenFA54Project.Main.ServeData;
-using BinnenFA54Project.Properties;
 using GiladControllers;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
+    /// <summary>
+    /// This is the Quiz form of the program which inherited from GiladForm part of the custom framework,
+    /// in order to isolate the design code from the application it self.
+    /// In this form we'll have the questions and images that we retrieve from the database. For production
+    /// We'll need to change the build preprocessor to SERVER_DATABASE, but for local testing or simple usage
+    /// use the LOCAL_DATABASE preprocessor.
+    /// The progress will be updated every time an question is answered. We can also jump to a specific question
+    /// by the buttons selector on the bottom of the form.
+    /// After the exam is done, the same window will be displayed for revewing our exam which being called from
+    /// the second constructor and when the form is closed, the results will be updated on the Main form.
+    /// </summary>
     public partial class QuizForm : GiladForm
     {
+        #region --- Variables -----------------------------------------------------------------
         QuizMgr quiz;
         private int qIndex = 0; // Question Indexer.
         private bool[] _checked; // Event handlers flag.
         private bool alreadyChecked;
-        private bool reviewExam = false;
+        private bool reviewExam;
+        private bool btnFinishClicked;
         private SettingIni setting;
+        #endregion // Variables -----------------------------------------------------------------
 
 
-
+        /// <summary>
+        /// The first constructor will:
+        /// 1. Initialize the UI components.
+        /// 2. Load the setting model, QuizMgr-> builds the data structure which will call the database 
+        /// to retrieve the questions and answers.
+        /// 3. Register our event handlers for our CheckBoxes.
+        /// 4. Generate the buttons selectors for jumping between questions.
+        /// 5. Update the configuration in the UI from the Settings.ini.
+        /// </summary>
         public QuizForm()
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(3000);
+#endif // !HIDE_LOADERS
 
             setting = new SettingIni();
             quiz = new QuizMgr();
 
-            Thread.Sleep(3000);
             InitializeComponent();
             RegisterEventHandlers();
             GenerateQuestionSelectors();
             UpdateQuestions();
+            SetFormConfiguration();
 
-            this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
-            this.Text = setting.ApplicationTitle;
-            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER") 
-                + QuizBase.SelectedTopic.ToString();
 
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
+
+        /// <summary>
+        /// The second and last constructor will:
+        /// 1. Initialize the UI components.
+        /// 2. Retrieves the QuizMgr data when exam is finished so we display the results after all the flags that
+        /// has been added, such as if question answered right or false or answered or not.
+        /// 3. Set our exam in review mode by setting reviewExam to true.
+        /// 4. Generate the buttons selectors for jumping between questions.
+        /// 5. Update the questions results for the first question to be displayed.
+        /// 6. Update the configuration in the UI from the Settings.ini.
+        /// </summary>
         public QuizForm(QuizMgr quiz) // reviewing your exam answers mode.
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(5000);
+#endif // !HIDE_LOADERS
 
-            setting = new SettingIni();
-            reviewExam = true;
+            setting = new SettingIni(); // reloading settings.
+            reviewExam = true; // Set the window in review mode.
             _checked   = new bool[4];
             this.quiz  = quiz;
 
-
-            Thread.Sleep(5000);
             InitializeComponent();
-            this.btnFinish.Dispose();
             GenerateQuestionSelectors();
             RenderQuestionResults(null);
             UpdateQuestions();
-            this.Text = setting.ApplicationTitle;
-            this.lblExamNum.Text = Resources.ResourceManager.GetString("EXAM_NUMBER")
-                + QuizBase.SelectedTopic.ToString();
+            SetFormConfiguration();
 
-            // Unregistering all the events in the sub controllers so the user will only review his exam.
-            this.KeyPress -= QuizForm_KeyPress;
-            this.cbCombo.ViewModeState = ControlViewMode.Inactive;
 
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
-        private void PassResultsToMainForm()
+
+
+        /// <summary>
+        /// Reads all the values from the Settings.ini file and setting the UI values such as:
+        /// application title, if app on top most(used for reviewing your students), control box on top
+        /// right visible or not, Exam number and if the exam in review mode, it will remove the finish and
+        /// progress bar controls from the UI and unsubscribe the events for checking checkboxes. 
+        /// </summary>
+        private void SetFormConfiguration()
         {
-            if (FormsBase.MainForm == null) return;
+            this.Text = setting.ApplicationTitle;
+            if (setting.OnTopMost) this.TopMost = true;
+            if (!setting.UIControls) this.controlsBox.Visible = false;
+            this.lblExamNum.Text = ResourceManager.GetString("EXAM_NUMBER") + QuizBase.SelectedTopic;
+            if (!reviewExam) this.progressBar.Maximum = quiz.Questions.QuestionList.Count - 1;
 
-
-            var results = setting.GetExamResults();
-
-            foreach (var result in results.Values)
+            if (reviewExam)
             {
-                FormsBase.MainForm.listBoxResults.Items.Add(result);
+                this.btnFinish.Dispose();
+                this.progressBar.Dispose();
+
+                // Unregistering all the events in the sub controllers so the user will only review his exam.
+                this.KeyPress -= QuizForm_KeyPress;
+                this.cbCombo.ViewModeState = ControlViewMode.Inactive;
             }
+
         }
 
 
+        /// <summary>
+        /// Updated the next or forward question and if there is an image for that specific question, 
+        /// display it in the picturebox.
+        /// </summary>
         private void UpdateQuestions()
         {
 
@@ -103,7 +154,9 @@ namespace BinnenFA54Project.Forms
 
 
         /// <summary>
-        /// Simply selects the checkbox if state is answered.
+        /// Before we set a question, we incrementing or decrementing the indexer for the questions
+        /// so that way we know if a next or back button is clicked in order to the display the right question.
+        /// And then we pass that indexer to the SetQuestionState.
         /// </summary>
         /// <param name="direction"></param>
         private void RenderQuestionResults(CustomButtonDirection? direction)
@@ -121,8 +174,20 @@ namespace BinnenFA54Project.Forms
         }
 
 
+        /// <summary>
+        /// Receives an indexer from the RenderQuestionResults and checks the state of the question so 
+        /// that way we can display the selected question if the user already selected before in case if 
+        /// he wants to go back and changed his selected answer.
+        /// In the sub switch statement we updating what is the selected answer and checking if it's in review mode.
+        /// If it's in review mode, we display an image wether he got is right or not and showing the user 
+        /// what is the right answer and what he checked.
+        /// If he didn't check anything, we display him the correct answer when it's in review mode of course.
+        /// </summary>
+        /// <param name="index"></param>
         private void SetQuestionState(int index)
         {
+            // TODO: OutOfRangeException on Exam 8, need to check that later.
+            // TODO: Symptoms -> When the Count of the questions/answeres < 30.
             switch (quiz.Answers.AnswerList[index].State)
             {
                 case State.Waiting:
@@ -137,7 +202,6 @@ namespace BinnenFA54Project.Forms
                 case State.Answered:
                     cbCombo.ClearAllCheckMarks();
 
-                    // TODO: Handle nullable correctAnswer(Feature), atm not necessary.
                     int? correctAnswer = quiz.Answers.AnswerList[index].CorrectAnswerNum;
 
                     // If he already checked the checkbox before, we want to see which has been selected before
@@ -156,11 +220,11 @@ namespace BinnenFA54Project.Forms
                                     // Select the correct answer.
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
 
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 1:
@@ -173,10 +237,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption2.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 2:
@@ -189,10 +253,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption3.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         case 3:
@@ -205,10 +269,10 @@ namespace BinnenFA54Project.Forms
                                     cbCombo.cbOption4.WrongSelected = true;
                                     if (correctAnswer != null)
                                         cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                                    this.pbSmiley.Image = Resources.smiley_sad;
+                                    this.pbSmiley.Image = smiley_sad;
                                 }
                                 else
-                                    this.pbSmiley.Image = Resources.smiley_happy;
+                                    this.pbSmiley.Image = smiley_happy;
                             }
                             break;
                         default: // if no selected answer.
@@ -216,7 +280,7 @@ namespace BinnenFA54Project.Forms
                             cbCombo.cbOption3.WrongAnswer = cbCombo.cbOption4.WrongAnswer = true;
                             if (correctAnswer != null)
                                 cbCombo.SelectCheckBoxIndex = (int)correctAnswer - 1;
-                            this.pbSmiley.Image = Resources.smiley_upset;
+                            this.pbSmiley.Image = smiley_upset;
                             break;
                     } // End State.Answered switch
 
@@ -254,8 +318,6 @@ namespace BinnenFA54Project.Forms
                         wrongCount++;
                     }
 
-                    // TODO: If there is a correct answer and he didn't answer, set the state to answered. because we check later.
-                    // Problem here that we don't have selected answer and switch case will fail later on btnNext.
                     answer.State = State.Answered;
                 }
                 else
@@ -281,13 +343,17 @@ namespace BinnenFA54Project.Forms
             QuizBase.RightAnswerCount = rightCount;
 
 #if DEBUG
-            MessageBox.Show(string.Format("{0} wrong and {1} right.", wrongCount, rightCount));
+            // {0} wrong and {1} right. 
+            MessageBox.Show(string.Format(Regex.Unescape(ResourceManager.GetString("NOTIF_RESULTS")), 
+                wrongCount, rightCount));
 #endif
         }
 
 
 
-
+        /// <summary>
+        /// Update the progress bar depending if the user selected a question or not.
+        /// </summary>
         private void UpdateProgressBar()
         {
             if (cbCombo.Checked && alreadyChecked == false && progressBar.Value < quiz.Questions.QuestionList.Count - 1)
@@ -298,6 +364,14 @@ namespace BinnenFA54Project.Forms
 
         #region --------------- Events Handlers ---------------
 
+
+        /// <summary>
+        /// When the button next clicked, we update progress bar, rendering the question, incrementing the 
+        /// indexer and also checking if we are in the last question so that we disable the button when we 
+        /// reach to the end of the exam.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNext_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
@@ -316,6 +390,14 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
+
+        /// <summary>
+        /// When the button back clicked, we update progress bar, rendering the question, decrementing the 
+        /// indexer and also checking if we are in the first question so that we disable the button when we 
+        /// reach to the first question of the exam or enabling when it's not at the first question.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             UpdateProgressBar();
@@ -333,40 +415,54 @@ namespace BinnenFA54Project.Forms
             UpdateQuestions();
         }
 
+
+        /// <summary>
+        /// When a button finish is clicked, we checking wether all the questions has been answered and 
+        /// displaying a warning window so the user can re-check his answers in case he missed something. 
+        /// Then we store the results in our data structure and passing that object in the second constructor 
+        /// which will start the quiz form again in a review mode.
+        /// We also storing the results in the Results.ini which will display later in the user history on the
+        /// MainForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            // TODO: Localize text.
-            DialogResult dialog = MessageBox.Show("You are about to finish the exam, are you sure you want to continue?",
-                "Finish Exam", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            // Finish Exam
+            // You are about to finish the exam, are you sure you want to continue?
+            DialogResult dialog = MessageBox.Show(ResourceManager.GetString("NOTIF_FINISH_EXAM"),
+                                                  ResourceManager.GetString("NOTIF_FINISH_EXAM_CP"), 
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialog == DialogResult.Yes)
             {
                 if (progressBar.Value != progressBar.Maximum)
                 {
-                    // TODO: Localize text.
-                    DialogResult dialogResult = MessageBox.Show(
-                            string.Format("Seems like you only answered {0} questions from {1}. To continue?",
-                            progressBar.Value, progressBar.Maximum + 1),
-                            "WARNING",
-                            MessageBoxButtons.YesNo, 
-                            MessageBoxIcon.Warning);
+                    // WARNING
+                    // Seems like you only answered {0} questions from {1}. To continue?
+                    DialogResult dialogResult = MessageBox.Show(string.Format(Regex.Unescape(
+                                                ResourceManager.GetString("NOTIF_NOT_ALL_ANSWERED")), progressBar.Value, progressBar.Maximum + 1),
+                                                ResourceManager.GetString("WARNING"),
+                                                MessageBoxButtons.YesNo, 
+                                                MessageBoxIcon.Warning);
 
                     if (dialogResult != DialogResult.Yes)
                         return;
                 }
-                // TODO: Store the results in database.
+                // @Gilad: Feature -> Store the results in database.
 
                 StoreResults();
-
-                string examName = string.Format("Fragenbogen " + QuizBase.SelectedTopic);
+                
+                
+                string examName = string.Format(ResourceManager.GetString("EXAM") + QuizBase.SelectedTopic); // Exam
                 int percent = (100 / quiz.Questions.QuestionList.Count) * QuizBase.RightAnswerCount;
                 bool pass = percent > setting.PassedWithPercent;
 
-                setting.SaveExamResults(examName, percent, pass);
-
+                ResultsIni.SaveExamResults(examName, percent, pass);
 
                 //new ResultsMgr().StoreResultsInDb(quiz); // NOT STABLE YET.
                 new QuizForm(quiz).Show();
+                btnFinishClicked = true;
                 this.Close();
             }
 
@@ -595,6 +691,13 @@ namespace BinnenFA54Project.Forms
         private int spacingY = 28;
         private Button[] buttons;
 
+        /// <summary>
+        /// We generating here buttons programmatically with the amount of questions to be displayed on the bottom 
+        /// of the form so the user can select or jump to a specific question.
+        /// We also registering to each button an event of course so the right answer will be displayed when the user
+        /// selects one of them.
+        /// </summary>
+
         public void GenerateQuestionSelectors()
         {
             x = startX;
@@ -627,12 +730,16 @@ namespace BinnenFA54Project.Forms
                 buttons[i].Click += btnSelector_Click;
                 x += spacingX;
 
-                this.giladGradientPanel1.Controls.Add(buttons[i]);
+                this.gradientPanel.Controls.Add(buttons[i]);
             }
 
         }
 
-
+        /// <summary>
+        /// Main event for the buttons selectors to display the answer that the user selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSelector_Click(object sender, EventArgs e)
         {
             int value = Convert.ToInt32(((Button)sender).Tag.ToString()); // gets the indexer of the generated button.
@@ -661,10 +768,18 @@ namespace BinnenFA54Project.Forms
 
         #endregion -------------- Button Question Selectors --------------
 
-        private void QuizForm_FormClosing(object sender, FormClosingEventArgs e)
+
+        /// <summary>
+        /// When the form closes and it's in Review mode or not the button finish click, 
+        /// we setting the MainForm visibility to true which will refresh the UI of the MainForm and display
+        /// the results of the all the exams history.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuizForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (reviewExam)
-                Application.Restart();
+            if (reviewExam || !btnFinishClicked)
+                FormsBase.MainForm.Visible = true;
         }
     }
 }

@@ -3,7 +3,12 @@ using System.Linq;
 
 namespace BinnenFA54Project.Main
 {
-    static class Utilities
+    /// <summary>
+    /// A Static that We can also call this class as Helper class which we create all the methods that will be 
+    /// easily to access and make it easier for us writting code.
+    /// We mainly using this class to write Extention Methods so any object can access them.
+    /// </summary>
+    public static class Utilities
     {
 
         /// <summary>

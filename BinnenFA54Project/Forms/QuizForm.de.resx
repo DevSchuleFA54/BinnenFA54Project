@@ -131,16 +131,16 @@
   <data name="lblQuestion.Text" xml:space="preserve">
     <value>Frage....</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblGoBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 15</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblGoBack.Text" xml:space="preserve">
     <value>Zurück</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 15</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="lblNext.Text" xml:space="preserve">
     <value>Nächste Frage</value>
   </data>
   <data name="btnFinish.Location" type="System.Drawing.Point, System.Drawing">
@@ -152,13 +152,13 @@
   <data name="btnFinish.Text" xml:space="preserve">
     <value>Prüfung beenden</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 446</value>
+  <data name="lblQuestionNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 447</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblQuestionNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="lblQuestionNumber.Text" xml:space="preserve">
     <value>Fragenummer:</value>
   </data>
   <data name="resource.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -12024,6 +12024,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Programm Title</value>
+    <value>Anwendung Titel</value>
   </data>
 </root>

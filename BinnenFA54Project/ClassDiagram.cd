@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BinnenFA54Project.Main.FormsBase">
+    <Position X="5" Y="9.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAKAAAAASQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Main\FormsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.Loader">
+    <Position X="10.5" Y="14.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAIAAAAAAAAAACAAAAAAAQAEAAAEAgIAA=</HashCode>
+      <FileName>Main\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.QuizMgr">
+    <Position X="6.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAACAAAAAAEQAAAACAAAgA=</HashCode>
+      <FileName>Main\QuizMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.Utilities">
+    <Position X="10.25" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAACA=</HashCode>
+      <FileName>Main\Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ResourceData.Answer">
+    <Position X="11" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAgAAQAAAAAAAAAAAAAAAEAAAAAABAIAAAA=</HashCode>
+      <FileName>Main\ResourceData\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ResourceData.Question">
+    <Position X="8.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Main\ResourceData\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ResourceData.Result">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAACAAAAAAAAAAAAAAAQBAAAACAAAAAA=</HashCode>
+      <FileName>Main\ResourceData\Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ResourceData.Topic">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Main\ResourceData\Topic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ServeData.AnswerMgr">
+    <Position X="7.25" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAEAAAAAAIABAA=</HashCode>
+      <FileName>Main\ServeData\AnswerMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ServeData.QuestionMgr">
+    <Position X="0.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAABAAAAAAAAAAgAAAAAAAAAARAAQAAAA=</HashCode>
+      <FileName>Main\ServeData\QuestionMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ServeData.QuizBase">
+    <Position X="3.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAgAAAAAAAAAAgABAAAAAAQAAQAIAAA=</HashCode>
+      <FileName>Main\ServeData\QuizBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ServeData.ResultsMgr">
+    <Position X="2.75" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAgAAAAAAAAAAAAAAAAABAAAIAQAAAAAAAAQA=</HashCode>
+      <FileName>Main\ServeData\ResultsMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Main.ServeData.TopicMgr">
+    <Position X="5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Main\ServeData\TopicMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Frameworks.IniParser.ResultsIni">
+    <Position X="17.5" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAQAAgAAAAAEAAAAQAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Frameworks\IniParser\ResultsIni.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Frameworks.IniParser.SettingIni">
+    <Position X="17.5" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAUAEAHAEAAACIggBGUAhAAAYAIAAAABCgAAAAAQA=</HashCode>
+      <FileName>Frameworks\IniParser\SettingIni.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Frameworks.IniParser.SettingIniImpl" BaseTypeListCollapsed="true">
+    <Position X="20" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAkAFAUAAACIAgBE0AhAAAYAIAAAABCwAEAAQQA=</HashCode>
+      <FileName>Frameworks\IniParser\SettingIniImpl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.131" Collapsed="true" />
+  </Class>
+  <Class Name="BinnenFA54Project.Forms.ConfigurationForm">
+    <Position X="6.5" Y="12" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEQgoMAaACMgAAJAEQPACACiAAQgQlAAkYAKAApDAOo=</HashCode>
+      <FileName>Forms\ConfigurationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Forms.QuizForm">
+    <Position X="3.25" Y="12" Width="3" />
+    <NestedTypes>
+      <Enum Name="BinnenFA54Project.Forms.QuizForm.EventHandlerEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\QuizForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AFABgxIQCCBIGSCgoICAJZASAAAAEBBABABhgQcAAAI=</HashCode>
+      <FileName>Forms\QuizForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Forms.Misc.LoaderForm">
+    <Position X="11.75" Y="12" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAgCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Misc\LoaderForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Forms.Misc.MainAppLoader">
+    <Position X="9.5" Y="12" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAAAACAAAACAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Misc\MainAppLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.MainForm">
+    <Position X="0.5" Y="12" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEASQEAAADMAAABAAQCIIAACAgAAEAEBIAAAkAgApgI=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinnenFA54Project.Program">
+    <Position X="0.5" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BinnenFA54Project.Frameworks.IniParser.ISettingIni">
+    <Position X="13.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAEAAAAAAACAAgAE0ABAAAIAIAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Frameworks\IniParser\ISettingIni.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BinnenFA54Project.Frameworks.IniParser.ISettingIniEdit">
+    <Position X="15.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAFAEAAAAIAABAAAhAAAQAAAAAABCgAAAAAAA=</HashCode>
+      <FileName>Frameworks\IniParser\ISettingIniEdit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BinnenFA54Project.Main.LoaderSelector">
+    <Position X="10.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Main\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BinnenFA54Project.Main.ResourceData.State">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAABAAA=</HashCode>
+      <FileName>Main\ResourceData\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BinnenFA54Project.Main.ResourceData.ResultsEnum">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAABAAAIAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Main\ResourceData\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

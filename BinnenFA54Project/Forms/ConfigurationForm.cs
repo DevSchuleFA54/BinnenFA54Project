@@ -1,14 +1,21 @@
 ﻿using System;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using GiladControllers;
 using System.Threading;
 using BinnenFA54Project.Frameworks.IniParser;
 using BinnenFA54Project.Main;
-using BinnenFA54Project.Properties;
+using static BinnenFA54Project.Properties.Resources;
 
 namespace BinnenFA54Project.Forms
 {
-    // TODO: @togi - Improve German Translation.
+    /// <summary>
+    /// This is the Configuration form of the program which inherited from GiladForm part of the custom framework,
+    /// in order to isolate the design code from the application it self.
+    /// In this form we can change all the configuration related to the layout and exam. We can also clear the 
+    /// exam results that being displayed on the main form or reset the configuration to their deault state.
+    /// </summary>
     public partial class ConfigurationForm : GiladForm
     {
         bool bDefault = true;
@@ -16,15 +23,20 @@ namespace BinnenFA54Project.Forms
 
         public ConfigurationForm()
         {
+#if !HIDE_LOADERS
             Loader.StartLoader(LoaderSelector.Loader);
+            Thread.Sleep(700);
+#endif // !HIDE_LOADERS
 
 
             setting = new SettingIni();
-            Thread.Sleep(2000);
             InitializeComponent();
             InitializeValues();
 
+
+#if !HIDE_LOADERS
             Loader.StopLoader(this.Handle);
+#endif // !HIDE_LOADERS
         }
 
         private bool finishedLoading = false;
@@ -45,8 +57,8 @@ namespace BinnenFA54Project.Forms
             comboDateFormat.Items.Add(DateTime.Now.ToString("dd-MM-yyyy"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yy-MM-dd"));
             comboDateFormat.Items.Add(DateTime.Now.ToString("yyyy-M-d"));
-            comboLanguage.Items.Add(Resources.ResourceManager.GetString("GERMAN"));
-            comboLanguage.Items.Add(Resources.ResourceManager.GetString("ENGLISH"));
+            comboLanguage.Items.Add(ResourceManager.GetString("GERMAN"));
+            comboLanguage.Items.Add(ResourceManager.GetString("ENGLISH"));
             SelectComboBoxes();
 
             if (setting.UIControls)
@@ -144,20 +156,18 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                // TODO: @togi - Here is an example that might seems a bit complicated.
-                //MessageBox.Show("Successfully saved your changes! " +
-                //                "\nMake sure to restart application for changes to take effect."
-                //                , "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);      
+                // Successfully saved your changes! \nMake sure to restart application for changes to take effect.
+                // Save
+                MessageBox.Show(Regex.Unescape(
+                    ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                    ResourceManager.GetString("SAVE"), 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
-                                Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
-                                Resources.ResourceManager.GetString("SAVE"), 
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 WriteNewConfiguration();
                 Application.Restart();
             }
-            else
-                MessageBox.Show("No changes has been made, nothing to save.");
+            else // No changes has been made, nothing to save.
+                MessageBox.Show(ResourceManager.GetString("NO_CHANGES"));
 
         }
 
@@ -166,10 +176,14 @@ namespace BinnenFA54Project.Forms
         {
             if (!configChanged) return;
 
-            MessageBox.Show(Resources.ResourceManager.GetString("SAVED_CHANGES") + "\n" +
-                            Resources.ResourceManager.GetString("NOTIF_RESTARTAPP"),
-                            Resources.ResourceManager.GetString("SAVE"),
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Successfully saved your changes! 
+            // Make sure to restart application for changes to take effect.
+            // Save
+            MessageBox.Show(Regex.Unescape(
+                ResourceManager.GetString("NOTIF_RESTARTAPP")),
+                ResourceManager.GetString("SAVE"),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             WriteNewConfiguration();
             configChanged = false; // Finished writting changes, so it won't promote if user click close.
         }
@@ -179,10 +193,12 @@ namespace BinnenFA54Project.Forms
         {
             if (configChanged)
             {
-                // TODO: Localize text.
+                // Are you really want to close without saving the Changes?
+                // Close Window Prompt
                 DialogResult dialogResult = MessageBox.Show(
-                    "Are you really want to close without saving the Changes?", 
-                    "Close Window Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    ResourceManager.GetString("MSG_UNSAVED_CHANGES_CLOSED"), 
+                    ResourceManager.GetString("CLOSE_TITLE"), 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult != DialogResult.Yes) return;   
             }
@@ -210,6 +226,38 @@ namespace BinnenFA54Project.Forms
             configChanged = true;
         }
 
+        private void btnRemoveHistory_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(Regex.Unescape(
+                                            ResourceManager.GetString("NOTIF_REMOVE_RESULTS")),
+                                            ResourceManager.GetString("WARNING"),
+                                            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (dialogResult != DialogResult.Yes) return;
+
+            ResultsIni.ClearExamResults();
+
+            // It will execute the MainForm_VisibleChanged event and re-load the results.
+            FormsBase.RefreshMainForm();
+            this.Focus();
+        }
+
+        private void btnResetDefaults_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(
+                                ResourceManager.GetString("NOTIF_RESET_DEFAULTS"),
+                                ResourceManager.GetString("WARNING"),
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult != DialogResult.Yes) return;
+
+            SettingIni.ResetDefaults();
+            InitializeValues();
+        }
+
+        private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormsBase.ConfigurationInstanceOpened = false;
+        }
     }
 }

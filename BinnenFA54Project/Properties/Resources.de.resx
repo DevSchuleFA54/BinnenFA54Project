@@ -314,15 +314,93 @@
     <value>Englisch</value>
   </data>
   <data name="NOTIF_RESTARTAPP" xml:space="preserve">
-    <value>Bitte starten Sie zum Übernehmen der Einstellungen das Programm neu</value>
+    <value>Einstellungen erfolgreich gespeichert! \nBitte starten Sie zum Übernehmen der Einstellungen das Programm neu.</value>
   </data>
   <data name="SAVE" xml:space="preserve">
     <value>Speichern</value>
   </data>
-  <data name="SAVED_CHANGES" xml:space="preserve">
-    <value>Einstellungen erfolgreich gespeichert! </value>
-  </data>
   <data name="EXAM_NUMBER" xml:space="preserve">
     <value>Fragenbogen </value>
+  </data>
+  <data name="CLOSE_TITLE" xml:space="preserve">
+    <value>Fenster schliessen</value>
+  </data>
+  <data name="MSG_UNSAVED_CHANGES_CLOSED" xml:space="preserve">
+    <value>Sind Sie sicher das Fenster schließen Ohne speichern?</value>
+  </data>
+  <data name="NOTIF_RESULTS" xml:space="preserve">
+    <value>{0} Falsch , {1} Richtig.</value>
+  </data>
+  <data name="NO_CHANGES" xml:space="preserve">
+    <value>Es wurden keine Änderungen vorgenommen, nichts zu speichern.</value>
+  </data>
+  <data name="ERR" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ERR_ANSWERLIST_DB" xml:space="preserve">
+    <value>[InitializeAnswerList] - Fehler beim Abrufen von Daten aus der Datenbank!</value>
+  </data>
+  <data name="ERR_QUESTIONLIST_DB" xml:space="preserve">
+    <value>[InitializeQuestionList] - Fehler beim Abrufen von Daten aus der Datenbank!</value>
+  </data>
+  <data name="ERR_QUESTIONLIST_IMG" xml:space="preserve">
+    <value>[QuestionMgr::RegexImageName] - Fehler beim Abrufen von Bild aus Ressource oder fehlend.</value>
+  </data>
+  <data name="ERR_SETTINGS_VALUE" xml:space="preserve">
+    <value>[{0}] - Fehlende oder falsche Eingabe in \"Settings.ini\" Konfigurationsdatei! \nZurücksetzen auf Standardkonfigurationen ...</value>
+  </data>
+  <data name="ERR_TOPICLIST_DB" xml:space="preserve">
+    <value>[InitializeTopicList] - Fehler beim Abrufen von Daten aus der Datenbank!</value>
+  </data>
+  <data name="EXAM" xml:space="preserve">
+    <value>Fragenbogen </value>
+  </data>
+  <data name="FAILED" xml:space="preserve">
+    <value>Nicht bestanden</value>
+  </data>
+  <data name="NOTIF_FINISH_EXAM" xml:space="preserve">
+    <value>Sie sind dabei, die Prüfung zu beenden, sind Sie sicher, dass Sie fortfahren möchten?</value>
+  </data>
+  <data name="NOTIF_FINISH_EXAM_CP" xml:space="preserve">
+    <value>Fertig Fragenbogen</value>
+  </data>
+  <data name="NOTIF_MISSING_SETTINGS" xml:space="preserve">
+    <value>Fehlende Settings.ini-Datei! \nErstellung der neuen Settings.ini-Datei mit den Standardeinstellungen für Sie.</value>
+  </data>
+  <data name="NOTIF_MISSING_SETTINGS_CP" xml:space="preserve">
+    <value>Fehlende Einstellungsdatei</value>
+  </data>
+  <data name="NOTIF_NOT_ALL_ANSWERED" xml:space="preserve">
+    <value>Scheint, wie Sie nur beantwortet {0} Fragen von {1}. \nWeitermachen?</value>
+  </data>
+  <data name="NO_ANSWER" xml:space="preserve">
+    <value>Keine Richtige Antwort.</value>
+  </data>
+  <data name="ONE_INSTANCE_ALLOWED" xml:space="preserve">
+    <value>Nur eine Instanz der aktuellen Programm erlaubt!</value>
+  </data>
+  <data name="PASSED" xml:space="preserve">
+    <value>Bestanden!</value>
+  </data>
+  <data name="ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ship.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MI_CONFIG" xml:space="preserve">
+    <value>Konfiguration</value>
+  </data>
+  <data name="MI_EXIT" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="MI_OPEN" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
+  <data name="NOTIF_REMOVE_RESULTS" xml:space="preserve">
+    <value>Dies wird alle Ergebnisse in der Geschichte der Fragenbogen, die Sie bisher getan haben, zu entfernen. \nSind Sie sicher, dass Sie fortfahren und entfernen alles?</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="NOTIF_RESET_DEFAULTS" xml:space="preserve">
+    <value>Setzen Sie alle Einstellungen auf die Standardwerte zurück?</value>
   </data>
 </root>

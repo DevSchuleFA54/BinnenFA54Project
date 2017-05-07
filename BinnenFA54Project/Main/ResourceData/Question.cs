@@ -2,6 +2,9 @@
 
 namespace BinnenFA54Project.Main.ResourceData
 {
+    /// <summary>
+    /// The structure of the Question class which will be used as list in the QuestionMgr.
+    /// </summary>
     public class Question
     {
         private string[] _options = new string[4];
